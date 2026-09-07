@@ -1,7 +1,7 @@
 /* Lead capture for mystima.io.
    The forms post JSON to STIMA_LEADS_ENDPOINT. Until the Stima app is live at
    app.mystima.io this is the collector on the same server (/api/leads, nginx ->
-   leads.py); switch the constant to "https://app.mystima.io/api/leads" after
+   leads.py); switch the constant to "https://admin.mystima.io/api/leads" after
    the app deploy and import the interim file with `pnpm leads:import`.
    utm_* from the first page view are kept in sessionStorage so a click on
    /mit is attributed even when the visitor reaches the form on a clean URL. */
