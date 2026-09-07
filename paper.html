@@ -123,6 +123,8 @@ footer{border-top:1px solid var(--line);padding:34px 0}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 </style>
+<style>.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}</style>
+<script src="leads.js"></script>
 </head>
 <body>
 
@@ -181,6 +183,7 @@ footer{border-top:1px solid var(--line);padding:34px 0}
       <p class="sub rv">Leave your email and the paper is yours immediately. We will also write once when Stima launches. Nothing else.</p>
       <form class="capture rv" id="paperForm" novalidate>
         <input type="email" id="paperEmail" placeholder="you@wherever.com" aria-label="Email address" autocomplete="email">
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn accent" type="submit">Send me the paper <span>→</span></button>
         <div class="err" id="paperErr" aria-live="polite"></div>
       </form>
@@ -231,7 +234,7 @@ footer{border-top:1px solid var(--line);padding:34px 0}
   }, { threshold: 0.12 });
   document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
 
-  /* capture form (front-end only; wire to your email provider at launch) */
+  /* capture form: posts to /api/leads, see leads.js */
   var form = document.getElementById("paperForm");
   var email = document.getElementById("paperEmail");
   var err = document.getElementById("paperErr");
@@ -246,9 +249,16 @@ footer{border-top:1px solid var(--line);padding:34px 0}
       return;
     }
     err.textContent = "";
-    form.style.display = "none";
-    setTimeout(function(){ done.classList.add("show"); }, 150);
-    setTimeout(function(){ dl.classList.add("show"); }, 500);
+    var btn = form.querySelector("button[type=submit]");
+    btn.disabled = true;
+    window.stimaSendLead(v, "", "paper-page", form.querySelector("[name=website]").value).then(function(){
+      form.style.display = "none";
+      setTimeout(function(){ done.classList.add("show"); }, 150);
+      setTimeout(function(){ dl.classList.add("show"); }, 500);
+    }).catch(function(ex){
+      err.textContent = ex.message || "Could not save your email. Try again.";
+      btn.disabled = false;
+    });
   });
 })();
 </script>

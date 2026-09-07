@@ -25,7 +25,7 @@
 {"@context":"https://schema.org","@type":"Organization","name":"Stima","url":"https://mystima.io","description":"Career navigation and upskilling platform with post-AI skills assessment."}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Stima an assessment tool or a career platform?","acceptedAnswer":{"@type":"Answer","text":"Both. Navigation, upskilling, and verified assessment live in one system, because each one makes the others more useful. A map without proof is a wish. Proof without a map is a dead end."}},{"@type":"Question","name":"Do you ban AI from your assessments?","acceptedAnswer":{"@type":"Answer","text":"No. That would test a world that no longer exists. Stima Prova designs assessment for the post-AI era: the machine is in the room, and what we score is the collaboration. What you ask it, what you accept, what you override, and why."}},{"@type":"Question","name":"Who is Stima for?","acceptedAnswer":{"@type":"Answer","text":"Students choosing a direction, job seekers proving their value, universities orienting theirs and proving their outcomes, and employers who need a test assignment they can finally trust."}},{"@type":"Question","name":"When does Stima launch?","acceptedAnswer":{"@type":"Answer","text":"We are in pre-launch now, onboarding early partners through 2026. Join the list below and you will hear from us first, with founding terms attached."}},{"@type":"Question","name":"What will it cost?","acceptedAnswer":{"@type":"Answer","text":"Pricing is announced at launch. Early access members and partner institutions receive founding terms, locked in before public pricing."}},{"@type":"Question","name":"Why the name Stima?","acceptedAnswer":{"@type":"Answer","text":"In Italian, stima means both assessment and esteem. We believe measuring what people can do should raise how they are valued. The word does both jobs, so we took it."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Stima an assessment tool or a career platform?","acceptedAnswer":{"@type":"Answer","text":"Both. Navigation, upskilling, and verified assessment live in one system, because each one makes the others more useful. A map without proof is a wish. Proof without a map is a dead end."}},{"@type":"Question","name":"Do you ban AI from your assessments?","acceptedAnswer":{"@type":"Answer","text":"No. That would test a world that no longer exists. Stima Prova designs assessment for the post-AI era: the machine is in the room, and what we score is the collaboration. What you ask it, what you accept, what you override, and why."}},{"@type":"Question","name":"Who is Stima for?","acceptedAnswer":{"@type":"Answer","text":"Students choosing a direction, job seekers proving their value, people returning to work after a break, universities orienting theirs and proving their outcomes, and employers who need a test assignment they can finally trust."}},{"@type":"Question","name":"When does Stima launch?","acceptedAnswer":{"@type":"Answer","text":"We are in pre-launch now, onboarding early partners through 2026. Join the list below and you will hear from us first, with founding terms attached."}},{"@type":"Question","name":"What will it cost?","acceptedAnswer":{"@type":"Answer","text":"Pricing is announced at launch. Early access members and partner institutions receive founding terms, locked in before public pricing."}},{"@type":"Question","name":"Why the name Stima?","acceptedAnswer":{"@type":"Answer","text":"In Italian, stima means both assessment and esteem. We believe measuring what people can do should raise how they are valued. The word does both jobs, so we took it."}}]}
 </script>
 <style>
 :root{
@@ -416,6 +416,7 @@ h2.kicker{font-weight:400}
 .signup h2 em{font-style:italic;color:var(--accent)}
 .signup .sub{color:var(--ink-2);font-size:clamp(1rem,1.4vw,1.15rem);margin-bottom:44px;max-width:480px}
 .role-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .chip{
   font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
   padding:10px 18px;border:1px solid var(--line-strong);border-radius:100px;background:transparent;
@@ -594,6 +595,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-seekers" id="t-seekers"><span class="no">02</span>Job seekers</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-counselors" id="t-counselors"><span class="no">03</span>Higher Ed</button>
       <button class="tab" role="tab" aria-selected="false" aria-controls="p-institutions" id="t-institutions"><span class="no">04</span>Employers</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-returners" id="t-returners"><span class="no">05</span>Returning to work</button>
       <span class="tab-ink" id="tabInk"></span>
     </div>
 
@@ -663,6 +665,23 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
           <div class="own">
             <button class="own-plus" type="button" aria-label="Add your own point">+</button>
             <input type="text" class="own-input" data-panel="institutions" placeholder="Add your own and tick it" maxlength="140" aria-label="Add your own point">
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="p-returners" aria-labelledby="t-returners" data-panel="returners">
+        <div>
+          <div class="who">For people returning to work after a break</div>
+          <h3>The gap is a line on a CV. <em>Not</em> on your ability.</h3>
+        </div>
+        <div>
+          <ul class="tab-list">
+            <li><label class="tick"><input type="checkbox" data-rid="returners-1"><span class="ring" aria-hidden="true"></span><span class="tick-text"><b>Count what the years taught you.</b> Map the skills you built at home, in care, in community work, and the ones that carried over from your last role.</span></label></li>
+            <li><label class="tick"><input type="checkbox" data-rid="returners-2"><span class="ring" aria-hidden="true"></span><span class="tick-text"><b>Catch up on what changed.</b> A short, targeted path to the tools and the AI habits the roles you want now expect.</span></label></li>
+            <li><label class="tick"><input type="checkbox" data-rid="returners-3"><span class="ring" aria-hidden="true"></span><span class="tick-text"><b>Walk in with proof.</b> A verified result page that answers the gap question before anyone asks it.</span></label></li>
+          </ul>
+          <div class="own">
+            <button class="own-plus" type="button" aria-label="Add your own point">+</button>
+            <input type="text" class="own-input" data-panel="returners" placeholder="Add your own and tick it" maxlength="140" aria-label="Add your own point">
           </div>
         </div>
       </div>
@@ -795,7 +814,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
         </div>
         <div class="acc-item">
           <button class="acc-btn" aria-expanded="false">Who is Stima for?<span class="acc-icon"></span></button>
-          <div class="acc-body"><div class="acc-body-inner"><p>Students choosing a direction, job seekers proving their value, universities orienting theirs and proving their outcomes, and employers who need a test assignment they can <b>finally trust</b>.</p></div></div>
+          <div class="acc-body"><div class="acc-body-inner"><p>Students choosing a direction, job seekers proving their value, people returning to work after a break, universities orienting theirs and proving their outcomes, and employers who need a test assignment they can <b>finally trust</b>.</p></div></div>
         </div>
         <div class="acc-item">
           <button class="acc-btn" aria-expanded="false">When does Stima launch?<span class="acc-icon"></span></button>
@@ -826,9 +845,11 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
         <button class="chip" data-role="Job seeker">Job seeker</button>
         <button class="chip" data-role="Higher Ed">Higher Ed</button>
         <button class="chip" data-role="Employer">Employer</button>
+        <button class="chip" data-role="Returning to work">Returning to work</button>
       </div>
       <form class="capture rv" id="captureForm" novalidate>
         <input type="email" id="emailInput" placeholder="you@wherever.com" aria-label="Email address" autocomplete="email">
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn accent" type="submit">Get early access <span class="arr">→</span></button>
         <div class="err" id="formErr" aria-live="polite"></div>
       </form>
@@ -854,6 +875,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
   </div>
 </footer>
 
+<script src="leads.js"></script>
 <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <script>
 (function(){
@@ -1018,7 +1040,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
     });
   });
 
-  /* capture form (front-end only; wire to your email provider at launch) */
+  /* capture form: posts to /api/leads, see leads.js */
   var form = document.getElementById("captureForm");
   var email = document.getElementById("emailInput");
   var err = document.getElementById("formErr");
@@ -1033,12 +1055,20 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
       return;
     }
     err.textContent = "";
-    try{ localStorage.setItem("stima-lm","1"); }catch(e){}
-    form.style.display = "none";
-    document.getElementById("roleChips").style.display = "none";
-    stamp.classList.add("hit");
-    setTimeout(function(){ done.classList.add("show"); }, 350);
-    setTimeout(function(){ document.getElementById("dlBlock").classList.add("show"); }, 700);
+    var btn = form.querySelector("button[type=submit]");
+    var sel = document.querySelector(".chip.sel");
+    btn.disabled = true;
+    window.stimaSendLead(v, sel ? sel.getAttribute("data-role") : "", "site-form", form.querySelector("[name=website]").value).then(function(){
+      try{ localStorage.setItem("stima-lm","1"); }catch(e){}
+      form.style.display = "none";
+      document.getElementById("roleChips").style.display = "none";
+      stamp.classList.add("hit");
+      setTimeout(function(){ done.classList.add("show"); }, 350);
+      setTimeout(function(){ document.getElementById("dlBlock").classList.add("show"); }, 700);
+    }).catch(function(ex){
+      err.textContent = ex.message || "Could not save your email. Try again.";
+      btn.disabled = false;
+    });
   });
 })();
 </script>
@@ -1051,6 +1081,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
     <p class="lm-sub">Why banning AI from assessment is a losing game, and what to measure instead. Nine pages, five references, no platitudes. Leave your email and it is yours.</p>
     <form class="capture" id="lmForm" novalidate>
       <input type="email" id="lmEmail" placeholder="you@wherever.com" aria-label="Email address" autocomplete="email">
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button class="btn accent" type="submit">Send me the paper <span class="arr">→</span></button>
       <div class="err" id="lmErr" aria-live="polite"></div>
     </form>
@@ -1109,10 +1140,17 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
       return;
     }
     err.textContent="";
-    mark();
-    form.style.display="none";
-    document.getElementById("lmDone").classList.add("show");
-    setTimeout(function(){document.getElementById("lmDl").classList.add("show")},400);
+    var btn=form.querySelector("button[type=submit]");
+    btn.disabled=true;
+    window.stimaSendLead(v,"","site-popup",form.querySelector("[name=website]").value).then(function(){
+      mark();
+      form.style.display="none";
+      document.getElementById("lmDone").classList.add("show");
+      setTimeout(function(){document.getElementById("lmDl").classList.add("show")},400);
+    }).catch(function(ex){
+      err.textContent=ex.message||"Could not save your email. Try again.";
+      btn.disabled=false;
+    });
   });
 })();
 </script>
