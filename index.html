@@ -365,7 +365,7 @@ h2.kicker{font-weight:400}
 .team{padding:clamp(90px,12vh,150px) 0;border-top:1px solid var(--line)}
 .team-intro{color:var(--ink-2);font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.7;max-width:560px;margin-top:24px}
 .team-grid{display:grid;gap:clamp(36px,4vw,54px);margin-top:clamp(46px,6vh,72px)}
-@media(min-width:760px){.team-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:760px){.team-grid{grid-template-columns:repeat(auto-fit,minmax(240px,340px))}}
 .tface{position:relative;width:min(240px,72vw);aspect-ratio:1;margin-bottom:24px;cursor:pointer}
 .tface img{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;
@@ -761,7 +761,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
 <section class="team" id="team">
   <div class="wrap">
     <div class="kicker rv">The team</div>
-    <h2 class="serif-title rv">Three humans.<br><em>One obsession.</em></h2>
+    <h2 class="serif-title rv">Two humans.<br><em>One obsession.</em></h2>
     <p class="team-intro rv">Thirty combined years across startups, higher education, and Big Tech. We have been the candidate, the professor, and the hiring manager. Now we are building the instrument we all wished existed. Hover, or tap, to meet the alter egos.</p>
     <div class="team-grid rv">
       <div class="tcard">
@@ -781,15 +781,6 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
         <div class="tname">Michael</div>
         <div class="trole">Tech frontierman</div>
         <p class="tbio">Big Tech hardened, startup tested. If it ships, scales, or catches fire at 3 a.m., he has done it and written the postmortem.</p>
-      </div>
-      <div class="tcard">
-        <div class="tface">
-          <img class="photo" src="team-anastasia.jpg" alt="Anastasia">
-          <img class="art" src="team-anastasia-art.png" alt="Cartoon of Anastasia reading a glowing book to little robots">
-        </div>
-        <div class="tname">Anastasia</div>
-        <div class="trole">Tech storyteller</div>
-        <p class="tbio">Master of bedtime stories about cutting edge tech. Makes the frontier sound like common sense, one tale at a time.</p>
       </div>
     </div>
   </div>
