@@ -52,3 +52,9 @@ python3 tools/legal_to_html.py --tou ToU.docx --privacy Privacy_Policy.docx --pa
 ```
 
 The text is taken verbatim; the page layout lives in `tools/terms-template.html`.
+
+Placeholders the documents leave open (vendor names and regions in the sub-processor tables, the cookie table) are filled at build time from `ROW_FILLS`, `EXTRA_ROWS` and `COOKIE_ROWS` in `tools/legal_to_html.py`. Change them there when the infrastructure changes.
+
+## Cookie consent
+
+`consent.js` shows the cookie banner and loads Google Analytics (`G-CBQTM9PBQE`) only after the visitor accepts. The choice lives in localStorage (`stima-consent`); any link with `data-cookie-settings` reopens the banner, and declining removes the `_ga` cookies. Every page includes `consent.js` in `<head>` instead of the Google tag snippet.

@@ -56,6 +56,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px}
 .foot a:hover{color:var(--ink);border-bottom-color:var(--accent)}
 </style>
 <link rel="stylesheet" href="/legal.css">
+<script src="/consent.js"></script>
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -297,9 +298,9 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px}
 <h2 id="terms-of-use-sub-processors-and-model-vendors">Sub-processors and Model Vendors</h2>
 <p>Current as at 24 September 2026. Stima gives 30 days' notice of any addition or replacement, and Customer may object. This Schedule does not cover research reviewers, who are engaged under clause 6.3(h) and over whom Customer has no right of notice, objection or disclosure.</p>
 <p><strong>Model Vendors</strong></p>
-<div class="doc-table"><table><thead><tr><th><strong>Vendor</strong></th><th><strong>Purpose</strong></th><th><strong>Processing location</strong></th><th><strong>Training on content sent</strong></th></tr></thead><tbody><tr><td>Anthropic</td><td>Participant workspace chat (two capability tiers); generation of Results with structured output</td><td>[region]</td><td>Prohibited under the contracted terms</td></tr><tr><td>OpenAI</td><td>Participant workspace chat (two capability tiers)</td><td>[region]</td><td>Prohibited under the contracted terms</td></tr></tbody></table></div>
+<div class="doc-table"><table><thead><tr><th><strong>Vendor</strong></th><th><strong>Purpose</strong></th><th><strong>Processing location</strong></th><th><strong>Training on content sent</strong></th></tr></thead><tbody><tr><td>Anthropic</td><td>Participant workspace chat (two capability tiers); generation of Results with structured output</td><td>United States</td><td>Prohibited under the contracted terms</td></tr><tr><td>OpenAI</td><td>Participant workspace chat (two capability tiers)</td><td>United States</td><td>Prohibited under the contracted terms</td></tr></tbody></table></div>
 <p><strong>Sub-processors</strong></p>
-<div class="doc-table"><table><thead><tr><th><strong>Sub-processor</strong></th><th><strong>Purpose</strong></th><th><strong>Processing location</strong></th></tr></thead><tbody><tr><td>[Hosting provider]</td><td>Application and database hosting</td><td>EU</td></tr><tr><td>[Email provider]</td><td>Transactional email from mystima.io</td><td>[region]</td></tr><tr><td>[Identity provider]</td><td>Optional identity verification, per campaign</td><td>[region]</td></tr><tr><td>[Analytics provider]</td><td>Website analytics on mystima.io, consent-based. No assessment data.</td><td>[region]</td></tr></tbody></table></div>
+<div class="doc-table"><table><thead><tr><th><strong>Sub-processor</strong></th><th><strong>Purpose</strong></th><th><strong>Processing location</strong></th></tr></thead><tbody><tr><td>Scalaxy B.V.</td><td>Application and database hosting</td><td>EU</td></tr><tr><td>Scaleway SAS</td><td>Transactional email from mystima.io</td><td>France (EU)</td></tr><tr><td>Sonavera (when enabled for a campaign)</td><td>Optional identity verification, per campaign</td><td>To be confirmed before first use</td></tr><tr><td>Google LLC (Google Analytics 4)</td><td>Website analytics on mystima.io, consent-based. No assessment data.</td><td>United States</td></tr><tr><td>Stripe, Inc.</td><td>Payments and billing for customer accounts</td><td>United States</td></tr><tr><td>Microsoft Corporation (Microsoft 365)</td><td>Email for mystima.io addresses, including privacy and data requests</td><td>United States</td></tr></tbody></table></div>
 <p><strong>Customer systems</strong></p>
 <p>Where Customer runs the Service through a learning management system, that system supplies the Participant identifier and receives the Result for its gradebook. It is Customer's own system, not a Stima Sub-processor, and Customer is the controller of what it holds. The Participant's answer to the consent question is never written to it.</p>
 <p><strong>Identity verification</strong></p>
@@ -381,7 +382,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px}
 <p>We also set cookies. Strictly necessary cookies are set without asking, as the law allows. Analytics cookies are set only if you agree through the banner, and you can withdraw that at any time.</p>
 <p>If you sign up for a trial or a waitlist, or send us a message, we hold what you gave us in order to reply and, where you agreed, to send you product email. Every marketing email has an unsubscribe link that works.</p>
 <p>Your rights are the same as those in section 2.5, and you write to the same address.</p>
-<p>[Cookie table to be inserted: name, purpose, duration, first or third party.]</p>
+<div class="doc-table"><table><thead><tr><th>Name</th><th>Purpose</th><th>Duration</th><th>First or third party</th></tr></thead><tbody><tr><td>stima_session</td><td>Keeps a customer user signed in to Stima Prova. Strictly necessary.</td><td>7 days</td><td>First party</td></tr><tr><td>stima-consent (browser storage)</td><td>Remembers your choice in the cookie banner. Strictly necessary.</td><td>Until you change the choice or clear site data</td><td>First party</td></tr><tr><td>_ga</td><td>Google Analytics: tells visits from different browsers apart. Set only if you accept analytics.</td><td>2 years</td><td>First party, set by Google Analytics</td></tr><tr><td>_ga_CBQTM9PBQE</td><td>Google Analytics: keeps the state of a visit. Set only if you accept analytics.</td><td>2 years</td><td>First party, set by Google Analytics</td></tr></tbody></table></div>
 <h2 id="privacy-5-research"><span class="h-no">5</span>Research</h2>
 <p>If you consented to research, or you are deciding whether to, this is the part that binds us.</p>
 <h3 id="privacy-5-1-what-we-research-and-why">5.1 What we research and why</h3>
@@ -414,7 +415,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px}
 <p>Every vendor is engaged under terms that prohibit using the content for training their models and that limit retention to abuse monitoring. We will not engage a vendor on terms that lack those protections.</p>
 <p>Generating a score by prompting a model is not the same as training a model. No model's weights or parameters are trained or fine-tuned on participant data, by us or by our vendors. We do use de-identified data to design and test our own rubrics, prompts and evaluation sets, which is a different operation and does not change any model.</p>
 <h2 id="privacy-7-sub-processors-and-vendors"><span class="h-no">7</span>Sub-processors and vendors</h2>
-<div class="doc-table"><table><thead><tr><th><strong>Recipient</strong></th><th><strong>Purpose</strong></th><th><strong>Location</strong></th></tr></thead><tbody><tr><td>Anthropic</td><td>Participant workspace chat; generation of results</td><td>[region]</td></tr><tr><td>OpenAI</td><td>Participant workspace chat</td><td>[region]</td></tr><tr><td>[Hosting provider]</td><td>Application and database hosting</td><td>EU</td></tr><tr><td>[Email provider]</td><td>Transactional email from mystima.io</td><td>[region]</td></tr><tr><td>[Identity provider]</td><td>Optional identity verification</td><td>[region]</td></tr><tr><td>[Analytics provider]</td><td>Website analytics on mystima.io, consent-based. No assessment data.</td><td>[region]</td></tr></tbody></table></div>
+<div class="doc-table"><table><thead><tr><th><strong>Recipient</strong></th><th><strong>Purpose</strong></th><th><strong>Location</strong></th></tr></thead><tbody><tr><td>Anthropic</td><td>Participant workspace chat; generation of results</td><td>United States</td></tr><tr><td>OpenAI</td><td>Participant workspace chat</td><td>United States</td></tr><tr><td>Scalaxy B.V.</td><td>Application and database hosting</td><td>EU</td></tr><tr><td>Scaleway SAS</td><td>Transactional email from mystima.io</td><td>France (EU)</td></tr><tr><td>Sonavera (when enabled for a campaign)</td><td>Optional identity verification</td><td>To be confirmed before first use</td></tr><tr><td>Google LLC (Google Analytics 4)</td><td>Website analytics on mystima.io, consent-based. No assessment data.</td><td>United States</td></tr><tr><td>Stripe, Inc.</td><td>Payments and billing for customer accounts</td><td>United States</td></tr><tr><td>Microsoft Corporation (Microsoft 365)</td><td>Email for mystima.io addresses, including privacy and data requests</td><td>United States</td></tr></tbody></table></div>
 <p>Customers receive at least 30 days' notice of any addition or replacement to this table and may object.</p>
 <p>Where your institution runs the platform through its own learning management system, that system supplies your identifier and receives your score for its gradebook. It is your institution's system rather than one of ours, so it is not in the table above and your institution controls what it holds. Your answer to the research question is never written to it.</p>
 <p>Independent academic reviewers are not in this table and are not sub-processors. They receive consented session records only, under the agreements described in section 5.4, and they act under our direction as independent controller, not the customer's. A customer has no right of notice or objection over them and no right to their identities, because the research is not the customer's processing.</p>
@@ -561,7 +562,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px}
 <footer>
   <div class="wrap foot">
     <span>© 2026 Stima · Milkis Strategic Partners LLC</span>
-    <span><a href="/">mystima.io</a> · <a href="#terms-of-use">Terms of Use</a> · <a href="#privacy">Privacy</a> · <a href="#participant-terms">Participant Terms</a></span>
+    <span><a href="/">mystima.io</a> · <a href="#terms-of-use">Terms of Use</a> · <a href="#privacy">Privacy</a> · <a href="#participant-terms">Participant Terms</a> · <a href="#" data-cookie-settings>Cookie settings</a></span>
   </div>
 </footer>
 
@@ -593,7 +594,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px}
       show(t.dataset.doc);
     });
   });
-  document.querySelectorAll(".foot a[href^='#']").forEach(function(a){
+  document.querySelectorAll(".foot a[href^='#']:not([data-cookie-settings])").forEach(function(a){
     a.addEventListener("click", function(e){
       e.preventDefault(); var k=a.getAttribute("href").slice(1);
       history.replaceState(null, "", "#"+k); show(k); window.scrollTo({top:0});

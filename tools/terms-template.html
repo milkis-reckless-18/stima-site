@@ -56,6 +56,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px}
 .foot a:hover{color:var(--ink);border-bottom-color:var(--accent)}
 </style>
 <link rel="stylesheet" href="/legal.css">
+<script src="/consent.js"></script>
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
@@ -84,7 +85,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px}
 <footer>
   <div class="wrap foot">
     <span>© 2026 Stima · Milkis Strategic Partners LLC</span>
-    <span><a href="/">mystima.io</a> · <a href="#terms-of-use">Terms of Use</a> · <a href="#privacy">Privacy</a> · <a href="#participant-terms">Participant Terms</a></span>
+    <span><a href="/">mystima.io</a> · <a href="#terms-of-use">Terms of Use</a> · <a href="#privacy">Privacy</a> · <a href="#participant-terms">Participant Terms</a> · <a href="#" data-cookie-settings>Cookie settings</a></span>
   </div>
 </footer>
 
@@ -116,7 +117,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px}
       show(t.dataset.doc);
     });
   });
-  document.querySelectorAll(".foot a[href^='#']").forEach(function(a){
+  document.querySelectorAll(".foot a[href^='#']:not([data-cookie-settings])").forEach(function(a){
     a.addEventListener("click", function(e){
       e.preventDefault(); var k=a.getAttribute("href").slice(1);
       history.replaceState(null, "", "#"+k); show(k); window.scrollTo({top:0});

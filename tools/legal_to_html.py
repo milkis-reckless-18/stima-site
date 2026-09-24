@@ -57,18 +57,55 @@ def is_list(p) -> bool:
     return ppr is not None and ppr.find(W + "numPr") is not None
 
 
+# Facts the documents leave as placeholders, filled from our actual infrastructure.
+# Keyed by the first cell of a vendor row; each maps placeholder -> value within that row.
+ROW_FILLS = {
+    "Anthropic": {"[region]": "United States"},
+    "OpenAI": {"[region]": "United States"},
+    "[Hosting provider]": {"[Hosting provider]": "Scalaxy B.V."},
+    "[Email provider]": {"[Email provider]": "Scaleway SAS", "[region]": "France (EU)"},
+    "[Identity provider]": {"[Identity provider]": "Sonavera (when enabled for a campaign)", "[region]": "To be confirmed before first use"},
+    "[Analytics provider]": {"[Analytics provider]": "Google LLC (Google Analytics 4)", "[region]": "United States"},
+}
+# Processors missing from the documents, appended to the tables whose first header matches.
+EXTRA_ROWS = {
+    ("Sub-processor", "Recipient"): [
+        ["Stripe, Inc.", "Payments and billing for customer accounts", "United States"],
+        ["Microsoft Corporation (Microsoft 365)", "Email for mystima.io addresses, including privacy and data requests", "United States"],
+    ],
+}
+COOKIE_PLACEHOLDER = "[Cookie table to be inserted: name, purpose, duration, first or third party.]"
+COOKIE_ROWS = [
+    ["Name", "Purpose", "Duration", "First or third party"],
+    ["stima_session", "Keeps a customer user signed in to Stima Prova. Strictly necessary.", "7 days", "First party"],
+    ["stima-consent (browser storage)", "Remembers your choice in the cookie banner. Strictly necessary.", "Until you change the choice or clear site data", "First party"],
+    ["_ga", "Google Analytics: tells visits from different browsers apart. Set only if you accept analytics.", "2 years", "First party, set by Google Analytics"],
+    ["_ga_CBQTM9PBQE", "Google Analytics: keeps the state of a visit. Set only if you accept analytics.", "2 years", "First party, set by Google Analytics"],
+]
+
+
+def rows_html(rows: list[list[str]]) -> str:
+    head = "<tr>" + "".join(f"<th>{c}</th>" for c in rows[0]) + "</tr>"
+    body = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows[1:])
+    return f'<div class="doc-table"><table><thead>{head}</thead><tbody>{body}</tbody></table></div>'
+
+
 def table_html(tbl) -> str:
     rows = []
-    for i, tr in enumerate(tbl.iter(W + "tr")):
+    for tr in tbl.iter(W + "tr"):
         cells = []
         for tc in tr.findall(W + "tc"):
             paras = [runs_html(p) for p in tc.findall(W + "p")]
-            content = "<br>".join(x for x in paras if x.strip())
-            cells.append(content)
-        tag = "th" if i == 0 else "td"
-        rows.append("<tr>" + "".join(f"<{tag}>{c}</{tag}>" for c in cells) + "</tr>")
-    head, body = rows[0], rows[1:]
-    return f'<div class="doc-table"><table><thead>{head}</thead><tbody>{"".join(body)}</tbody></table></div>'
+            cells.append("<br>".join(x for x in paras if x.strip()))
+        fills = ROW_FILLS.get(re.sub(r"<[^>]+>", "", cells[0]).strip() if cells else "", {})
+        for k, v in fills.items():
+            cells = [c.replace(k, html.escape(v)) for c in cells]
+        rows.append(cells)
+    first = re.sub(r"<[^>]+>", "", rows[0][0]).strip()
+    for heads, extra in EXTRA_ROWS.items():
+        if first in heads:
+            rows += [[html.escape(c) for c in r] for r in extra]
+    return rows_html(rows)
 
 
 def convert(path: Path, key: str) -> dict:
@@ -132,6 +169,8 @@ def convert(path: Path, key: str) -> dict:
                 parts.append(f'<p class="clause"><span class="cl-no">{no}</span>{rest}</p>')
             elif re.match(r"^\([a-z]{1,4}\)\s", text):
                 parts.append(f'<p class="item">{inner}</p>')
+            elif text == COOKIE_PLACEHOLDER:
+                parts.append(rows_html([[html.escape(c) for c in r] for r in COOKIE_ROWS]))
             else:
                 parts.append(f"<p>{inner}</p>")
     flush_list()
