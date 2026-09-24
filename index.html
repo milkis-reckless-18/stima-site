@@ -509,6 +509,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
 }
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 </style>
+<link rel="stylesheet" href="/legal.css">
 </head>
 <body>
 
@@ -862,11 +863,12 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
   <div class="wrap foot">
     <span class="fmark">stima</span>
     <span class="ftag">Know your worth. Prove it.</span>
-    <span class="fmeta">© 2026 Stima · <a href="https://mystima.io">mystima.io</a> · <a href="paper.html">Position paper</a> · <a href="#faq">FAQ</a> · <a href="#early">Early access</a></span>
+    <span class="fmeta">© 2026 Stima · <a href="https://mystima.io">mystima.io</a> · <a href="paper.html">Position paper</a> · <a href="#faq">FAQ</a> · <a href="#early">Early access</a><br><a href="/terms/#terms-of-use" data-legal="terms-of-use">Terms of Use</a> · <a href="/terms/#privacy" data-legal="privacy">Privacy</a> · <a href="/terms/#participant-terms" data-legal="participant-terms">Participant Terms</a></span>
   </div>
 </footer>
 
 <script src="leads.js"></script>
+<script src="/legal.js"></script>
 <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <script>
 (function(){
@@ -1097,7 +1099,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 46px}
   function seen(){try{return !!localStorage.getItem(KEY)}catch(e){return false}}
   function mark(){try{localStorage.setItem(KEY,"1")}catch(e){}}
   function openPop(){
-    if(shown||seen()){return}
+    if(shown||seen()||document.documentElement.classList.contains("lgp-lock")){return}
     shown=true;
     pop.hidden=false;
     requestAnimationFrame(function(){requestAnimationFrame(function(){pop.classList.add("open")})});

@@ -40,3 +40,15 @@ Static files only. Drag the folder into Netlify, run `vercel deploy`, or enable 
 - **Stima Prova**: post-AI assessment. Show the work.
 
 © 2026 Stima · mystima.io
+
+## Legal documents (/terms)
+
+`terms/index.html` is generated from the three .docx files (Terms of Use, Privacy Policy, Participant Terms). The home page and the position paper open them in a popup (`legal.js`, `legal.css`) through links with `data-legal="terms-of-use|privacy|participant-terms"`; without JS the links open the full page.
+
+To publish a new version, build the page from the new files and deploy as usual:
+
+```bash
+python3 tools/legal_to_html.py --tou ToU.docx --privacy Privacy_Policy.docx --participant Participant_Terms.docx
+```
+
+The text is taken verbatim; the page layout lives in `tools/terms-template.html`.

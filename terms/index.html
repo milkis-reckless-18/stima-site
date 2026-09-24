@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Legal · Stima</title>
+<meta name="description" content="Stima Prova Terms of Use, Privacy Policy and Participant Terms.">
+<link rel="canonical" href="https://mystima.io/terms/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Space+Grotesk:wght@300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F1E8;--paper-2:#EDE8DB;--ink:#1C1B16;--ink-2:#55503F;--muted:#8A846F;--accent:#E4572E;
+  --line:rgba(var(--ink-rgb),.16);--line-strong:rgba(var(--ink-rgb),.34);
+  --paper-rgb:245,241,232;--ink-rgb:28,27,22;--accent-rgb:228,87,46;
+  --serif:"Fraunces",Georgia,serif;--sans:"Space Grotesk",-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;
+  --ease-out:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:var(--paper)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+
+nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,4vw,48px);background:rgba(var(--paper-rgb),.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.wordmark{font-family:var(--serif);font-weight:600;font-size:24px;letter-spacing:-.01em;color:var(--ink);text-decoration:none;display:flex;align-items:baseline;gap:8px}
+.wordmark .dot{width:7px;height:7px;background:var(--accent);border-radius:50%;transform:translateY(-2px)}
+.back{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);text-decoration:none;position:relative;padding:4px 0}
+.back::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease-out)}
+.back:hover::after{transform:scaleX(1);transform-origin:left}
+
+.lg-hero{padding:clamp(56px,9vh,96px) 0 clamp(30px,5vh,44px)}
+.lg-hero h1{font-family:var(--serif);font-weight:440;letter-spacing:-.025em;line-height:.98;font-size:clamp(2.6rem,6.4vw,4.8rem);margin-top:18px;max-width:14ch}
+.lg-hero h1 em{font-style:italic;color:var(--accent)}
+.lg-hero p{color:var(--ink-2);font-size:clamp(1rem,1.4vw,1.12rem);line-height:1.7;max-width:600px;margin:22px 0 34px}
+
+.lg-docs{padding-bottom:clamp(70px,10vh,120px);border-top:1px solid var(--line)}
+.lg-doc{display:grid;grid-template-columns:1fr;gap:40px;padding-top:clamp(36px,6vh,60px)}
+.lg-doc + .lg-doc{border-top:1px solid var(--line);margin-top:60px}
+.js .lg-doc{display:none}
+.js .lg-doc.on{display:grid}
+.js .lg-doc + .lg-doc{border-top:none;margin-top:0}
+.lg-doc-head{margin-bottom:26px}
+@media(min-width:960px){
+  .lg-doc{grid-template-columns:240px 1fr;gap:64px}
+  .lg-toc{position:sticky;top:96px;align-self:start;max-height:calc(100vh - 130px);overflow-y:auto;padding-top:8px}
+}
+@media(max-width:959px){.lg-toc{border:1px solid var(--line);padding:16px 18px}}
+
+footer{border-top:1px solid var(--line);padding:30px 0 40px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.foot a{text-decoration:none;border-bottom:1px solid var(--line-strong)}
+.foot a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+</style>
+<link rel="stylesheet" href="/legal.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<nav>
+  <a class="wordmark" href="/">stima<span class="dot"></span></a>
+  <a class="back" href="/">← Back to mystima.io</a>
+</nav>
+
+<main>
+  <section class="lg-hero">
+    <div class="wrap">
+      <div class="lg-kicker">Legal</div>
+      <h1>The fine print, <em>in plain sight.</em></h1>
+      <p>Three documents govern Stima Prova. The Terms of Use bind the organisation that runs assessments, the Participant Terms bind each person who takes one, and the Privacy Policy explains what happens to data for everyone. Each carries its own version.</p>
+      <div class="lg-tabs" role="tablist" aria-label="Legal documents"><a class="lg-tab" href="#terms-of-use" data-doc="terms-of-use" role="tab"><span class="lg-tab-for">For customers</span><span class="lg-tab-name">Terms of Use</span></a><a class="lg-tab" href="#privacy" data-doc="privacy" role="tab"><span class="lg-tab-for">For everyone</span><span class="lg-tab-name">Privacy Policy</span></a><a class="lg-tab" href="#participant-terms" data-doc="participant-terms" role="tab"><span class="lg-tab-for">For participants</span><span class="lg-tab-name">Participant Terms</span></a></div>
+    </div>
+  </section>
+
+  <section class="lg-docs">
+    <div class="wrap">
+
+<article class="lg-doc" id="terms-of-use" data-doc="terms-of-use" data-title="Terms of Use" data-meta="Version 2.1 | Effective [date]">
+  <aside class="lg-toc" aria-label="Sections of the Terms of Use">
+    <div class="lg-toc-label">On this page</div>
+    <ol><li><a href="#terms-of-use-1-definitions">1. Definitions</a></li><li><a href="#terms-of-use-2-the-service">2. The Service</a></li><li><a href="#terms-of-use-3-accounts-and-access">3. Accounts and access</a></li><li><a href="#terms-of-use-4-customer-responsibilities">4. Customer responsibilities</a></li><li><a href="#terms-of-use-5-roles-under-data-protection-law">5. Roles under data protection law</a></li><li><a href="#terms-of-use-6-use-of-data">6. Use of data</a></li><li><a href="#terms-of-use-7-documentation-and-records">7. Documentation and records</a></li><li><a href="#terms-of-use-8-fees">8. Fees</a></li><li><a href="#terms-of-use-9-confidentiality">9. Confidentiality</a></li><li><a href="#terms-of-use-10-intellectual-property">10. Intellectual property</a></li><li><a href="#terms-of-use-11-warranties-and-disclaimers">11. Warranties and disclaimers</a></li><li><a href="#terms-of-use-12-liability">12. Liability</a></li><li><a href="#terms-of-use-13-term-retention-and-termination">13. Term, retention and termination</a></li><li><a href="#terms-of-use-14-governing-law-and-disputes">14. Governing law and disputes</a></li><li><a href="#terms-of-use-15-changes-to-these-terms">15. Changes to these Terms</a></li><li><a href="#terms-of-use-participant-facing-screens">Participant-facing screens</a></li><li><a href="#terms-of-use-sub-processors-and-model-vendors">Sub-processors and Model Vendors</a></li></ol>
+  </aside>
+  <div class="lg-body">
+    <header class="lg-doc-head">
+      <div class="lg-kicker">For customers</div>
+      <h2 class="lg-doc-title">Terms of Use</h2>
+      <p class="lg-meta">Version 2.1 | Effective [date]</p>
+    </header>
+    <div class="lg-text">
+<p>These Terms of Use govern access to the Stima Prova assessment platform. They are entered into between Milkis Strategic Partners LLC, an Arizona limited liability company of 378 W Foothill St, Apache Junction, AZ 85120 ("Stima", "we", "us"), and the organisation identified on the order form ("Customer", "you").</p>
+<p>The Service is used in two contexts. In the <strong>hiring context</strong>, an employer invites a job applicant to complete a work task. In the <strong>education context</strong>, an educational institution or an instructor invites a student to complete a work task as part of a course, programme or credential. Most of these Terms apply to both. Where a clause applies to only one, it says so.</p>
+<p>Three instruments make up the framework. These Terms bind Customer. The Participant Terms bind each Participant directly and are accepted before the assessment opens. The Privacy Policy describes how Stima processes personal data in each of its roles. Schedule 1 sets out the screens the Service presents to every Participant, in a hiring variant and an education variant, and the requirements Stima holds itself to in operating them.</p>
+<h2 id="terms-of-use-1-definitions"><span class="h-no">1</span>Definitions</h2>
+<p>"Service" means the Stima Prova assessment platform and related interfaces, documentation and support.</p>
+<p>"Customer" means the organisation that subscribes to the Service under an order form.</p>
+<p>"Authorised User" means a Customer employee, contractor or instructor permitted by Customer to access the Service.</p>
+<p>"Participant" means an individual who completes an assessment through the Service at Customer's invitation.</p>
+<p>"Candidate" means a Participant assessed in connection with recruitment or employment.</p>
+<p>"Student" means a Participant assessed in connection with a course, programme or credential offered by Customer as an educational institution.</p>
+<p>"Assessment Context" means, for a given campaign or assignment, whether it is a hiring context or an education context. Customer sets it and warrants that it is accurate.</p>
+<p>"Participant Terms" means the agreement between Stima and each Participant, presented in full and accepted by the Participant before the assessment opens. The current version is at https://mystima.io/participant-terms and is incorporated into these Terms by reference. Stima will give Customer 30 days' notice of any change to it.</p>
+<p>"Assessment Data" means work products, responses and submissions a Participant creates during an assessment.</p>
+<p>"Interaction Record" means process data captured during an assessment, including prompts sent to AI models, the model and capability tier selected, edits made after model output, content copied from model output into the Participant's work, responses the Participant discarded or regenerated, verification actions, periods of inactivity, and the distribution of time across the session.</p>
+<p>"Results" means the scores, levels, calibration measures and reports the Service generates from Assessment Data and Interaction Records.</p>
+<p>"Model Vendor" means a third party whose AI models the Service makes available to Participants or uses to generate Results, listed at Schedule 2.</p>
+<p>"Sub-processor" means a third party engaged by Stima to process personal data in connection with the Service, listed at Schedule 2.</p>
+<p>"De-identified Data" means data produced by the procedure at clause 6.2 from which direct and indirect identifiers have been removed such that it can no longer reasonably be attributed to an identified or identifiable natural person, and which Stima undertakes not to attempt to re-identify.</p>
+<p>"Aggregate Research" means research and publication using De-identified Data and statistics derived from it, under clause 6.3(a). Aggregate Research does not involve publication of any individual session.</p>
+<p>"Session Research" means research and publication using a Participant's session record in a form that is not De-identified Data, under clause 6.3(b), and only with that Participant's consent.</p>
+<p>"Education Records" has the meaning given by the Family Educational Rights and Privacy Act, 20 U.S.C. 1232g, and its implementing regulations.</p>
+<h2 id="terms-of-use-2-the-service"><span class="h-no">2</span>The Service</h2>
+<p class="clause"><span class="cl-no">2.1</span>Stima grants Customer a non-exclusive, non-transferable, non-sublicensable right to access and use the Service during the subscription term for Customer's internal assessment purposes in the Assessment Context it has set.</p>
+<p class="clause"><span class="cl-no">2.2</span>The Service produces Results intended to inform human judgement. The Service does not make hiring decisions and does not assign grades. Customer is solely responsible for every employment decision and every academic decision it takes.</p>
+<p class="clause"><span class="cl-no">2.3</span>The Service is available only to Participants aged 18 or over. Customer will not invite or assign an assessment to any person under 18, including where an under-18 person is enrolled in a course through dual enrolment, early admission or an equivalent arrangement. The Service does not knowingly process the personal data of anyone under 18, and consent to Session Research is never sought from anyone who has not confirmed they are 18 or over.</p>
+<p class="clause"><span class="cl-no">2.4</span>Stima may modify the Service. Stima will not materially degrade core functionality during a paid term.</p>
+<h2 id="terms-of-use-3-accounts-and-access"><span class="h-no">3</span>Accounts and access</h2>
+<p class="clause"><span class="cl-no">3.1</span>Customer is responsible for the confidentiality of Authorised User credentials and for all activity conducted under its account.</p>
+<p class="clause"><span class="cl-no">3.2</span>Customer will notify Stima without undue delay on becoming aware of any unauthorised access.</p>
+<p class="clause"><span class="cl-no">3.3</span>Participants do not hold accounts. Participant access to a session, and to a result page, is by single-purpose token, or, where the Service is used through a learning management system, by the identifier that system supplies. Customer will not share, reissue or attempt to reuse a Participant token.</p>
+<h2 id="terms-of-use-4-customer-responsibilities"><span class="h-no">4</span>Customer responsibilities</h2>
+<p class="clause"><span class="cl-no">4.1</span>Customer will:</p>
+<p class="item">(a) use the Service only for the lawful assessment of Participants, and in the hiring context only for roles Customer is genuinely recruiting for;</p>
+<p class="item">(b) notify Participants in advance that an automated or AI-assisted tool will be used in the assessment, before the assessment begins, where any applicable law requires such notice;</p>
+<p class="item">(c) not suppress, bypass, pre-complete, alter or reorder the Participant Terms or the notice and consent screens the Service presents, and not prevent a Participant from reading them;</p>
+<p class="item">(d) maintain meaningful human review of any adverse decision informed by Results, and provide each affected Participant with any explanation, reconsideration route, appeal, or record retention that applicable law or Customer's own academic regulations require;</p>
+<p class="item">(e) not use Results as the sole basis for an adverse decision, not configure any automated rejection on the basis of a Result, and in the education context not treat a Result as a grade;</p>
+<p class="item">(f) in the hiring context, where required by applicable law, inform and consult employee representatives before putting the Service into service;</p>
+<p class="item">(g) not invite or knowingly permit any person under 18 to take an assessment;</p>
+<p class="item">(h) not attempt to re-identify De-identified Data, reverse engineer the Service, or use the Service to develop a competing product;</p>
+<p class="item">(i) not represent to Participants that consent to Session Research is required, expected, beneficial to their application or their standing on a course, or visible to Customer;</p>
+<p class="item">(j) set the Assessment Context accurately for each campaign or assignment, and notify Stima before changing it.</p>
+<p class="clause"><span class="cl-no">4.2</span>Customer acknowledges that obligations under laws including the EU Artificial Intelligence Act, the Colorado Artificial Intelligence Act (SB 26-189), New York City Local Law 144, the Illinois Human Rights Act as amended by HB 3773, the Illinois Biometric Information Privacy Act where the optional identity check is enabled, the California Consumer Privacy Act, the Family Educational Rights and Privacy Act, UAE Federal Decree-Law No. 45 of 2021, and DIFC Data Protection Law No. 5 of 2020 together with DIFC Regulation 10, may attach to Customer in its capacity as deployer, controller or educational institution, and that Customer is responsible for its own compliance. Stima will provide the documentation described in clause 7 to support that compliance.</p>
+<p>Customer further acknowledges that Annex III of the EU Artificial Intelligence Act treats both recruitment and candidate evaluation, and the evaluation of learning outcomes and admission to educational institutions, as high-risk uses, so that the education context is not outside that regime.</p>
+<p class="clause"><span class="cl-no">4.3</span><strong>Hiring context only.</strong> Where Customer uses the Service to assess Candidates for a position located in, or performed in, New York City, Customer is responsible for commissioning the independent bias audit and publishing the summary of results required by New York City Local Law 144, and for the Candidate notice that law requires. Stima will supply, on request and without charge, the selection and scoring data for Customer's own campaigns in a form suitable for an auditor. Stima does not perform that audit and does not hold itself out as an independent auditor of it.</p>
+<p class="clause"><span class="cl-no">4.4</span><strong>Education context only.</strong> Customer:</p>
+<p class="item">(a) warrants that its use of the Service is consistent with its own academic integrity policy and that the policy permits the use of AI tools in the manner the assessment allows;</p>
+<p class="item">(b) warrants that, where it is subject to FERPA, it has specified criteria for school officials and legitimate educational interest in its annual FERPA notification, and that those criteria cover Stima;</p>
+<p class="item">(c) will make its appeal route available to any Student who disputes a Result, and will not treat a Result as determinative of an academic integrity allegation;</p>
+<p class="item">(d) will set, on the order form, when a Student's result page is released to them: on scoring, or after an instructor has reviewed it. Stima defaults to release on scoring, and the Student-facing screens state which setting applies;</p>
+<p class="item">(e) acknowledges that no research of any kind is performed on Student sessions unless Customer has signed the Research Annex described in clause 6.3(i).</p>
+<h2 id="terms-of-use-5-roles-under-data-protection-law"><span class="h-no">5</span>Roles under data protection law</h2>
+<p class="clause"><span class="cl-no">5.1</span>In respect of Assessment Data, Interaction Records and Results processed in order to deliver assessments to Customer, Customer is the controller and Stima is the processor. The Data Processing Addendum at https://mystima.io/dpa applies and forms part of these Terms.</p>
+<p class="clause"><span class="cl-no">5.2</span>Where DIFC Regulation 10 applies, Customer is the Deployer and Stima is the Operator, and each party will perform the obligations attaching to that role. Customer acknowledges that use of the Service for the evaluation of individuals in a recruitment or educational context is capable of amounting to High Risk Processing under that Regulation, and that the Deployer bears primary accountability for the deployment. The order form states which party appoints the Autonomous Systems Officer, or whether Stima holds Regulation 10 certification.</p>
+<p class="clause"><span class="cl-no">5.3</span>In respect of Session Research under clause 6.3(b), Stima acts as an independent controller. Customer does not direct that processing and has no right to the identity of the reviewers engaged under clause 6.3(h). Stima is accountable to the Participant for it, not to Customer.</p>
+<p>In the hiring context Customer has no right to object to that processing. In the education context Customer controls whether it happens at all, through the Research Annex at clause 6.3(i), and may withdraw that Annex on notice, in which case Stima stops. Within the scope Customer has agreed there, Stima still acts as independent controller and Customer still does not direct the research itself.</p>
+<p class="clause"><span class="cl-no">5.4</span>In respect of the creation of De-identified Data under clause 6.2, which is itself an operation on personal data, Stima acts as controller of that operation, with Customer's authorisation under clause 6.2 and the licence each Participant grants under the Participant Terms. De-identified Data, once created, is not personal data. Aggregate Research under clause 6.3(a) operates on De-identified Data only, so no party is a controller of it and no data protection legal basis is required for it.</p>
+<p class="clause"><span class="cl-no">5.5</span>In respect of the Participant Terms, the Participant result page, and requests a Participant makes to Stima about their own data, Stima acts as controller for those limited purposes, as described in the Privacy Policy.</p>
+<p class="clause"><span class="cl-no">5.6</span><strong>Education context only.</strong> Where Customer is an educational institution subject to FERPA, and Customer has designated Stima as a school official in its annual FERPA notification under clause 4.4, Stima acts as a school official with a legitimate educational interest in Education Records disclosed to it. In that capacity Stima performs a service Customer would otherwise perform with its own employees, is under Customer's direct control with respect to the use and maintenance of those records, and will not redisclose them except as Customer directs or the law requires.</p>
+<p>That capacity and the independent-controller capacity at clause 5.3 cannot operate on the same records at the same time. Clause 6.3(i) resolves the conflict by switching research off in the education context unless Customer has separately agreed to it in writing.</p>
+<h2 id="terms-of-use-6-use-of-data"><span class="h-no">6</span>Use of data</h2>
+<p class="clause"><span class="cl-no">6.1</span>To provide the Service.</strong> Stima processes Assessment Data, Interaction Records and Results in order to operate, secure and support the Service, on Customer's documented instructions. Those instructions include quality assurance of Results generated for Customer's own campaigns and assignments, which may involve blind scoring of a session by Stima personnel and comparison against the Service's output. Personnel performing that work are bound by confidentiality and see only what the task requires. Work directed at validating Stima's scoring methods generally, rather than at a Customer's own Results, is performed on De-identified Data under clause 6.2.</p>
+<p class="clause"><span class="cl-no">6.2</span>De-identification and product improvement.</strong> Stima creates De-identified Data from Assessment Data and Interaction Records and uses it to operate, evaluate, secure, calibrate and improve the Service, including the validation of scoring models, and for Aggregate Research under clause 6.3(a).</p>
+<p>Customer authorises that creation and use, and grants Stima a non-exclusive, perpetual, irrevocable, royalty-free right in respect of any Customer content it comprises. Each Participant grants Stima the corresponding right in respect of their own Assessment Data and Interaction Record under the Participant Terms, on the same terms and for the same purposes. De-identified Data does not constitute Customer Confidential Information.</p>
+<p>De-identification is not automated pattern matching alone. Stima operates a documented procedure comprising automated removal of direct identifiers, automated detection of indirect identifiers in free text including personal names, employer names, institution names, course names, project names and client names, and a human review pass before any record enters a research or improvement set. Stima maintains a written record of that procedure and of its version history, and will make it available to Customer on request.</p>
+<p>Where a record cannot be brought to the De-identified Data standard by that procedure, it is not used for Aggregate Research and is used for Session Research only under clause 6.3(b).</p>
+<p>A Participant who objects to the creation of De-identified Data from their session is excluded from it, provided the objection reaches Stima before the campaign or assignment closes. De-identification does not run on any session before that point, so that is the window, and the Participant Terms state it. Once created, De-identified Data is no longer attributable to that Participant and cannot be withdrawn from the set, which the Participant Terms state before the assessment begins.</p>
+<p class="clause"><span class="cl-no">6.3</span>Research.</strong> Stima conducts methodological research into assessment design and the measurement of human-AI collaboration, and publishes the results of that research.</p>
+<p class="item">(a) <strong>Aggregate Research.</strong> Stima may use De-identified Data, which is not personal data, for research and may publish aggregate findings and statistics derived from it. No Customer, Participant, role, course or organisation is identified, and no individual session is published. This does not depend on Participant consent and is disclosed to every Participant in the assessment notice at Schedule 1 Part 2.</p>
+<p class="item">(b) <strong>Session Research.</strong> Where research requires a session record in a form that is not De-identified Data, Stima uses that record only in respect of Participants who have given explicit consent, separately recorded, through the consent screen at Schedule 1 Part 3. That consent is optional, is not a condition of taking or completing an assessment, has no bearing on Results or on any grade, is not disclosed to Customer, and may be withdrawn at any time.</p>
+<p class="item">(c) Customer will not suppress or interfere with the consent screen and will not request disclosure of which Participants consented. Stima will not disclose it, including in aggregate at a granularity that would permit identification of an individual Participant's answer.</p>
+<p class="item">(d) Research outputs may include published papers, conference proceedings and published datasets. A published dataset contains only the session records of consenting Participants, processed as described in Schedule 1 Part 3. No individual session derived from a non-consenting Participant is published in any form; publication from De-identified Data is limited to aggregate findings and statistics.</p>
+<p class="item">(e) Stima will record, for every Participant and every session, the answer given to the consent question, the timestamp, and the identifier of the exact version of the wording displayed, including where the answer was a refusal or a non-answer. Superseded versions of that wording are retained.</p>
+<p class="item">(f) Stima will obtain ethics review of any Session Research before submission for publication, through an institutional review board, an independent ethics review service, or the review process of the publication venue, and will record which route was used for each output.</p>
+<p class="item">(g) Consent to Session Research is recorded per session. It does not carry over to any subsequent assessment, and it is never sought from a person who has not confirmed they are 18 or over.</p>
+<p class="item">(h) Session records used in Session Research are read by Stima's researchers and by independent academic reviewers and collaborators engaged for scoring-agreement studies. Stima engages such a reviewer only under a written agreement imposing confidentiality, use restrictions limited to the study, a prohibition on re-identification and on onward disclosure, and a return or destruction obligation, and only where a lawful transfer mechanism is in place. Reviewers receive no Participant contact details.</p>
+<p class="item">(i) <strong>Education context only. Research is off by default.</strong> Neither Aggregate Research nor Session Research is performed on any session generated in the education context unless Customer has signed a Research Annex. Absent that Annex, Stima uses a Student's session solely to deliver the assessment to Customer, including the quality assurance of that Student's own Results described in clause 6.1, and to support and secure the Service. No De-identified Data is created from it, it is not used to validate Stima's scoring methods generally, and the consent screen at Schedule 1 Part 3 is not shown.</p>
+<p>Where a Research Annex is in place, it governs which of the two activities is permitted, the de-identification standard applied, which institutional approvals are required, the destruction obligations, and Customer's right to withdraw from it. Then:</p>
+<ul><li><strong>Aggregate Research</strong> may proceed on Student sessions, on the de-identification standard the Annex sets. It does not require individual Student consent, because it operates on data that is no longer personal and is no longer an Education Record.</li><li><strong>Session Research</strong> requires both the Annex and the Student's own consent under clause 6.3(b). Neither alone is sufficient, on any route.</li></ul>
+<p>Stima does not rely on, and does not ask Customer to rely on, the studies exception at 34 C.F.R. 99.31(a)(6). That exception is available only for a study conducted for or on behalf of the institution, and Stima's research is methodological, conducted in its own name and published by Stima. The Annex operates on de-identification and on Student consent instead.</p>
+<p>A Research Annex applies only to sessions started after it is signed. Signing it does not sweep in the session of a Student who was told, before starting, that their work would not be used for research.</p>
+<p class="clause"><span class="cl-no">6.4</span>Restrictions on Stima.</strong> Stima will not:</p>
+<p class="item">(a) sell, rent or license Assessment Data, Interaction Records or Results;</p>
+<p class="item">(b) use Assessment Data, Interaction Records or Results to train, retrain or fine-tune the weights or parameters of any artificial intelligence model, whether Stima's own or a third party's;</p>
+<p class="item">(c) disclose an individual Participant's data to any third party except as instructed by Customer, as required by law, as necessary to a Sub-processor listed at Schedule 2 or a reviewer engaged under clause 6.3(h), or as permitted by that Participant's consent;</p>
+<p class="item">(d) use Assessment Data, Interaction Records or Results to build a profile of a Participant for any purpose other than producing that Participant's Results, or to market to a Participant;</p>
+<p class="item">(e) operate a candidate pool, talent marketplace or similar product in which Participants are made discoverable to any employer or institution other than the one that invited them.</p>
+<p>For the avoidance of doubt, the Service generates Results by prompting Model Vendor models against Stima's rubrics. Nothing in clause 6.4(b) prevents Stima from using De-identified Data to design, evaluate, calibrate and test its own scoring methods, rubrics, prompts and evaluation sets, provided no model weights or parameters are trained or fine-tuned on Assessment Data, Interaction Records or Results.</p>
+<p class="clause"><span class="cl-no">6.5</span>Model Vendors.</strong> Prompts a Participant sends during a session, and the resulting model output, are transmitted to the Model Vendors listed at Schedule 2 under terms that prohibit use of that content to train the vendor's models and that limit retention to abuse monitoring. Stima will not engage a Model Vendor on terms that lack those protections. Stima will give Customer at least 30 days' notice before adding or replacing a Model Vendor or Sub-processor, and Customer may terminate the affected order form without penalty if it reasonably objects. This clause does not apply to reviewers engaged under clause 6.3(h), over whom Customer has no right of notice or objection.</p>
+<h2 id="terms-of-use-7-documentation-and-records"><span class="h-no">7</span>Documentation and records</h2>
+<p class="clause"><span class="cl-no">7.1</span>On request, and in any event at least annually, Stima will provide Customer with:</p>
+<p class="item">(a) a statement of the Service's intended uses, the type and nature of the system, and its known limitations and reasonably foreseeable risks;</p>
+<p class="item">(b) a description of the categories of data used to develop, train and calibrate Results, and a summary of the evaluation performed;</p>
+<p class="item">(c) a record of material modifications to scoring logic, together with notice of any such modification;</p>
+<p class="item">(d) the decision record for any campaign or assignment, exportable as structured data, comprising every scoring run, reviewer action, dispute, disclosure version and erasure;</p>
+<p class="item">(e) where Customer lawfully collects demographic data separately from the assessment and provides it to Stima for that purpose, summary adverse impact statistics for Customer's own campaigns. Demographic data is never collected through the assessment. It is joined to outcome data only inside the calculation that produces a group-level statistic, and that join is not persisted and is never written to a Participant's record.</p>
+<p class="clause"><span class="cl-no">7.2</span>Stima will retain the records in clause 7.1(a) to (d) for three years, and will not delete them earlier, in line with the developer record-keeping obligation the Colorado Artificial Intelligence Act imposes from 1 January 2027, which Stima applies from the date of these Terms.</p>
+<p class="clause"><span class="cl-no">7.3</span>Stima will notify Customer of any material update to the Service that affects the matters described in clause 7.1(a) or 7.1(c).</p>
+<p class="clause"><span class="cl-no">7.4</span>Stima maintains a public version-numbered statement of the collaboration rubric it scores against, comprising the levels, the behavioural anchors and the evidence types, and will not change it without a version increment. The task materials, the model prompts and the internal evaluation sets are not published.</p>
+<h2 id="terms-of-use-8-fees"><span class="h-no">8</span>Fees</h2>
+<p>Customer will pay the fees set out in the applicable order form. [Billing cycle. Renewal. Late payment interest. Taxes.] Fees are non-refundable except as expressly stated in these Terms.</p>
+<h2 id="terms-of-use-9-confidentiality"><span class="h-no">9</span>Confidentiality</h2>
+<p>Each party will protect the other's confidential information with not less than reasonable care and will use it only to perform under these Terms. This obligation does not apply to information that is or becomes public through no breach, is independently developed, or is lawfully received from a third party without restriction. This clause survives termination for 3 years.</p>
+<h2 id="terms-of-use-10-intellectual-property"><span class="h-no">10</span>Intellectual property</h2>
+<p class="clause"><span class="cl-no">10.1</span>Stima retains all right, title and interest in the Service, including scoring frameworks, rubrics, task libraries, models and documentation.</p>
+<p class="clause"><span class="cl-no">10.2</span>Customer retains all right, title and interest in its own content, including any task materials Customer uploads. Customer grants Stima only the rights expressly stated in clause 6.</p>
+<p class="clause"><span class="cl-no">10.3</span>As between Stima and Customer, the work product a Participant creates during an assessment belongs to the Participant, subject to the licence the Participant grants Stima in the Participant Terms and to any separate arrangement between Customer and that Participant, including an institution's own intellectual property regulations. Neither party acquires ownership of a Participant's work product by reason of these Terms.</p>
+<p class="clause"><span class="cl-no">10.4</span>Feedback provided by Customer may be used by Stima without restriction or obligation.</p>
+<p class="clause"><span class="cl-no">10.5</span>Neither party will use the other's name or marks in publicity without prior written consent, save that Stima may include Customer in a factual list of customers after Customer's first paid term unless Customer objects in writing.</p>
+<h2 id="terms-of-use-11-warranties-and-disclaimers"><span class="h-no">11</span>Warranties and disclaimers</h2>
+<p class="clause"><span class="cl-no">11.1</span>Stima warrants that it will provide the Service with reasonable skill and care and substantially in accordance with the documentation.</p>
+<p class="clause"><span class="cl-no">11.2</span>Stima does not warrant that Results are accurate predictors of job performance or of academic attainment, that the Service is free of bias, or that Customer's use of the Service satisfies Customer's legal obligations.</p>
+<p class="clause"><span class="cl-no">11.3</span>Except as expressly stated in this clause 11, the Service is provided on an as-is basis and all other warranties are disclaimed to the extent permitted by law.</p>
+<h2 id="terms-of-use-12-liability"><span class="h-no">12</span>Liability</h2>
+<p class="clause"><span class="cl-no">12.1</span>[Aggregate cap at the greater of fees paid in the preceding twelve months or $X.]</p>
+<p class="clause"><span class="cl-no">12.2</span>[Mutual exclusion of indirect, special and consequential loss.]</p>
+<p class="clause"><span class="cl-no">12.3</span>[Carve-outs: breach of confidentiality, data protection indemnity, intellectual property indemnity, breach of clause 6.4.]</p>
+<p class="clause"><span class="cl-no">12.4</span>Nothing in these Terms limits liability that cannot lawfully be limited. Consistent with the Colorado Artificial Intelligence Act, no provision of these Terms operates to indemnify either party against liability for its own discriminatory act or omission arising from the use of an automated decision-making technology, and any provision purporting to do so is void to that extent.</p>
+<h2 id="terms-of-use-13-term-retention-and-termination"><span class="h-no">13</span>Term, retention and termination</h2>
+<p class="clause"><span class="cl-no">13.1</span>[Initial term. Renewal. Termination for convenience. Termination for cause and cure period.]</p>
+<p class="clause"><span class="cl-no">13.2</span><strong>What survives.</strong> The following are not deleted under clause 13.3 or 13.4, whether during the term or on termination:</p>
+<p class="item">(a) De-identified Data;</p>
+<p class="item">(b) session records covered by a Participant's consent to Session Research, retained under clause 13.5 and subject to any destruction date a Research Annex sets;</p>
+<p class="item">(c) the records required by clause 7.2, for the period stated there;</p>
+<p class="item">(d) the acceptance, consent and disclosure records required by clause 6.3(e) and the Participant Terms, for the life of the session record and for 3 years thereafter;</p>
+<p class="item">(e) anything subject to a legal hold or a legal retention obligation.</p>
+<p>Customer acknowledges that the survival of (a) and (b) is material to the commercial terms.</p>
+<p class="clause"><span class="cl-no">13.3</span><strong>Retention during the term.</strong> Assessment Data, Interaction Records and Results for a campaign or assignment are retained for 12 months after the campaign or assignment closes, or 24 months where the order form provides for extended assessment retention, and are then deleted, subject to clause 13.2. A legal hold placed by Customer suspends deletion until Customer releases it. The decision record for that campaign or assignment is retained for the three years set by clause 7.2 and is then deleted. Customer may instruct earlier deletion of Assessment Data, Interaction Records and Results; the decision record is retained regardless, because clause 7.2 is a record-keeping obligation Stima owes independently of Customer.</p>
+<p class="clause"><span class="cl-no">13.4</span><strong>On termination.</strong> On termination or expiry, Stima will, at Customer's election, return or delete Customer data within 30 days of Customer's instruction, and in any event will delete it within 30 days of the end of the applicable period in clause 13.3 if Customer gives no instruction. Clause 13.2 applies throughout.</p>
+<p class="clause"><span class="cl-no">13.5</span>Session records covered by a Participant's consent are retained until that Participant withdraws consent, or until any earlier date a Research Annex sets for that Customer's Students, because reproducibility of published findings requires the underlying dataset to persist. On withdrawal, Stima removes the session from every research set and from any output not yet published. Stima cannot retract a dataset or paper already published, and the consent screen says so in those words before the Participant answers.</p>
+<h2 id="terms-of-use-14-governing-law-and-disputes"><span class="h-no">14</span>Governing law and disputes</h2>
+<p>These Terms are governed by the laws of the State of Arizona, without regard to its conflict of laws principles. [Venue: courts of Maricopa County, Arizona, or arbitration clause.] Nothing in this clause deprives a Participant of any protection available to them under mandatory law of their place of residence, and nothing in it displaces the Participant Terms.</p>
+<h2 id="terms-of-use-15-changes-to-these-terms"><span class="h-no">15</span>Changes to these Terms</h2>
+<p>Stima may update these Terms on 30 days' written notice. Changes apply prospectively only. Material changes to clause 6 do not apply to data already collected, and no change alters what a Participant has already consented to.</p>
+<p><strong>SCHEDULE 1</strong></p>
+<h2 id="terms-of-use-participant-facing-screens">Participant-facing screens</h2>
+<p>The following are presented by the Service to each Participant, in this order, before the assessment opens. Customer may not alter, suppress or reorder them. Parts 2 and 3 have a hiring variant and an education variant; the Service selects the variant from the Assessment Context Customer has set.</p>
+<h3 id="terms-of-use-part-1-participant-terms">Part 1. Participant Terms</h3>
+<p>The Participant Terms are presented in full. The Participant accepts them by an explicit control. A separate required control, on the same screen, carries the age confirmation. No telemetry is captured before both controls are used. Acceptance is recorded with a timestamp and the identifier of the version displayed.</p>
+<h3 id="terms-of-use-part-2-assessment-notice">Part 2. Assessment notice</h3>
+<p>Shown to every Participant. Acknowledged by an explicit control before the assessment opens. There is no opt-out, because it describes processing that is necessary to run the assessment.</p>
+<p><strong>Hiring variant</strong></p>
+<p><strong>Before you start</strong></p>
+<p>[Customer name] is using Stima Prova to assess this work task. You are allowed to use AI tools on it, and you are encouraged to work the way you normally would. You are not scored on whether you used AI. You are scored on how you worked.</p>
+<p>While you work, this platform records what you do: the prompts you send, which model you choose, the edits you make afterwards, what you copy across, what you check, and how your time is spent. It also records your IP address and basic browser and device information. The prompts you write go to the AI company whose model you pick, so they can answer. Those companies are not allowed to use your prompts to train their models.</p>
+<p>We use that record to produce a report for [Customer name]. Our own staff sometimes read a session and score it by hand, to check that our scoring agrees with a human's. They are under confidentiality.</p>
+<p>We also strip your name, [Customer name]'s name and other identifying details out of session data and use what is left to improve how we score and to publish statistics about how people work with AI. Nobody is named in that, and no individual session is ever published that way. There is a separate question on the next screen about whether your actual session record can be used in published research. That one is optional.</p>
+<p>We do not record anything you do outside this page. No camera, no microphone, no screen recording, no keystrokes outside this workspace.</p>
+<p>[Shown only where the identity check is enabled: Before you start, a separate identity provider will check that you are the person who was invited. They tell us only whether it passed. We never see your photo, your document or your biometric data.]</p>
+<p>If we have good reason to think this assessment was not completed as agreed, we may end the session and tell [Customer name] that it is unverified, and we will tell you at the same time.</p>
+<p>The report describes how you worked. It does not decide anything. A person at [Customer name] makes the decision.</p>
+<p>You must be 18 or over to take this assessment.</p>
+<p>Your data is handled as described in our Privacy Policy. You can ask for a copy of your data, ask us to correct it, or ask us to delete it, at info@mystima.io.</p>
+<p><strong>Education variant</strong></p>
+<p><strong>Before you start</strong></p>
+<p>[Institution or instructor name] is using Stima Prova for this assignment. You are allowed to use AI tools on it, and you are encouraged to work the way you normally would. You are not marked down for using AI. You are assessed on how you worked.</p>
+<p>While you work, this platform records what you do: the prompts you send, which model you choose, the edits you make afterwards, what you copy across, what you check, and how your time is spent. It also records your IP address and basic browser and device information. The prompts you write go to the AI company whose model you pick, so they can answer. Those companies are not allowed to use your prompts to train their models.</p>
+<p>We use that record to produce a report for your instructor. Other people at [institution name] may see it too, in the same way they can see your other coursework. That is your institution's decision, not ours. Our own staff sometimes read a session and score it by hand, to check that the report we produced for you is right. They are under confidentiality.</p>
+<p>[Shown only where [institution name] has signed the Research Annex: We also strip your name, your institution's name, the course name and other identifying details out of session data and use what is left to improve how we score and to publish statistics about how people work with AI. Nobody is named in that, and no individual session is ever published that way. There is a separate question on the next screen about whether your actual session record can be used in published research. That one is optional.]</p>
+<p>[Shown where [institution name] has not signed the Research Annex: We use your session only to produce that report and to keep the platform running and secure. We do not use it for research, and we will not ask you about research.]</p>
+<p>We do not record anything you do outside this page. No camera, no microphone, no screen recording, no keystrokes outside this workspace.</p>
+<p>[Shown only where the identity check is enabled: Before you start, a separate identity provider will check that you are the person who was invited. They tell us only whether it passed. We never see your photo, your document or your biometric data.]</p>
+<p>The report describes how you worked. <strong>It is not your grade.</strong> Your instructor decides your grade, and your institution's usual appeal route applies. [Result release: Your report is available to you as soon as it is scored. / Your report is available to you once your instructor has reviewed it.]</p>
+<p>If we have good reason to think this assignment was not completed as agreed, we may end the session and tell your instructor that it is unverified, and we will tell you at the same time. That is a flag for a human to look at, not a finding against you.</p>
+<p>You must be 18 or over to use this platform.</p>
+<p>Your data is handled as described in our Privacy Policy. You can ask for a copy of your data, ask us to correct it, or ask us to delete it, at info@mystima.io.</p>
+<h3 id="terms-of-use-part-3-consent-to-session-research">Part 3. Consent to Session Research</h3>
+<p>Separate screen. Optional. Opt-in only. Neither option pre-selected.</p>
+<p><strong>Hiring variant</strong></p>
+<p><strong>One optional question</strong></p>
+<p>We do research on how people work with AI, and we publish what we find. It helps set fairer standards for assessments like this one.</p>
+<p>As we said on the last screen, we already use stripped-down session data to publish statistics, and nobody is named in that. This question is about something different: whether researchers may read the actual record of your session, and whether that record may appear in a published dataset alongside a paper.</p>
+<p>May we use the record of this session in published research?</p>
+<p>[ ]  Yes. Researchers may read my session record and it may appear in published research.</p>
+<p>[ ]  No. Do not use my session record in published research.</p>
+<p>This makes no difference to your assessment. Your answer is not shown to [Customer name], does not affect your report, and does not affect the outcome. You can change your mind at any time by emailing info@mystima.io.</p>
+<p>If you say yes: your session record is stored apart from your name and contact details, and is read by our researchers and by independent academic reviewers who are under written confidentiality agreements. Before anything is published we remove your name, your contact details, the employer's name, and other identifying details we find. We will be straight with you about the limit of that: the things you wrote are your own words, and writing can be distinctive, so we cannot promise that someone determined to work out who you are could never do it. That is exactly why we ask you rather than treating your session as anonymous.</p>
+<p>We keep the record for as long as the research needs it, which for published work means indefinitely, unless you withdraw. If you withdraw, we take your session out of any research we have not yet published. We cannot pull back a paper or a dataset that is already out.</p>
+<p>If you say nothing, we treat that as no.</p>
+<p><strong>Education variant</strong></p>
+<p>Shown only where [institution name] has signed the Research Annex described in clause 6.3(i). Where it has not, this screen is not shown at all.</p>
+<p><strong>One optional question</strong></p>
+<p>We do research on how people work with AI, and we publish what we find. It helps set fairer standards for assessments like this one.</p>
+<p>As we said on the last screen, we already use stripped-down session data to publish statistics, and nobody is named in that. This question is about something different: whether researchers may read the actual record of this assignment, and whether that record may appear in a published dataset alongside a paper.</p>
+<p>May we use the record of this session in published research?</p>
+<p>[ ]  Yes. Researchers may read my session record and it may appear in published research.</p>
+<p>[ ]  No. Do not use my session record in published research.</p>
+<p>This makes no difference to your assignment. Your answer is not shown to your instructor or to anyone else at [institution name], does not affect your report, and <strong>does not affect your grade</strong>. We will not tell them what you answered even if they ask. You can change your mind at any time by emailing info@mystima.io.</p>
+<p>If you say yes: your session record is stored apart from your name and contact details, and is read by our researchers and by independent academic reviewers who are under written confidentiality agreements. Before anything is published we remove your name, your contact details, [institution name], the course name, and other identifying details we find. We will be straight with you about the limit of that: the things you wrote are your own words, and writing can be distinctive, so we cannot promise that someone determined to work out who you are could never do it. That is exactly why we ask you rather than treating your session as anonymous.</p>
+<p>Your yes is not the only thing that has to be in place. [institution name] has also agreed separately to this research, and that agreement sets the rules we work to. If it withdraws that agreement, we stop, whatever you answered.</p>
+<p>We keep the record for as long as the research needs it, which for published work means indefinitely, unless you withdraw, or until any earlier destruction date [institution name] has agreed with us. If you withdraw, we take your session out of any research we have not yet published. We cannot pull back a paper or a dataset that is already out.</p>
+<p>If you say nothing, we treat that as no.</p>
+<h3 id="terms-of-use-part-4-implementation-requirements">Part 4. Implementation requirements</h3>
+<p>The following are binding on Stima in respect of these screens.</p>
+<p class="item">(a) Neither option on the consent screen is pre-selected and no default applies. Declining to answer is recorded as a refusal. Every answer, including a refusal and a non-answer, is stored with its wording version.</p>
+<p class="item">(b) Every screen in this Schedule carries a version identifier. The version shown to a Participant is stored against the session with a timestamp, for the Participant Terms, the assessment notice and the consent wording alike, and for the variant displayed. Superseded versions are retained.</p>
+<p class="item">(c) The consent answer is not exposed on any Customer-facing surface, report, export or application programming interface, and in the education context is not written to any learning management system, gradebook or grade passback payload.</p>
+<p class="item">(d) A withdrawal route is operated, such that a Participant request results in removal of that session from the research set. Responsibility for that route is assigned to a named individual.</p>
+<p class="item">(e) Consent is recorded per session and does not carry over to any subsequent assessment.</p>
+<p class="item">(f) No telemetry is captured before the Participant has used the acceptance control and the age control at Part 1 and the acknowledgement control at Part 2.</p>
+<p class="item">(g) The age confirmation is a separate required control at Part 1. The consent screen at Part 3 is not shown, and no consent is recorded, unless that confirmation has been given.</p>
+<p class="item">(h) The variant shown follows the Assessment Context set by Customer. Where no context is set, the Service does not open the assessment.</p>
+<p class="item">(i) In the education context, where Customer has not signed the Research Annex described in clause 6.3(i), the consent screen at Part 3 is not rendered, no consent record is created, and no De-identified Data is created from that session.</p>
+<p class="item">(j) Each variant is stored and versioned as rendered text, not as a difference from another variant, so that the exact wording a Participant saw can be reproduced.</p>
+<p><strong>SCHEDULE 2</strong></p>
+<h2 id="terms-of-use-sub-processors-and-model-vendors">Sub-processors and Model Vendors</h2>
+<p>Current as at [date]. Stima gives 30 days' notice of any addition or replacement, and Customer may object. This Schedule does not cover research reviewers, who are engaged under clause 6.3(h) and over whom Customer has no right of notice, objection or disclosure.</p>
+<p><strong>Model Vendors</strong></p>
+<div class="doc-table"><table><thead><tr><th><strong>Vendor</strong></th><th><strong>Purpose</strong></th><th><strong>Processing location</strong></th><th><strong>Training on content sent</strong></th></tr></thead><tbody><tr><td>Anthropic</td><td>Participant workspace chat (two capability tiers); generation of Results with structured output</td><td>[region]</td><td>Prohibited under the contracted terms</td></tr><tr><td>OpenAI</td><td>Participant workspace chat (two capability tiers)</td><td>[region]</td><td>Prohibited under the contracted terms</td></tr></tbody></table></div>
+<p><strong>Sub-processors</strong></p>
+<div class="doc-table"><table><thead><tr><th><strong>Sub-processor</strong></th><th><strong>Purpose</strong></th><th><strong>Processing location</strong></th></tr></thead><tbody><tr><td>[Hosting provider]</td><td>Application and database hosting</td><td>EU</td></tr><tr><td>[Email provider]</td><td>Transactional email from mystima.io</td><td>[region]</td></tr><tr><td>[Identity provider]</td><td>Optional identity verification, per campaign</td><td>[region]</td></tr><tr><td>[Analytics provider]</td><td>Website analytics on mystima.io, consent-based. No assessment data.</td><td>[region]</td></tr></tbody></table></div>
+<p><strong>Customer systems</strong></p>
+<p>Where Customer runs the Service through a learning management system, that system supplies the Participant identifier and receives the Result for its gradebook. It is Customer's own system, not a Stima Sub-processor, and Customer is the controller of what it holds. The Participant's answer to the consent question is never written to it.</p>
+<p><strong>Identity verification</strong></p>
+<p>Identity verification is a per-campaign option and is not offered in the education context without Customer's separate written instruction. Where it is enabled, the identity provider performs the check under its own agreement with the Participant and returns to Stima a pass, fail or name-mismatch signal only. Stima does not receive or store video, images, biometric data, or a copy of any identity document. Customer is responsible for determining whether the check is lawful in the Participant's jurisdiction, including under the Illinois Biometric Information Privacy Act.</p>
+    </div>
+  </div>
+</article>
+
+<article class="lg-doc" id="privacy" data-doc="privacy" data-title="Privacy Policy" data-meta="Version 1.1 | Last updated [date]">
+  <aside class="lg-toc" aria-label="Sections of the Privacy Policy">
+    <div class="lg-toc-label">On this page</div>
+    <ol><li><a href="#privacy-the-short-version">The short version</a></li><li><a href="#privacy-1-who-we-are-and-which-role-we-are-in">1. Who we are and which role we are in</a></li><li><a href="#privacy-2-if-you-are-a-participant">2. If you are a participant</a></li><li><a href="#privacy-3-if-you-work-for-a-customer">3. If you work for a customer</a></li><li><a href="#privacy-4-if-you-are-a-site-visitor">4. If you are a site visitor</a></li><li><a href="#privacy-5-research">5. Research</a></li><li><a href="#privacy-6-ai-models-and-what-reaches-them">6. AI models and what reaches them</a></li><li><a href="#privacy-7-sub-processors-and-vendors">7. Sub-processors and vendors</a></li><li><a href="#privacy-8-where-data-is-stored-and-transfers">8. Where data is stored, and transfers</a></li><li><a href="#privacy-9-rights-by-jurisdiction">9. Rights by jurisdiction</a></li><li><a href="#privacy-10-security">10. Security</a></li><li><a href="#privacy-11-children">11. Children</a></li><li><a href="#privacy-12-changes-to-this-policy">12. Changes to this policy</a></li><li><a href="#privacy-13-contact">13. Contact</a></li></ol>
+  </aside>
+  <div class="lg-body">
+    <header class="lg-doc-head">
+      <div class="lg-kicker">For everyone</div>
+      <h2 class="lg-doc-title">Privacy Policy</h2>
+      <p class="lg-meta">Version 1.1 | Last updated [date]</p>
+    </header>
+    <div class="lg-text">
+<h2 id="privacy-the-short-version">The short version</h2>
+<p>The platform is used in two ways. An employer invites a job applicant to complete a work task, or an instructor sets one as part of a course. This policy calls both of them <strong>participants</strong>, and says where the two differ.</p>
+<p>If you are a <strong>participant</strong>, section 2 is yours. We record how you work during the assessment, we turn that into a report for whoever invited you, a human makes the decision or the grade, and we ask you one optional question about published research that you are free to decline with no consequence.</p>
+<p>If you work for a <strong>customer</strong>, an employer or an institution, section 3 is yours. We process participant assessment data on your instructions under a data processing addendum, and section 3.3 covers our position under FERPA.</p>
+<p>If you are a <strong>site visitor</strong>, section 4 is yours, and it is short.</p>
+<p>Section 5 covers research and publication. Read it if you want to know what we publish and what is optional.</p>
+<h2 id="privacy-1-who-we-are-and-which-role-we-are-in"><span class="h-no">1</span>Who we are and which role we are in</h2>
+<p>Milkis Strategic Partners LLC, an Arizona limited liability company of 378 W Foothill St, Apache Junction, AZ 85120, trading as Stima ("Stima", "we", "us"), operates the Stima Prova assessment platform at mystima.io.</p>
+<p>We are in a different role depending on what is being processed. This decides who answers your request.</p>
+<div class="doc-table"><table><thead><tr><th><strong>What is being processed</strong></th><th><strong>Our role</strong></th><th><strong>Who answers your request</strong></th></tr></thead><tbody><tr><td>A participant's assessment session, delivered to the employer or institution that invited them</td><td>Processor. They are the controller.</td><td>Them. Write to us if that is easier and we will forward your request and tell you we have.</td></tr><tr><td>Creating de-identified data from assessment sessions</td><td>Controller of that operation, with the customer's authorisation and the participant's own licence. Once created, de-identified data is not personal data and has no controller.</td><td>Us, for questions about the procedure.</td></tr><tr><td>Aggregate Research: statistics and aggregate findings we publish from de-identified data</td><td>No role, because there is no personal data left. The role that matters is the one above.</td><td>Us, for questions about the procedure.</td></tr><tr><td>Session Research: a participant's actual session record, used with their consent</td><td>Independent controller. In the hiring context the customer does not direct it, cannot object to it, and cannot see it. In the education context it does not happen at all unless the institution has signed a research agreement, which then sets the rules.</td><td>Us.</td></tr><tr><td>A participant's acceptance of the Participant Terms, their answer to the research question, their result page, and requests they make to us</td><td>Controller</td><td>Us.</td></tr><tr><td>A customer user's account and billing data</td><td>Controller</td><td>Us.</td></tr><tr><td>Site visitor data</td><td>Controller</td><td>Us.</td></tr></tbody></table></div>
+<p>For the research part of what we hold we are the controller, we are accountable to the participant for it, and the participant deals with us, not with the employer or the institution.</p>
+<p>Contact for any privacy matter: info@mystima.io. Postal: 378 W Foothill St, Apache Junction, AZ 85120. [Data protection officer, EU or UK representative under article 27, and DIFC contact, if appointed.]</p>
+<h2 id="privacy-2-if-you-are-a-participant"><span class="h-no">2</span>If you are a participant</h2>
+<h3 id="privacy-2-1-what-we-collect-and-why">2.1 What we collect and why</h3>
+<div class="doc-table"><table><thead><tr><th><strong>What we collect</strong></th><th><strong>Why</strong></th><th><strong>Legal basis (EEA, UK, DIFC)</strong></th></tr></thead><tbody><tr><td>Your name and email address, from the invitation</td><td>To send you the invitation and your result, and to match your session to the campaign or assignment</td><td>The customer's basis: steps taken at your request before entering a contract, its legitimate interests in recruiting, or performance of its task as an educational institution</td></tr><tr><td>Your acceptance of the Participant Terms, your age confirmation, and your IP address and basic browser and device information at that moment, with timestamp and version</td><td>To form and evidence our agreement with you, and to detect abuse</td><td>Our contract with you, and our legitimate interests in an evidenced record and in platform security</td></tr><tr><td>The prompts you send to the AI models, and the responses</td><td>To produce your report and the evidence behind it</td><td>The customer's basis as above. We hold it as processor.</td></tr><tr><td>Which model and capability tier you chose, and every switch</td><td>Same</td><td>Same</td></tr><tr><td>Snapshots of your draft as you edit, text you copy in from a model response, responses you discarded or regenerated, verification actions</td><td>Same</td><td>Same</td></tr><tr><td>How your time was spent, including inactivity</td><td>Same</td><td>Same</td></tr><tr><td>Your submission and your optional note on your approach</td><td>Same</td><td>Same</td></tr><tr><td>Your IP address and basic browser and device information through the session</td><td>To keep the platform secure and detect abuse</td><td>Our legitimate interests in platform security</td></tr><tr><td>Your answer to the research question, with timestamp and wording version, including a "no" or a skipped question</td><td>To honour your answer and to be able to show what you were asked</td><td>Your consent for the research itself, and our legitimate interests in being able to evidence what you were asked</td></tr><tr><td>Pass, fail or name-mismatch signal from the identity provider, where that option is switched on</td><td>To confirm the person assessed is the person invited</td><td>The customer's basis. The check itself is performed by that provider under its own agreement with you, and any biometric processing is theirs, on the basis it obtains from you.</td></tr></tbody></table></div>
+<p>We also process the data above for the further purposes below. Except where the table says otherwise, these are ours rather than the customer's.</p>
+<p><strong>If you are a student</strong>, the de-identification, Aggregate Research and Session Research rows below do not apply to you unless your institution has signed a research agreement with us. Without it we use your session only to produce your report, to check that report is right, and to keep the platform running and secure. Section 3.3 explains why we set it up that way.</p>
+<div class="doc-table"><table><thead><tr><th><strong>Further purpose</strong></th><th><strong>What it involves</strong></th><th><strong>Legal basis</strong></th></tr></thead><tbody><tr><td>Quality assurance of your report</td><td>Our staff may read your session and score it by hand, under confidentiality, and compare that against what the platform produced</td><td>Where it concerns your own report, the customer's basis, on their instruction. Where it concerns how well our scoring works in general, it runs on de-identified data only.</td></tr><tr><td>Creating de-identified data</td><td>Removing direct and indirect identifiers by the procedure in section 5.2, so the result is no longer about you</td><td>Our legitimate interests in operating, securing, calibrating and improving the platform. You can object any time before the campaign or assignment closes, which is when it runs, and we will leave your session out. Once created, the result is not personal data.</td></tr><tr><td>Aggregate Research</td><td>Publishing statistics and aggregate findings from de-identified data. No individual session is published.</td><td>None required. This operates only on data that is no longer personal, so data protection law does not apply to it. The basis that matters is the one for creating that data, in the row above.</td></tr><tr><td>Session Research</td><td>Researchers reading your actual session record, and its possible inclusion in a published dataset</td><td>Your consent, article 6(1)(a). Optional, and refusing changes nothing. See section 5.</td></tr></tbody></table></div>
+<p>We do not collect anything from outside the assessment page. No camera, no microphone, no screen recording, no keystrokes outside the workspace. We do not infer your emotions, and the platform is not built to.</p>
+<p>We do not ask for or use special category data as defined by the GDPR, and we do not process biometric data. Where the optional identity check involves biometric processing, that happens at the identity provider, under its agreement with you, and we receive only the result.</p>
+<p>We do not collect demographic data through the assessment and never write it to your record. Where an employer lawfully collects it separately for adverse impact reporting in its own jurisdiction, that is voluntary, it happens outside the assessment, and it is joined to outcome data only inside the calculation that produces a group-level statistic.</p>
+<h3 id="privacy-2-2-automated-processing-and-what-it-does-not-do">2.2 Automated processing, and what it does not do</h3>
+<p>Your session is scored by an AI model against our rubric. The score is produced automatically. The hiring decision and the grade are not.</p>
+<p>Our contract with every customer requires meaningful human review over any decision informed by your report, forbids using the report as the sole basis for an adverse decision, and forbids automated rejection. In the education context it forbids treating a Result as a grade. Those decisions happen in the customer's own systems, which we cannot see, so this is a contractual obligation on them. What we control is our side: the platform does not set a final status on a participant without a person at the customer acting, and it records who acted and when.</p>
+<p>In the hiring context your own result page does not depend on that. It is available to you as soon as your session is scored, by the link we send you, whatever the employer does or does not do. In the education context your institution chooses whether you see it on scoring or after your instructor has reviewed it, and the screen you saw before starting says which applies.</p>
+<p>You can ask us for the logic in plain terms: which criteria were scored, what evidence from your session was cited for each, and which rubric version applied. That is on your result page, and we publish the rubric itself with a version number. The task materials and our internal scoring prompts are not published.</p>
+<p>If you want the hiring decision or the grade reconsidered, that request goes to the customer. If you want your session record checked, that comes to us.</p>
+<h3 id="privacy-2-3-who-sees-your-session">2.3 Who sees your session</h3>
+<ul><li>The employer or institution that invited you sees your report and the cited evidence from your session. If we have reason to believe the assessment was not completed as agreed, we may also tell them the session is unverified and why, and we tell you at the same time.</li><li>Our staff see it where the task requires, for support, for quality assurance, and for blind human scoring used to check the platform's agreement with human scorers. They are bound by confidentiality.</li><li>The AI vendors listed in section 7 receive the prompts you send and return the responses. They are contractually barred from training on that content.</li><li>Our hosting and email providers process it as infrastructure.</li><li>Our researchers, and independent academic reviewers under written confidentiality agreements, see your actual session record only if you consented under section 5.</li><li>Where your institution runs the platform through its learning management system, that system receives your score for its gradebook. It never receives your answer to the research question.</li><li>Nobody else. We do not sell it, we do not run a candidate pool, and we do not make you discoverable to employers or institutions you did not apply to.</li></ul>
+<h3 id="privacy-2-4-how-long-we-keep-it">2.4 How long we keep it</h3>
+<div class="doc-table"><table><thead><tr><th><strong>Data</strong></th><th><strong>Retained</strong></th></tr></thead><tbody><tr><td>Your session, report and the evidence behind it</td><td>12 months after the campaign or assignment closes, or 24 months where that customer has extended assessment retention. A legal hold placed by the customer suspends deletion.</td></tr><tr><td>The decision record: every scoring run, review action, dispute, disclosure version and erasure</td><td>Three years. We owe that record independently of the customer, and we keep it to the standard Colorado SB 26-189 sets from 1 January 2027, applied from now rather than waiting.</td></tr><tr><td>Your acceptance record, your answer to the research question, and the wording versions you saw</td><td>For as long as the session is retained, and for 3 years thereafter, so we can evidence what you were asked and what you agreed</td></tr><tr><td>De-identified data derived from your session, and statistics published from it</td><td>Indefinitely. It is no longer personal data and cannot be traced back to you, which also means a deletion request does not reach it.</td></tr><tr><td>Your session record used in published research, where you said yes</td><td>Until you withdraw, or until any earlier date your institution has agreed with us. Withdrawal removes it from unpublished work; already published papers and datasets cannot be retracted. See section 5.4.</td></tr><tr><td>Your correspondence with us about a data request</td><td>24 months</td></tr></tbody></table></div>
+<p>Deleting a session means we delete the session records and destroy the encryption key unique to you, which makes your contact details unrecoverable. We do not keep a readable copy.</p>
+<p>Our telemetry and decision records are append-only for the whole time a session is retained, so nobody can quietly rewrite what happened. That is a constraint on editing individual entries, not on deletion: an erasure request or the end of a retention period removes the session's records as a whole, which is how the two fit together.</p>
+<h3 id="privacy-2-5-your-rights">2.5 Your rights</h3>
+<p>You can ask us to: give you a copy of your data, which you can also download yourself from your result page once it is available to you; correct it; delete it; restrict or object to processing; port it; and withdraw research consent.</p>
+<p>Write to info@mystima.io. If you have a result page, quote the reference on it; if you do not yet, say who invited you and when. We respond within 30 days. There is no charge, and we will not treat you differently for asking, and you do not have to wait for your result page to make a request.</p>
+<p>Where we hold your data as processor for the employer or institution, we must pass your request to them so they can answer it. We tell you when we do. Where we are the controller, including for your research consent and your result page, we answer you directly. We will never tell a customer how you answered the research question.</p>
+<p>De-identified data is the one thing a deletion request cannot reach, because by then it is no longer about you and we have no way to find your part of it. Section 6 of the Participant Terms says the same thing, before you start.</p>
+<p>Section 9 sets out the additional rights you have depending on where you live.</p>
+<h2 id="privacy-3-if-you-work-for-a-customer"><span class="h-no">3</span>If you work for a customer</h2>
+<h3 id="privacy-3-1-participant-data">3.1 Participant data</h3>
+<p>We process participant assessment data on your documented instructions, as processor, under the Data Processing Addendum at https://mystima.io/dpa. That addendum carries the article 28 terms, the sub-processor list, the transfer mechanism, our security measures and our breach notification commitments.</p>
+<p>Two things sit outside that relationship. First, we create de-identified data from assessment sessions and use it to operate and improve the service and for Aggregate Research, as your Terms of Use and our agreement with each participant permit. If you are an educational institution, neither of those happens to your students' sessions at all unless you have signed the Research Annex described in section 3.3. Second, we conduct Session Research under section 5, for which we are an independent controller and you are not. You cannot direct that research, you cannot see which participants consented, and you cannot ask us who the reviewers are. In the hiring context you also have no right to object to it. In the education context you decide whether it happens at all, through the Research Annex in section 3.3, and you can withdraw that Annex, in which case we stop.</p>
+<h3 id="privacy-3-2-your-own-account-data">3.2 Your own account data</h3>
+<div class="doc-table"><table><thead><tr><th><strong>What we collect</strong></th><th><strong>Why</strong></th><th><strong>Legal basis</strong></th></tr></thead><tbody><tr><td>Name, work email, role, and sign-in events</td><td>To give you access, and to record who took which action on a participant</td><td>Performance of our contract with your organisation, and our legitimate interests in an auditable record</td></tr><tr><td>Billing contact and payment records</td><td>To bill you and to meet accounting obligations</td><td>Contract, and compliance with a legal obligation</td></tr><tr><td>Support correspondence</td><td>To support you</td><td>Contract, and our legitimate interests</td></tr><tr><td>Product usage events: which screens were used, which features, and when</td><td>To operate, secure and improve the service</td><td>Our legitimate interests</td></tr></tbody></table></div>
+<p>We use magic-link sign-in, so we do not hold a password for you.</p>
+<p>Account data is retained for the term plus 6 years for tax and limitation purposes. Your rights are the same as those in section 2.5, and you write to the same address.</p>
+<h3 id="privacy-3-3-if-you-are-a-us-educational-institution-ferpa">3.3 If you are a US educational institution: FERPA</h3>
+<p>Where you are subject to FERPA and disclose education records to us, we act as a school official with a legitimate educational interest, provided you have specified criteria for school officials in your annual FERPA notification that cover us. We perform a service you would otherwise perform with your own employees, we are under your direct control with respect to the use and maintenance of those records, we use them only for the purposes you authorise, and we do not redisclose them except as you direct or the law requires.</p>
+<p><strong>Research on student sessions is off by default.</strong> We do not perform Session Research or Aggregate Research on any session generated through your account, and we do not create de-identified data from one, unless you have signed a separate Research Annex. Without it, a student's session is used only to deliver the assessment to you, including checking that the student's own report is right, and to support and secure the platform. It is not used to validate our scoring methods generally, and the research consent screen is never shown to your students.</p>
+<p>We do not rely on the studies exception at 34 C.F.R. 99.31(a)(6), and we do not ask you to. That exception is available only for a study conducted for or on behalf of you, and our research is methodological, conducted in our own name and published by us. We would rather tell you that now than have your counsel find it later.</p>
+<p>Where an Annex is in place: <strong>Aggregate Research</strong> proceeds on the de-identification standard the Annex sets and does not need individual student consent, because it operates on data that is no longer personal and no longer an education record. <strong>Session Research</strong> needs both the Annex and the student's own consent. Neither is sufficient alone.</p>
+<p>An Annex applies only to sessions started after you sign it. It does not sweep in the session of a student who was told, before starting, that their work would not be used for research.</p>
+<p>We take this position because being your school official under your direct control and being an independent researcher you cannot direct are not compatible on the same records. Defaulting research off is how we keep the first one true.</p>
+<p>Students exercise their FERPA rights of access and amendment through you. We will support any request you pass to us.</p>
+<p>State student-privacy statutes such as California's SOPIPA and New York Education Law 2-d, and the standard data privacy agreements built on them, may also apply to you. Tell us which apply and we will complete your rider.</p>
+<h2 id="privacy-4-if-you-are-a-site-visitor"><span class="h-no">4</span>If you are a site visitor</h2>
+<p>Our servers record your IP address, browser and device type, operating system, referring page, pages viewed and time of visit whenever you load a page, which is how the site works and how we keep it secure. We rely on our legitimate interests for that.</p>
+<p>We also set cookies. Strictly necessary cookies are set without asking, as the law allows. Analytics cookies are set only if you agree through the banner, and you can withdraw that at any time.</p>
+<p>If you sign up for a trial or a waitlist, or send us a message, we hold what you gave us in order to reply and, where you agreed, to send you product email. Every marketing email has an unsubscribe link that works.</p>
+<p>Your rights are the same as those in section 2.5, and you write to the same address.</p>
+<p>[Cookie table to be inserted: name, purpose, duration, first or third party.]</p>
+<h2 id="privacy-5-research"><span class="h-no">5</span>Research</h2>
+<p>If you consented to research, or you are deciding whether to, this is the part that binds us.</p>
+<h3 id="privacy-5-1-what-we-research-and-why">5.1 What we research and why</h3>
+<p>We study how people work with AI on real tasks: which prompts people write, when they accept model output and when they reject it, what they verify, and how that relates to the quality of what they produce. We publish the results in academic venues.</p>
+<p>The purpose is methodological. We are trying to establish how assessments of human-AI collaboration should be designed and scored, which is a question the field has not settled and which affects everyone assessed by a tool like ours. We are not researching you, and we are not researching the employers or the institutions.</p>
+<p>For Session Research we are an independent controller. No customer directs it, and no customer sees it.</p>
+<h3 id="privacy-5-2-two-kinds-of-research-and-only-one-of-them-is-optional">5.2 Two kinds of research, and only one of them is optional</h3>
+<p><strong>Aggregate Research. Not optional in the hiring context, and we tell you about it before the assessment. In the education context it does not happen at all unless the institution has signed a research agreement.</strong></p>
+<p>We strip identifiers out of session data and use what is left to improve our scoring and to publish statistics and aggregate findings. Nobody is named. <strong>No individual session is published this way, whether or not identifiers have been removed.</strong> This is described on the assessment notice screen, before the optional question, so that the optional question is not the first you hear of it.</p>
+<p>Stripping is not a single pass. We remove direct identifiers automatically, then run automated detection for indirect identifiers in free text, including personal names, employer names, institution names, course names, project names and client names, then a person reviews the record before it enters any research or improvement set. We do not attempt to re-identify it, and our terms forbid customers from trying.</p>
+<p><strong>Session Research. Optional, and only with your explicit consent.</strong></p>
+<p>Some research needs the actual session: the prompts as written, the sequence of edits, the moments of verification. That material cannot be reliably stripped of everything that might identify its author, because writing itself is distinctive. We do not pretend otherwise, and that is precisely why we ask rather than treating it as anonymous. We use it only where the participant said yes. Published datasets contain only the sessions of participants who said yes.</p>
+<p>If a record cannot be brought to the de-identified standard, it is not used for Aggregate Research either. It goes into the consented set or it goes nowhere.</p>
+<h3 id="privacy-5-3-how-we-ask">5.3 How we ask</h3>
+<p>One question, on its own screen, after the assessment notice and before the task begins. Neither answer is pre-selected. Skipping it is recorded as a refusal.</p>
+<p>We hold ourselves to these six points:</p>
+<ul><li>No pre-selected option and no default. A non-answer is a no.</li><li>Your answer is stored with a timestamp and the identifier of the exact wording you saw, whether you said yes, said no, or skipped it. We keep superseded wordings, so we can always show what you were asked.</li><li>Your answer is never exposed on any customer-facing screen, report, export or interface, and in the education context it is never written to a learning management system or a gradebook. Your instructor cannot find out, and our contract forbids a customer from asking or from telling you the answer matters.</li><li>Withdrawal is a real route with a named person responsible for it.</li><li>Consent is per session. Saying yes once does not commit you for any later assessment.</li><li>We never ask this question of anyone who has not confirmed they are 18 or over, and the platform is not open to anyone under 18.</li></ul>
+<p>Consent here is consent under article 6(1)(a) of the GDPR and the equivalent provisions of DIFC Data Protection Law. It is separate from anything the customer relies on, and refusing it has no effect on your assessment or your grade.</p>
+<h3 id="privacy-5-4-what-happens-to-a-consented-session">5.4 What happens to a consented session</h3>
+<p>It is stored apart from your name and contact details. It is read by our researchers and by independent academic reviewers and collaborators who take part in scoring-agreement studies. Each of them is engaged under a written agreement imposing confidentiality, use restricted to the study, a ban on re-identification and on passing the data on, and a return or destruction obligation, with a lawful transfer mechanism in place. They never receive your contact details.</p>
+<p>Your session may appear in a published paper, or in a published dataset, with identifying material removed first, subject to the limit described in section 5.2.</p>
+<p>We keep it until you withdraw. There is no fixed end date, because published findings have to remain reproducible and a dataset that disappears cannot be checked. If you are a student, your institution may have agreed a destruction date with us, in which case that date applies and the screen you saw says so.</p>
+<p>If you withdraw, we remove your session from every research set and from any work not yet published. We cannot retract a paper or dataset already published. We say this on the consent screen, in those words, before you answer.</p>
+<h3 id="privacy-5-5-ethics-review">5.5 Ethics review</h3>
+<p>Session Research goes through ethics review before submission for publication, through an institutional review board, an independent ethics review service, or the review process of the publication venue. We record which route was used for each output. Consent is not the same thing as ethics clearance and we do not treat it as though it were.</p>
+<h3 id="privacy-5-6-what-we-do-not-do-with-research-data">5.6 What we do not do with research data</h3>
+<p>We do not use it to train or fine-tune the weights or parameters of any AI model. We do not sell it. We do not share it with employers or institutions. We do not use it to profile you for any purpose other than the research described here.</p>
+<h2 id="privacy-6-ai-models-and-what-reaches-them"><span class="h-no">6</span>AI models and what reaches them</h2>
+<p>The workspace gives participants a choice of AI models from two vendors, at two capability tiers each. The prompts a participant sends, and the resulting output, go to the vendor whose model was chosen. Results are generated by prompting a vendor's model against our rubric, with structured output.</p>
+<p>Every vendor is engaged under terms that prohibit using the content for training their models and that limit retention to abuse monitoring. We will not engage a vendor on terms that lack those protections.</p>
+<p>Generating a score by prompting a model is not the same as training a model. No model's weights or parameters are trained or fine-tuned on participant data, by us or by our vendors. We do use de-identified data to design and test our own rubrics, prompts and evaluation sets, which is a different operation and does not change any model.</p>
+<h2 id="privacy-7-sub-processors-and-vendors"><span class="h-no">7</span>Sub-processors and vendors</h2>
+<div class="doc-table"><table><thead><tr><th><strong>Recipient</strong></th><th><strong>Purpose</strong></th><th><strong>Location</strong></th></tr></thead><tbody><tr><td>Anthropic</td><td>Participant workspace chat; generation of results</td><td>[region]</td></tr><tr><td>OpenAI</td><td>Participant workspace chat</td><td>[region]</td></tr><tr><td>[Hosting provider]</td><td>Application and database hosting</td><td>EU</td></tr><tr><td>[Email provider]</td><td>Transactional email from mystima.io</td><td>[region]</td></tr><tr><td>[Identity provider]</td><td>Optional identity verification</td><td>[region]</td></tr><tr><td>[Analytics provider]</td><td>Website analytics on mystima.io, consent-based. No assessment data.</td><td>[region]</td></tr></tbody></table></div>
+<p>Customers receive at least 30 days' notice of any addition or replacement to this table and may object.</p>
+<p>Where your institution runs the platform through its own learning management system, that system supplies your identifier and receives your score for its gradebook. It is your institution's system rather than one of ours, so it is not in the table above and your institution controls what it holds. Your answer to the research question is never written to it.</p>
+<p>Independent academic reviewers are not in this table and are not sub-processors. They receive consented session records only, under the agreements described in section 5.4, and they act under our direction as independent controller, not the customer's. A customer has no right of notice or objection over them and no right to their identities, because the research is not the customer's processing.</p>
+<p>Where identity verification is enabled, that provider performs the check under its own agreement with the participant and returns only a pass, fail or name-mismatch signal. We do not receive or store video, images, identity documents or biometric data.</p>
+<h2 id="privacy-8-where-data-is-stored-and-transfers"><span class="h-no">8</span>Where data is stored, and transfers</h2>
+<p>We run the platform on infrastructure we control, in an EU region, hosted by the provider named in section 7. Participant assessment data is stored there regardless of where the participant or the customer is located.</p>
+<p>Model vendors, the email provider, the identity provider and research reviewers may process data outside the EEA. Where they do, transfers are made under [Standard Contractual Clauses, adequacy, or Data Privacy Framework certification], and the mechanism for each is recorded in the Data Processing Addendum and, for reviewers, in the written agreement with that reviewer.</p>
+<p>For participants in the DIFC, transfers out of the DIFC are made under [article 26 or 27 DIFC DPL mechanism]. For participants in the UAE outside the DIFC, transfers follow Federal Decree-Law No. 45 of 2021.</p>
+<h2 id="privacy-9-rights-by-jurisdiction"><span class="h-no">9</span>Rights by jurisdiction</h2>
+<p>Everyone covered by this policy has the rights in section 2.5, whichever section describes them. Depending on where you live, you also have the following. We apply these rights based on where you are, not where the customer is.</p>
+<p><strong>EEA and UK.</strong> Access, rectification, erasure, restriction, objection, portability, withdrawal of consent, and the right not to be subject to a decision based solely on automated processing which produces legal or similarly significant effects. You can complain to your supervisory authority. [Representative under article 27, if appointed.]</p>
+<p><strong>California.</strong> Under the CCPA as amended: the right to know the categories and specific pieces of personal information collected, the sources, the purposes and the categories of recipients; the right to delete; the right to correct; the right to limit use of sensitive personal information; and the right to opt out of sale or sharing. We do not sell or share personal information as those terms are defined, and we do not use or disclose sensitive personal information beyond the permitted business purposes. We do not offer financial incentives. Job applicants have these rights in full. Students hold them too, to the extent their records are not carved out as education records handled under section 3.3.</p>
+<p><strong>Colorado.</strong> The Colorado Privacy Act's consumer rights do not extend to individuals acting in a job applicant or employment context, so for Colorado job applicants we give the same rights as everyone else under section 2.5 as a matter of policy rather than statute. A Colorado student on a course is not in an employment context, and holds those rights by statute, including the right to appeal a refused request and to use a recognised universal opt-out mechanism. Write to us and we will handle either. Separately, from 1 January 2027, SB 26-189 requires us as a developer to give deployers documentation of intended uses, known limitations and risks, and the categories of data used in development, to notify them of material updates, and to keep those records for three years. Section 7 of the Terms of Use is how we do that. That statute also voids any contract term purporting to indemnify a party against liability for its own discriminatory act.</p>
+<p><strong>Illinois.</strong> The Human Rights Act as amended by HB 3773 applies to an employer's use of AI in employment decisions. The Artificial Intelligence Video Interview Act applies to video interviews, which Stima Prova does not conduct and does not process. Where the optional identity check is enabled, the Biometric Information Privacy Act may apply to that check; it is performed by the identity provider, which obtains its own consent, and we receive no biometric data.</p>
+<p><strong>New York City.</strong> Local Law 144 requires the employer to commission an independent bias audit within the preceding year, to publish a summary, and to give candidates notice. That obligation sits with the employer. We supply the underlying data for their auditor and we do not hold ourselves out as that auditor.</p>
+<p><strong>Students at US institutions.</strong> FERPA gives you the right to inspect and review your education records, to seek amendment, and to control certain disclosures. You exercise those rights through your institution, not through us, and we support any request it passes to us. Section 3.3 sets out our position.</p>
+<p><strong>DIFC.</strong> Access, rectification, erasure, restriction, portability, objection, the right not to be subject to solely automated decisions with significant effects, and the right to complain to the Commissioner of Data Protection. Under Regulation 10 you may also request information about the autonomous processing and contest its output.</p>
+<p><strong>United Arab Emirates, outside the DIFC.</strong> Access, rectification, erasure, restriction, portability, objection, withdrawal of consent, and the right to object to automated processing producing legal or seriously affecting consequences, subject to the exceptions in the law.</p>
+<p><strong>Everywhere else.</strong> Write to us anyway and we will answer.</p>
+<h2 id="privacy-10-security"><span class="h-no">10</span>Security</h2>
+<p>Participant contact details are held in a separate table, encrypted with a key unique to that participant. Session telemetry, submissions, scores and the decision record reference only an opaque participant identifier. Deletion destroys the per-participant key and the session records.</p>
+<p>Telemetry and the decision record are append-only for as long as a session is retained, enforced at the database layer, so the record of what happened cannot be quietly rewritten.</p>
+<p>Invitation tokens, result tokens and share links are hashed at rest and are single purpose. Secrets are held outside the code repository and outside anything sent to the browser. Backups run daily and restores are tested.</p>
+<p>We will notify affected customers of a personal data breach without undue delay, and participants directly where the law requires it or where the risk to them warrants it.</p>
+<h2 id="privacy-11-children"><span class="h-no">11</span>Children</h2>
+<p>The platform is for people aged 18 and over. We do not knowingly process the data of anyone under 18. If we learn that we have, we delete the session.</p>
+<p>Customers are contractually forbidden from inviting or assigning an assessment to anyone under 18, including a school-age student enrolled on a course through dual enrolment or early admission. The research question is never shown to anyone who has not confirmed they are 18 or over.</p>
+<h2 id="privacy-12-changes-to-this-policy"><span class="h-no">12</span>Changes to this policy</h2>
+<p>We post the current version here with its version number and date, and keep prior versions available. Changes apply prospectively only. A change never alters what a participant has already consented to, and never applies retroactively to a session already completed.</p>
+<h2 id="privacy-13-contact"><span class="h-no">13</span>Contact</h2>
+<p>Milkis Strategic Partners LLC</p>
+<p>378 W Foothill St, Apache Junction, AZ 85120</p>
+<p>General: info@mystima.io</p>
+<p>Privacy and data requests: info@mystima.io</p>
+<p>Research withdrawal: info@mystima.io</p>
+<p>Version 1.1. Last updated [date].</p>
+    </div>
+  </div>
+</article>
+
+<article class="lg-doc" id="participant-terms" data-doc="participant-terms" data-title="Participant Terms" data-meta="Version 1.1 | Effective [date]">
+  <aside class="lg-toc" aria-label="Sections of the Participant Terms">
+    <div class="lg-toc-label">On this page</div>
+    <ol><li><a href="#participant-terms-1-who-we-are-and-what-this-is">1. Who we are and what this is</a></li><li><a href="#participant-terms-2-accepting-these-terms">2. Accepting these terms</a></li><li><a href="#participant-terms-3-you-must-be-18">3. You must be 18</a></li><li><a href="#participant-terms-4-using-ai-during-the-assessment">4. Using AI during the assessment</a></li><li><a href="#participant-terms-5-what-we-record">5. What we record</a></li><li><a href="#participant-terms-6-your-work-stays-yours">6. Your work stays yours</a></li><li><a href="#participant-terms-7-published-research-using-your-session-is-optional">7. Published research using your session is optional</a></li><li><a href="#participant-terms-8-how-your-report-is-used">8. How your report is used</a></li><li><a href="#participant-terms-9-what-we-will-not-do">9. What we will not do</a></li><li><a href="#participant-terms-10-your-rights-over-your-data">10. Your rights over your data</a></li><li><a href="#participant-terms-11-availability-and-limits">11. Availability and limits</a></li><li><a href="#participant-terms-12-law-and-disputes">12. Law and disputes</a></li><li><a href="#participant-terms-13-changes">13. Changes</a></li><li><a href="#participant-terms-14-contact">14. Contact</a></li></ol>
+  </aside>
+  <div class="lg-body">
+    <header class="lg-doc-head">
+      <div class="lg-kicker">For participants</div>
+      <h2 class="lg-doc-title">Participant Terms</h2>
+      <p class="lg-meta">Version 1.1 | Effective [date]</p>
+    </header>
+    <div class="lg-text">
+<p>These terms cover two situations: an employer invited you to complete a work task as part of hiring, or an instructor set it as part of a course. Where the two differ, this says so.</p>
+<h2 id="participant-terms-1-who-we-are-and-what-this-is"><span class="h-no">1</span>Who we are and what this is</h2>
+<p>Stima Prova is an assessment platform run by Milkis Strategic Partners LLC, an Arizona limited liability company of 378 W Foothill St, Apache Junction, AZ 85120 ("Stima", "we", "us").</p>
+<p>Someone has invited you to complete a work task on it. In these terms we call them "the organisation": your prospective employer if this is part of a job application, or your institution and instructor if this is part of a course.</p>
+<p>These terms are an agreement between you and us. They are not an agreement with the organisation. Your relationship with them, including anything about the job or about your course, is between you and them.</p>
+<h2 id="participant-terms-2-accepting-these-terms"><span class="h-no">2</span>Accepting these terms</h2>
+<p>You accept these terms by selecting "I agree" below. Until you do, we record nothing about your session.</p>
+<p>There is also a separate box confirming your age. You have to tick both.</p>
+<p>If you do not want to accept, close the page and tell the organisation.</p>
+<p>We record which version of these terms you saw, when you accepted, and your IP address and basic browser and device information at that moment.</p>
+<h2 id="participant-terms-3-you-must-be-18"><span class="h-no">3</span>You must be 18</h2>
+<p>You confirm that you are 18 or over.</p>
+<p>The platform is not for anyone younger, including if you are enrolled on a university course while still at school. If we learn that a person under 18 has completed an assessment, we delete the session.</p>
+<h2 id="participant-terms-4-using-ai-during-the-assessment"><span class="h-no">4</span>Using AI during the assessment</h2>
+<p>You are allowed to use the AI models built into the workspace. That is the point of the task. You are not penalised for using them, and you are not rewarded simply for using them. You are assessed on how you worked: what you asked, what you kept, what you changed, and what you checked.</p>
+<p>You agree that:</p>
+<p class="item">(a) you are taking the assessment yourself, and nobody else is doing it for you;</p>
+<p class="item">(b) you will not use another person to produce your answer, and will not share your invitation link or your session with anyone;</p>
+<p class="item">(c) you will not attempt to interfere with the platform, extract its task materials or its internal scoring prompts, or use it to build a competing product. The rubric we score against is published, so that is not something you need to extract;</p>
+<p class="item">(d) where the task tells you a specific tool or resource is off limits, you will respect that.</p>
+<p>If we have good reason to believe an assessment was not completed as described here, we may end the session and we may tell the organisation that the session is unverified and why. We tell you at the same time. That is a flag for a person to look at. It is not a finding against you, and if this is a course, your institution's own academic integrity process applies, not ours.</p>
+<h2 id="participant-terms-5-what-we-record"><span class="h-no">5</span>What we record</h2>
+<p>While you work, the platform records:</p>
+<ul><li>the prompts you send to the AI models and the responses you get back;</li><li>which model and which capability tier you chose, and when you switched;</li><li>snapshots of your draft as you edit it, and text you copy from a model response into your work;</li><li>responses you discarded or regenerated;</li><li>what you checked or verified during the task;</li><li>how your time was spent, including periods of inactivity;</li><li>your final submission and your optional note about your approach;</li><li>your name and email address, from the invitation, or, where your institution runs this through its learning management system, the identifier that system gives us for you;</li><li>your IP address and basic browser and device information, when you accept these terms and through the session, which is how we evidence what you agreed to and how we detect abuse;</li><li>your acceptance of these terms, and your answer to the optional research question in section 7, each with a timestamp and a note of which version of the wording you saw.</li></ul>
+<p>That is the whole list.</p>
+<p>If your institution runs this through its learning management system, your score may also be written back to its gradebook. Your answer to the optional research question in section 7 is never written there, or anywhere else your institution or employer can see.</p>
+<p>It does not record anything you do outside the assessment page. No camera, no microphone, no screen recording, no keystrokes outside the workspace.</p>
+<p>The prompts you write are sent to the AI company whose model you chose, because that is how you get an answer. Those companies are contractually barred from using what you send to train their models. They are named in our Privacy Policy.</p>
+<p>If the optional identity check is switched on, a separate provider runs that check and tells us only whether it passed and whether the name matched. We never receive or store your photo, your video, your identity document or your biometric data.</p>
+<p>Our Privacy Policy explains what we do with all of this, how long we keep it, and who else sees it. Read it at https://mystima.io/privacy.</p>
+<h2 id="participant-terms-6-your-work-stays-yours"><span class="h-no">6</span>Your work stays yours</h2>
+<p>The work you produce during the assessment is yours. You keep the rights in it. If this is a course, your institution's own intellectual property regulations are between you and them.</p>
+<p><strong>If this is a course</strong>, permissions (b) and (c) below are switched off unless your institution has signed a separate research agreement with us. Without it we use your session only for (a), and to check that your report is right. Section 7 has the detail.</p>
+<p>You give us permission to:</p>
+<p class="item">(a) store and analyse your session, generate your report and your result page, and make that report available to the organisation that invited you;</p>
+<p class="item">(b) have our own staff read your session and score it by hand, under confidentiality, so we can check that our scoring agrees with a human's;</p>
+<p class="item">(c) strip your name, the organisation's name and other identifying details out of your work and the record of how you produced it, and use what is left to operate, secure, evaluate, calibrate and improve the platform, and to publish statistics and aggregate findings about how people work with AI. Nothing published this way names you, names the organisation, or reproduces an individual session;</p>
+<p class="item">(d) if you say yes to the optional question in section 7, use the record of your session in published research as described there.</p>
+<p>That is the whole of what you give us.</p>
+<p>One thing to be straight about on (c). If you tell us before we do it that you do not want your session stripped down and used this way, we will leave it out. Write to info@mystima.io before the campaign or assignment closes, which is when it runs. Once we have stripped the identifying details out, though, the data is no longer about you, we cannot pick your part back out of it, and it stays in use indefinitely. That means asking us later to delete your session removes your session and your identifying details, but it does not reach back into stripped data we have already produced or into statistics already published. If that matters to you, it is worth knowing before you start rather than afterwards.</p>
+<p>We do not acquire ownership of your work, and the organisation does not acquire it through us. Anything they want beyond that is a matter between you and them.</p>
+<h2 id="participant-terms-7-published-research-using-your-session-is-optional"><span class="h-no">7</span>Published research using your session is optional</h2>
+<p>We do research on how people work with AI, and we publish it. After the assessment notice, you will see one optional question asking whether we may use the record of your session in that research.</p>
+<p><strong>If this is a course</strong>, you will only see that question if your institution has signed a separate research agreement with us. If it has not, we do not use your work for research at all, we do not create stripped-down data from it either, and nothing in section 6(c) applies to you. If it has, your yes is necessary but not sufficient: the institution's agreement sets the rules, and if it withdraws that agreement we stop, whatever you answered.</p>
+<p>It is a different thing from section 6(c). Section 6(c) is stripped-down data and statistics with nobody named and no individual session published. This question is about whether researchers may read your actual session, and whether that record may appear in a published dataset alongside a paper.</p>
+<p>It is genuinely optional:</p>
+<ul><li>it is not a condition of taking or completing the assessment;</li><li>your answer is never shown to the organisation, and we will not tell them, even if they ask. If this is a course, that includes your instructor;</li><li>it has no effect on your score, your report, the hiring outcome, or your grade;</li><li>neither answer is pre-selected, and if you skip the question we treat it as a no;</li><li>you are asked once per assessment. Saying yes now does not commit you for any future one.</li></ul>
+<p>If you say yes, your session record is stored apart from your name and contact details, and is read by our researchers and by independent academic reviewers who are under written confidentiality agreements. Before anything is published we remove your name, your contact details, the organisation's name, and other identifying details we find.</p>
+<p>We will be straight with you about the limit of that. The things you wrote are your own words, and writing can be distinctive, so we cannot promise that someone determined to work out who you are could never do it. That is exactly why we ask you rather than treating your session as anonymous.</p>
+<p>You can withdraw at any time by emailing info@mystima.io. We will take your session out of any research that has not yet been published. We cannot retract a paper or dataset that is already published, which is why we keep published research data indefinitely unless you withdraw first. If you are a student and your institution has agreed a destruction date with us, that date applies instead.</p>
+<h2 id="participant-terms-8-how-your-report-is-used"><span class="h-no">8</span>How your report is used</h2>
+<p>The report describes how you worked. It does not decide anything.</p>
+<p><strong>If this is a job application</strong>, a person at the employer makes the hiring decision, in their own systems. Our contract with them requires meaningful human review over any decision informed by your report, forbids using it as the sole basis for turning you down, and forbids any automated rejection. We cannot see or control what they do in their own systems, which is why it is a contractual obligation on them rather than a promise from us.</p>
+<p><strong>If this is a course</strong>, the report is not your grade. Your instructor decides your grade, and your institution's usual appeal route applies. Our contract with your institution forbids treating a Result as a grade or as determinative of an academic integrity allegation.</p>
+<p><strong>If this is a job application</strong>, your result page is available to you as soon as your session is scored. It does not depend on the employer doing anything first.</p>
+<p><strong>If this is a course</strong>, your institution chooses whether you see your report as soon as it is scored or after your instructor has reviewed it. The screen you saw before you started says which applies. It shows which criteria were scored, what evidence from your session was cited for each, and which version of our rubric applied. We publish the rubric itself.</p>
+<p>If you think your report is wrong, email us at info@mystima.io with the reference on your result page. We will look at the session and tell you what we find.</p>
+<p>Depending on where you live, you may also have a legal right to an explanation, to contest the decision, or to ask for human intervention. Requests about the hiring decision or the grade go to the organisation, because the decision is theirs. We will help you reach the right contact.</p>
+<h2 id="participant-terms-9-what-we-will-not-do"><span class="h-no">9</span>What we will not do</h2>
+<p>We will not sell your data.</p>
+<p>We will not use your session to train or fine-tune the weights or parameters of any AI model, ours or anyone else's. The AI vendors whose models you use in the workspace are contractually barred from training on what you send. What we do instead, under section 6(c), is use stripped-down data to design and test our own scoring methods, rubrics and prompts. That is a different thing from training a model on your work, and we would rather spell out the difference than leave you to guess at it.</p>
+<p>We will not show you to employers or institutions you did not apply to. We do not run a candidate pool or a talent marketplace.</p>
+<p>We will not use your session to market anything to you.</p>
+<h2 id="participant-terms-10-your-rights-over-your-data"><span class="h-no">10</span>Your rights over your data</h2>
+<p>You can, at any time:</p>
+<ul><li>get a copy of everything we hold about your session, as a structured file, from your result page once it is available to you, or by emailing us at any time, whether or not your result page is out;</li><li>ask us to correct something that is wrong;</li><li>ask us to delete your data, subject to the point about stripped data in section 6;</li><li>withdraw research consent;</li><li>object to or restrict certain processing.</li></ul>
+<p>Write to info@mystima.io. We respond within 30 days. There is no charge, and we will not treat you differently for asking.</p>
+<p>One thing to know about where your request goes. For most of what we hold about your assessment, the organisation is legally the controller and we hold it on their behalf, so we have to pass your request to them so they can answer it. When we do that, we tell you. For your research consent, for your result page, and for what we hold under these terms, we are the controller and we answer you directly. We will never tell the organisation how you answered the research question.</p>
+<p>The Privacy Policy sets out the full list, including the extra rights you have if you are in the EEA, the UK, California, Colorado, the DIFC or the UAE, and, if you are a student at a US institution, your rights over your education records.</p>
+<h2 id="participant-terms-11-availability-and-limits"><span class="h-no">11</span>Availability and limits</h2>
+<p>We try to keep the platform working, but we do not promise it will be uninterrupted or error-free.</p>
+<p>If an AI model provider is unavailable during your session, you can carry on editing your work. Your time limit keeps running, because the timer is set by the organisation and we do not stop it automatically. We record the outage against your session and flag it to them. Whether to give you extra time is their decision, not ours. If you think an outage affected you, email us at info@mystima.io and we will tell them what we recorded.</p>
+<p>Our liability to you is limited to the extent the law allows. We do not exclude or limit liability for death or personal injury caused by negligence, for fraud, or for anything else that cannot lawfully be limited. Nothing here takes away a right you have under the mandatory law of where you live.</p>
+<h2 id="participant-terms-12-law-and-disputes"><span class="h-no">12</span>Law and disputes</h2>
+<p>These terms are governed by the laws of the State of Arizona, without regard to its conflict of laws principles. [Venue.]</p>
+<p>If you live in the EEA, the UK, or another place whose law gives you rights that cannot be contracted away, you keep those rights and you can bring a claim where you live.</p>
+<h2 id="participant-terms-13-changes"><span class="h-no">13</span>Changes</h2>
+<p>If we change these terms, the new version applies to assessments started after the change. It does not apply to a session you have already completed, and it never changes what you agreed to about research.</p>
+<h2 id="participant-terms-14-contact"><span class="h-no">14</span>Contact</h2>
+<p>Milkis Strategic Partners LLC</p>
+<p>378 W Foothill St, Apache Junction, AZ 85120</p>
+<p>info@mystima.io</p>
+<p>Data protection contact: info@mystima.io</p>
+<p>Research withdrawal: info@mystima.io</p>
+    </div>
+  </div>
+</article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Stima · Milkis Strategic Partners LLC</span>
+    <span><a href="/">mystima.io</a> · <a href="#terms-of-use">Terms of Use</a> · <a href="#privacy">Privacy</a> · <a href="#participant-terms">Participant Terms</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var docs=[].slice.call(document.querySelectorAll(".lg-doc"));
+  var tabs=[].slice.call(document.querySelectorAll(".lg-tab"));
+  var keys=docs.map(function(d){return d.id});
+  function docFor(hash){
+    var id=(hash||"").replace(/^#/,"");
+    if(!id) return keys[0];
+    if(keys.indexOf(id)>=0) return id;
+    var el=document.getElementById(id);
+    var art=el && el.closest(".lg-doc");
+    return art ? art.id : keys[0];
+  }
+  function show(key, anchor){
+    docs.forEach(function(d){d.classList.toggle("on", d.id===key)});
+    tabs.forEach(function(t){t.setAttribute("aria-selected", String(t.dataset.doc===key))});
+    var target=anchor && anchor!==key ? document.getElementById(anchor) : null;
+    if(target){ target.scrollIntoView({block:"start"}); }
+    else { var top=document.querySelector(".lg-docs").getBoundingClientRect().top+window.scrollY-70; if(window.scrollY>top) window.scrollTo(0, top); }
+  }
+  tabs.forEach(function(t){
+    t.addEventListener("click", function(e){
+      e.preventDefault();
+      history.replaceState(null, "", "#"+t.dataset.doc);
+      show(t.dataset.doc);
+    });
+  });
+  document.querySelectorAll(".foot a[href^='#']").forEach(function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault(); var k=a.getAttribute("href").slice(1);
+      history.replaceState(null, "", "#"+k); show(k); window.scrollTo({top:0});
+    });
+  });
+  window.addEventListener("hashchange", function(){ var h=location.hash.slice(1); show(docFor(location.hash), h); });
+  show(docFor(location.hash), location.hash.slice(1));
+
+  /* highlight the section in view in the table of contents */
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var art=en.target.closest(".lg-doc");
+        art.querySelectorAll(".lg-toc a").forEach(function(a){a.classList.toggle("on", a.getAttribute("href")==="#"+en.target.id)});
+      });
+    },{rootMargin:"-20% 0px -70% 0px"});
+    document.querySelectorAll(".lg-text h2[id]").forEach(function(h){io.observe(h)});
+  }
+})();
+</script>
+</body>
+</html>
