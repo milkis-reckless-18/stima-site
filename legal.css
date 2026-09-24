@@ -30,8 +30,8 @@
 .lg-text h2:first-child{margin-top:8px}
 .lg-text .h-no{font-family:var(--mono);font-size:.62em;font-weight:500;color:var(--accent);letter-spacing:.06em;min-width:1.6em}
 .lg-text h3{font-family:var(--serif);font-style:italic;font-weight:460;color:var(--ink);font-size:1.16rem;margin:28px 0 10px;scroll-margin-top:110px}
-.lg-text .clause{display:grid;grid-template-columns:3.2em 1fr;gap:0 10px}
-.lg-text .cl-no{font-family:var(--mono);font-size:.82em;color:var(--accent);padding-top:.22em;letter-spacing:.04em}
+.lg-text .clause{position:relative;padding-left:calc(3.2em + 10px)}
+.lg-text .cl-no{position:absolute;left:0;top:.22em;font-family:var(--mono);font-size:.82em;color:var(--accent);letter-spacing:.04em}
 .lg-text .item{padding-left:calc(3.2em + 10px);text-indent:-1.9em;margin-left:1.9em}
 .lg-text ul{margin:0 0 16px;padding-left:calc(3.2em + 10px);list-style:none}
 .lg-text li{position:relative;margin:0 0 8px}
@@ -103,8 +103,8 @@
   .lgp-head .lg-tab-for{display:none}
   .lgp-body{padding:4px 18px 24px}
   .lgp-foot{padding:12px 18px}
-  .lg-text .clause{grid-template-columns:2.6em 1fr}
-  .lg-text .item{padding-left:0;margin-left:1.9em}
+  .lg-text .clause{padding-left:3em}
+  .lg-text .item{padding-left:calc(3em + 1.9em);margin-left:0}
   .lg-text ul{padding-left:22px}
 }
 html.lgp-lock,html.lgp-lock body{overflow:hidden}
