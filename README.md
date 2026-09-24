@@ -48,7 +48,7 @@ Static files only. Drag the folder into Netlify, run `vercel deploy`, or enable 
 To publish a new version, build the page from the new files and deploy as usual:
 
 ```bash
-python3 tools/legal_to_html.py --tou ToU.docx --privacy Privacy_Policy.docx --participant Participant_Terms.docx
+python3 tools/legal_to_html.py --tou ToU.docx --privacy Privacy_Policy.docx --participant Participant_Terms.docx --date "24 September 2026"
 ```
 
 The text is taken verbatim; the page layout lives in `tools/terms-template.html`.

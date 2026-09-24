@@ -4,12 +4,14 @@ Builds terms/index.html from the three Stima Prova legal documents (.docx).
     python3 tools/legal_to_html.py \
         --tou  path/to/Stima_Prova_ToU_*.docx \
         --privacy path/to/Stima_Prova_Privacy_Policy_*.docx \
-        --participant path/to/Stima_Prova_Participant_Terms_*.docx
+        --participant path/to/Stima_Prova_Participant_Terms_*.docx \
+        --date "24 September 2026"
 
 The text is taken verbatim from the documents. Only structure is added:
 Heading 1 and Heading 2 become section headings with anchors, list
 paragraphs become lists, "(a)" items and "1.2" clauses get their own
-styling, bold runs stay bold, tables stay tables.
+styling, bold runs stay bold, tables stay tables. --date fills the
+"[date]" placeholders the documents carry for their effective date.
 """
 import argparse
 import html
@@ -182,11 +184,15 @@ def main():
     ap.add_argument("--tou", required=True)
     ap.add_argument("--privacy", required=True)
     ap.add_argument("--participant", required=True)
+    ap.add_argument("--date", help='replaces every "[date]" placeholder, e.g. "24 September 2026"')
     a = ap.parse_args()
     docs = [convert(Path(a.tou), "terms-of-use"), convert(Path(a.privacy), "privacy"), convert(Path(a.participant), "participant-terms")]
     out = ROOT / "terms" / "index.html"
     out.parent.mkdir(exist_ok=True)
-    out.write_text(page(docs))
+    text = page(docs)
+    if a.date:
+        text = text.replace("[date]", html.escape(a.date))
+    out.write_text(text)
     for d in docs:
         print(f'{d["key"]}: {d["title"]} | {d["meta"]} | {len(d["toc"])} sections')
     print("written", out)
