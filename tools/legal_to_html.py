@@ -64,7 +64,7 @@ ROW_FILLS = {
     "OpenAI": {"[region]": "United States"},
     "[Hosting provider]": {"[Hosting provider]": "Scalaxy B.V."},
     "[Email provider]": {"[Email provider]": "Scaleway SAS", "[region]": "France (EU)"},
-    "[Identity provider]": {"[Identity provider]": "Sonavera (when enabled for a campaign)", "[region]": "To be confirmed before first use"},
+    "[Identity provider]": {"[Identity provider]": "Sonavera, operated by North Star Software Inc. (when enabled for a campaign)", "[region]": "To be confirmed before first use"},
     "[Analytics provider]": {"[Analytics provider]": "Google LLC (Google Analytics 4)", "[region]": "United States"},
 }
 # Processors missing from the documents, appended to the tables whose first header matches.
