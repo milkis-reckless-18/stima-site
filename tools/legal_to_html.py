@@ -77,7 +77,7 @@ EXTRA_ROWS = {
 COOKIE_PLACEHOLDER = "[Cookie table to be inserted: name, purpose, duration, first or third party.]"
 COOKIE_ROWS = [
     ["Name", "Purpose", "Duration", "First or third party"],
-    ["stima_session", "Keeps a customer user signed in to Stima Prova. Strictly necessary.", "7 days", "First party"],
+    ["stima_session", "Keeps a customer user signed in to Stima Prova. Strictly necessary.", "90 days from the last visit if you choose to stay signed in on the device; otherwise until the browser closes, 12 hours at most", "First party"],
     ["stima-consent (browser storage)", "Remembers your choice in the cookie banner. Strictly necessary.", "Until you change the choice or clear site data", "First party"],
     ["_ga", "Google Analytics: tells visits from different browsers apart. Set only if you accept analytics.", "2 years", "First party, set by Google Analytics"],
     ["_ga_CBQTM9PBQE", "Google Analytics: keeps the state of a visit. Set only if you accept analytics.", "2 years", "First party, set by Google Analytics"],
