@@ -5,7 +5,8 @@
     npx -y tailwindcss@3.4.17 -c tools/prova-tailwind.config.js -i tools/prova.src.css -o prova.css --minify
 
 Her pages are the source of the copy and the design. On the way in they get:
-  - images pulled out of base64 into img/prova/<hash>.<ext> (shared across pages, cached);
+  - images pulled out of base64 into img/prova/<hash>.<ext> (shared across pages, cached), with
+    corrected copies from tools/prova-image-fixes/ where one exists;
   - the compiled prova.css instead of the Tailwind CDN (built by the second command);
   - consent.js (Google Analytics only after consent), the legal popup (legal.js) and
     footer links to the binding documents on /terms/ instead of her short terms/privacy pages;
@@ -28,6 +29,8 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 IMG_DIR = ROOT / "img" / "prova"
+# Corrected copies of her images, named by the hash of the image they replace (see tools/prova-image-fixes/README.md).
+FIXES_DIR = ROOT / "tools" / "prova-image-fixes"
 SITE = "https://mystima.io"
 
 PAGES = {
@@ -62,6 +65,11 @@ def extract_images(s):
         kind, data = m.group(1), m.group(2)
         raw = base64.b64decode(data)
         name = hashlib.sha256(raw).hexdigest()[:12] + "." + EXT[kind]
+        fixed = FIXES_DIR / name
+        if fixed.exists():
+            # A corrected copy of her image, e.g. a product screenshot without the "Made with Lovable" badge.
+            raw = fixed.read_bytes()
+            name = hashlib.sha256(raw).hexdigest()[:12] + fixed.suffix
         path = IMG_DIR / name
         if not path.exists():
             path.write_bytes(raw)
