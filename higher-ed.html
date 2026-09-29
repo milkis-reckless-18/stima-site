@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<!-- Imported from milkis-reckless-18/stima-prova-site@033ed39 by tools/prova_import.py; edit there or in the script. -->
+<script src="/consent.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232A103A'/%3E%3Ccircle cx='32' cy='32' r='13' fill='none' stroke='%23FF5B6E' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23FFF7ED'/%3E%3C/svg%3E">
+<title>Stima Prova for Higher Education, AI-allowed coursework, measured</title>
+<meta name="description" content="Bring one legacy assignment. We make it AI-proof by making AI allowed. No proctoring. No prohibition. No new policy needed.">
+<link rel="canonical" href="https://mystima.io/higher-ed.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stima Prova">
+<meta property="og:title" content="Stima Prova for Higher Education, AI-allowed coursework, measured">
+<meta property="og:description" content="Bring one legacy assignment. We make it AI-proof by making AI allowed. No proctoring. No prohibition. No new policy needed.">
+<meta property="og:url" content="https://mystima.io/higher-ed.html">
+<meta property="og:image" content="https://mystima.io/img/prova/72c49a05072a.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/prova.css">
+<link rel="stylesheet" href="/legal.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body { background:#FFF7ED; color:#2A103A; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  ::selection { background:#FF5B6E; color:#fff; }
+  :focus-visible { outline:2px solid #11C5BF; outline-offset:3px; border-radius:4px; }
+  .eyebrow { font-size:12px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; }
+  .accent { color:#FF5B6E; font-style:italic; }
+  .accent-aqua { color:#11C5BF; font-style:italic; }
+  .hairline { height:1px; background:rgba(42,16,58,.12); }
+  .hairline-w { height:1px; background:rgba(255,255,255,.12); }
+  .grain { position:fixed; inset:0; z-index:70; pointer-events:none; opacity:.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E"); }
+  #progress { position:fixed; top:0; left:0; height:2px; width:0%; background:linear-gradient(90deg,#FF5B6E,#FFB238,#11C5BF); z-index:80; }
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity:1; transform:translateY(0); }
+  .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s} .d4{transition-delay:.32s}
+  .glow { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; }
+  .drop { opacity:0; visibility:hidden; transform:translateY(10px); transition:opacity .28s ease, transform .28s ease, visibility .28s; }
+  .has-drop:hover .drop, .has-drop:focus-within .drop, .has-drop.open .drop { opacity:1; visibility:visible; transform:translateY(0); }
+  .drop-item { transition:background .2s ease; }
+  .drop-item:hover { background:rgba(42,16,58,.04); }
+  .lift { transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s cubic-bezier(.16,1,.3,1); }
+  .lift:hover { transform:translateY(-6px); box-shadow:0 18px 50px rgba(42,16,58,.14); }
+  @keyframes floaty { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  .floaty { animation:floaty 6s ease-in-out infinite; }
+  .floaty.f2 { animation-duration:7.4s; animation-delay:-2s; }
+  .floaty.f3 { animation-duration:5.4s; animation-delay:-1s; }
+  .marquee-track { display:flex; gap:3.5rem; width:max-content; animation:marquee 30s linear infinite; }
+  @keyframes marquee { to { transform:translateX(-50%); } }
+  .tilt { transform-style:preserve-3d; transition:transform .5s cubic-bezier(.16,1,.3,1); will-change:transform; }
+  .arrow-link .arr { display:inline-block; transition:transform .3s cubic-bezier(.16,1,.3,1); }
+  .arrow-link:hover .arr { transform:translateX(6px); }
+  .num-row { transition:background .3s ease, padding-left .3s ease; }
+  .num-row:hover { background:rgba(255,255,255,.045); padding-left:1.5rem; }
+  .step-line::before { content:''; position:absolute; left:25px; top:56px; bottom:8px; width:2px; background:#E8DDD5; }
+  .step-item:last-child .step-line::before { display:none; }
+
+
+  /* evidence hotspots */
+  .hotspot { position:absolute; width:22px; height:22px; transform:translate(-50%,-50%); cursor:pointer; background:none; border:0; padding:0; z-index:5; }
+  .hotspot::before { content:''; position:absolute; inset:-36px; border-radius:50%; }
+  .hotspot .dot { position:absolute; inset:6px; background:#fff; border-radius:50%; box-shadow:0 0 0 3px #FF5B6E, 0 2px 8px rgba(42,16,58,.4); }
+  .hotspot .ring { position:absolute; inset:0; border-radius:50%; border:2px solid #FF5B6E; animation:ping 2.2s cubic-bezier(0,0,.2,1) infinite; }
+  @keyframes ping { 0%{transform:scale(.55); opacity:.9;} 100%{transform:scale(2.3); opacity:0;} }
+  .hotspot .tip { position:absolute; bottom:calc(100% + 14px); left:50%; transform:translate(-50%,6px); width:225px; background:#fff; color:#2A103A; border-radius:12px; padding:10px 13px 11px; text-align:left; box-shadow:0 12px 30px rgba(42,16,58,.30); opacity:0; transition:opacity .25s ease, transform .25s cubic-bezier(.16,1,.3,1); pointer-events:none; }
+  .hotspot .tip .t-title { display:block; font:600 12.5px/1.35 Inter,Arial,sans-serif; margin-bottom:3px; }
+  .hotspot .tip .t-ctx { display:block; font:400 11.5px/1.5 Inter,Arial,sans-serif; color:#6B6072; }
+  .hotspot .tip::after { content:''; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:5px solid transparent; border-top-color:#fff; }
+  .hotspot:hover .tip, .hotspot:focus-visible .tip { opacity:1; transform:translate(-50%,0); }
+  @media (prefers-reduced-motion: reduce) { .hotspot .ring { animation:none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior:auto; }
+    .reveal { transition:none; opacity:1; transform:none; }
+    .floaty, .marquee-track { animation:none; }
+  }
+</style>
+</head>
+<body class="font-sans" data-section="Higher education">
+<div class="grain"></div>
+<div id="progress"></div>
+
+
+<header class="fixed top-0 inset-x-0 z-50 bg-cream/80 backdrop-blur-xl border-b border-divider">
+  <div class="mx-auto max-w-[1240px] px-6 lg:px-8 h-[72px] flex items-center justify-between gap-6">
+    <a href="/" class="flex items-center shrink-0" aria-label="Stima Prova home">
+      <img src="/img/prova/4a07710ea23d.png" alt="STIMA" class="h-[22px] w-auto">
+      <span class="ml-3 hidden sm:inline text-[10px] font-semibold tracking-[0.24em] uppercase text-muted border-l border-divider pl-3">Prova</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1 whitespace-nowrap text-[14px] font-medium" aria-label="Primary">
+      <div class="has-drop relative">
+        <button class="nav-btn px-4 py-2 rounded-sm2 text-muted hover:text-plum transition-colors inline-flex items-center gap-1.5" aria-haspopup="true">Product
+          <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></button>
+        <div class="drop absolute left-0 top-full pt-3 w-[320px]">
+          <div class="bg-white rounded-md2 shadow-float border border-divider p-2">
+            <a href="/#how" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">How it works</span><span class="text-[13px] text-muted">Four steps from your task to cited evidence</span></a>
+            <a href="/#scale" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">The AI-collaboration scale</span><span class="text-[13px] text-muted">Delegator, Operator, Director</span></a>
+            <a href="/#proof" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">Product tour</span><span class="text-[13px] text-muted">Screens from the real assessment flow</span></a>
+            <a href="/#trust" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">Trust &amp; privacy</span><span class="text-[13px] text-muted">Consent-first recording, humans confirm outcomes</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="has-drop relative">
+        <button class="nav-btn px-4 py-2 rounded-sm2 text-muted hover:text-plum transition-colors inline-flex items-center gap-1.5" aria-haspopup="true">Solutions
+          <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></button>
+        <div class="drop absolute left-0 top-full pt-3 w-[320px]">
+          <div class="bg-white rounded-md2 shadow-float border border-divider p-2">
+            <a href="/higher-ed.html" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">For Higher Education</span><span class="text-[13px] text-muted">AI-allowed coursework, measured</span></a>
+            <a href="/hiring-teams.html" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">For Hiring Teams</span><span class="text-[13px] text-muted">AI-allowed take-homes, with evidence</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="has-drop relative">
+        <button class="nav-btn px-4 py-2 rounded-sm2 text-muted hover:text-plum transition-colors inline-flex items-center gap-1.5" aria-haspopup="true">On this page
+          <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></button>
+        <div class="drop absolute left-0 top-full pt-3 w-[240px]">
+          <div class="bg-white rounded-md2 shadow-float border border-divider p-2">
+            <a href="#problem" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">The problem</span></a>
+            <a href="#how" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">How it runs</span></a>
+            <a href="#pricing" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">For your campus</span></a>
+            <a href="#contact" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">Contact</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="#pricing" class="px-4 py-2 rounded-sm2 text-muted hover:text-plum transition-colors">Pricing</a>
+      <div class="has-drop relative">
+        <button class="nav-btn px-4 py-2 rounded-sm2 text-muted hover:text-plum transition-colors inline-flex items-center gap-1.5" aria-haspopup="true">Resources
+          <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></button>
+        <div class="drop absolute right-0 top-full pt-3 w-[300px]">
+          <div class="bg-white rounded-md2 shadow-float border border-divider p-2">
+            <a href="https://demo.mystima.io/" target="_blank" rel="noopener" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">Live demo</span><span class="text-[13px] text-muted">demo.mystima.io · walk both sides</span></a>
+            <a href="https://calendly.com/mariannamilkis/30-min" target="_blank" rel="noopener" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">Schedule a demo</span><span class="text-[13px] text-muted">30 minutes with the founder</span></a>
+            <a href="#contact" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">Contact</span><span class="text-[13px] text-muted">Tell us about your course or role</span></a>
+            <a href="/login" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">Sign in</span><span class="text-[13px] text-muted">Your campaigns and results</span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="/login" class="hidden min-[1100px]:inline-flex items-center whitespace-nowrap text-sm font-semibold text-muted hover:text-plum px-2 h-[42px] transition-colors">Sign in</a>
+      <a href="https://calendly.com/mariannamilkis/30-min" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold px-5 h-[42px] rounded-sm2 bg-plum text-white hover:bg-coral transition-colors">Fit Stima to your team</a>
+      <button id="menuBtn" class="lg:hidden w-[42px] h-[42px] rounded-sm2 border border-divider flex items-center justify-center" aria-label="Menu" aria-expanded="false">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-divider bg-cream px-6 py-6 space-y-5 text-[15px] font-medium">
+    <div><p class="eyebrow text-muted mb-3">On this page</p><div class="space-y-3 pl-1">
+      <a href="#problem" class="block text-plum">The problem</a>
+      <a href="#how" class="block text-plum">How it runs</a>
+      <a href="#pricing" class="block text-plum">For your campus</a>
+      <a href="#contact" class="block text-plum">Contact</a>
+    </div></div>
+    <div><p class="eyebrow text-muted mb-3">Solutions</p><div class="space-y-3 pl-1">
+      <a href="/higher-ed.html" class="block text-plum">For Higher Education</a>
+      <a href="/hiring-teams.html" class="block text-plum">For Hiring Teams</a>
+    </div></div>
+    <div><p class="eyebrow text-muted mb-3">Resources</p><div class="space-y-3 pl-1">
+      <a href="https://demo.mystima.io/" target="_blank" rel="noopener" class="block text-plum">Live demo</a>
+      <a href="/login" class="block text-plum">Sign in</a>
+      <a href="/terms/#terms-of-use" data-legal="terms-of-use" class="block text-plum">Terms of Use</a>
+      <a href="/terms/#privacy" data-legal="privacy" class="block text-plum">Privacy Policy</a>
+    </div></div>
+    <a href="https://calendly.com/mariannamilkis/30-min" target="_blank" rel="noopener" class="inline-flex items-center justify-center w-full h-[46px] rounded-sm2 bg-plum text-white font-semibold">Fit Stima to your team</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative overflow-hidden bg-plum text-white">
+  <div class="glow w-[520px] h-[520px] bg-aqua/20 -top-40 -left-32"></div>
+  <div class="glow w-[420px] h-[420px] bg-coral/20 top-24 right-[-140px]"></div>
+  <div class="glow w-[320px] h-[320px] bg-lilac/20 bottom-[-120px] left-1/3"></div>
+  <div class="absolute inset-0 opacity-[0.05]" style="background-image:radial-gradient(rgba(255,255,255,.7) 1px, transparent 1px); background-size:34px 34px;"></div>
+  <div class="relative mx-auto max-w-[1240px] px-6 lg:px-8 pt-40 lg:pt-44 pb-24 grid gap-16 lg:grid-cols-[1.04fr_.96fr] lg:items-center">
+    <div>
+      <div class="reveal in flex items-center gap-3 mb-8">
+        <span class="w-2 h-2 bg-aqua"></span>
+        <span class="eyebrow text-white/60">Stima Prova · For Higher Education</span>
+      </div>
+      <h1 class="reveal in d1 font-serif text-[44px] leading-[1.05] sm:text-6xl lg:text-[72px] lg:leading-[1.02] tracking-[-0.01em]">
+        Your syllabus has an AI policy.<br>
+        <span class="accent-aqua">Your assignments don't.</span>
+      </h1>
+      <p class="reveal in d2 mt-8 max-w-xl text-lg lg:text-xl leading-relaxed text-white/70">
+        Stima Prova turns the assignments you already teach into AI-allowed tasks that teach and measure
+        responsible professional AI use. No proctoring. No prohibition. No redesign project on your desk.
+      </p>
+      <div class="reveal in d3 mt-10 flex flex-wrap items-center gap-4">
+        <a href="#how" class="arrow-link inline-flex items-center gap-2 bg-aqua text-plum font-semibold text-sm px-7 h-[48px] rounded-sm2 hover:bg-[#0da8a3] transition-colors shadow-float">See how it runs <span class="arr">→</span></a>
+        <a href="https://demo.mystima.io/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold px-6 h-[48px] rounded-sm2 border border-white/20 text-white hover:bg-white/10 transition-colors">Run the live demo</a>
+      </div>
+      <div class="reveal in d4 mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-[13px] text-white/45">
+        <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-aqua"></span>Free for instructors</span>
+        <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-mango"></span>Up to 250 sessions per term</span>
+        <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-leaf"></span>Canvas LTI 1.3</span>
+      </div>
+      <p class="reveal in d4 mt-8 text-sm text-white/40">Built by a project management instructor and former group product manager at Arizona State University.</p>
+    </div>
+    <div class="relative" id="tiltWrap">
+      <div class="absolute -inset-6 bg-gradient-to-br from-aqua/20 via-lilac/15 to-coral/20 rounded-[36px] blur-3xl"></div>
+      <div class="tilt relative" id="tiltCard">
+        <img src="/img/prova/72c49a05072a.jpg" alt="Illustration of a lecturer presenting to students in a bright modern lecture hall" class="w-full rounded-lg2 shadow-float ring-1 ring-white/20" width="1100">
+        <button class="hotspot" style="top:60%;left:17%" aria-label="Data privacy"><span class="ring"></span><span class="dot"></span><span class="tip"><span class="t-title">Data privacy</span><span class="t-ctx">Consent-first recording. FERPA-aligned handling, no training on student data.</span></span></button>
+        <button class="hotspot" style="top:40%;left:65%" aria-label="Canvas integration"><span class="ring"></span><span class="dot"></span><span class="tip"><span class="t-title">Canvas integration</span><span class="t-ctx">Grades flow to your gradebook via LTI 1.3, with grade passback.</span></span></button>
+        <button class="hotspot" style="top:62%;left:80%" aria-label="AI competency development"><span class="ring"></span><span class="dot"></span><span class="tip"><span class="t-title">AI competency development</span><span class="t-ctx">Developed alongside your program's learning objectives, measured on the published scale.</span></span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="bg-plum border-t border-white/10 py-4 overflow-hidden relative">
+  <div class="marquee-track text-white/40 text-[13px] font-medium tracking-[0.2em] uppercase whitespace-nowrap">
+    <span>Same learning goals</span><span class="text-aqua/70">·</span><span>Your rubric stays yours</span><span class="text-mango/70">·</span><span>AI allowed by design</span><span class="text-coral/70">·</span><span>Consent-first recording</span><span class="text-lilac/70">·</span><span>Grades in your gradebook</span><span class="text-aqua/70">·</span><span>One scale across campus</span><span class="text-mango/70">·</span>
+    <span>Same learning goals</span><span class="text-aqua/70">·</span><span>Your rubric stays yours</span><span class="text-mango/70">·</span><span>AI allowed by design</span><span class="text-coral/70">·</span><span>Consent-first recording</span><span class="text-lilac/70">·</span><span>Grades in your gradebook</span><span class="text-aqua/70">·</span><span>One scale across campus</span><span class="text-mango/70">·</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem" class="py-28 lg:py-36 scroll-mt-20">
+  <div class="mx-auto max-w-[1240px] px-6 lg:px-8">
+    <div class="reveal flex items-center gap-3 mb-8"><span class="w-2 h-2 bg-coral"></span><span class="eyebrow text-muted">The problem</span></div>
+    <div class="grid lg:grid-cols-[1fr_auto] gap-8 items-end">
+      <h2 class="reveal d1 font-serif text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.08] max-w-2xl">Every professor improvises a policy.<br><span class="accent">Grades score the essay, not the learning.</span></h2>
+      <p class="reveal d2 max-w-sm text-muted leading-relaxed lg:text-right lg:pb-2">Applying an AI policy means redesigning assignments course by course. Departments don't have the staff, so the document says one thing and every classroom does another.</p>
+    </div>
+    <div class="mt-16 grid gap-px bg-divider border border-divider rounded-lg2 overflow-hidden md:grid-cols-3">
+      <div class="reveal bg-cream p-9 lift">
+        <p class="font-serif text-[56px] leading-none mb-4">61<span class="text-coral">%</span></p>
+        <h3 class="font-semibold text-lg mb-2">Detectors flag the wrong people</h3>
+        <p class="text-muted text-[15px] leading-relaxed">That share of essays by non-native English writers was falsely flagged as AI-written. Detection punishes the wrong people and explains nothing.</p>
+        <p class="text-[11px] text-muted/70 mt-5 tracking-wide">STANFORD, LIANG ET AL., PATTERNS 2023</p>
+      </div>
+      <div class="reveal d1 bg-cream p-9 lift">
+        <p class="font-serif text-[56px] leading-none mb-4">66<span class="text-coral">%</span></p>
+        <h3 class="font-semibold text-lg mb-2">Employers screen on AI fluency</h3>
+        <p class="text-muted text-[15px] leading-relaxed">Of leaders say they wouldn't hire without AI skills. Graduates walk into that screen, and a transcript says nothing about it.</p>
+        <p class="text-[11px] text-muted/70 mt-5 tracking-wide">MICROSOFT &amp; LINKEDIN 2024 WORK TREND INDEX</p>
+      </div>
+      <div class="reveal d2 bg-cream p-9 lift">
+        <p class="font-serif text-[32px] leading-tight mb-4 text-plum/90">Mixed rules,<br><span class="accent">no measured skill</span></p>
+        <h3 class="font-semibold text-lg mb-2">Students use AI anyway</h3>
+        <p class="text-muted text-[15px] leading-relaxed">You can't tell learning from delegation in a submitted essay. So students learn to hide AI use, not to use it well.</p>
+        <p class="text-[11px] text-muted/70 mt-5 tracking-wide">THE RESULT, EVERY CAMPUS</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT RUNS -->
+<section id="how" class="py-28 lg:py-36 bg-white relative overflow-hidden">
+  <div class="glow w-[400px] h-[400px] bg-aqua/20 -top-32 right-[-120px]"></div>
+  <div class="relative mx-auto max-w-[1240px] px-6 lg:px-8">
+    <div class="reveal flex items-center gap-3 mb-8"><span class="w-2 h-2 bg-aqua"></span><span class="eyebrow text-muted">How it runs in your course</span></div>
+    <h2 class="reveal d1 font-serif text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.08] max-w-2xl mb-20">From your assignment to graded evidence, <span class="accent-aqua">in four steps.</span></h2>
+    <div class="grid gap-12 lg:grid-cols-2">
+      <div class="space-y-2">
+        <div class="reveal step-item relative flex gap-5 pb-10">
+          <div class="step-line relative shrink-0"><span class="relative z-10 flex w-[52px] h-[52px] items-center justify-center rounded-full bg-plum text-white font-serif text-xl">1</span></div>
+          <div><h3 class="font-serif text-2xl mb-2">Adapt</h3><p class="text-muted leading-relaxed">Bring one legacy assignment. We reshape it together: same learning goals, your rubric, plus a planted difficulty a blind copy-paste gets wrong.</p></div>
+        </div>
+        <div class="reveal step-item relative flex gap-5 pb-10">
+          <div class="step-line relative shrink-0"><span class="relative z-10 flex w-[52px] h-[52px] items-center justify-center rounded-full bg-plum text-white font-serif text-xl">2</span></div>
+          <div><h3 class="font-serif text-2xl mb-2">Session</h3><p class="text-muted leading-relaxed">Students work in an AI-allowed session inside the workspace, recorded with consent. No camera, no lockdown browser.</p></div>
+        </div>
+        <div class="reveal step-item relative flex gap-5 pb-10">
+          <div class="step-line relative shrink-0"><span class="relative z-10 flex w-[52px] h-[52px] items-center justify-center rounded-full bg-plum text-white font-serif text-xl">3</span></div>
+          <div><h3 class="font-serif text-2xl mb-2">Two scores</h3><p class="text-muted leading-relaxed">Every score cites a moment in the record. The work on your rubric, the AI use on the published Delegator, Operator, Director scale.</p></div>
+        </div>
+        <div class="reveal step-item relative flex gap-5">
+          <div class="step-line relative shrink-0"><span class="relative z-10 flex w-[52px] h-[52px] items-center justify-center rounded-full bg-coral text-white font-serif text-xl">4</span></div>
+          <div><h3 class="font-serif text-2xl mb-2">Confirm &amp; export</h3><p class="text-muted leading-relaxed">You confirm every outcome, then grades flow to your LMS gradebook. Canvas via LTI 1.3, with grade passback.</p></div>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <div class="relative">
+          <div class="absolute -inset-4 bg-gradient-to-br from-aqua/15 via-lilac/15 to-coral/15 rounded-[28px] blur-2xl"></div>
+          <img loading="lazy" decoding="async" src="/img/prova/f02adce1e972.webp" alt="Candidate consent screen showing exactly what is recorded and what is never collected" class="relative w-auto max-w-full mx-auto max-h-[560px] rounded-lg2 shadow-float ring-1 ring-divider">
+        </div>
+        <div class="floaty f3 relative -mt-6 ml-6 bg-plum text-white rounded-full shadow-float pl-3 pr-5 py-2.5 inline-flex items-center gap-2.5">
+          <span class="w-2 h-2 rounded-full bg-aqua"></span>
+          <span class="text-[12px] font-medium">Students see what is recorded before they start</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="py-28 lg:py-36">
+  <div class="mx-auto max-w-[1240px] px-6 lg:px-8">
+    <div class="reveal flex items-center gap-3 mb-8"><span class="w-2 h-2 bg-leaf"></span><span class="eyebrow text-muted">What students leave with</span></div>
+    <h2 class="reveal d1 font-serif text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.08] max-w-2xl mb-16">A grade for the course. <span class="accent">Proof for the career.</span></h2>
+    <div class="grid gap-px bg-divider border border-divider rounded-lg2 overflow-hidden md:grid-cols-3">
+      <div class="reveal bg-cream p-9 lift">
+        <span class="w-10 h-10 rounded-sm2 bg-[#E7F2E8] flex items-center justify-center mb-5"><svg class="w-5 h-5 text-plum" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg></span>
+        <h3 class="font-serif text-2xl mb-3">Feedback pointers</h3>
+        <p class="text-muted text-[15px] leading-relaxed">After every assignment, students see in plain language where they delegated blindly and where a check would have caught an error. Responsible AI use is taught, not just demanded.</p>
+      </div>
+      <div class="reveal d1 bg-cream p-9 lift">
+        <span class="w-10 h-10 rounded-sm2 bg-[#FFF0DB] flex items-center justify-center mb-5"><svg class="w-5 h-5 text-plum" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"/></svg></span>
+        <h3 class="font-serif text-2xl mb-3">A verified AI-competency result</h3>
+        <p class="text-muted text-[15px] leading-relaxed">Each assignment produces a verifiable credential (Open Badges 3.0) and a shareable result page, dated and explained. Real evidence behind the "AI skills" line on a résumé.</p>
+      </div>
+      <div class="reveal d2 bg-cream p-9 lift">
+        <span class="w-10 h-10 rounded-sm2 bg-[#FFE7E0] flex items-center justify-center mb-5"><svg class="w-5 h-5 text-plum" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg></span>
+        <h3 class="font-serif text-2xl mb-3">Levels that grow with them</h3>
+        <p class="text-muted text-[15px] leading-relaxed">Measured again in every course on the same scale, from Delegator to Operator to Director. Growth becomes visible across a degree, and the university's output becomes readable from the outside.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSROOM -->
+<section class="py-28 lg:py-36 bg-white">
+  <div class="mx-auto max-w-[1240px] px-6 lg:px-8">
+    <div class="reveal flex items-center gap-3 mb-8"><span class="w-2 h-2 bg-lilac"></span><span class="eyebrow text-muted">Built for the classroom</span></div>
+    <h2 class="reveal d1 font-serif text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.08] max-w-2xl mb-16">No proctoring. <span class="accent">No prohibition.</span></h2>
+    <div class="grid gap-px bg-divider border border-divider rounded-lg2 overflow-hidden sm:grid-cols-2 lg:grid-cols-4 mb-6">
+      <div class="reveal bg-cream p-8 lift"><h3 class="font-semibold mb-2">AI allowed by design</h3><p class="text-muted text-[14px] leading-relaxed">Nothing to police, nothing to ban. The integrity question moves from "did they use it" to "how well did they use it."</p></div>
+      <div class="reveal d1 bg-cream p-8 lift"><h3 class="font-semibold mb-2">Consent-first recording</h3><p class="text-muted text-[14px] leading-relaxed">Workspace-only. No camera, no screen capture, no keystroke logging outside the task.</p></div>
+      <div class="reveal d2 bg-cream p-8 lift"><h3 class="font-semibold mb-2">Humans confirm outcomes</h3><p class="text-muted text-[14px] leading-relaxed">Low-confidence results route to you, every outcome is confirmed in person, and students can dispute.</p></div>
+      <div class="reveal d3 bg-cream p-8 lift"><h3 class="font-semibold mb-2">Your rubric stays yours</h3><p class="text-muted text-[14px] leading-relaxed">The collaboration scale is added alongside your criteria, never instead.</p></div>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="reveal bg-plum text-white rounded-md2 p-8 shadow-card border-l-4 border-leaf"><div class="eyebrow text-leaf mb-3">Free for instructors</div><p class="text-white/70 leading-relaxed">No procurement to try one assignment in your course. Institutions come later, for analytics and reporting.</p></div>
+      <div class="reveal d1 bg-plum text-white rounded-md2 p-8 shadow-card border-l-4 border-aqua"><div class="eyebrow text-aqua mb-3">For your IT review</div><p class="text-white/70 leading-relaxed">Runs inside your security perimeter. FERPA-aligned data handling, consent records, export and deletion on request, no training on student data, DPA provided. WCAG 2.1 AA accessible. HECVAT and SOC 2 documentation in progress.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="py-28 lg:py-36">
+  <div class="mx-auto max-w-[1240px] px-6 lg:px-8">
+    <div class="reveal flex items-center gap-3 mb-8"><span class="w-2 h-2 bg-coral"></span><span class="eyebrow text-muted">For your campus</span></div>
+    <h2 class="reveal d1 font-serif text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.08] max-w-2xl mb-16">One scale for the whole campus.<br><span class="accent">Priced per student, not per seat.</span></h2>
+    <div class="reveal bg-plum text-white rounded-lg2 p-9 lg:p-12 shadow-float relative overflow-hidden">
+      <div class="glow w-72 h-72 bg-aqua/25 -top-24 -right-16"></div>
+      <div class="relative">
+        <div class="num-row grid md:grid-cols-12 gap-2 py-5 border-b border-white/15 items-baseline">
+          <div class="md:col-span-3 font-serif text-2xl">Instructor</div><div class="md:col-span-3 font-serif text-2xl text-aqua italic">Free</div>
+          <div class="md:col-span-4 text-white/60 text-sm">One course, up to 250 student sessions per term. No card, no IT ticket.</div>
+          <div class="md:col-span-2 md:text-right mt-3 md:mt-0"><a href="#contact" data-plan="I would like to try Stima Prova in one of my courses (Instructor, free)." class="inline-flex items-center justify-center h-[40px] px-4 rounded-sm2 text-sm font-semibold whitespace-nowrap transition-colors bg-coral text-white hover:bg-[#e84a5d]">Bring an assignment</a></div>
+        </div>
+        <div class="num-row grid md:grid-cols-12 gap-2 py-5 border-b border-white/15 items-baseline">
+          <div class="md:col-span-3 font-serif text-2xl">Department</div><div class="md:col-span-3 font-serif text-2xl text-coral italic">$12K / yr</div>
+          <div class="md:col-span-4 text-white/60 text-sm">Up to 1,500 enrollments a year. Works out to $8 per student per course.</div>
+          <div class="md:col-span-2 md:text-right mt-3 md:mt-0"><a href="#contact" data-plan="We are interested in the Department plan ($12K a year, up to 1,500 enrollments)." class="inline-flex items-center justify-center h-[40px] px-4 rounded-sm2 text-sm font-semibold whitespace-nowrap transition-colors border border-white/25 text-white hover:bg-white/10">Talk to us</a></div>
+        </div>
+        <div class="num-row grid md:grid-cols-12 gap-2 py-5 border-b border-white/15 items-baseline">
+          <div class="md:col-span-3 font-serif text-2xl">College</div><div class="md:col-span-3 font-serif text-2xl text-coral italic">$35K / yr</div>
+          <div class="md:col-span-4 text-white/60 text-sm">Up to 5,000 enrollments a year. Works out to $7 per student per course.</div>
+          <div class="md:col-span-2 md:text-right mt-3 md:mt-0"><a href="#contact" data-plan="We are interested in the College plan ($35K a year, up to 5,000 enrollments)." class="inline-flex items-center justify-center h-[40px] px-4 rounded-sm2 text-sm font-semibold whitespace-nowrap transition-colors border border-white/25 text-white hover:bg-white/10">Talk to us</a></div>
+        </div>
+        <div class="num-row grid md:grid-cols-12 gap-2 py-5 items-baseline">
+          <div class="md:col-span-3 font-serif text-2xl">Institution</div><div class="md:col-span-3 font-serif text-2xl text-coral italic">$90K / yr</div>
+          <div class="md:col-span-4 text-white/60 text-sm">Up to 15,000 enrollments a year. Works out to $6 per student per course.</div>
+          <div class="md:col-span-2 md:text-right mt-3 md:mt-0"><a href="#contact" data-plan="We are interested in the Institution plan ($90K a year, up to 15,000 enrollments)." class="inline-flex items-center justify-center h-[40px] px-4 rounded-sm2 text-sm font-semibold whitespace-nowrap transition-colors border border-white/25 text-white hover:bg-white/10">Talk to us</a></div>
+        </div>
+        <p class="pt-6 text-xs text-white/45">Founding campuses: 50% off year one, 25% off year two. An enrollment is one student in one course. Annual billing, paid upfront. Usage above your tier moves you up at renewal. Larger systems priced by quote.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-28 lg:py-36 bg-plum text-white relative overflow-hidden">
+  <div class="glow w-[460px] h-[460px] bg-aqua/20 -bottom-40 -left-32"></div>
+  <div class="glow w-[360px] h-[360px] bg-coral/20 -top-24 right-10"></div>
+  <div class="relative mx-auto max-w-[1240px] px-6 lg:px-8 grid gap-14 lg:grid-cols-[1.16fr_.84fr] lg:items-center">
+    <div>
+      <div class="reveal flex items-center gap-3 mb-8"><span class="w-2 h-2 bg-aqua"></span><span class="eyebrow text-white/50">The founding cohort is forming now</span></div>
+      <h2 class="reveal d1 font-serif text-4xl sm:text-5xl lg:text-[58px] lg:leading-[1.06] mb-6">Teach one assignment with us.<br><span class="accent-aqua">This term or in spring.</span></h2>
+      <p class="reveal d2 text-white/65 text-lg leading-relaxed max-w-lg mb-4">One assignment you already use, its rubric, and a week you'd like to run it. We do the redesign with you and hand you the evidence.</p>
+      
+      <div id="contact" class="reveal d3 mt-10 max-w-xl scroll-mt-28">
+        <form id="contactForm" class="bg-white/5 border border-white/10 rounded-md2 p-6 backdrop-blur-sm">
+          <p class="eyebrow text-white/40 mb-4">Talk to us</p>
+          <div class="grid sm:grid-cols-2 gap-3 mb-3">
+            <input id="cfName" name="name" type="text" required maxlength="120" autocomplete="name" placeholder="Your name" class="w-full bg-plum/50 border border-white/15 rounded-sm2 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-aqua focus:outline-none transition-colors">
+            <input id="cfEmail" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="Work email" class="w-full bg-plum/50 border border-white/15 rounded-sm2 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-aqua focus:outline-none transition-colors">
+          </div>
+          <textarea id="cfMsg" name="message" rows="3" required maxlength="4000" placeholder="Tell us about your course, your open role, or your team..." class="w-full bg-plum/50 border border-white/15 rounded-sm2 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-aqua focus:outline-none transition-colors resize-none mb-4"></textarea>
+          <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <p id="cfStatus" role="status" class="hidden text-sm mb-4"></p>
+          <div class="flex flex-wrap gap-3">
+            <button type="submit" class="inline-flex items-center gap-2 bg-coral text-white font-semibold text-sm px-6 h-[46px] rounded-sm2 hover:bg-[#e84a5d] transition-colors">Send message</button>
+            <a href="https://calendly.com/mariannamilkis/30-min" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-white/25 text-white font-semibold text-sm px-6 h-[46px] rounded-sm2 hover:bg-white/10 transition-colors">Schedule a demo</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="reveal d2 relative">
+      <div class="absolute -inset-5 bg-gradient-to-tr from-aqua/20 to-lilac/20 rounded-[32px] blur-2xl"></div>
+      <img loading="lazy" decoding="async" src="/img/prova/002a29942f3c.webp" alt="A verified Stima Prova result page: quality score, collaboration level, and shareable credential" class="relative w-auto max-w-full mx-auto max-h-[620px] rounded-lg2 shadow-float ring-1 ring-white/20">
+      <p class="relative mt-7 text-center font-serif italic text-xl text-white/70">Proof for the career, <span class="text-coral">not just the course</span></p>
+    </div>
+  </div>
+</section>
+
+
+
+<footer class="bg-plum text-white border-t border-white/10">
+  <div class="mx-auto max-w-[1240px] px-6 lg:px-8 py-16">
+    <div class="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] mb-14">
+      <div>
+        <img loading="lazy" decoding="async" src="/img/prova/a17b3c320f15.png" alt="STIMA" class="h-[20px] w-auto mb-5">
+        <p class="text-white/50 text-[14px] leading-relaxed max-w-xs">The post-AI skill assessment. AI-allowed by design, measured on a published scale, every score cited to the record.</p>
+        <p class="font-serif text-coral text-2xl mt-6">mystima.io</p>
+      </div>
+      <div><p class="eyebrow text-white/40 mb-5">Product</p><ul class="space-y-3 text-[14px] text-white/70">
+        <li><a href="/#how" class="hover:text-white transition-colors">How it works</a></li>
+        <li><a href="/#scale" class="hover:text-white transition-colors">The scale</a></li>
+        <li><a href="/#proof" class="hover:text-white transition-colors">Product tour</a></li>
+      </ul></div>
+      <div><p class="eyebrow text-white/40 mb-5">Solutions</p><ul class="space-y-3 text-[14px] text-white/70">
+        <li><a href="/" class="hover:text-white transition-colors">Overview</a></li>
+        <li><a href="/higher-ed.html" class="hover:text-white transition-colors">Higher Education</a></li>
+        <li><a href="/hiring-teams.html" class="hover:text-white transition-colors">Hiring Teams</a></li>
+      </ul></div>
+      <div><p class="eyebrow text-white/40 mb-5">Resources</p><ul class="space-y-3 text-[14px] text-white/70">
+        <li><a href="https://demo.mystima.io/" target="_blank" rel="noopener" class="hover:text-white transition-colors">Live demo</a></li>
+        <li><a href="#contact" class="hover:text-white transition-colors">Contact form</a></li>
+      </ul></div>
+      <div><p class="eyebrow text-white/40 mb-5">Legal</p><ul class="space-y-3 text-[14px] text-white/70">
+        <li><a href="/terms/#terms-of-use" data-legal="terms-of-use" class="hover:text-white transition-colors">Terms of Use</a></li>
+        <li><a href="/terms/#privacy" data-legal="privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+        <li><a href="/terms/#participant-terms" data-legal="participant-terms" class="hover:text-white transition-colors">Participant Terms</a></li>
+        <li><a href="#" data-cookie-settings class="hover:text-white transition-colors">Cookie settings</a></li>
+      </ul></div>
+    </div>
+    <div class="hairline-w mb-8"></div>
+    <div class="flex flex-col sm:flex-row justify-between gap-3 text-[13px] text-white/35">
+      <span>© 2026 Stima Prova. Work with the machine. Prove the human.</span>
+      <span>AI-allowed assessment, with evidence.</span>
+    </div>
+  </div>
+</footer>
+<script>
+// reveal
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.1, rootMargin:'0px 0px -5% 0px' });
+document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+setTimeout(() => document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in')), 1500);
+// scroll progress
+const prog = document.getElementById('progress');
+addEventListener('scroll', () => { const h = document.documentElement; prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%'; }, { passive:true });
+// mobile menu
+const menuBtn = document.getElementById('menuBtn'), mobileMenu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', () => { const open = mobileMenu.classList.toggle('hidden'); menuBtn.setAttribute('aria-expanded', String(!open)); });
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false'); }));
+// dropdown click support
+document.querySelectorAll('.nav-btn').forEach(btn => btn.addEventListener('click', e => {
+  e.stopPropagation();
+  const wrap = btn.closest('.has-drop');
+  document.querySelectorAll('.has-drop.open').forEach(w => { if (w !== wrap) w.classList.remove('open'); });
+  wrap.classList.toggle('open');
+}));
+document.addEventListener('click', () => document.querySelectorAll('.has-drop.open').forEach(w => w.classList.remove('open')));
+// hero tilt
+const tiltWrap = document.getElementById('tiltWrap'), tiltCard = document.getElementById('tiltCard');
+const fine = matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (fine && tiltWrap) {
+  tiltWrap.addEventListener('mousemove', e => {
+    const r = tiltWrap.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    tiltCard.style.transform = 'perspective(900px) rotateY(' + x * 5 + 'deg) rotateX(' + -y * 5 + 'deg)';
+  });
+  tiltWrap.addEventListener('mouseleave', () => { tiltCard.style.transform = 'perspective(900px)'; });
+}
+</script>
+<script>
+// Calendly popup (keeps visitors on-site)
+const CALENDLY_URL = 'https://calendly.com/mariannamilkis/30-min?hide_gdpr_banner=1&background_color=FFF7ED&text_color=2A103A&primary_color=FF5B6E';
+function ensureCalendlyModal(){
+  if (document.getElementById('calModal')) return;
+  const wrap = document.createElement('div');
+  wrap.id = 'calModal';
+  wrap.style.cssText = 'position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(42,16,58,.72);backdrop-filter:blur(6px);';
+  wrap.innerHTML =
+    '<div id="calCard" style="position:relative;width:min(1020px,100%);height:min(760px,92vh);background:#FFF7ED;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(42,16,58,.5);">' +
+    '<button id="calClose" aria-label="Close" style="position:absolute;top:14px;right:14px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:#2A103A;color:#FFF7ED;font:600 18px/1 Inter;cursor:pointer;">×</button>' +
+    '<iframe id="calFrame" title="Schedule a demo with Stima Prova" style="width:100%;height:100%;border:0;" loading="lazy"></iframe>' +
+    '</div>';
+  document.body.appendChild(wrap);
+  wrap.addEventListener('click', e => { if (e.target === wrap) closeCalendly(); });
+  document.getElementById('calClose').addEventListener('click', closeCalendly);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCalendly(); });
+}
+function openCalendly(){
+  ensureCalendlyModal();
+  const f = document.getElementById('calFrame');
+  if (!f.src) f.src = CALENDLY_URL;
+  const m = document.getElementById('calModal');
+  m.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeCalendly(){
+  const m = document.getElementById('calModal');
+  if (m) m.style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href*="calendly.com"]');
+  if (!a) return;
+  e.preventDefault();
+  openCalendly();
+});
+</script>
+<script src="/leads.js"></script>
+<script src="/prova.js"></script>
+<script src="/legal.js"></script>
+</body>
+</html>

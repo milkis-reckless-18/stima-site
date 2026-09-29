@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* legal.css (legal popup, cookie banner) reads these; here in the Prova palette. */
+:root {
+  --paper:#FFF7ED; --paper-2:#F6EADF; --ink:#2A103A; --ink-2:#4A3B52; --muted:#6B6072; --accent:#FF5B6E;
+  --paper-rgb:255,247,237; --ink-rgb:42,16,58; --accent-rgb:255,91,110;
+  --line:rgba(var(--ink-rgb),.14); --line-strong:rgba(var(--ink-rgb),.3);
+  --serif:"DM Serif Display",Georgia,serif; --sans:Inter,Arial,sans-serif; --mono:Inter,Arial,sans-serif;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+.ck, .lgp-card { border-radius:16px; }
+.ck-btn { border-radius:10px; font-weight:600; }
+.lgp-card { overflow:hidden; }
+
+/* 1024-1179 px: five menus, Sign in and the button share one line; tighter menu padding keeps the header inside its margins. */
+@media (min-width:1024px) and (max-width:1179px) {
+  nav[aria-label="Primary"] .nav-btn, nav[aria-label="Primary"] > a { padding-left:.6rem; padding-right:.6rem; }
+}

@@ -1,19 +1,30 @@
 # Stima
 
-**Know your worth. Prove it.**
-
-Career navigation, upskilling, and post-AI skills assessment.
-
-This repo contains the pre-launch site for [Stima](https://mystima.io): the landing page, the position paper page, and the lead magnet PDF.
+The public site of [Stima Prova](https://mystima.io): the post-AI skill assessment, for hiring teams and for higher education.
 
 ## Contents
 
-- `index.html`: landing page with audience tabs, checkable "what resonates" bullets, team section, and email capture
-- `paper.html`: position paper page with its own email capture
-- `stima-prova-assessment-after-ai.pdf`: the lead magnet, "Assessment After AI" (Position Paper No. 01)
-- `team-*.jpg` / `team-*.png`: team photos and illustrations
+- `index.html`, `hiring-teams.html`, `higher-ed.html`: the Prova pages. Copy and design come from Marianna's repo [milkis-reckless-18/stima-prova-site](https://github.com/milkis-reckless-18/stima-prova-site); do not edit them here, re-import instead (below).
+- `prova.css`: Tailwind compiled for those pages; `prova.js`: the "Talk to us" form and the plan buttons that start a message; `img/prova/`: their images.
+- `paper.html`: the position paper page with its own email capture; `stima-prova-assessment-after-ai.pdf`: the paper itself.
+- `leads.js`: posts forms to `/api/leads`, the Stima app on the same host (leads in `mystima.io/admin`).
+- `terms/`: the binding legal documents; `consent.js`, `legal.js`, `legal.css`: cookie banner and legal popup (below).
+- `mit/`, `nyc/`: short links for events, redirecting to `/` with UTM tags.
 
-Everything is hand-written HTML, CSS, and JS in single files. No build step.
+## Prova pages
+
+To bring in a new version of Marianna's pages:
+
+```bash
+python3 tools/prova_import.py ~/WORK/stima-prova-site
+npx -y tailwindcss@3.4.17 -c tools/prova-tailwind.config.js -i tools/prova.src.css -o prova.css --minify
+```
+
+The script pulls the embedded images into `img/prova/`, swaps the Tailwind CDN for `prova.css`, and adds what the site needs on mystima.io: cookie consent, footer links to `/terms/`, the contact form posting to `/api/leads`, plan buttons (hiring plans go to `/signup` and on to Stripe Checkout, campus plans and Enterprise to the form or the calendar), the trial as the app runs it, a Sign in link, canonical and Open Graph tags. Each change is anchored on her markup; when she changes that markup the script stops and names what it could not find.
+
+Her short `terms.html` and `privacy.html` are not published: the footer points to the documents on `/terms/`, which are the ones people accept in the app.
+
+The contact form: the app saves the message as a lead (source `contact`, with name and message) and emails it to `info@mystima.io` with Marianna in copy (`CONTACT_EMAIL`, `CONTACT_CC` in the app's environment), reply-to the visitor.
 
 ## Run locally
 
@@ -21,25 +32,11 @@ Everything is hand-written HTML, CSS, and JS in single files. No build step.
 python3 -m http.server 8000
 ```
 
-Then open http://localhost:8000
+Then open http://localhost:8000. The forms and plan buttons need the Stima app behind the same host, as nginx does on the server (`deploy/nginx-paths.conf` in the app repo).
 
 ## Deploy
 
-Static files only. Drag the folder into Netlify, run `vercel deploy`, or enable GitHub Pages on this repo.
-
-## Before launch
-
-- Wire the email capture forms (signup section, pop-up, paper page) to a provider such as Mailchimp, ConvertKit, Buttondown, or Formspree. They are currently front-end only.
-- Visitor selections from the "Who it is for" section are stored in the browser under the `stima-resonates` localStorage key as JSON, ready to be submitted with the signup once a provider is connected.
-- Update the canonical URLs and OG tags if the final domain differs from mystima.io.
-
-## Products
-
-- **Stima Semita**: career navigation. Chart the route.
-- **Stima Ponte**: upskilling pathways. Bridge the gap.
-- **Stima Prova**: post-AI assessment. Show the work.
-
-© 2026 Stima · mystima.io
+Push to `main`, then `ssh mystima "cd /var/www/stima-site && git pull"`.
 
 ## Legal documents (/terms)
 
