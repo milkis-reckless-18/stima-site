@@ -14,7 +14,8 @@ Her pages are the source of the copy and the design. On the way in they get:
     emailed to info@mystima.io) instead of opening the visitor's mail app;
   - plan buttons on the price lists: hiring plans go to /signup and on to Stripe Checkout,
     campus plans and Enterprise to the form or the calendar;
-  - the trial described as the app runs it (14 days, 10 completions, card up front);
+  - the trial described as the app runs it (14 days, 10 completions, card up front), and claims the
+    product does not back yet reworded (COPY_FIXES);
   - a Sign in link, root-relative home links, canonical and Open Graph tags.
 
 Every edit is anchored on her markup and fails loudly when that markup has changed,
@@ -222,6 +223,63 @@ TRIAL_TEXT = {
 }
 
 
+# Claims the product does not back yet, reworded (user, 29 September 2026, from the note to Marianna):
+# no Canvas LTI or grade passback yet (grades export as CSV), no DPA text yet (on request), the identity
+# check uses the camera for a few seconds (so "no video recording" rather than "no camera"), sessions run
+# up to 60 minutes, no HECVAT or SOC 2 work under way, hosted in the EU rather than on the customer's
+# network, and the operator's legal name in the footer. Every old text must be found at least once.
+FOOTER = ("© 2026 Stima Prova. Work with the machine. Prove the human.",
+          "© 2026 Stima Prova by Milkis Strategic Partners LLC. Work with the machine. Prove the human.")
+LMS_TIP = ('aria-label="Canvas integration"><span class="ring"></span><span class="dot"></span><span class="tip"><span class="t-title">Canvas integration</span><span class="t-ctx">Grades flow to your gradebook via LTI 1.3, with grade passback.</span>',
+           'aria-label="Grades for your gradebook"><span class="ring"></span><span class="dot"></span><span class="tip"><span class="t-title">Grades for your gradebook</span><span class="t-ctx">Confirmed grades export for your LMS. Canvas LTI 1.3 with grade passback is coming.</span>')
+COPY_FIXES = {
+    "index.html": [
+        ("recorded with consent. No camera. No lockdown browser.", "recorded with consent. No video recording. No lockdown browser."),
+        ("Grades and decisions export to your LMS or ATS, with a paper trail you can defend.",
+         "Grades and decisions export as CSV for your LMS or ATS, with a paper trail you can defend."),
+        LMS_TIP,
+        ("grades back in your LMS,", "grades ready for your LMS,"),
+        (">Canvas LTI 1.3</span>", ">Canvas LTI 1.3 soon</span>"),
+        ("Workspace-only. No camera, no keystroke logging, no lockdown browser.",
+         "Workspace-only. No video recording, no keystroke logging, no lockdown browser."),
+        ("FERPA-aligned for campuses, DPA available, no training on your data. WCAG 2.1 AA accessible; HECVAT and SOC 2 documentation in progress.",
+         "FERPA-aligned for campuses, hosted in the EU, DPA on request, no training on your data. Built to WCAG 2.1 AA."),
+        FOOTER,
+    ],
+    "hiring-teams.html": [
+        (">45-minute sessions</span>", ">Sessions up to 60 minutes</span>"),
+        ("recorded with consent. No camera, no lockdown browser.", "recorded with consent. No video recording, no lockdown browser."),
+        ("No camera, no microphone, no keystroke logging.", "No video or audio recording, no keystroke logging."),
+        ("Every decision has a documented reason. Countersigned DPA and EU hosting on Comply.",
+         "Every decision has a documented reason. EU hosting on every plan, DPA on request."),
+        ("25 completions included. Countersigned DPA, EU hosting, org structure, extended data storage.",
+         "25 completions included. DPA on request, org structure, extended data storage."),
+        FOOTER,
+    ],
+    "higher-ed.html": [
+        (">Canvas LTI 1.3</span>", ">Canvas LTI 1.3 soon</span>"),
+        LMS_TIP,
+        (">Grades in your gradebook</span>", ">Grades ready for your gradebook</span>"),
+        ("recorded with consent. No camera, no lockdown browser.", "recorded with consent. No video recording, no lockdown browser."),
+        ("You confirm every outcome, then grades flow to your LMS gradebook. Canvas via LTI 1.3, with grade passback.",
+         "You confirm every outcome, then export the grades for your LMS gradebook. Canvas LTI 1.3 with grade passback is coming."),
+        ("Workspace-only. No camera, no screen capture, no keystroke logging outside the task.",
+         "Workspace-only. No video recording, no screen capture, no keystroke logging outside the task."),
+        ("Runs inside your security perimeter. FERPA-aligned data handling, consent records, export and deletion on request, no training on student data, DPA provided. WCAG 2.1 AA accessible. HECVAT and SOC 2 documentation in progress.",
+         "Hosted in the EU, nothing to install on your network. FERPA-aligned data handling, consent records, export and deletion on request, no training on student data, DPA on request. Built to WCAG 2.1 AA."),
+        FOOTER,
+    ],
+}
+
+
+def copy_fixes(s, file):
+    for old, new in COPY_FIXES.get(file, []):
+        if old not in s:
+            raise Missing(f"text {old[:60]!r}")
+        s = s.replace(old, new)
+    return s
+
+
 def trial_terms(s, file):
     for old, new in TRIAL_TEXT.get(file, []):
         s = replace_once(old, new, s, f"trial text {old!r}")
@@ -261,6 +319,7 @@ def main():
             s = links(s)
             s = nav(s, file)
             s = trial_terms(s, file)
+            s = copy_fixes(s, file)
             s = pricing(s, file)
             s = contact_form(s)
             s = scripts(s)
