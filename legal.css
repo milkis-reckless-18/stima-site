@@ -136,3 +136,6 @@ html.lgp-lock,html.lgp-lock body{overflow:hidden}
 .ck-yes:hover{background:var(--accent);border-color:var(--accent)}
 @media(max-width:520px){.ck{left:12px;right:12px;bottom:12px;width:auto;padding:18px 18px 16px}}
 @media (prefers-reduced-motion: reduce){.ck{transition:none}}
+
+/* ---------- headings break into even lines ("in plain / sight.", "data protection / law") ---------- */
+.lg-hero h1,.lg-doc-title,.lg-text h2,.lgp-title{text-wrap:balance}

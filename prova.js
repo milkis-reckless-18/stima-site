@@ -54,8 +54,9 @@
      line ("AI / collaboration / level", "Mixed / rules,"). Each heading gets the largest size, at most a third below
      its design size (0.62 of it at most), at which no word is split, a phrase of one or two words stays on one line, three to six words
      take at most two lines and longer ones at most three; a line she broke with <br> stays whole up to three words. Headings of the same kind in one grid share the smallest
-     of their sizes, so neighbouring cards match. Lines Marianna broke with <br> (span.block) count separately. */
-  var CARD_HEADINGS = ".lift h3.font-serif, .lift p.font-serif";
+     of their sizes, so neighbouring cards match. Lines Marianna broke with <br> (span.block) count separately.
+     The page titles (section h1) follow the same rule, so "Prove the human." and "Your assignments don't." stay whole. */
+  var CARD_HEADINGS = ".lift h3.font-serif, .lift p.font-serif, section h1.font-serif";
   function segments(h){ var b = h.querySelectorAll(":scope > span.block"); return b.length ? [].slice.call(b) : [h]; }
   function layout(seg){
     var lines = {}, split = false, words = 0;
@@ -88,13 +89,15 @@
     var cs = getComputedStyle(h), design = parseFloat(cs.fontSize), lh = parseFloat(cs.lineHeight);
     h.dataset.fitDesign = design; h.dataset.fitLh = isNaN(lh) ? "" : lh / design;
     // when her own line cannot stay whole even a third smaller (320 px phones), the usual rule applies at a larger size
+    // page titles are large to start with and may give up more, so a 320 px phone does not end up larger than a 360 px one
+    var floor = h.tagName === "H1" ? 0.55 : 0.62;
     for (var pass = 0; pass < 2; pass++) {
-      for (var fs = design; fs >= design * 0.62; fs -= 0.5) {
+      for (var fs = design; fs >= design * floor; fs -= 0.5) {
         apply(h, fs);
         if (fits(h, pass === 1)) return fs;
       }
     }
-    return Math.ceil(design * 0.62 * 2) / 2;
+    return Math.ceil(design * floor * 2) / 2;
   }
   function apply(h, fs){
     var design = parseFloat(h.dataset.fitDesign), ratio = parseFloat(h.dataset.fitLh);
@@ -107,7 +110,7 @@
     fitWidth = innerWidth;
     var groups = new Map();
     document.querySelectorAll(CARD_HEADINGS).forEach(function(h){
-      var card = h.closest(".lift"), key = (card.parentElement ? card.parentElement : card);
+      var card = h.closest(".lift") || h, key = card.parentElement || card;
       var k2 = h.tagName + "|" + h.className;
       if (!groups.has(key)) groups.set(key, {});
       (groups.get(key)[k2] = groups.get(key)[k2] || []).push(h);
