@@ -32,3 +32,18 @@ body .hotspot.tip-below:hover .tip, body .hotspot.tip-below:focus-visible .tip, 
 body .hotspot.tip-below .tip::after { top:auto; bottom:100%; border-top-color:transparent; border-bottom-color:#fff; }
 body .hotspot.tip-inside .tip::after { display:none; }
 body .hotspot.tip-inside .tip { z-index:6; }
+
+/* Headings break into lines of even length instead of leaving one word on the last line (Marianna, 30 September 2026). */
+h1, h2, h3, p.font-serif { text-wrap:balance; }
+
+/* "From the work you already use / to graded evidence." (Marianna and the user, 30 September 2026): the size follows
+   the width of the text column, so the lines she wrote stay whole at every screen width. Two lines from a 512 px
+   column (36 to 56 px), three below ("From the work / you already use / to graded evidence.", at most 36 px like the
+   other headings on phones). Measured in DM Serif Display: the first line is 13.67 times the font size wide,
+   "to graded evidence." 8.35 times; the divisors keep 3% spare. cqi is the column width without its padding. */
+div:has(> .fluid-how) { container-type:inline-size; }
+.fluid-how { font-size:min(36px, calc((100vw - 48px) / 8.6)); font-size:min(36px, calc(100cqi / 8.6)); line-height:1.1; }
+@container (min-width: 512px) {
+  .fluid-how { font-size:min(56px, calc(100cqi / 14.1)); line-height:1.08; }
+  .fluid-how .fl-br { display:none; }
+}

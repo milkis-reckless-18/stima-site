@@ -234,6 +234,10 @@ LMS_TIP = ('aria-label="Canvas integration"><span class="ring"></span><span clas
            'aria-label="Grades for your gradebook"><span class="ring"></span><span class="dot"></span><span class="tip"><span class="t-title">Grades for your gradebook</span><span class="t-ctx">Confirmed grades export for your LMS. Canvas LTI 1.3 with grade passback is coming.</span>')
 COPY_FIXES = {
     "index.html": [
+        # Marianna and the user, 30 September 2026: "use" was left alone on a line; the size now follows the column
+        # width (.fluid-how in tools/prova.src.css) so her two lines stay whole, three lines on phones.
+        ('<h2 class="reveal d1 font-serif text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.08] max-w-2xl mb-20">\n      From the work you already use<br>to <span class="accent">graded evidence.</span>',
+         '<h2 class="reveal d1 font-serif fluid-how max-w-4xl mb-20">\n      <span class="block whitespace-nowrap">From the work<br class="fl-br"> you already use</span><span class="block whitespace-nowrap">to <span class="accent">graded evidence.</span></span>'),
         ("recorded with consent. No camera. No lockdown browser.", "recorded with consent. No video recording. No lockdown browser."),
         ("Grades and decisions export to your LMS or ATS, with a paper trail you can defend.",
          "Grades and decisions export as CSV for your LMS or ATS, with a paper trail you can defend."),
@@ -274,6 +278,29 @@ COPY_FIXES = {
         FOOTER,
     ],
 }
+
+
+def split_lines(inner):
+    """Wrap each part of a heading between top-level <br>s in its own block, so text-wrap: balance
+    (tools/prova.src.css) evens out every line she wrote on its own, not the heading as a whole."""
+    parts, depth, last = [], 0, 0
+    for m in re.finditer(r"<br>|<(/?)([a-z0-9]+)\b[^>]*>", inner):
+        if m.group(0) == "<br>":
+            if depth == 0:
+                parts.append(inner[last:m.start()])
+                last = m.end()
+        elif m.group(2) != "br":
+            depth += -1 if m.group(1) else 1
+    if not parts:
+        return inner
+    parts.append(inner[last:])
+    return "".join(f'<span class="block">{part.strip()}</span>' for part in parts)
+
+
+def balance_headings(s):
+    """Marianna, 30 September 2026: lines of headings ended with one word ("use", "how.", "seats.")."""
+    s = re.sub(r"(<(h1|h2|h3)\b[^>]*>)(.*?)(</\2>)", lambda m: m.group(1) + split_lines(m.group(3)) + m.group(4), s, flags=re.S)
+    return re.sub(r'(<p\b[^>]*\bfont-serif\b[^>]*>)(.*?)(</p>)', lambda m: m.group(1) + split_lines(m.group(2)) + m.group(3), s, flags=re.S)
 
 
 def copy_fixes(s, file):
@@ -324,6 +351,7 @@ def main():
             s = nav(s, file)
             s = trial_terms(s, file)
             s = copy_fixes(s, file)
+            s = balance_headings(s)
             s = pricing(s, file)
             s = contact_form(s)
             s = scripts(s)
