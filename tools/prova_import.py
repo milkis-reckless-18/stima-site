@@ -239,7 +239,7 @@ TRIAL_TEXT = {
 # Claims the product does not back yet, reworded (user, 29 September 2026, from the note to Marianna):
 # no Canvas LTI or grade passback yet (grades export as CSV), no DPA text yet (on request), the identity
 # check uses the camera for a few seconds (so "no video recording" rather than "no camera"), sessions run
-# up to 60 minutes, no HECVAT or SOC 2 work under way, hosted in the EU rather than on the customer's
+# up to 90 minutes (a task written for a mid or senior role, 1 October 2026), no HECVAT or SOC 2 work under way, hosted in the EU rather than on the customer's
 # network, and the operator's legal name in the footer. Every old text must be found at least once.
 FOOTER = ("© 2026 Stima Prova. Work with the machine. Prove the human.",
           "© 2026 Stima Prova by Milkis Strategic Partners LLC. Work with the machine. Prove the human.")
@@ -264,7 +264,7 @@ COPY_FIXES = {
         FOOTER,
     ],
     "hiring-teams.html": [
-        (">45-minute sessions</span>", ">Sessions up to 60 minutes</span>"),
+        (">45-minute sessions</span>", ">Sessions up to 90 minutes</span>"),
         # Marianna, 30 September 2026: on phones "stepping out of it" on its own line and no other breaks, so the
         # heading scales with the screen below 640 px (the first line needs 387 px at 36 px) and breaks after "ends by".
         ('<h2 class="reveal d1 font-serif text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.08] max-w-2xl mb-16">The detection arms race<br><span class="accent">ends by stepping out of it.</span></h2>',
