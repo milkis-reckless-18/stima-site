@@ -18,3 +18,17 @@
 @media (min-width:1024px) and (max-width:1179px) {
   nav[aria-label="Primary"] .nav-btn, nav[aria-label="Primary"] > a { padding-left:.6rem; padding-right:.6rem; }
 }
+
+/* Hotspot tips (her pages centre a 225 px tip over the dot): prova.js sets --tip-dx and --tip-dy so the tip stays inside
+   the picture and the screen, .tip-below when it fits only under the dot, and .tip-inside when it fits neither above nor
+   below (the short card pictures on phones) and is moved over the picture instead, without the arrow; .tip-open
+   keeps a tip open after a tap.
+   body raises the specificity over her <style>. */
+body .hotspot .tip { transform:translate(calc(-50% + var(--tip-dx, 0px)), calc(var(--tip-dy, 0px) + 6px)); max-width:calc(100vw - 16px); }
+body .hotspot:hover .tip, body .hotspot:focus-visible .tip, body .hotspot.tip-open .tip { opacity:1; transform:translate(calc(-50% + var(--tip-dx, 0px)), var(--tip-dy, 0px)); }
+body .hotspot .tip::after { left:calc(50% - var(--tip-dx, 0px)); }
+body .hotspot.tip-below .tip { bottom:auto; top:calc(100% + 14px); transform:translate(calc(-50% + var(--tip-dx, 0px)), -6px); }
+body .hotspot.tip-below:hover .tip, body .hotspot.tip-below:focus-visible .tip, body .hotspot.tip-below.tip-open .tip { transform:translate(calc(-50% + var(--tip-dx, 0px)), 0); }
+body .hotspot.tip-below .tip::after { top:auto; bottom:100%; border-top-color:transparent; border-bottom-color:#fff; }
+body .hotspot.tip-inside .tip::after { display:none; }
+body .hotspot.tip-inside .tip { z-index:6; }

@@ -248,6 +248,10 @@ COPY_FIXES = {
     ],
     "hiring-teams.html": [
         (">45-minute sessions</span>", ">Sessions up to 60 minutes</span>"),
+        # Marianna, 30 September 2026: on phones "stepping out of it" on its own line and no other breaks, so the
+        # heading scales with the screen below 640 px (the first line needs 387 px at 36 px) and breaks after "ends by".
+        ('<h2 class="reveal d1 font-serif text-4xl sm:text-5xl lg:text-[56px] lg:leading-[1.08] max-w-2xl mb-16">The detection arms race<br><span class="accent">ends by stepping out of it.</span></h2>',
+         '<h2 class="reveal d1 font-serif text-[clamp(24px,7.8vw,36px)] leading-[1.11] sm:text-5xl lg:text-[56px] lg:leading-[1.08] max-w-2xl mb-16"><span class="whitespace-nowrap">The detection arms race</span><br><span class="accent">ends by<br class="sm:hidden"> <span class="whitespace-nowrap">stepping out of it.</span></span></h2>'),
         ("recorded with consent. No camera, no lockdown browser.", "recorded with consent. No video recording, no lockdown browser."),
         ("No camera, no microphone, no keystroke logging.", "No video or audio recording, no keystroke logging."),
         ("Every decision has a documented reason. Countersigned DPA and EU hosting on Comply.",
