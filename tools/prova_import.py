@@ -297,10 +297,17 @@ def split_lines(inner):
     return "".join(f'<span class="block">{part.strip()}</span>' for part in parts)
 
 
+def keep_hyphenated(inner):
+    """Hyphenated words in headings stay whole ("AI-competency" broke after "AI-" in narrow cards)."""
+    parts = re.split(r"(<[^>]+>)", inner)
+    return "".join(part if part.startswith("<") else re.sub(r"\b(\w+(?:-\w+)+)\b", r'<span class="whitespace-nowrap">\1</span>', part) for part in parts)
+
+
 def balance_headings(s):
     """Marianna, 30 September 2026: lines of headings ended with one word ("use", "how.", "seats.")."""
-    s = re.sub(r"(<(h1|h2|h3)\b[^>]*>)(.*?)(</\2>)", lambda m: m.group(1) + split_lines(m.group(3)) + m.group(4), s, flags=re.S)
-    return re.sub(r'(<p\b[^>]*\bfont-serif\b[^>]*>)(.*?)(</p>)', lambda m: m.group(1) + split_lines(m.group(2)) + m.group(3), s, flags=re.S)
+    fix = lambda inner: split_lines(keep_hyphenated(inner))
+    s = re.sub(r"(<(h1|h2|h3)\b[^>]*>)(.*?)(</\2>)", lambda m: m.group(1) + fix(m.group(3)) + m.group(4), s, flags=re.S)
+    return re.sub(r'(<p\b[^>]*\bfont-serif\b[^>]*>)(.*?)(</p>)', lambda m: m.group(1) + fix(m.group(2)) + m.group(3), s, flags=re.S)
 
 
 def copy_fixes(s, file):
