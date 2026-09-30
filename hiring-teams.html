@@ -388,16 +388,17 @@
         <form id="contactForm" class="bg-white/5 border border-white/10 rounded-md2 p-6 backdrop-blur-sm">
           <p class="eyebrow text-white/40 mb-4">Talk to us</p>
           <div class="grid sm:grid-cols-2 gap-3 mb-3">
-            <input id="cfName" name="name" type="text" required maxlength="120" autocomplete="name" placeholder="Your name" class="w-full bg-plum/50 border border-white/15 rounded-sm2 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-aqua focus:outline-none transition-colors">
-            <input id="cfEmail" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="Work email" class="w-full bg-plum/50 border border-white/15 rounded-sm2 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-aqua focus:outline-none transition-colors">
+            <input id="cfName" name="name" type="text" required maxlength="120" autocomplete="name" placeholder="Your name *" class="w-full bg-plum/50 border border-white/15 rounded-sm2 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-aqua focus:outline-none transition-colors">
+            <input id="cfEmail" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="Work email *" class="w-full bg-plum/50 border border-white/15 rounded-sm2 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-aqua focus:outline-none transition-colors">
           </div>
-          <textarea id="cfMsg" name="message" rows="3" required maxlength="4000" placeholder="Tell us about your course, your open role, or your team..." class="w-full bg-plum/50 border border-white/15 rounded-sm2 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-aqua focus:outline-none transition-colors resize-none mb-4"></textarea>
+          <textarea id="cfMsg" name="message" rows="3" required maxlength="4000" placeholder="Tell us about your course, your open role, or your team... *" class="w-full bg-plum/50 border border-white/15 rounded-sm2 px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-aqua focus:outline-none transition-colors resize-none mb-4"></textarea>
           <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <p id="cfStatus" role="status" class="hidden text-sm mb-4"></p>
           <div class="flex flex-wrap gap-3">
             <button type="submit" class="inline-flex items-center gap-2 bg-coral text-white font-semibold text-sm px-6 h-[46px] rounded-sm2 hover:bg-[#e84a5d] transition-colors">Send message</button>
             <a href="https://calendly.com/mariannamilkis/30-min" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-white/25 text-white font-semibold text-sm px-6 h-[46px] rounded-sm2 hover:bg-white/10 transition-colors">Schedule a demo</a>
           </div>
+          <p class="mt-3 text-[13px] text-white/60">* Required</p>
         </form>
       </div>
     </div>

@@ -88,6 +88,7 @@ h1 em{font-style:italic;color:var(--accent)}
 .btn.accent{border-color:var(--accent);color:var(--accent)}
 .btn.accent:hover{background:var(--accent);color:var(--paper)}
 .err{width:100%;font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.06em;min-height:16px}
+.req{width:100%;font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.06em}
 .done-msg{display:none;align-items:center;gap:14px;font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.6rem);font-style:italic;color:var(--ink)}
 .done-msg.show{display:flex;animation:panelIn .7s var(--ease-out)}
 .done-msg .tick-mark{width:34px;height:34px;border:1.5px solid var(--accent);border-radius:50%;display:grid;place-items:center;color:var(--accent);font-style:normal;flex:none}
@@ -175,9 +176,10 @@ footer{border-top:1px solid var(--line);padding:34px 0}
       <h2 class="rv">Read it <em>first.</em></h2>
       <p class="sub rv">Leave your email and the paper is yours immediately. We will also write once when Stima launches. Nothing else.</p>
       <form class="capture rv" id="paperForm" novalidate>
-        <input type="email" id="paperEmail" placeholder="you@wherever.com" aria-label="Email address" autocomplete="email">
+        <input type="email" id="paperEmail" placeholder="you@wherever.com *" aria-label="Email address" autocomplete="email">
         <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn accent" type="submit">Send me the paper <span>→</span></button>
+        <div class="req">* Required</div>
         <div class="err" id="paperErr" aria-live="polite"></div>
       </form>
       <div class="done-msg" id="paperDone"><span class="tick-mark">✓</span>You are on the list.</div>

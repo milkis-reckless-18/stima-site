@@ -16,7 +16,8 @@ Her pages are the source of the copy and the design. On the way in they get:
     campus plans and Enterprise to the form or the calendar;
   - the trial described as the app runs it (14 days, 10 completions, card up front), and claims the
     product does not back yet reworded (COPY_FIXES);
-  - a Sign in link, links to the pages without .html (published_path), canonical and Open Graph tags.
+  - a Sign in link, links to the pages without .html (published_path), canonical and Open Graph tags;
+  - the required fields of "Talk to us" marked with * and a "* Required" note.
 
 Every edit is anchored on her markup and fails loudly when that markup has changed,
 so a new version of her pages is re-imported by running this again and fixing what it names.
@@ -339,15 +340,18 @@ def trial_terms(s, file):
 def contact_form(s):
     s = sub_once(r'\n?// contact form -> mailto compose\ndocument\.getElementById\(\'contactForm\'\)\.addEventListener\(\'submit\', e => \{.*?\n\}\);\n',
                  "\n", s, "mailto form handler", re.S)
+    # Marianna, 30 September 2026: required fields carry a *; the placeholders are the fields' only labels.
     s = replace_once('<input id="cfName" type="text" required placeholder="Your name"',
-                     '<input id="cfName" name="name" type="text" required maxlength="120" autocomplete="name" placeholder="Your name"', s, "name field")
+                     '<input id="cfName" name="name" type="text" required maxlength="120" autocomplete="name" placeholder="Your name *"', s, "name field")
     s = replace_once('<input id="cfEmail" type="email" required placeholder="Work email"',
-                     '<input id="cfEmail" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="Work email"', s, "email field")
-    s = replace_once('<textarea id="cfMsg" rows="3" required',
-                     '<textarea id="cfMsg" name="message" rows="3" required maxlength="4000"', s, "message field")
+                     '<input id="cfEmail" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="Work email *"', s, "email field")
+    s = replace_once('<textarea id="cfMsg" rows="3" required placeholder="Tell us about your course, your open role, or your team..."',
+                     '<textarea id="cfMsg" name="message" rows="3" required maxlength="4000" placeholder="Tell us about your course, your open role, or your team... *"', s, "message field")
     s = sub_once(r'(<textarea id="cfMsg".*?</textarea>)',
                  r'\1\n          <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>'
                  r'\n          <p id="cfStatus" role="status" class="hidden text-sm mb-4"></p>', s, "form status", re.S)
+    s = sub_once(r'(<form id="contactForm".*?Schedule a demo</a>\n          </div>)(\n        </form>)',
+                 r'\1\n          <p class="mt-3 text-[13px] text-white/60">* Required</p>\2', s, "form buttons", re.S)
     return s
 
 

@@ -20,7 +20,7 @@ python3 tools/prova_import.py ~/WORK/stima-prova-site
 npx -y tailwindcss@3.4.17 -c tools/prova-tailwind.config.js -i tools/prova.src.css -o prova.css --minify
 ```
 
-The script pulls the embedded images into `img/prova/`, swaps the Tailwind CDN for `prova.css`, and adds what the site needs on mystima.io: cookie consent, footer links to `/terms/`, the contact form posting to `/api/leads`, plan buttons (hiring plans go to `/signup` and on to Stripe Checkout, campus plans and Enterprise to the form or the calendar), the trial as the app runs it, a Sign in link, links without .html, canonical and Open Graph tags (the home page's `og:title` is the tagline). Each change is anchored on her markup; when she changes that markup the script stops and names what it could not find.
+The script pulls the embedded images into `img/prova/`, swaps the Tailwind CDN for `prova.css`, and adds what the site needs on mystima.io: cookie consent, footer links to `/terms/`, the contact form posting to `/api/leads`, plan buttons (hiring plans go to `/signup` and on to Stripe Checkout, campus plans and Enterprise to the form or the calendar), the trial as the app runs it, a Sign in link, links without .html, canonical and Open Graph tags (the home page's `og:title` is the tagline), and a `*` on the required fields of the form. Each change is anchored on her markup; when she changes that markup the script stops and names what it could not find.
 
 Her short `terms.html` and `privacy.html` are not published: the footer points to the documents on `/terms/`, which are the ones people accept in the app.
 
