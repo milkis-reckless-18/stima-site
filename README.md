@@ -20,19 +20,23 @@ python3 tools/prova_import.py ~/WORK/stima-prova-site
 npx -y tailwindcss@3.4.17 -c tools/prova-tailwind.config.js -i tools/prova.src.css -o prova.css --minify
 ```
 
-The script pulls the embedded images into `img/prova/`, swaps the Tailwind CDN for `prova.css`, and adds what the site needs on mystima.io: cookie consent, footer links to `/terms/`, the contact form posting to `/api/leads`, plan buttons (hiring plans go to `/signup` and on to Stripe Checkout, campus plans and Enterprise to the form or the calendar), the trial as the app runs it, a Sign in link, canonical and Open Graph tags. Each change is anchored on her markup; when she changes that markup the script stops and names what it could not find.
+The script pulls the embedded images into `img/prova/`, swaps the Tailwind CDN for `prova.css`, and adds what the site needs on mystima.io: cookie consent, footer links to `/terms/`, the contact form posting to `/api/leads`, plan buttons (hiring plans go to `/signup` and on to Stripe Checkout, campus plans and Enterprise to the form or the calendar), the trial as the app runs it, a Sign in link, links without .html, canonical and Open Graph tags (the home page's `og:title` is the tagline). Each change is anchored on her markup; when she changes that markup the script stops and names what it could not find.
 
 Her short `terms.html` and `privacy.html` are not published: the footer points to the documents on `/terms/`, which are the ones people accept in the app.
 
 The contact form: the app saves the message as a lead (source `contact`, with name and message) and emails it to `info@mystima.io` with Marianna in copy (`CONTACT_EMAIL`, `CONTACT_CC` in the app's environment), reply-to the visitor.
 
+## Addresses without .html
+
+Pages are published without the extension: `/hiring-teams`, `/higher-ed`, `/paper`. Links, canonical and `og:url` use those addresses (for the Prova pages the import writes them, from the file name). On the server nginx serves `/hiring-teams` from `hiring-teams.html` and redirects `/hiring-teams.html` to `/hiring-teams` with any query string (`deploy/nginx-paths.conf` in the app repo; the steps are in the app's `docs/runbook.md`).
+
 ## Run locally
 
 ```bash
-python3 -m http.server 8000
+python3 tools/serve.py 8000
 ```
 
-Then open http://localhost:8000. The forms and plan buttons need the Stima app behind the same host, as nginx does on the server (`deploy/nginx-paths.conf` in the app repo).
+Then open http://localhost:8000. It serves `/hiring-teams` from `hiring-teams.html` as nginx does. The forms and plan buttons need the Stima app behind the same host, as nginx does on the server (`deploy/nginx-paths.conf` in the app repo).
 
 ## Deploy
 

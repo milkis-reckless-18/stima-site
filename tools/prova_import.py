@@ -16,7 +16,7 @@ Her pages are the source of the copy and the design. On the way in they get:
     campus plans and Enterprise to the form or the calendar;
   - the trial described as the app runs it (14 days, 10 completions, card up front), and claims the
     product does not back yet reworded (COPY_FIXES);
-  - a Sign in link, root-relative home links, canonical and Open Graph tags.
+  - a Sign in link, links to the pages without .html (published_path), canonical and Open Graph tags.
 
 Every edit is anchored on her markup and fails loudly when that markup has changed,
 so a new version of her pages is re-imported by running this again and fixing what it names.
@@ -35,17 +35,25 @@ FIXES_DIR = ROOT / "tools" / "prova-image-fixes"
 SITE = "https://mystima.io"
 
 PAGES = {
-    # file: (published path, section name sent with the contact form)
-    "index.html": ("/", "Overview"),
-    "hiring-teams.html": ("/hiring-teams.html", "Hiring teams"),
-    "higher-ed.html": ("/higher-ed.html", "Higher education"),
+    # file: section name sent with the contact form; the page is published without .html (published_path)
+    "index.html": "Overview",
+    "hiring-teams.html": "Hiring teams",
+    "higher-ed.html": "Higher education",
 }
+# Marianna and the user, 30 September 2026: the home page's link preview carries the tagline, not the page title.
+OG_TITLE = {"index.html": "Stima Prova: Work with the machine. Prove the human."}
 
 EXT = {"png": "png", "jpeg": "jpg", "jpg": "jpg", "webp": "webp"}
 
 
 class Missing(Exception):
     pass
+
+
+def published_path(file):
+    """Addresses have no .html (Marianna, 30 September 2026): nginx serves /hiring-teams from hiring-teams.html
+    and redirects the old .html address there (deploy/nginx-paths.conf in the app repo; tools/serve.py locally)."""
+    return "/" if file == "index.html" else "/" + file.removesuffix(".html")
 
 
 def sub_once(pattern, repl, s, what, flags=0, count=1):
@@ -93,7 +101,8 @@ def lazy_images(s):
     return head + sep + re.sub(r"<img [^>]*>", lazy, rest)
 
 
-def head_tags(s, path, section):
+def head_tags(s, file, section):
+    path = published_path(file)
     s = sub_once(r'<script src="https://cdn\.tailwindcss\.com"></script>\s*<script>\s*tailwind\.config = .*?</script>',
                  '<link rel="stylesheet" href="/prova.css">\n<link rel="stylesheet" href="/legal.css">', s, "Tailwind CDN and config", re.S)
     s = replace_once("<head>\n", "<head>\n<script src=\"/consent.js\"></script>\n", s, "<head>")
@@ -105,7 +114,7 @@ def head_tags(s, path, section):
     og = (f'<link rel="canonical" href="{SITE}{path}">\n'
           f'<meta property="og:type" content="website">\n'
           f'<meta property="og:site_name" content="Stima Prova">\n'
-          f'<meta property="og:title" content="{title}">\n'
+          f'<meta property="og:title" content="{OG_TITLE.get(file, title)}">\n'
           f'<meta property="og:description" content="{desc.group(1)}">\n'
           f'<meta property="og:url" content="{SITE}{path}">\n'
           + (f'<meta property="og:image" content="{SITE}{hero.group(1)}">\n<meta name="twitter:card" content="summary_large_image">\n' if hero else ""))
@@ -115,8 +124,8 @@ def head_tags(s, path, section):
 
 
 def links(s):
-    s = re.sub(r'href="index\.html(#[^"]*)?"', lambda m: f'href="/{m.group(1) or ""}"', s)
-    s = re.sub(r'href="(higher-ed|hiring-teams)\.html', r'href="/\1.html', s)
+    for file in PAGES:
+        s = re.sub(r'href="' + re.escape(file) + r'(#[^"]*)?"', lambda m: f'href="{published_path(file)}{m.group(1) or ""}"', s)
     # Footer and mobile menu: the binding documents on /terms/ (her short versions are not published).
     s = sub_once(r'<li><a href="terms\.html" class="([^"]*)">Terms of Use</a></li>\s*<li><a href="privacy\.html" class="[^"]*">Privacy Policy</a></li>',
                  lambda m: (f'<li><a href="/terms/#terms-of-use" data-legal="terms-of-use" class="{m.group(1)}">Terms of Use</a></li>\n'
@@ -130,6 +139,9 @@ def links(s):
                  s, "mobile menu legal links", re.S)
     if re.search(r'href="(terms|privacy)\.html', s):
         raise Missing("another link to terms.html or privacy.html")
+    other = re.search(r'href="(?![a-z]+:)([^"]*\.html)', s)
+    if other:
+        raise Missing(f"a published page for the link to {other.group(1)} (add it to PAGES)")
     return s
 
 
@@ -150,14 +162,14 @@ def nav(s, file):
     s = replace_once('class="hidden sm:inline-flex items-center gap-2 text-sm font-semibold px-5 h-[42px]', 'class="hidden sm:inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold px-5 h-[42px]', s, "header button")
     if file == "index.html":
         # Two price lists, one per audience: Pricing opens a choice instead of jumping to the campus list.
-        s = replace_once('<a href="/higher-ed.html#pricing" class="px-4 py-2 rounded-sm2 text-muted hover:text-plum transition-colors">Pricing</a>',
+        s = replace_once('<a href="/higher-ed#pricing" class="px-4 py-2 rounded-sm2 text-muted hover:text-plum transition-colors">Pricing</a>',
                          '<div class="has-drop relative">\n'
                          '        <button class="nav-btn px-4 py-2 rounded-sm2 text-muted hover:text-plum transition-colors inline-flex items-center gap-1.5" aria-haspopup="true">Pricing\n'
                          '          <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg></button>\n'
                          '        <div class="drop absolute left-0 top-full pt-3 w-[300px]">\n'
                          '          <div class="bg-white rounded-md2 shadow-float border border-divider p-2">\n'
-                         '            <a href="/hiring-teams.html#pricing" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">For Hiring Teams</span><span class="text-[13px] text-muted">Free trial, then from $29 per assessment</span></a>\n'
-                         '            <a href="/higher-ed.html#pricing" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">For Higher Education</span><span class="text-[13px] text-muted">Free for instructors, campus plans per student</span></a>\n'
+                         '            <a href="/hiring-teams#pricing" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">For Hiring Teams</span><span class="text-[13px] text-muted">Free trial, then from $29 per assessment</span></a>\n'
+                         '            <a href="/higher-ed#pricing" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">For Higher Education</span><span class="text-[13px] text-muted">Free for instructors, campus plans per student</span></a>\n'
                          '          </div>\n'
                          '        </div>\n'
                          '      </div>',
@@ -348,12 +360,12 @@ def main():
     rev = subprocess.run(["git", "-C", str(src), "rev-parse", "--short", "HEAD"], capture_output=True, text=True).stdout.strip() or "unknown"
     IMG_DIR.mkdir(parents=True, exist_ok=True)
     failed = []
-    for file, (path, section) in PAGES.items():
+    for file, section in PAGES.items():
         s = (src / file).read_text()
         try:
             s = extract_images(s)
             s = lazy_images(s)
-            s = head_tags(s, path, section)
+            s = head_tags(s, file, section)
             s = links(s)
             s = nav(s, file)
             s = trial_terms(s, file)
