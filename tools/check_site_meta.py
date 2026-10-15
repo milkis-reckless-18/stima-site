@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
 """Check what tools/site_meta.py wrote: the JSON-LD and icons of every page, robots.txt, sitemap.xml, llms.txt,
-llms-full.txt, the icon files and the IndexNow key file.
+llms-full.txt, the icon files, the IndexNow key file and the fact list (tools/site_facts.json).
 
     python3 tools/check_site_meta.py                            # the files in this checkout, offline
-    python3 tools/check_site_meta.py --base https://mystima.io  # also what a host serves: status, type, charset
+    python3 tools/check_site_meta.py --base https://mystima.io  # also what a host serves: status, type, charset,
+                                                                # and the app's /rubric and /pricing JSON-LD
     python3 tools/check_site_meta.py --base http://localhost:8000   # tools/serve.py; app pages are skipped
+    python3 tools/check_site_meta.py --app-html DIR             # also the JSON-LD of the app's pages saved in DIR
+                                                                # (*.html, e.g. its .next/server/app after a build)
 
-Prints one line per problem and exits 1 if there is any.
+Prints one line per problem and exits 1 if there is any. A JSON-LD @id means one thing everywhere: wherever a node
+with that @id is written, on the site's pages or the app's, the properties two of them share have the same value.
 """
+import html
 import json
 import pathlib
 import re
 import struct
 import sys
+import tokenize
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -43,6 +49,40 @@ def walk(x):
     elif isinstance(x, list):
         for v in x:
             yield from walk(v)
+
+
+def as_refs(v):
+    """A value with every nested node cut to its @id: nested nodes are compared where they are defined."""
+    if isinstance(v, dict):
+        return {"@id": v["@id"]} if "@id" in v else {k: as_refs(x) for k, x in v.items()}
+    if isinstance(v, list):
+        return [as_refs(x) for x in v]
+    return v
+
+
+def defined_nodes(data):
+    """The nodes a JSON-LD document defines (an @id and at least one property), nested ones included."""
+    return [n for n in walk(data) if "@id" in n and len(n) > 1]
+
+
+def short(v):
+    text = json.dumps(v, ensure_ascii=False)
+    return text if len(text) <= 90 else text[:87] + "..."
+
+
+def one_meaning(definitions):
+    """definitions: @id -> [(where, node)]. Properties two definitions of one @id share must have the same value
+    (offers aside: each page lists its own)."""
+    for i, defs in sorted(definitions.items()):
+        seen = {}
+        for where, n in defs:
+            for k, v in n.items():
+                if k == "offers":
+                    continue
+                v = as_refs(v)
+                if k in seen and seen[k][1] != v:
+                    problem(f"{where}: {i} has {k} {short(v)}, {seen[k][0]} has {short(seen[k][1])}")
+                seen.setdefault(k, (where, v))
 
 
 def png_size(path):
@@ -93,6 +133,7 @@ def sitemap_entries():
 def check_pages(sitemap):
     shared = {}  # @id -> (file, node) of the nodes every page repeats
     defined, refs = set(), []
+    definitions = {}  # @id -> [(file, node)], for one_meaning
     for page in sm.PAGES:
         path = ROOT / page.file
         s = path.read_text(encoding="utf-8")
@@ -137,14 +178,21 @@ def check_pages(sitemap):
             problem(f"{f}: canonical {canonical} is not in sitemap.xml")
         if wp.get("name") != meta["title"] or wp.get("description") != meta["description"]:
             problem(f"{f}: WebPage name/description differ from <title>/meta description")
-        if meta["image"] and wp.get("primaryImageOfPage", {}).get("url") != meta["image"]:
-            problem(f"{f}: primaryImageOfPage is not the og:image")
+        body = s.split("</head>", 1)[1]
+        shown = bool(meta["image"]) and sm.shows_image(body, meta["image"])
+        main_image = wp.get("primaryImageOfPage", {}).get("url")
+        if shown and main_image != meta["image"]:
+            problem(f"{f}: primaryImageOfPage is not the og:image the page shows")
+        if main_image and not shown:
+            problem(f"{f}: primaryImageOfPage {main_image} is not shown on the page")
         for t in ("Organization", "WebSite", "WebApplication"):
             if len(by_type.get(t, [])) != 1:
                 problem(f"{f}: needs one {t} node")
         if page.crumb and not by_type.get("BreadcrumbList"):
             problem(f"{f}: a sub-page needs a BreadcrumbList")
         text = sm.visible_text(s)
+        for n in defined_nodes(nodes):
+            definitions.setdefault(n["@id"], []).append((f, n))
         for n in walk(nodes):
             if "@id" in n and len(n) > 1:
                 defined.add(n["@id"])
@@ -173,7 +221,8 @@ def check_pages(sitemap):
             problem(f"{f}: sameAs differs from SAME_AS in tools/site_meta.py")
         # The page as site_meta.py would write it now: catches hand edits and a forgotten run.
         try:
-            expected = sm.BLOCK_RE.sub("", s).replace("</head>", sm.block(sm.graph(page, meta, sm.visible_text(sm.BLOCK_RE.sub("", s)))) + "</head>", 1)
+            bare = sm.BLOCK_RE.sub("", s)
+            expected = bare.replace("</head>", sm.block(sm.graph(page, meta, sm.visible_text(bare), bare.split("</head>", 1)[1])) + "</head>", 1)
             if expected != s:
                 problem(f"{f}: not what tools/site_meta.py writes; run it")
         except sm.Missing as e:
@@ -181,6 +230,29 @@ def check_pages(sitemap):
     for f, r in refs:
         if r not in defined:
             problem(f"{f}: @id {r} is referenced but defined on no page")
+    one_meaning(definitions)
+    return definitions
+
+
+LD_RE = re.compile(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>', re.S)
+
+
+def check_app_graph(where, page_html, definitions):
+    """The JSON-LD of an app page (/rubric, /pricing) against the site's: the same @id, the same values."""
+    merged = {i: list(d) for i, d in definitions.items()}
+    found = 0
+    for raw in LD_RE.findall(page_html):
+        try:
+            data = json.loads(raw)
+        except json.JSONDecodeError as e:
+            problem(f"{where}: JSON-LD does not parse: {e}")
+            continue
+        for n in defined_nodes(data):
+            found += 1
+            merged.setdefault(n["@id"], []).append((where, n))
+    before = len(problems)
+    one_meaning({i: d for i, d in merged.items() if any(w == where for w, _ in d)})
+    return found, len(problems) - before
 
 
 def check_robots(sitemap):
@@ -245,12 +317,32 @@ def check_files():
     return keys[0].name if len(keys) == 1 else None
 
 
-TEXT_TYPES = ("text/", "application/xml", "application/javascript")
 EXPECTED_TYPE = {".html": "text/html", ".txt": "text/plain", ".xml": "xml", ".svg": "image/svg+xml", ".png": "image/png",
                  ".ico": "icon", ".pdf": "application/pdf"}
+# How each text file tells a reader it is UTF-8. The .txt files must say it in the header: nginx sends them with
+# `charset utf-8;` (the `location ~ \.txt$` block in the app's deploy/nginx-paths.conf), and a plain-text file has
+# no other place to say it. A page or the sitemap may say it in the header or in the file itself (<meta charset>,
+# the XML declaration), which browsers and search engines read; without the header, Python requests guesses
+# ISO-8859-1, which is a note here, not a problem.
+DECLARES_UTF8 = {".html": re.compile(rb'<meta charset="?utf-8"?', re.I),
+                 ".xml": re.compile(rb'^<\?xml [^>]*encoding="utf-8"', re.I)}
 
 
-def check_host(base, key_file):
+def charset_note(ext, ctype, body):
+    """(problem, note) about how a text response declares its encoding."""
+    header = re.search(r"charset=([\w-]+)", ctype, re.I)
+    if header:
+        return (None, None) if header.group(1).lower() == "utf-8" else (f"charset={header.group(1)} in {ctype!r}", None)
+    if ext == ".txt":
+        return f"no charset=utf-8 in {ctype!r} (a plain-text file can say it nowhere else)", None
+    if ext in DECLARES_UTF8:
+        if DECLARES_UTF8[ext].search(body[:1024] if ext == ".html" else body[:200]):
+            return None, "UTF-8 declared in the file, not in the header (Python requests guesses ISO-8859-1)"
+        return f"no charset in {ctype!r} and none declared in the file", None
+    return None, None
+
+
+def check_host(base, key_file, definitions):
     base = base.rstrip("/")
     production = base == ORIGIN
     targets = [(p.url, ".html", True) for p in sm.PAGES]
@@ -260,7 +352,8 @@ def check_host(base, key_file):
         if name:
             targets.append((f"{ORIGIN}/{name}", pathlib.PurePosixPath(name).suffix, False))
     for url, ext, site_page in targets:
-        if not production and not site_page and url[len(ORIGIN):] in sm.APP_PAGES:
+        app_page = url[len(ORIGIN):] in sm.APP_PAGES
+        if not production and app_page:
             print(f"  skip {url} (served by the Stima app)")
             continue
         fetch = base + url[len(ORIGIN):]
@@ -272,7 +365,7 @@ def check_host(base, key_file):
         except (urllib.error.URLError, OSError) as e:
             problem(f"{fetch}: {e}")
             continue
-        notes = []
+        notes, info = [], []
         if status != 200:
             notes.append(f"status {status}")
         if final.rstrip("/") != fetch.rstrip("/"):
@@ -280,26 +373,116 @@ def check_host(base, key_file):
         want = EXPECTED_TYPE.get(ext, "")
         if status == 200 and want and want not in ctype:
             notes.append(f"content-type {ctype!r}, expected {want}")
-        if status == 200 and ctype.startswith(TEXT_TYPES) and "charset=utf-8" not in ctype.lower().replace(" ", ""):
-            notes.append(f"no charset=utf-8 in {ctype!r} (Python requests would read it as ISO-8859-1)")
+        if status == 200 and (ctype.startswith("text/") or "xml" in ctype):
+            bad, note = charset_note(ext, ctype, body)
+            notes += [bad] if bad else []
+            info += [note] if note else []
         if site_page and status == 200 and sm.BLOCK_START.encode() not in body:
             notes.append("served without the site-meta block (not deployed yet?)")
-        print(f"  {status} {ctype or '-':40} {fetch}" + ("  <- " + "; ".join(notes) if notes else ""))
+        if app_page and status == 200:
+            found, bad = check_app_graph(fetch, body.decode("utf-8", "replace"), definitions)
+            if not found:
+                notes.append("no JSON-LD (the app's ai-visibility branch not deployed yet?)")
+            elif bad:
+                notes.append(f"{bad} JSON-LD values differ from the site's (above)")
+        print(f"  {status} {ctype or '-':40} {fetch}" + ("  <- " + "; ".join(notes + info) if notes or info else ""))
         if notes:
             problem(f"{fetch}: " + "; ".join(notes))
+    if production:
+        check_noindex(base)
+
+
+# robots.txt leaves sign-in and the pages behind personal links crawlable because the app marks them noindex
+# (X-Robots-Tag from its src/proxy.ts, or a robots meta tag); made-up tokens, so nothing is opened or changed.
+NOINDEX_PATHS = ["/login", "/signup", "/i/check-site-meta", "/c/check-site-meta", "/r/check-site-meta", "/v/check-site-meta"]
+
+
+def check_noindex(base):
+    for path in NOINDEX_PATHS:
+        fetch = base + path
+        try:
+            with urllib.request.urlopen(urllib.request.Request(fetch, headers={"User-Agent": "check_site_meta"}), timeout=30) as r:
+                status, header, body = r.status, r.headers.get("X-Robots-Tag", ""), r.read()
+        except urllib.error.HTTPError as e:
+            status, header, body = e.code, e.headers.get("X-Robots-Tag", ""), e.read()
+        except (urllib.error.URLError, OSError) as e:
+            problem(f"{fetch}: {e}")
+            continue
+        meta = re.search(rb'<meta name="robots" content="([^"]*)"', body)
+        said = "noindex" in header.lower() or bool(meta and b"noindex" in meta.group(1).lower())
+        print(f"  {status} X-Robots-Tag {header or '-':32} {fetch}" + ("" if said else "  <- no noindex"))
+        if not said:
+            problem(f"{fetch}: no noindex, though robots.txt leaves it crawlable for one (deploy the app's ai-visibility branch)")
+
+
+# ---------------------------------------------------------------- the fact list
+
+FACT_TOKEN = re.compile(r"(?<![\w/.-])[a-z0-9]+(?:-[a-z0-9]+)+(?![\w-]|\.\w)")
+
+
+def norm(s):
+    s = html.unescape(s).replace("’", "'").replace("‘", "'").replace("“", '"').replace("”", '"')
+    s = re.sub(r"\s+", " ", s).strip()
+    return re.sub(r" ([,.;:!?])", r"\1", s)
+
+
+def check_facts():
+    """Every fact id the comments of tools/site_meta.py cite is in tools/site_facts.json, every fact there is cited,
+    and every quote from a page of this repo is still on that page."""
+    path = ROOT / "tools" / "site_facts.json"
+    try:
+        facts = json.loads(path.read_text(encoding="utf-8"))["facts"]
+    except (OSError, ValueError, KeyError) as e:
+        problem(f"tools/site_facts.json: {e}")
+        return
+    by_id = {f["id"]: f for f in facts}
+    if len(by_id) != len(facts):
+        problem("tools/site_facts.json: an id appears twice")
+    cited = set()
+    with open(ROOT / "tools" / "site_meta.py", encoding="utf-8") as fh:
+        for t in tokenize.generate_tokens(fh.readline):
+            if t.type == tokenize.COMMENT:
+                cited |= set(FACT_TOKEN.findall(t.string))
+    for i in sorted(cited - set(by_id)):
+        problem(f"tools/site_meta.py cites {i}, which is not in tools/site_facts.json")
+    for i in sorted(set(by_id) - cited):
+        problem(f"tools/site_facts.json: {i} is cited nowhere in tools/site_meta.py")
+    pages = {}
+    for f in facts:
+        src = f.get("source", "")
+        if src.startswith("http") or not src.endswith(".html"):
+            continue  # a public page of the app, or the PDF: checked when the list was made
+        if src not in pages:
+            try:
+                raw = (ROOT / src).read_text(encoding="utf-8")
+            except OSError as e:
+                problem(f"tools/site_facts.json: {f['id']}: {e}")
+                continue
+            pages[src] = norm(sm.visible_text(raw)) + " ||| " + norm(raw)
+        if src in pages and norm(f["quote"]) not in pages[src]:
+            problem(f"tools/site_facts.json: {src} no longer says what {f['id']} quotes ({f['quote'][:60]!r}...)")
 
 
 def main():
     args = sys.argv[1:]
     base = args[args.index("--base") + 1] if "--base" in args else None
+    app_html = args[args.index("--app-html") + 1] if "--app-html" in args else None
     sitemap = sitemap_entries()
-    check_pages(sitemap)
+    definitions = check_pages(sitemap)
     check_robots(sitemap)
     check_llms(sitemap)
+    check_facts()
     key_file = check_files()
+    if app_html:
+        files = sorted(pathlib.Path(app_html).glob("*.html"))
+        print(f"JSON-LD of the app's pages in {app_html}:")
+        for f in files:
+            found, bad = check_app_graph(f.name, f.read_text(encoding="utf-8"), definitions)
+            if found:
+                print(f"  {f.name}: {found} nodes" + (f", {bad} differ from the site's" if bad else ", agree with the site's"))
     if base:
         print(f"Fetching from {base}:")
-        check_host(base, key_file)
+        check_host(base, key_file, definitions)
     for p in problems:
         print("PROBLEM", p)
     print(f"check_site_meta: {len(sm.PAGES)} pages, {len(problems)} problems")

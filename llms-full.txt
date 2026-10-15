@@ -319,7 +319,7 @@ Start here
 - Comply · $690 / mo · 25 completions included. DPA on request, org structure, extended data storage. Or $6,900 a year.
 - Enterprise · From $15K / yr · Annual contract plus committed volume. White label, SSO and integrations as add-ons.
 
-Annual billing on Team and Comply: two months free. Candidates always free, one practice session every 90 days. Self-serve plans are paid by card through Stripe and can be cancelled from your billing page. Founding teams (first 10): Comply at $490/mo, extra completions at $24 for life, plus 30% off Team or Comply for 12 months on annual billing.
+Annual billing on Team and Comply: two months free. Candidates always free. Self-serve plans are paid by card through Stripe and can be cancelled from your billing page. Founding teams (first 10): Comply at $490/mo, extra completions at $24 for life, plus 30% off Team or Comply for 12 months on annual billing.
 
 The founding cohort is forming now
 
@@ -483,7 +483,6 @@ Stima Prova · Position Paper No. 01 · Free
 Why banning AI from assessment tests a world that no longer exists, what to measure instead, and how a credential survives when any answer can be generated. Nine pages. No buzzwords.
 
 - PDF · 9 pages
-- 5 references
 - Free with your email
 
 ### Inside the paper.
@@ -522,7 +521,7 @@ The audit brief: a worked example of an assessment where the machine is in the r
 
 #### Principles
 
-Eight rules we build by. The first: prohibition is nostalgia. The last: measurement is respect.
+Eight rules we build by.
 
 "The task is now free. The measurement is the product."
 

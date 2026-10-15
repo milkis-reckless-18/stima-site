@@ -2,8 +2,9 @@
 # Search engines, AI search and assistant crawlers, and AI training crawlers are all welcome on every public page.
 # One group on purpose: a crawler named in a group of its own would ignore every rule below.
 # Disallowed: the signed-in parts of the app and its API, which have nothing public. The app's public pages
-# (/pricing, /rubric, /ob, shared results under /s) and its files (/_next, /brand, /icon.svg) stay open; the
-# pages behind personal links send noindex themselves rather than being blocked here.
+# (/pricing, /rubric, /ob, shared results under /s) and its files (/_next, /brand, /icon.svg) stay open. Sign-in
+# and the pages behind personal links (/login, /signup, /i, /c, /r, /v) are not blocked here but marked noindex by
+# the app, which a crawler can only see on a page it may fetch.
 User-agent: *
 Disallow: /app/
 Disallow: /admin

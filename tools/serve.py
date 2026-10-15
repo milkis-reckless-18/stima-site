@@ -4,8 +4,10 @@
     python3 tools/serve.py [port]    (default 8000), then open http://localhost:8000
 
 /hiring-teams is served from hiring-teams.html, as nginx's `try_files $uri $uri.html $uri/` does
-(deploy/nginx-paths.conf in the app repo), and /terms redirects to /terms/. Text files carry charset=utf-8, as
-nginx sends them with `charset utf-8;`. The forms and plan buttons still need the Stima app behind the same host.
+(deploy/nginx-paths.conf in the app repo), and /terms redirects to /terms/. Content types are the ones nginx sends:
+.txt files as "text/plain; charset=utf-8" (its `location ~ \\.txt$` block sets `charset utf-8;`), .xml as text/xml,
+pages as text/html without a charset (each declares UTF-8 in <meta charset>). The forms and plan buttons still need
+the Stima app behind the same host.
 """
 import functools
 import http.server
@@ -18,8 +20,11 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def guess_type(self, path):
-        kind = super().guess_type(path)
-        return kind + "; charset=utf-8" if kind.startswith("text/") or kind in ("application/xml", "application/javascript") else kind
+        if path.endswith(".txt"):
+            return "text/plain; charset=utf-8"
+        if path.endswith(".xml"):
+            return "text/xml"  # nginx's mime.types
+        return super().guess_type(path)
 
     def translate_path(self, path):
         fs = super().translate_path(path)

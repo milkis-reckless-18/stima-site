@@ -25,6 +25,7 @@ import pathlib
 import re
 import subprocess
 import sys
+import urllib.parse
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ORIGIN = "https://mystima.io"
@@ -33,7 +34,10 @@ ORG_ID = ORIGIN + "/#organization"
 LOGO_ID = ORIGIN + "/#logo"
 WEBSITE_ID = ORIGIN + "/#website"
 SOFTWARE_ID = ORIGIN + "/#software"
-# The scale lives at /rubric (the app); the app's own JSON-LD there uses the same ids.
+# The scale lives at /rubric (the app), whose JSON-LD defines it in full under the same ids: the set at
+# /rubric#scale and its levels at /rubric#delegator, #operator and #director (SITE_IDS.scale in the app's
+# src/lib/public-origin.ts). The home page names them and leaves every description to /rubric, so one @id never
+# carries two descriptions.
 SCALE_ID = ORIGIN + "/rubric#scale"
 LOGO_URL = ORIGIN + "/img/stima-logo-512.png"  # tools/make_icons.sh
 PDF_URL = ORIGIN + "/stima-prova-assessment-after-ai.pdf"
@@ -59,7 +63,7 @@ class Missing(Exception):
 
 class Page:
     def __init__(self, file, path, crumb, **kw):
-        self.file, self.path, self.crumb = file, path, crumb  # crumb: breadcrumb name of a sub-page
+        self.file, self.path, self.crumb = file, path, crumb  # crumb: the page's name in the breadcrumbs (not the home page)
         self.offers = kw.get("offers")          # offers shown on this page
         self.scale = kw.get("scale", False)     # the page shows the whole scale
         self.report = kw.get("report", False)   # the position paper
@@ -106,21 +110,12 @@ AUDIENCES = [
     {"@type": "BusinessAudience", "audienceType": "Hiring teams"},  # audience-hiring
     {"@type": "EducationalAudience", "audienceType": "Higher education", "educationalRole": "instructor"},  # audience-higher-ed, campus-instructor
 ]
+# The home page names the scale and its three levels; /rubric (the app) describes them. The values here are the ones
+# the app's /rubric JSON-LD gives the same @ids (src/app/rubric/json-ld.ts), so the two pages merge into one rubric.
 SCALE = {
     "name": "Stima collaboration rubric",  # rubric-public-url (/rubric)
     "alternateName": ["The AI-collaboration scale", "Delegator, Operator, Director scale"],  # index.html, scale-levels
-    "version": "collab-2.0.0",  # rubric-version (/rubric)
-    # scale-levels, scale-higher-not-better (/rubric), scale-reads (index.html)
-    "description": ("Three levels of AI collaboration: Delegator, Operator and Director. Higher is not better: what counts "
-                    "is whether the way of working fit what the task called for. The scale reads how much thinking was "
-                    "handed to the model (prompts, edits, verification, model switching, time); the grade is calibration, "
-                    "the observed level against what the task demanded."),
-    "levels": [
-        # scale-delegator-site, scale-operator-site, scale-director-site (index.html, the level cards)
-        ("delegator", "Delegator", "Level 1, hands work to AI. Restates the brief, accepts the first answer. Right for verifiable, low-stakes work."),
-        ("operator", "Operator", "Level 2, works with AI. Iterates, corrects, edits substantively. The right default for mixed, everyday work."),
-        ("director", "Director", "Level 3, leads the work. Sets the approach first, verifies the parts most likely wrong, owns the outcome."),
-    ],
+    "levels": [("delegator", "Delegator"), ("operator", "Operator"), ("director", "Director")],  # scale-levels
 }
 REPORT = {
     "name": "Assessment After AI",  # paper-title (paper.html)
@@ -135,71 +130,84 @@ REPORT = {
 
 # ---------------------------------------------------------------- offers, exactly as the price lists show them
 
-def quantity(unit_text, unit_code=None, value=1):
-    q = {"@type": "QuantitativeValue", "value": value}
-    if unit_code:
-        q["unitCode"] = unit_code  # UN/CEFACT: MON month, ANN year, DAY day
-    q["unitText"] = unit_text
-    return q
+# The same shapes as the app's /pricing (src/app/pricing/json-ld.ts), so the two describe a plan alike: a platform
+# fee is a UnitPriceSpecification per month (MON) or per year (ANN); a completed assessment has no UN/CEFACT code, so
+# it is a unit of its own; a fee plus a price per extra assessment is a CompoundPriceSpecification; a "from" amount is
+# minPrice; billingDuration (the length of the contract, not "per month") only where the price list says the plan is
+# a yearly contract. Every Offer carries priceCurrency, and price wherever the list shows one amount.
+CURRENCY = "USD"  # the price lists show "$"; the app bills in US dollars (PER_COMPLETION_USD in its src/billing/plans.ts)
+SUBSCRIPTION = "https://schema.org/Subscription"
+PER_ASSESSMENT = {"@type": "QuantitativeValue", "value": 1, "unitText": "completed assessment"}
 
 
-def unit_price(name, price=None, per="completed assessment", code=None, billed=None, minimum=None, subscription=False):
-    """price per one `per`; billed: ISO 8601 duration the price is billed for (billingDuration); minimum: a "from" price."""
-    spec = {"@type": "UnitPriceSpecification", "name": name}
-    if price is not None:
-        spec["price"] = price
-    if minimum is not None:
-        spec["minPrice"] = minimum
-    spec["priceCurrency"] = "USD"  # the price lists show "$"; the app bills in US dollars (PER_COMPLETION_USD in its src/billing/plans.ts)
-    if subscription:
-        spec["priceComponentType"] = "https://schema.org/Subscription"
-    spec["referenceQuantity"] = quantity(per, code)
-    if billed:
-        spec["billingDuration"] = billed
+def per(unit_code):
+    """One month (MON) or one year (ANN)."""
+    return {"@type": "QuantitativeValue", "value": 1, "unitCode": unit_code}
+
+
+def platform_fee(amount, unit_code, name="Platform fee", minimum=False, contract=False):
+    spec = {"@type": "UnitPriceSpecification", "name": name, "minPrice" if minimum else "price": amount,
+            "priceCurrency": CURRENCY, "referenceQuantity": per(unit_code)}
+    if contract:
+        spec["billingDuration"] = per(unit_code)
+    spec["priceComponentType"] = SUBSCRIPTION
     return spec
 
 
-def monthly(price):
-    return unit_price("Monthly platform fee", price, "month", "MON", "P1M", subscription=True)
+def per_assessment(amount, name="Per completed assessment"):
+    return {"@type": "UnitPriceSpecification", "name": name, "price": amount, "priceCurrency": CURRENCY,
+            "referenceQuantity": PER_ASSESSMENT}
 
 
-def yearly(price, name="Annual platform fee"):
-    return unit_price(name, price, "year", "ANN", "P1Y", subscription=True)
+def fee_plus_extras(fee, extra):
+    """A platform fee with each extra completed assessment paid on top."""
+    return {"@type": "CompoundPriceSpecification", "priceCurrency": CURRENCY, "priceComponent": [fee, extra]}
 
 
 class Offer:
-    def __init__(self, name, shown, description, price=None, specs=(), **extra):
-        self.name, self.shown, self.description, self.price, self.specs, self.extra = name, shown, description, price, list(specs), extra
+    """One way to buy a plan. shown: what the price list shows for it, word for word (the script stops when it no
+    longer does); description: the plan's text on the list."""
+    def __init__(self, name, shown, description, price=None, spec=None, **extra):
+        self.name, self.shown, self.description, self.price, self.spec, self.extra = name, shown, description, price, spec, extra
 
     def node(self, page):
-        o = {"@type": "Offer", "name": self.name, "description": self.description, "url": page.url + "#pricing"}
+        o = {"@type": "Offer", "name": self.name, "description": self.description, "url": page.url + "#pricing",
+             "priceCurrency": CURRENCY}
         if self.price is not None:
             o["price"] = self.price
-            o["priceCurrency"] = "USD"
-        if self.specs:
-            o["priceSpecification"] = self.specs if len(self.specs) > 1 else self.specs[0]
+        if self.spec:
+            o["priceSpecification"] = self.spec
         o.update(self.extra)
         o["offeredBy"] = {"@id": ORG_ID}
         return o
 
 
-# hiring-teams.html, "Start here" (price-payg, price-team, price-comply, price-enterprise, trial-hiring)
+TEAM = "10 completions a month included, then $29 each. Reviewer roles, decision trail. Or $2,990 a year."
+COMPLY = "25 completions included. DPA on request, org structure, extended data storage. Or $6,900 a year."
+EXTRA = "Each extra completed assessment"
+# hiring-teams.html, "Start here" (price-payg, price-team, price-comply, price-enterprise, trial-hiring,
+# price-annual-site). Team and Comply are billed by the month or by the year: one offer each, as on /pricing. The
+# $29 per extra completion is on Team's line only, so only Team's offers carry it. Enterprise shows a "from" amount,
+# so its offer has no price: Google's check of software apps asks for one and reports it (README), but an exact $15,000
+# would claim more than the list does.
 HIRING_OFFERS = [
     Offer("Free trial", ["Free trial", "$0"],
           "One role, 10 completions, 14 days. Card on file; cancel before the trial ends and nothing is charged.",
-          0, eligibleDuration=quantity("days", "DAY", 14)),
+          0, eligibleDuration={"@type": "QuantitativeValue", "value": 14, "unitCode": "DAY", "unitText": "days"}),
     Offer("Pay as you go", ["Pay as you go", "$29 each"],
           "Per completed assessment. No minimum, no credits, no lock-in.",
-          29, [unit_price("Per completed assessment", 29)]),
-    Offer("Team", ["Team", "$299 / mo"],
-          "10 completions a month included, then $29 each. Reviewer roles, decision trail. Or $2,990 a year.",
-          299, [monthly(299), yearly(2990), unit_price("Each completed assessment after the 10 included a month", 29)]),
-    Offer("Comply", ["Comply", "$690 / mo"],
-          "25 completions included. DPA on request, org structure, extended data storage. Or $6,900 a year.",
-          690, [monthly(690), yearly(6900)]),
+          29, per_assessment(29)),
+    Offer("Team, monthly billing", ["Team", "$299 / mo"], TEAM,
+          299, fee_plus_extras(platform_fee(299, "MON"), per_assessment(29, EXTRA))),
+    Offer("Team, annual billing", ["Team", "$2,990 a year"], TEAM,
+          2990, fee_plus_extras(platform_fee(2990, "ANN"), per_assessment(29, EXTRA))),
+    Offer("Comply, monthly billing", ["Comply", "$690 / mo"], COMPLY,
+          690, platform_fee(690, "MON")),
+    Offer("Comply, annual billing", ["Comply", "$6,900 a year"], COMPLY,
+          6900, platform_fee(6900, "ANN")),
     Offer("Enterprise", ["Enterprise", "From $15K / yr"],
           "Annual contract plus committed volume. White label, SSO and integrations as add-ons.",
-          None, [unit_price("Annual contract", None, "year", "ANN", "P1Y", minimum=15000)]),
+          None, platform_fee(15000, "ANN", minimum=True, contract=True)),
 ]
 # higher-ed.html, "For your campus" (campus-instructor, campus-department, campus-college, campus-institution,
 # campus-terms: "Annual billing, paid upfront.")
@@ -207,13 +215,16 @@ CAMPUS_OFFERS = [
     Offer("Instructor", ["Instructor", "Free"],
           "One course, up to 250 student sessions per term. No card, no IT ticket.", 0),
     Offer("Department", ["Department", "$12K / yr"],
-          "Up to 1,500 enrollments a year. Works out to $8 per student per course.", 12000, [yearly(12000, "Annual licence")]),
+          "Up to 1,500 enrollments a year. Works out to $8 per student per course.", 12000,
+          platform_fee(12000, "ANN", "Annual price, paid upfront", contract=True)),
     Offer("College", ["College", "$35K / yr"],
-          "Up to 5,000 enrollments a year. Works out to $7 per student per course.", 35000, [yearly(35000, "Annual licence")]),
+          "Up to 5,000 enrollments a year. Works out to $7 per student per course.", 35000,
+          platform_fee(35000, "ANN", "Annual price, paid upfront", contract=True)),
     Offer("Institution", ["Institution", "$90K / yr"],
-          "Up to 15,000 enrollments a year. Works out to $6 per student per course.", 90000, [yearly(90000, "Annual licence")]),
+          "Up to 15,000 enrollments a year. Works out to $6 per student per course.", 90000,
+          platform_fee(90000, "ANN", "Annual price, paid upfront", contract=True)),
 ]
-CAMPUS_FINE_PRINT = "Annual billing, paid upfront."  # what makes billingDuration one year on the campus plans
+CAMPUS_FINE_PRINT = "Annual billing, paid upfront."  # campus-terms: what makes the campus plans yearly contracts (billingDuration)
 
 PAGES = [
     Page("index.html", "/", None, scale=True, full_text=True, skip_ids=("taskPanel",)),
@@ -291,6 +302,9 @@ def organization():
                  "width": 512, "height": 512, "caption": "Stima Prova"},
         "image": ref(LOGO_ID),
         "email": EMAIL,
+        # contact-email ("General: info@mystima.io"), data-rights and dispute-route (requests and disputes go there),
+        # contact-form (the "Talk to us" form at /#contact)
+        "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": EMAIL, "url": ORIGIN + "/#contact"},
         "description": ORG_DESCRIPTION,
         "disambiguatingDescription": DISAMBIGUATION,
         "knowsAbout": ["Post-AI skill assessment", "AI-allowed assessment"],  # category, tagline-secondary
@@ -334,12 +348,13 @@ def software(page):
 
 
 def scale():
-    terms = [{"@type": "DefinedTerm", "@id": f"{ORIGIN}/rubric#{key}", "name": name, "description": text,
-              "inDefinedTermSet": ref(SCALE_ID)} for key, name, text in SCALE["levels"]]
+    """The scale as the home page names it: its name and levels, with the ids and values the app's /rubric gives them.
+    No description and no version: /rubric describes the set and each level, so the merged graph has one of each."""
+    terms = [{"@type": "DefinedTerm", "@id": f"{ORIGIN}/rubric#{key}", "url": f"{ORIGIN}/rubric#{key}", "name": name,
+              "inDefinedTermSet": ref(SCALE_ID)} for key, name in SCALE["levels"]]
     return {
         "@type": "DefinedTermSet", "@id": SCALE_ID, "url": ORIGIN + "/rubric",
-        "name": SCALE["name"], "alternateName": SCALE["alternateName"], "version": SCALE["version"],
-        "description": SCALE["description"], "publisher": ref(ORG_ID), "inLanguage": "en",
+        "name": SCALE["name"], "alternateName": SCALE["alternateName"], "publisher": ref(ORG_ID), "inLanguage": "en",
         "hasDefinedTerm": terms,
     }
 
@@ -361,7 +376,14 @@ def report(page, webpage_id):
     }
 
 
-def graph(page, meta, text):
+def shows_image(body, url):
+    """Whether the page body shows the image at url (an <img> or <source> of it, or a CSS url())."""
+    path = re.escape(urllib.parse.urlsplit(url).path)
+    return bool(re.search(r'(?:src|srcset)="[^"]*' + path + r"""|url\(['"]?""" + path, body))
+
+
+def graph(page, meta, text, body):
+    """The page's JSON-LD graph. text: what a reader sees; body: the HTML after </head>."""
     if meta["canonical"] != page.url:
         raise Missing(f"{page.file}: the canonical link is {meta['canonical']}, not {page.url}")
     webpage_id = page.url + "#webpage"
@@ -371,7 +393,9 @@ def graph(page, meta, text):
         "isPartOf": ref(WEBSITE_ID), "about": ref(SOFTWARE_ID), "inLanguage": "en",
     }
     nodes = [webpage]
-    if meta["image"]:
+    # primaryImageOfPage is the main image on the page, so only an og:image the page also shows (the FAQ page shares
+    # the home page's link preview, which it does not show).
+    if meta["image"] and shows_image(body, meta["image"]):
         webpage["primaryImageOfPage"] = {"@type": "ImageObject", "@id": page.url + "#primaryimage",
                                          "url": meta["image"], "contentUrl": meta["image"]}
     if page.crumb:
@@ -382,10 +406,9 @@ def graph(page, meta, text):
         ]})
     nodes += [organization(), website(), software(page)]
     if page.scale:
-        for _, name, desc in SCALE["levels"]:
-            for part in desc.split(". ", 1)[1:]:
-                if part.rstrip(".") not in text:
-                    raise Missing(f"{page.file}: the {name} card no longer says {part!r}")
+        for _, name in SCALE["levels"]:
+            if name not in text:
+                raise Missing(f"{page.file}: the scale no longer shows the {name} level")
         webpage["mentions"] = ref(SCALE_ID)
         nodes.append(scale())
     if page.report:
@@ -427,8 +450,7 @@ def update_page(page):
         raise Missing(f"{page.file}: JSON-LD outside the site-meta block (move it into tools/site_meta.py)")
     if re.search(r'<link rel="(?:shortcut )?icon"|<link rel="apple-touch-icon"', head):
         raise Missing(f"{page.file}: an icon link outside the site-meta block (tools/prova_import.py drops her data: icon)")
-    text = visible_text(bare)
-    new = bare.replace("</head>", block(graph(page, head_meta(head, page.file), text)) + "</head>", 1)
+    new = bare.replace("</head>", block(graph(page, head_meta(head, page.file), visible_text(bare), bare.split("</head>", 1)[1])) + "</head>", 1)
     if new != s:
         path.write_text(new, encoding="utf-8")
     return new
@@ -440,8 +462,9 @@ ROBOTS = f"""# mystima.io: the Stima Prova site, with the Stima app on the same 
 # Search engines, AI search and assistant crawlers, and AI training crawlers are all welcome on every public page.
 # One group on purpose: a crawler named in a group of its own would ignore every rule below.
 # Disallowed: the signed-in parts of the app and its API, which have nothing public. The app's public pages
-# (/pricing, /rubric, /ob, shared results under /s) and its files (/_next, /brand, /icon.svg) stay open; the
-# pages behind personal links send noindex themselves rather than being blocked here.
+# (/pricing, /rubric, /ob, shared results under /s) and its files (/_next, /brand, /icon.svg) stay open. Sign-in
+# and the pages behind personal links (/login, /signup, /i, /c, /r, /v) are not blocked here but marked noindex by
+# the app, which a crawler can only see on a page it may fetch.
 User-agent: *
 Disallow: /app/
 Disallow: /admin
@@ -650,13 +673,33 @@ class Markdown(html.parser.HTMLParser):
         return "\n".join(out)
 
 
+# Words llms-full.txt leaves out of a page because nothing backs them: the product has no such feature, or the paper
+# says otherwise. The page itself is unchanged (the copy is Marianna's; the corrections are listed for her). The
+# script stops when a page no longer says one of them, so each entry goes once its page is corrected.
+LLMS_FULL_OMIT = {
+    "hiring-teams.html": [
+        ", one practice session every 90 days",  # the app has no practice sessions (15 October 2026)
+    ],
+    "paper.html": [
+        "- 5 references\n",  # the PDF's Further Reading lists three works: Messick 1989, Wiggins 1990, Bloom 1984
+        # the PDF's first principle is "The machine is in the room."; the last, "Prohibition is nostalgia. Measurement is respect."
+        " The first: prohibition is nostalgia. The last: measurement is respect.",
+    ],
+}
+
+
 def full_text(pages_html):
     parts = []
     for page, s in pages_html:
         m = Markdown(page.skip_ids)
         m.feed(s)
+        text = m.markdown()
+        for words in LLMS_FULL_OMIT.get(page.file, []):
+            if words not in text:
+                raise Missing(f"{page.file}: no longer says {words.strip()!r}; drop it from LLMS_FULL_OMIT")
+            text = text.replace(words, "")
         title = head_meta(s.split("</head>", 1)[0], page.file)["title"]
-        parts.append(f"# {title}\n\nSource: {page.url}\n\n{m.markdown()}\n")
+        parts.append(f"# {title}\n\nSource: {page.url}\n\n{text}\n")
     return "\n".join(parts)
 
 
@@ -679,11 +722,15 @@ def run():
             done.append((page, update_page(page)))
         except Missing as e:
             failed.append(f"site_meta: {e}")
+    try:
+        full = full_text([(p, s) for p, s in done if p.full_text])
+    except Missing as e:
+        failed.append(f"site_meta: {e}")
     if failed:
         return failed
     write("robots.txt", ROBOTS)
     write("llms.txt", LLMS)
-    write("llms-full.txt", full_text([(p, s) for p, s in done if p.full_text]))
+    write("llms-full.txt", full)
     write("sitemap.xml", sitemap())
     print(f"site_meta: {len(done)} pages, robots.txt, sitemap.xml, llms.txt and llms-full.txt up to date")
     return []

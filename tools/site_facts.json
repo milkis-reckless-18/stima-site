@@ -1,0 +1,661 @@
+{
+ "about": "The facts tools/site_meta.py rests on, by the id its comments cite: what the site, the app's public pages or the position paper say, checked on 15 October 2026. source is a file in this repo or a public page; quote is its exact words (ignoring whitespace and HTML entities); visible_on lists the public addresses that show them. tools/check_site_meta.py checks that every id cited is here and that every quote from a page in this repo is still on it.",
+ "facts": [
+  {
+   "id": "name-brand",
+   "topic": "names",
+   "claim": "The product's full name is Stima Prova.",
+   "source": "index.html",
+   "quote": "Stima Prova · The post-AI skill assessment",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "name-short-stima",
+   "topic": "names",
+   "claim": "The short name Stima is used for the company and the product in the legal pages, the rubric page, the app and the position paper.",
+   "source": "terms/index.html",
+   "quote": "trading as Stima (\"Stima\", \"we\", \"us\"), operates the Stima Prova assessment platform at mystima.io.",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
+   "id": "legal-entity",
+   "topic": "names",
+   "claim": "Stima Prova is operated by Milkis Strategic Partners LLC, an Arizona limited liability company, trading as Stima.",
+   "source": "terms/index.html",
+   "quote": "Milkis Strategic Partners LLC, an Arizona limited liability company of 378 W Foothill St, Apache Junction, AZ 85120, trading as Stima",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
+   "id": "legal-footer",
+   "topic": "names",
+   "claim": "The footer of the main site pages names the product and the company as 'Stima Prova by Milkis Strategic Partners LLC'.",
+   "source": "index.html",
+   "quote": "© 2026 Stima Prova by Milkis Strategic Partners LLC.",
+   "visible_on": [
+    "https://mystima.io/",
+    "https://mystima.io/hiring-teams",
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "tagline-secondary",
+   "topic": "taglines",
+   "claim": "A secondary line is 'AI-allowed assessment, with evidence.'",
+   "source": "index.html",
+   "quote": "AI-allowed assessment, with evidence.",
+   "visible_on": [
+    "https://mystima.io/",
+    "https://mystima.io/hiring-teams",
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "tagline-footer",
+   "topic": "taglines",
+   "claim": "The footer describes the product as the post-AI skill assessment, AI-allowed by design, measured on a published scale, with every score cited to the record.",
+   "source": "index.html",
+   "quote": "The post-AI skill assessment. AI-allowed by design, measured on a published scale, every score cited to the record.",
+   "visible_on": [
+    "https://mystima.io/",
+    "https://mystima.io/hiring-teams",
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "tagline-principles",
+   "topic": "taglines",
+   "claim": "The home page lists four principles: AI-allowed by design, evidence over detection, consent-first recording, humans confirm every outcome.",
+   "source": "index.html",
+   "quote": "AI-allowed by design · Evidence over detection · Consent-first recording · Humans confirm every outcome",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "category-platform",
+   "topic": "category",
+   "claim": "The legal documents describe Stima Prova as an assessment platform.",
+   "source": "terms/index.html",
+   "quote": "Stima Prova is an assessment platform run by Milkis Strategic Partners LLC",
+   "visible_on": [
+    "https://mystima.io/terms/#participant-terms"
+   ]
+  },
+  {
+   "id": "definition-hero",
+   "topic": "definition",
+   "claim": "Stima Prova turns the assignment or take-home a team already uses into an AI-allowed session, grading the work on the customer's rubric and the AI use on a published scale, with every score cited to the record.",
+   "source": "index.html",
+   "quote": "Stima Prova turns the assignment or take-home you already use into an AI-allowed session, grading the work on your rubric and the AI use on a published scale, every score cited to the record.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "audience-hiring",
+   "topic": "audiences",
+   "claim": "For hiring teams, Stima Prova offers AI-allowed take-homes with evidence.",
+   "source": "index.html",
+   "quote": "For Hiring Teams AI-allowed take-homes, with evidence",
+   "visible_on": [
+    "https://mystima.io/",
+    "https://mystima.io/hiring-teams",
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "audience-higher-ed",
+   "topic": "audiences",
+   "claim": "For higher education, Stima Prova offers AI-allowed coursework, measured.",
+   "source": "index.html",
+   "quote": "For Higher Education AI-allowed coursework, measured",
+   "visible_on": [
+    "https://mystima.io/",
+    "https://mystima.io/hiring-teams",
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "audience-paper",
+   "topic": "audiences",
+   "claim": "The position paper is written for academic leaders, assessment designers, credentialing bodies and employers.",
+   "source": "stima-prova-assessment-after-ai.pdf",
+   "quote": "It is written for academic leaders, assessment designers, credentialing bodies, and employers",
+   "visible_on": [
+    "https://mystima.io/stima-prova-assessment-after-ai.pdf"
+   ]
+  },
+  {
+   "id": "how-adapt",
+   "topic": "how-it-works",
+   "claim": "Step 1, Adapt: the customer brings one assignment or role question and Stima reshapes it with them, keeping the goals and rubric and adding a planted difficulty that a blind copy-paste gets wrong.",
+   "source": "index.html",
+   "quote": "Bring one assignment or role question. We reshape it with you, same goals, same rubric, plus a planted difficulty a blind copy-paste gets wrong.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "how-session",
+   "topic": "how-it-works",
+   "claim": "Step 2, Session: the person works one focused, timed session with AI explicitly allowed, recorded with consent, with no video recording and no lockdown browser.",
+   "source": "index.html",
+   "quote": "The person works one focused, timed session with AI explicitly allowed, recorded with consent. No video recording. No lockdown browser.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "how-two-scores",
+   "topic": "how-it-works",
+   "claim": "Step 3, Two scores: the work is graded on the customer's rubric and the process on a published scale, and every score cites a moment in the session record.",
+   "source": "index.html",
+   "quote": "The work, graded on your rubric. The process, graded on a published scale. Every score cites a moment in the session record.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "how-confirm",
+   "topic": "how-it-works",
+   "claim": "Step 4, Confirm: a human confirms every outcome before it counts, and grades and decisions export as CSV for an LMS or ATS.",
+   "source": "index.html",
+   "quote": "A human confirms every outcome before it counts. Grades and decisions export as CSV for your LMS or ATS, with a paper trail you can defend.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "how-hiring-1",
+   "topic": "how-it-works",
+   "claim": "For hiring, step 1 is pasting the role description and the question already asked; Prova builds a real task from those words in minutes.",
+   "source": "hiring-teams.html",
+   "quote": "The role description and the question you already ask. Prova builds a real task from your own words, in minutes.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "how-hiring-4",
+   "topic": "how-it-works",
+   "claim": "For hiring, step 4 delivers an explained report per candidate, risk flags beside the grade and a decision trail HR can defend.",
+   "source": "hiring-teams.html",
+   "quote": "An explained report per candidate, risk flags beside the grade, and a decision trail HR can defend.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "how-he-3",
+   "topic": "how-it-works",
+   "claim": "For higher education, step 3 scores the work on the instructor's rubric and the AI use on the published Delegator, Operator, Director scale, each score citing the record.",
+   "source": "higher-ed.html",
+   "quote": "Every score cites a moment in the record. The work on your rubric, the AI use on the published Delegator, Operator, Director scale.",
+   "visible_on": [
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "how-he-4",
+   "topic": "how-it-works",
+   "claim": "For higher education, step 4 is the instructor confirming every outcome and exporting the grades for the LMS gradebook.",
+   "source": "higher-ed.html",
+   "quote": "You confirm every outcome, then export the grades for your LMS gradebook.",
+   "visible_on": [
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "score-quality",
+   "topic": "scores",
+   "claim": "The quality of the work is a 0 to 100 score on the finished deliverable, graded blind on the customer's criteria with the rubric beside it.",
+   "source": "hiring-teams.html",
+   "quote": "A 0–100 score on the finished deliverable, graded blind on your criteria, with the rubric beside it.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "score-blind",
+   "topic": "scores",
+   "claim": "The deliverable is graded blind on the customer's rubric, separately from the process.",
+   "source": "index.html",
+   "quote": "The deliverable is graded blind on your rubric, separate from the process.",
+   "visible_on": [
+    "https://mystima.io/",
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "score-collaboration",
+   "topic": "scores",
+   "claim": "The AI collaboration level is Delegator, Operator or Director, read against what the task needed.",
+   "source": "hiring-teams.html",
+   "quote": "Delegator, Operator, or Director, read against what the task needed.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "score-cited",
+   "topic": "scores",
+   "claim": "Each score points to a moment in the recorded session so the reasoning can be checked in one click.",
+   "source": "index.html",
+   "quote": "Each score points to a moment in the recorded session. Check the reasoning in one click.",
+   "visible_on": [
+    "https://mystima.io/",
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "score-composite",
+   "topic": "scores",
+   "claim": "By default the composite score is quality times 60% plus fit times 40% (right fit 100, one step off 50, two steps off 0), and the weights are shown to employers.",
+   "source": "https://mystima.io/rubric",
+   "quote": "The composite score is quality × 60% + fit × 40% by default (right fit 100, one step off 50, two steps off 0). Weights are shown to employers and never hidden.",
+   "visible_on": [
+    "https://mystima.io/rubric"
+   ]
+  },
+  {
+   "id": "scale-levels",
+   "topic": "scale",
+   "claim": "The AI-collaboration scale has three levels: Delegator, Operator and Director.",
+   "source": "index.html",
+   "quote": "Graded on the published Delegator, Operator, Director scale, read against what the task needed.",
+   "visible_on": [
+    "https://mystima.io/",
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "scale-higher-not-better-home",
+   "topic": "scale",
+   "claim": "The home page headline for the scale is 'Three levels. Higher is not better.'",
+   "source": "index.html",
+   "quote": "Three levels. Higher is not better.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "rubric-public-url",
+   "topic": "scale",
+   "claim": "The rubric is published at mystima.io/rubric as 'Stima collaboration rubric · version collab-2.0.0'.",
+   "source": "https://mystima.io/rubric",
+   "quote": "Stima collaboration rubric · version collab-2.0.0",
+   "visible_on": [
+    "https://mystima.io/rubric"
+   ]
+  },
+  {
+   "id": "rubric-blind-level",
+   "topic": "scale",
+   "claim": "The level is judged from the session record alone; the scorer is not told which way of working the task calls for, and the fit is computed afterwards.",
+   "source": "https://mystima.io/rubric",
+   "quote": "The level is judged from the session record alone; the scorer is not told which way of working the task calls for. The fit is computed afterwards.",
+   "visible_on": [
+    "https://mystima.io/rubric"
+   ]
+  },
+  {
+   "id": "recording-consent-first",
+   "topic": "recording",
+   "claim": "Recording is consent-first and workspace-only: no video recording, no keystroke logging and no lockdown browser, and participants see exactly what is kept before they start.",
+   "source": "index.html",
+   "quote": "Workspace-only. No video recording, no keystroke logging, no lockdown browser. Participants see exactly what is kept before they start.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "recording-not",
+   "topic": "recording",
+   "claim": "Nothing outside the assessment page is recorded: no camera, no microphone, no screen recording and no keystrokes outside the workspace.",
+   "source": "terms/index.html",
+   "quote": "We do not record anything you do outside this page. No camera, no microphone, no screen recording, no keystrokes outside this workspace.",
+   "visible_on": [
+    "https://mystima.io/terms/#terms-of-use"
+   ]
+  },
+  {
+   "id": "no-proctoring",
+   "topic": "recording",
+   "claim": "Stima Prova uses no proctoring and no prohibition of AI.",
+   "source": "index.html",
+   "quote": "No proctoring. No prohibition. No black boxes.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "ai-allowed-by-design",
+   "topic": "recording",
+   "claim": "The approach is AI-allowed by design: the question moves from whether people used AI to how well they used it.",
+   "source": "hiring-teams.html",
+   "quote": "Nothing to police, nothing to ban. The question moves from \"did they use it\" to \"how well did they use it.\"",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "human-confirms",
+   "topic": "human-review",
+   "claim": "Every outcome is confirmed by a person; low-confidence results route to a reviewer, and participants can dispute.",
+   "source": "index.html",
+   "quote": "Every outcome is confirmed by a person. Low-confidence results route to a reviewer, and participants can dispute.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "dispute-route",
+   "topic": "human-review",
+   "claim": "A participant who thinks a report is wrong can email info@mystima.io with the reference on the result page, and Stima will look at the session.",
+   "source": "terms/index.html",
+   "quote": "If you think your report is wrong, email us at info@mystima.io with the reference on your result page. We will look at the session and tell you what we find.",
+   "visible_on": [
+    "https://mystima.io/terms/#participant-terms"
+   ]
+  },
+  {
+   "id": "data-summary",
+   "topic": "data-handling",
+   "claim": "The home page summarises data handling as FERPA-aligned for campuses, hosted in the EU, DPA on request, no training on customer data, built to WCAG 2.1 AA.",
+   "source": "index.html",
+   "quote": "FERPA-aligned for campuses, hosted in the EU, DPA on request, no training on your data. Built to WCAG 2.1 AA.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "data-host",
+   "topic": "data-handling",
+   "claim": "Application and database hosting is provided by Scalaxy B.V. in the EU.",
+   "source": "terms/index.html",
+   "quote": "Scalaxy B.V. Application and database hosting EU",
+   "visible_on": [
+    "https://mystima.io/terms/#terms-of-use",
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
+   "id": "data-he-it-review",
+   "topic": "data-handling",
+   "claim": "For campus IT review: hosted in the EU, nothing to install on the network, FERPA-aligned data handling, consent records, export and deletion on request, no training on student data, DPA on request, built to WCAG 2.1 AA.",
+   "source": "higher-ed.html",
+   "quote": "Hosted in the EU, nothing to install on your network. FERPA-aligned data handling, consent records, export and deletion on request, no training on student data, DPA on request. Built to WCAG 2.1 AA.",
+   "visible_on": [
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "data-retention",
+   "topic": "data-handling",
+   "claim": "Assessment data, interaction records and results are kept for 12 months after a campaign or assignment closes, or 24 months with extended retention, then deleted.",
+   "source": "terms/index.html",
+   "quote": "Assessment Data, Interaction Records and Results for a campaign or assignment are retained for 12 months after the campaign or assignment closes, or 24 months where the order form provides for extended assessment retention, and are then deleted",
+   "visible_on": [
+    "https://mystima.io/terms/#terms-of-use"
+   ]
+  },
+  {
+   "id": "data-rights",
+   "topic": "data-handling",
+   "claim": "Data requests go to info@mystima.io and are answered within 30 days at no charge.",
+   "source": "terms/index.html",
+   "quote": "Write to info@mystima.io. We respond within 30 days. There is no charge, and we will not treat you differently for asking.",
+   "visible_on": [
+    "https://mystima.io/terms/#participant-terms"
+   ]
+  },
+  {
+   "id": "legal-three-docs",
+   "topic": "data-handling",
+   "claim": "Three documents govern Stima Prova: the Terms of Use for customers, the Participant Terms for each participant and the Privacy Policy for everyone.",
+   "source": "terms/index.html",
+   "quote": "Three documents govern Stima Prova. The Terms of Use bind the organisation that runs assessments, the Participant Terms bind each person who takes one, and the Privacy Policy explains what happens to data for everyone.",
+   "visible_on": [
+    "https://mystima.io/terms/"
+   ]
+  },
+  {
+   "id": "int-csv",
+   "topic": "integrations",
+   "claim": "Grades and decisions export as CSV for an LMS or ATS.",
+   "source": "index.html",
+   "quote": "Grades and decisions export as CSV for your LMS or ATS, with a paper trail you can defend.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "session-completed-definition",
+   "topic": "session",
+   "claim": "A completed assessment is a submitted piece of work, including work submitted automatically when time runs out; invites, opens and drop-offs cost nothing.",
+   "source": "https://mystima.io/pricing",
+   "quote": "A candidate submitted their work, including work submitted automatically when time runs out. Invites, opens and drop-offs cost nothing.",
+   "visible_on": [
+    "https://mystima.io/pricing"
+   ]
+  },
+  {
+   "id": "trial-hiring",
+   "topic": "trial",
+   "claim": "The hiring free trial covers one role and 10 completions for 14 days, with a card on file; cancelling before the trial ends means nothing is charged.",
+   "source": "hiring-teams.html",
+   "quote": "One role, 10 completions, 14 days. Card on file; cancel before the trial ends and nothing is charged.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "price-payg",
+   "topic": "pricing-hiring",
+   "claim": "Pay as you go costs $29 per completed assessment, with no minimum, no credits and no lock-in.",
+   "source": "hiring-teams.html",
+   "quote": "Pay as you go $29 each Per completed assessment. No minimum, no credits, no lock-in.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "price-team",
+   "topic": "pricing-hiring",
+   "claim": "Team costs $299 a month with 10 completions a month included, then $29 each, with reviewer roles and a decision trail, or $2,990 a year.",
+   "source": "hiring-teams.html",
+   "quote": "Team $299 / mo 10 completions a month included, then $29 each. Reviewer roles, decision trail. Or $2,990 a year.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "price-comply",
+   "topic": "pricing-hiring",
+   "claim": "Comply costs $690 a month with 25 completions included, DPA on request, org structure and extended data storage, or $6,900 a year.",
+   "source": "hiring-teams.html",
+   "quote": "Comply $690 / mo 25 completions included. DPA on request, org structure, extended data storage. Or $6,900 a year.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "price-enterprise",
+   "topic": "pricing-hiring",
+   "claim": "Enterprise starts from $15K a year on an annual contract with committed volume.",
+   "source": "hiring-teams.html",
+   "quote": "Enterprise From $15K / yr Annual contract plus committed volume.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "price-annual-site",
+   "topic": "pricing-hiring",
+   "claim": "Annual billing on Team and Comply gives two months free.",
+   "source": "hiring-teams.html",
+   "quote": "Annual billing on Team and Comply: two months free.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "campus-instructor",
+   "topic": "pricing-campus",
+   "claim": "Instructors use Stima Prova free: one course, up to 250 student sessions per term, no card and no IT ticket.",
+   "source": "higher-ed.html",
+   "quote": "One course, up to 250 student sessions per term. No card, no IT ticket.",
+   "visible_on": [
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "campus-department",
+   "topic": "pricing-campus",
+   "claim": "The Department plan costs $12K a year for up to 1,500 enrollments a year, about $8 per student per course.",
+   "source": "higher-ed.html",
+   "quote": "Department $12K / yr Up to 1,500 enrollments a year. Works out to $8 per student per course.",
+   "visible_on": [
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "campus-college",
+   "topic": "pricing-campus",
+   "claim": "The College plan costs $35K a year for up to 5,000 enrollments a year, about $7 per student per course.",
+   "source": "higher-ed.html",
+   "quote": "College $35K / yr Up to 5,000 enrollments a year. Works out to $7 per student per course.",
+   "visible_on": [
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "campus-institution",
+   "topic": "pricing-campus",
+   "claim": "The Institution plan costs $90K a year for up to 15,000 enrollments a year, about $6 per student per course.",
+   "source": "higher-ed.html",
+   "quote": "Institution $90K / yr Up to 15,000 enrollments a year. Works out to $6 per student per course.",
+   "visible_on": [
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "campus-terms",
+   "topic": "pricing-campus",
+   "claim": "An enrollment is one student in one course; campus plans are billed annually and paid upfront, usage above the tier moves the campus up at renewal, and larger systems are priced by quote.",
+   "source": "higher-ed.html",
+   "quote": "An enrollment is one student in one course. Annual billing, paid upfront. Usage above your tier moves you up at renewal. Larger systems priced by quote.",
+   "visible_on": [
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "campus-per-student",
+   "topic": "pricing-campus",
+   "claim": "Campus plans are priced per student, not per seat.",
+   "source": "higher-ed.html",
+   "quote": "Priced per student, not per seat.",
+   "visible_on": [
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "candidates-free",
+   "topic": "candidates",
+   "claim": "Candidates are always free, with one practice session every 90 days.",
+   "source": "hiring-teams.html",
+   "quote": "Candidates always free, one practice session every 90 days.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "credential-ob3",
+   "topic": "credential",
+   "claim": "Each assignment produces a verifiable credential (Open Badges 3.0) and a shareable result page, dated and explained.",
+   "source": "higher-ed.html",
+   "quote": "Each assignment produces a verifiable credential (Open Badges 3.0) and a shareable result page, dated and explained.",
+   "visible_on": [
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "paper-title",
+   "topic": "paper",
+   "claim": "Stima's position paper is 'Assessment After AI', Position Paper No. 01.",
+   "source": "paper.html",
+   "quote": "Stima Prova · Position Paper No. 01 · Free",
+   "visible_on": [
+    "https://mystima.io/paper"
+   ]
+  },
+  {
+   "id": "paper-format",
+   "topic": "paper",
+   "claim": "The paper page lists it as a 9-page PDF with 5 references, free with an email address.",
+   "source": "paper.html",
+   "quote": "PDF · 9 pages 5 references Free with your email",
+   "visible_on": [
+    "https://mystima.io/paper"
+   ]
+  },
+  {
+   "id": "paper-pages",
+   "topic": "paper",
+   "claim": "The paper PDF has 9 pages and is published at mystima.io/stima-prova-assessment-after-ai.pdf.",
+   "source": "paper.html",
+   "quote": "Position Paper No. 01 · PDF · 9 pages",
+   "visible_on": [
+    "https://mystima.io/paper"
+   ]
+  },
+  {
+   "id": "paper-summary",
+   "topic": "paper",
+   "claim": "The paper argues why banning AI from assessment tests a world that no longer exists, what to measure instead, and how a credential survives when any answer can be generated.",
+   "source": "paper.html",
+   "quote": "Why banning AI from assessment tests a world that no longer exists, what to measure instead, and how a credential survives when any answer can be generated.",
+   "visible_on": [
+    "https://mystima.io/paper"
+   ]
+  },
+  {
+   "id": "paper-edition",
+   "topic": "paper",
+   "claim": "The paper is a 2026 pre-launch edition.",
+   "source": "stima-prova-assessment-after-ai.pdf",
+   "quote": "POSITION PAPER · NO. 01 2026 · PRE-LAUNCH EDITION",
+   "visible_on": [
+    "https://mystima.io/stima-prova-assessment-after-ai.pdf"
+   ]
+  },
+  {
+   "id": "contact-form",
+   "topic": "contact",
+   "claim": "The home, hiring and higher education pages have a contact form asking for name, work email and a message about the course, role or team.",
+   "source": "index.html",
+   "quote": "placeholder=\"Tell us about your course, your open role, or your team... *\"",
+   "visible_on": [
+    "https://mystima.io/",
+    "https://mystima.io/hiring-teams",
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "contact-email",
+   "topic": "contact",
+   "claim": "The general contact email is info@mystima.io.",
+   "source": "terms/index.html",
+   "quote": "General: info@mystima.io",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  }
+ ]
+}
