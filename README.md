@@ -10,6 +10,7 @@ The public site of [Stima Prova](https://mystima.io): the post-AI skill assessme
 - `leads.js`: posts forms to `/api/leads`, the Stima app on the same host (leads in `mystima.io/admin`).
 - `terms/`: the binding legal documents; `consent.js`, `legal.js`, `legal.css`: cookie banner and legal popup (below).
 - `mit/`, `nyc/`: short links for events, redirecting to `/` with UTM tags.
+- `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt` and the icons: for search engines and AI crawlers, written by `tools/site_meta.py` (below).
 
 ## Prova pages
 
@@ -20,7 +21,7 @@ python3 tools/prova_import.py ~/WORK/stima-prova-site
 npx -y tailwindcss@3.4.17 -c tools/prova-tailwind.config.js -i tools/prova.src.css -o prova.css --minify
 ```
 
-The script pulls the embedded images into `img/prova/`, swaps the Tailwind CDN for `prova.css`, and adds what the site needs on mystima.io: cookie consent, footer links to `/terms/`, the contact form posting to `/api/leads`, plan buttons (hiring plans go to `/signup` and on to Stripe Checkout, campus plans and Enterprise to the form or the calendar), the trial as the app runs it, a Sign in link, links without .html, canonical and Open Graph tags (the home page's `og:title` is the tagline), and a `*` on the required fields of the form. Each change is anchored on her markup; when she changes that markup the script stops and names what it could not find.
+The script pulls the embedded images into `img/prova/`, swaps the Tailwind CDN for `prova.css`, and adds what the site needs on mystima.io: cookie consent, footer links to `/terms/`, the contact form posting to `/api/leads`, plan buttons (hiring plans go to `/signup` and on to Stripe Checkout, campus plans and Enterprise to the form or the calendar), the trial as the app runs it, a Sign in link, links without .html, canonical and Open Graph tags (the home page's `og:title` is the tagline), and a `*` on the required fields of the form. Her data: icon gives way to the icon files, and at the end it runs `tools/site_meta.py` (below). Each change is anchored on her markup; when she changes that markup the script stops and names what it could not find.
 
 Her short `terms.html` and `privacy.html` are not published: the footer points to the documents on `/terms/`, which are the ones people accept in the app.
 
@@ -59,3 +60,34 @@ Placeholders the documents leave open (vendor names and regions in the sub-proce
 ## Cookie consent
 
 `consent.js` shows the cookie banner and loads Google Analytics (`G-CBQTM9PBQE`) only after the visitor accepts. The choice lives in localStorage (`stima-consent`); any link with `data-cookie-settings` reopens the banner, and declining removes the `_ga` cookies. Every page includes `consent.js` in `<head>` instead of the Google tag snippet.
+
+## Search engines and AI crawlers
+
+What search engines and AI assistants read about Stima Prova, besides the pages themselves. All of it is written by `tools/site_meta.py` from the data at its top; nothing in these files is edited by hand.
+
+- In every page's `<head>`, between `<!-- site-meta ... -->` and `<!-- /site-meta -->`: the icon links and one JSON-LD graph (`<script type="application/ld+json" id="site-meta">`). It describes the company (Organization: Stima Prova, legal name Milkis Strategic Partners LLC, logo), the site (WebSite), the product (WebApplication, with the plans as offers on `/hiring-teams` and `/higher-ed`), the Delegator, Operator, Director scale on the home page (DefinedTermSet, the same `@id` as on `/rubric`), the position paper on `/paper` (Report, with the PDF) and the page itself (WebPage, breadcrumbs on sub-pages). The nodes link by `@id` (`https://mystima.io/#organization`, `#website`, `#software`).
+- `robots.txt`: one group for every crawler. Search, assistant and training crawlers are welcome; only the signed-in parts of the app (`/app/`, `/admin`, `/api/`, `/identity/`) are disallowed. Named groups (`User-agent: GPTBot`) would make that crawler ignore the shared rules, so there are none.
+- `sitemap.xml`: the canonical addresses of the site's pages and the app's public `/rubric` and `/pricing`. A page's `lastmod` is the date of the last commit that changed its file (today while the change is not committed).
+- `llms.txt` (the [llmstxt.org](https://llmstxt.org/) format): what Stima Prova is, who it is for, how it works, the prices, what it is not, and the pages worth reading. `llms-full.txt`: the main text of the overview, the two audience pages and the paper page as Markdown, made from the HTML.
+- `favicon.ico`, `favicon.svg`, `apple-touch-icon.png` and `img/stima-logo-512.png` (the Organization logo): the ring mark as files search engines can fetch. They are made from `favicon.svg` with ImageMagick 7 by `sh tools/make_icons.sh`.
+
+After changing a page, run:
+
+```bash
+python3 tools/site_meta.py          # running it twice changes nothing
+python3 tools/check_site_meta.py    # offline: one JSON-LD block per page that parses, @ids, canonical = sitemap, robots, llms.txt links, icon sizes
+```
+
+`tools/prova_import.py` and `tools/legal_to_html.py` run `site_meta.py` at their end, so a re-import keeps all of it. The script stops, like the import, when a page no longer says what the JSON-LD claims (a price, a level description), so a new price list cannot leave old prices in the markup: change the offer in `tools/site_meta.py` to match.
+
+Where the facts come from: every statement is one the site, the app's public pages or the position paper already make, and the comment beside each value in `tools/site_meta.py` names the fact (from the fact list of 15 October 2026) and the page that says it. Do not add ratings, reviews, customers, founders, founding dates or profiles the site does not show.
+
+To add a profile (LinkedIn, Crunchbase, X...) once it exists, is run by the company and links back to mystima.io: add its URL to `SAME_AS` in `tools/site_meta.py`, run the two commands above and deploy. It goes into the Organization's `sameAs`.
+
+After a deploy, check what the server sends (status, content type, `charset=utf-8` on text files, the block on each page):
+
+```bash
+python3 tools/check_site_meta.py --base https://mystima.io
+```
+
+Submit `https://mystima.io/sitemap.xml` in Google Search Console and Bing Webmaster Tools once the site is verified there.

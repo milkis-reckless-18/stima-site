@@ -1,0 +1,46 @@
+# Stima Prova
+
+> Stima Prova is the post-AI skill assessment: it turns the assignment or take-home that a hiring team or an instructor already uses into an AI-allowed work session, grades the work on the customer's rubric and the AI use on a published scale (Delegator, Operator, Director), and cites every score to the session record.
+
+Stima Prova is built for hiring teams (AI-allowed take-homes, with evidence) and for higher education (AI-allowed coursework, measured). It is run by Milkis Strategic Partners LLC, an Arizona limited liability company trading as Stima, at https://mystima.io.
+
+How it works, in four steps:
+
+1. Adapt: bring one assignment or role question. It is reshaped with you: same goals, same rubric, plus a planted difficulty a blind copy-paste gets wrong.
+2. Session: the person works one focused, timed session with AI explicitly allowed, recorded with consent. No video recording, no keystroke logging, no lockdown browser.
+3. Two scores: the work on your rubric (0–100, graded blind) and the process on the published Delegator, Operator, Director scale, read against what the task needed. Higher is not better. Every score cites a moment in the session record.
+4. Confirm: a human confirms every outcome before it counts. Grades and decisions export as CSV for your LMS or ATS.
+
+Pricing for hiring teams: a 14-day free trial (one role, 10 completions), then $29 per completed assessment (pay as you go), Team at $299 a month with 10 completions a month included, Comply at $690 a month with 25 completions included, or Enterprise from $15K a year. Candidates are always free.
+Pricing for higher education: free for instructors (one course, up to 250 student sessions per term); campus plans are priced per student, from Department at $12K a year (up to 1,500 enrollments) to Institution at $90K a year (up to 15,000).
+
+Stima Prova is skill-assessment software. It is not accounting, tax or invoicing software. It is not a proctoring tool or an AI detector either: AI is allowed by design, and the assessment measures how well it was used.
+
+## Pages
+
+- [Stima Prova, the post-AI skill assessment](https://mystima.io/): overview, how it works, the AI-collaboration scale, trust and privacy
+- [Stima Prova for Hiring Teams](https://mystima.io/hiring-teams): AI-allowed take-homes built from your role description, an explained report per candidate, a decision trail HR can defend
+- [Stima Prova for Higher Education](https://mystima.io/higher-ed): AI-allowed coursework on your rubric, grades ready for your LMS, a verifiable credential (Open Badges 3.0) for each assignment
+
+## The scale
+
+- [Stima collaboration rubric](https://mystima.io/rubric): the published Delegator, Operator, Director scale (version collab-2.0.0), how a level is judged from the session record and how its fit to the task is scored
+
+## Pricing
+
+- [Hiring plans](https://mystima.io/hiring-teams#pricing): free trial, pay as you go, Team, Comply and Enterprise
+- [Campus plans](https://mystima.io/higher-ed#pricing): Instructor (free), Department, College and Institution
+- [Pricing for hiring teams](https://mystima.io/pricing): the hiring plans side by side, and what counts as a completed assessment
+
+## Research
+
+- [Assessment After AI](https://mystima.io/paper): Stima's position paper No. 01: why banning AI from assessment tests a world that no longer exists, what to measure instead, and how a credential survives when any answer can be generated
+- [Assessment After AI (PDF, 9 pages)](https://mystima.io/stima-prova-assessment-after-ai.pdf): the paper itself
+
+## Legal
+
+- [Terms of Use, Privacy Policy and Participant Terms](https://mystima.io/terms/): the documents customers and participants accept, with the sub-processors and how long data is kept
+
+## Optional
+
+- [Full text of the main pages](https://mystima.io/llms-full.txt): the overview, hiring teams, higher education and position paper pages as Markdown

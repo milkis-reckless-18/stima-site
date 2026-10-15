@@ -1,0 +1,537 @@
+# Stima Prova · The post-AI skill assessment
+
+Source: https://mystima.io/
+
+Stima Prova · The post-AI skill assessment
+
+## Work with the machine. Prove the human.
+
+Stima Prova turns the assignment or take-home you already use into an AI-allowed session, grading the work on your rubric and the AI use on a published scale, every score cited to the record.
+
+- Free for instructors
+- From $29 per assessment for teams
+- 14-day free trial for teams
+
+- The work, on your criteria: The deliverable is graded blind on your rubric, separate from the process.
+- Every score cited: Each score points to a moment in the recorded session. Check the reasoning in one click.
+- How you worked: Graded on the published Delegator, Operator, Director scale, read against what the task needed.
+
+The problem
+
+### Everyone already works with AI. Almost nothing measures how.
+
+The polished submission used to be the signal. In a post-AI world, the signal moved into the process, where nobody can see it.
+
+83%
+
+#### Candidates would use AI if allowed
+
+And 14% admit they already do. Banning it doesn't remove AI from the take-home; it just removes it from your view.
+
+HACKERRANK CANDIDATE RESEARCH
+
+66%
+
+#### Leaders won't hire without AI skills
+
+The requirement is universal, the standard doesn't exist, so every interviewer improvises their own probe, and transcripts say nothing.
+
+MICROSOFT & LINKEDIN 2024 WORK TREND INDEX
+
+61%
+
+#### False positives from AI detectors
+
+Of essays by non-native English writers, falsely flagged as AI-written. Detection punishes the wrong people and explains nothing.
+
+STANFORD, LIANG ET AL., PATTERNS 2023
+
+The result: people learn to hide AI use, not to use it well.
+
+How it works
+
+### From the work you already use to graded evidence.
+
+01
+
+#### Adapt
+
+Bring one assignment or role question. We reshape it with you, same goals, same rubric, plus a planted difficulty a blind copy-paste gets wrong.
+
+02
+
+#### Session
+
+The person works one focused, timed session with AI explicitly allowed, recorded with consent. No video recording. No lockdown browser.
+
+03
+
+#### Two scores
+
+The work, graded on your rubric. The process, graded on a published scale. Every score cites a moment in the session record.
+
+04
+
+#### Confirm
+
+A human confirms every outcome before it counts. Grades and decisions export as CSV for your LMS or ATS, with a paper trail you can defend.
+
+The AI-collaboration scale
+
+### Three levels. Higher is not better.
+
+The scale reads how much thinking was handed to the model, prompts, edits, verification, model switching, time. The grade is calibration: the observed level against what the task demanded.
+
+Pick a task · the right level changes
+
+- Summarize a long meeting transcript: Delegator. Model-strong and low-stakes, and a quick skim verifies it. Handing it over is exactly right.
+- Clean a messy CSV to spec: Operator. Verifiable and routine, but the spec has teeth. Iterate against the requirements and spot-check the output.
+- Reply to an angry enterprise customer: Director. High stakes with deep company context. Someone must set the approach, verify what matters, and own the result.
+
+Level 1
+
+#### Delegator
+
+Hands work to AI
+
+Restates the brief, accepts the first answer. Right for verifiable, low-stakes work.
+
+Level 2
+
+#### Operator
+
+Works with AI
+
+Iterates, corrects, edits substantively. The right default for mixed, everyday work.
+
+Level 3
+
+#### Director
+
+Leads the work
+
+Sets the approach first, verifies the parts most likely wrong, owns the outcome.
+
+- Calibrated, matched the task
+- Near · one step off
+- Under-directed · handed off judgment
+- Over-directed · controlled what AI could carry
+
+Product tour
+
+### The session, the scores, the evidence.
+
+01 / 03
+
+Assessment setup · your task, your rubric, plus a fixed comparison layer that never changes per campaign.
+
+Interactive walkthrough for both sides of the table at demo.mystima.io →
+
+Two rooms it changes
+
+### One platform. Pick your world.
+
+- Data privacy: Consent-first recording. FERPA-aligned handling, no training on student data.
+- Grades for your gradebook: Confirmed grades export for your LMS. Canvas LTI 1.3 with grade passback is coming.
+- AI competency development: Developed alongside your program's learning objectives, measured on the published scale.
+
+Higher Education
+
+#### Your syllabus has an AI policy. Your assignments don't.
+
+Bring one legacy assignment, we make it AI-proof by making AI allowed. Same rubric, planted difficulty, grades ready for your LMS, students leave with a verified AI-competency credential.
+
+- Free for instructors
+- Canvas LTI 1.3 soon
+- FERPA-aligned
+
+- The work, on your criteria: The deliverable is graded blind on your rubric, separate from the process.
+- Every score cited: Each score points to a moment in the recorded session. Check the reasoning in one click.
+- How you worked: Graded on the published Delegator, Operator, Director scale, read against what the task needed.
+
+Hiring Teams
+
+#### Everyone uses AI on take-homes. Now you can see how.
+
+Paste your role and the question you already ask. One focused AI-allowed session later, you hold an explained report, quality of work, collaboration level, every claim cited, ready for audit.
+
+- Free trial
+- From $29 / assessment
+- Decision record
+
+Trust & privacy
+
+### No proctoring. No prohibition. No black boxes.
+
+#### Consent-first recording
+
+Workspace-only. No video recording, no keystroke logging, no lockdown browser. Participants see exactly what is kept before they start.
+
+#### Humans confirm outcomes
+
+Every outcome is confirmed by a person. Low-confidence results route to a reviewer, and participants can dispute.
+
+#### Your rubric stays yours
+
+Your criteria grade the work; the collaboration scale is added alongside, never instead. Results stay comparable across courses and roles.
+
+#### Data handling with care
+
+FERPA-aligned for campuses, hosted in the EU, DPA on request, no training on your data. Built to WCAG 2.1 AA.
+
+The founding cohort is forming now
+
+### Teach one assignment. Run one role. This term.
+
+Built by a project management instructor and former group product manager at Arizona State University. Bring the work you already use, we do the redesign with you and hand you the evidence.
+
+Work with the machine. Prove the human.
+
+# Stima Prova for Hiring Teams · AI-allowed assessment, with evidence
+
+Source: https://mystima.io/hiring-teams
+
+Stima Prova · For Hiring Teams
+
+## Everyone uses AI on take-homes. Now you can see how.
+
+Stima Prova turns your take-home into an AI-allowed work session and grades how each candidate worked. Every score cited, every outcome confirmed by a human.
+
+- 14-day free trial
+- Sessions up to 90 minutes
+- Decision record included
+
+- The work, on your criteria: The deliverable is graded blind on your rubric, separate from the process.
+- Every score cited: Each score points to a moment in the recorded session. Check the reasoning in one click.
+- How you worked: Graded on the published Delegator, Operator, Director scale, read against what the task needed.
+
+The problem
+
+### Submissions have never looked better. Or told you less.
+
+The signal moved into the process, where you cannot see it. Banning AI tests a job that no longer exists; detecting it punishes the wrong people.
+
+83%
+
+#### Candidates would use AI if allowed
+
+And 14% admit they already do. A polished submission no longer separates anyone, so the shortlist comes down to gut.
+
+HACKERRANK CANDIDATE RESEARCH
+
+66%
+
+#### Leaders won't hire without AI skills
+
+The requirement is universal and there is no standard behind it. Every interviewer grades by their own fluency, so verdicts are partly luck.
+
+MICROSOFT & LINKEDIN 2024 WORK TREND INDEX
+
+61%
+
+#### Detectors falsely flagged essays
+
+Of essays by non-native English writers, flagged as AI-written. They miss the savvy, flag the wrong people, and say nothing about how work was done.
+
+STANFORD, LIANG ET AL., PATTERNS 2023
+
+Every rejection needs documentation. Today there is only a feeling, and feelings do not survive an audit.
+
+How it works
+
+### Bring one live role. See how they actually work.
+
+01
+
+#### Paste your role
+
+The role description and the question you already ask. Prova builds a real task from your own words, in minutes.
+
+02
+
+#### One session
+
+The candidate works one focused session with AI explicitly allowed, recorded with consent. No video recording, no lockdown browser.
+
+03
+
+#### Two scores
+
+The deliverable on your criteria, the session on the published scale. Every score cites a moment in the record.
+
+04
+
+#### Decide with a record
+
+An explained report per candidate, risk flags beside the grade, and a decision trail HR can defend.
+
+What you get, per candidate
+
+### A decision you can defend. Not a feeling.
+
+#### Quality of the work
+
+A 0–100 score on the finished deliverable, graded blind on your criteria, with the rubric beside it.
+
+#### AI collaboration level
+
+Delegator, Operator, or Director, read against what the task needed. This task needed a Director, and the session showed one.
+
+#### Every claim cites the tape
+
+Each score points to a moment in the recorded session, so anyone on your team can check the reasoning in one click.
+
+#### Risk flags sit beside the grade
+
+Unverified acceptance on high-stakes work and the blind pass get flagged, even when the numbers look fine. Compliance gets artifacts, not assurances.
+
+#### Candidates get a fairer process
+
+Shorter, AI-allowed, with a verified result they own and can share. You get the paper trail.
+
+Trust & compliance
+
+### The detection arms race ends by stepping out of it.
+
+#### AI-allowed by design
+
+Nothing to police, nothing to ban. The question moves from "did they use it" to "how well did they use it."
+
+#### Consent-first recording
+
+No video or audio recording, no keystroke logging. Candidates see exactly what is kept before they agree.
+
+#### Humans confirm outcomes
+
+Low-confidence results route to your team, and every outcome is confirmed by a person before it counts.
+
+#### Ready for audit
+
+Every decision has a documented reason. EU hosting on every plan, DPA on request.
+
+Start here
+
+### Try one assessment on us. Then pay for proof, not seats.
+
+- Free trial · $0 · One role, 10 completions, 14 days. Card on file; cancel before the trial ends and nothing is charged.
+- Pay as you go · $29 each · Per completed assessment. No minimum, no credits, no lock-in.
+- Team · $299 / mo · 10 completions a month included, then $29 each. Reviewer roles, decision trail. Or $2,990 a year.
+- Comply · $690 / mo · 25 completions included. DPA on request, org structure, extended data storage. Or $6,900 a year.
+- Enterprise · From $15K / yr · Annual contract plus committed volume. White label, SSO and integrations as add-ons.
+
+Annual billing on Team and Comply: two months free. Candidates always free, one practice session every 90 days. Self-serve plans are paid by card through Stripe and can be cancelled from your billing page. Founding teams (first 10): Comply at $490/mo, extra completions at $24 for life, plus 30% off Team or Comply for 12 months on annual billing.
+
+The founding cohort is forming now
+
+### Run one role with us. Then hire on evidence.
+
+Paste a role description and the question you already ask. We'll show you one assessment, on us.
+
+Work with the machine. Prove the human.
+
+# Stima Prova for Higher Education, AI-allowed coursework, measured
+
+Source: https://mystima.io/higher-ed
+
+Stima Prova · For Higher Education
+
+## Your syllabus has an AI policy. Your assignments don't.
+
+Stima Prova turns the assignments you already teach into AI-allowed tasks that teach and measure responsible professional AI use. No proctoring. No prohibition. No redesign project on your desk.
+
+- Free for instructors
+- Up to 250 sessions per term
+- Canvas LTI 1.3 soon
+
+Built by a project management instructor and former group product manager at Arizona State University.
+
+- Data privacy: Consent-first recording. FERPA-aligned handling, no training on student data.
+- Grades for your gradebook: Confirmed grades export for your LMS. Canvas LTI 1.3 with grade passback is coming.
+- AI competency development: Developed alongside your program's learning objectives, measured on the published scale.
+
+The problem
+
+### Every professor improvises a policy. Grades score the essay, not the learning.
+
+Applying an AI policy means redesigning assignments course by course. Departments don't have the staff, so the document says one thing and every classroom does another.
+
+61%
+
+#### Detectors flag the wrong people
+
+That share of essays by non-native English writers was falsely flagged as AI-written. Detection punishes the wrong people and explains nothing.
+
+STANFORD, LIANG ET AL., PATTERNS 2023
+
+66%
+
+#### Employers screen on AI fluency
+
+Of leaders say they wouldn't hire without AI skills. Graduates walk into that screen, and a transcript says nothing about it.
+
+MICROSOFT & LINKEDIN 2024 WORK TREND INDEX
+
+Mixed rules, no measured skill
+
+#### Students use AI anyway
+
+You can't tell learning from delegation in a submitted essay. So students learn to hide AI use, not to use it well.
+
+THE RESULT, EVERY CAMPUS
+
+How it runs in your course
+
+### From your assignment to graded evidence, in four steps.
+
+1
+
+#### Adapt
+
+Bring one legacy assignment. We reshape it together: same learning goals, your rubric, plus a planted difficulty a blind copy-paste gets wrong.
+
+2
+
+#### Session
+
+Students work in an AI-allowed session inside the workspace, recorded with consent. No video recording, no lockdown browser.
+
+3
+
+#### Two scores
+
+Every score cites a moment in the record. The work on your rubric, the AI use on the published Delegator, Operator, Director scale.
+
+4
+
+#### Confirm & export
+
+You confirm every outcome, then export the grades for your LMS gradebook. Canvas LTI 1.3 with grade passback is coming.
+
+Students see what is recorded before they start
+
+What students leave with
+
+### A grade for the course. Proof for the career.
+
+#### Feedback pointers
+
+After every assignment, students see in plain language where they delegated blindly and where a check would have caught an error. Responsible AI use is taught, not just demanded.
+
+#### A verified AI-competency result
+
+Each assignment produces a verifiable credential (Open Badges 3.0) and a shareable result page, dated and explained. Real evidence behind the "AI skills" line on a résumé.
+
+#### Levels that grow with them
+
+Measured again in every course on the same scale, from Delegator to Operator to Director. Growth becomes visible across a degree, and the university's output becomes readable from the outside.
+
+Built for the classroom
+
+### No proctoring. No prohibition.
+
+#### AI allowed by design
+
+Nothing to police, nothing to ban. The integrity question moves from "did they use it" to "how well did they use it."
+
+#### Consent-first recording
+
+Workspace-only. No video recording, no screen capture, no keystroke logging outside the task.
+
+#### Humans confirm outcomes
+
+Low-confidence results route to you, every outcome is confirmed in person, and students can dispute.
+
+#### Your rubric stays yours
+
+The collaboration scale is added alongside your criteria, never instead.
+
+Free for instructors
+
+No procurement to try one assignment in your course. Institutions come later, for analytics and reporting.
+
+For your IT review
+
+Hosted in the EU, nothing to install on your network. FERPA-aligned data handling, consent records, export and deletion on request, no training on student data, DPA on request. Built to WCAG 2.1 AA.
+
+For your campus
+
+### One scale for the whole campus. Priced per student, not per seat.
+
+- Instructor · Free · One course, up to 250 student sessions per term. No card, no IT ticket.
+- Department · $12K / yr · Up to 1,500 enrollments a year. Works out to $8 per student per course.
+- College · $35K / yr · Up to 5,000 enrollments a year. Works out to $7 per student per course.
+- Institution · $90K / yr · Up to 15,000 enrollments a year. Works out to $6 per student per course.
+
+Founding campuses: 50% off year one, 25% off year two. An enrollment is one student in one course. Annual billing, paid upfront. Usage above your tier moves you up at renewal. Larger systems priced by quote.
+
+The founding cohort is forming now
+
+### Teach one assignment with us. This term or in spring.
+
+One assignment you already use, its rubric, and a week you'd like to run it. We do the redesign with you and hand you the evidence.
+
+Proof for the career, not just the course
+
+# Assessment After AI: Free Position Paper on Post-AI Assessment | Stima
+
+Source: https://mystima.io/paper
+
+Stima Prova · Position Paper No. 01 · Free
+
+## Assessment After AI.
+
+Why banning AI from assessment tests a world that no longer exists, what to measure instead, and how a credential survives when any answer can be generated. Nine pages. No buzzwords.
+
+- PDF · 9 pages
+- 5 references
+- Free with your email
+
+### Inside the paper.
+
+01
+
+#### The why
+
+The exam tested a world that has ended. When any answer can be generated, answers stop being evidence. Judgment becomes the evidence.
+
+02
+
+#### The false binary
+
+Ban it, or surrender to it. Why both are the same mistake, dressed in opposite colors.
+
+03
+
+#### The philosophy
+
+Direction, judgment, ownership: the three dimensions a post-AI assessment has to score.
+
+04
+
+#### The moat
+
+A prompt can write a task. It cannot write a measurement. What it actually takes to build one.
+
+05
+
+#### In practice
+
+The audit brief: a worked example of an assessment where the machine is in the room, on purpose.
+
+06
+
+#### Principles
+
+Eight rules we build by. The first: prohibition is nostalgia. The last: measurement is respect.
+
+"The task is now free. The measurement is the product."
+
+Assessment After AI · Section 04
+
+Get the paper
+
+### Read it first.
+
+Leave your email and the paper is yours immediately. We will also write once when Stima launches. Nothing else.
+
+No spam · No resale · Unsubscribe anytime

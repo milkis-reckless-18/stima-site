@@ -16,9 +16,12 @@ styling, bold runs stay bold, tables stay tables. --date fills the
 import argparse
 import html
 import re
+import sys
 import zipfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
+
+import site_meta
 
 W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 ROOT = Path(__file__).resolve().parent.parent
@@ -235,6 +238,11 @@ def main():
     for d in docs:
         print(f'{d["key"]}: {d["title"]} | {d["meta"]} | {len(d["toc"])} sections')
     print("written", out)
+    # Icons and JSON-LD in the new page's <head>, and the sitemap's date for /terms/ (tools/site_meta.py).
+    failed = site_meta.run()
+    if failed:
+        print("\n".join(failed), file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

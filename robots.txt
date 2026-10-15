@@ -1,0 +1,13 @@
+# mystima.io: the Stima Prova site, with the Stima app on the same host.
+# Search engines, AI search and assistant crawlers, and AI training crawlers are all welcome on every public page.
+# One group on purpose: a crawler named in a group of its own would ignore every rule below.
+# Disallowed: the signed-in parts of the app and its API, which have nothing public. The app's public pages
+# (/pricing, /rubric, /ob, shared results under /s) and its files (/_next, /brand, /icon.svg) stay open; the
+# pages behind personal links send noindex themselves rather than being blocked here.
+User-agent: *
+Disallow: /app/
+Disallow: /admin
+Disallow: /api/
+Disallow: /identity/
+
+Sitemap: https://mystima.io/sitemap.xml

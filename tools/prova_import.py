@@ -17,7 +17,9 @@ Her pages are the source of the copy and the design. On the way in they get:
   - the trial described as the app runs it (14 days, 10 completions, card up front), and claims the
     product does not back yet reworded (COPY_FIXES);
   - a Sign in link, links to the pages without .html (published_path), canonical and Open Graph tags;
-  - the required fields of "Talk to us" marked with * and a "* Required" note.
+  - the required fields of "Talk to us" marked with * and a "* Required" note;
+  - her data: icon replaced by icon files, and the JSON-LD for search engines and AI crawlers, written at the end
+    by tools/site_meta.py (which also refreshes robots.txt, sitemap.xml, llms.txt and llms-full.txt).
 
 Every edit is anchored on her markup and fails loudly when that markup has changed,
 so a new version of her pages is re-imported by running this again and fixing what it names.
@@ -28,6 +30,8 @@ import pathlib
 import re
 import subprocess
 import sys
+
+import site_meta
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 IMG_DIR = ROOT / "img" / "prova"
@@ -107,6 +111,9 @@ def head_tags(s, file, section):
     s = sub_once(r'<script src="https://cdn\.tailwindcss\.com"></script>\s*<script>\s*tailwind\.config = .*?</script>',
                  '<link rel="stylesheet" href="/prova.css">\n<link rel="stylesheet" href="/legal.css">', s, "Tailwind CDN and config", re.S)
     s = replace_once("<head>\n", "<head>\n<script src=\"/consent.js\"></script>\n", s, "<head>")
+    # Search engines need an icon file they can fetch: tools/site_meta.py links /favicon.ico, /favicon.svg and
+    # /apple-touch-icon.png (the same ring mark, made by tools/make_icons.sh) in place of her data: URI.
+    s = sub_once(r'<link rel="icon" href="data:image/svg\+xml,[^"]*">\n', "", s, "her data: icon link")
     title = re.search(r"<title>(.*?)</title>", s).group(1)
     desc = re.search(r'<meta name="description" content="([^"]*)">', s)
     if not desc:
@@ -393,6 +400,8 @@ def main():
         if p.name not in used:
             p.unlink()
     print(f"img/prova: {len(used)} images, {sum((IMG_DIR / n).stat().st_size for n in used):,} bytes; source {rev}")
+    # Icons, JSON-LD, robots.txt, sitemap.xml and llms*.txt follow the pages just written.
+    failed += site_meta.run()
     if failed:
         print("\n".join(failed), file=sys.stderr)
         sys.exit(1)
