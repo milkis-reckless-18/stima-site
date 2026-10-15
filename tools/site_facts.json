@@ -44,6 +44,16 @@
    ]
   },
   {
+   "id": "name-meaning",
+   "topic": "names",
+   "claim": "The position paper ties the name to its aim: an assessment should raise esteem, not just rank it, and 'Stima means both'.",
+   "source": "stima-prova-assessment-after-ai.pdf",
+   "quote": "Assessment should raise esteem, not just rank it. Stima means both.",
+   "visible_on": [
+    "https://mystima.io/stima-prova-assessment-after-ai.pdf"
+   ]
+  },
+  {
    "id": "tagline-secondary",
    "topic": "taglines",
    "claim": "A secondary line is 'AI-allowed assessment, with evidence.'",
@@ -118,6 +128,16 @@
    "visible_on": [
     "https://mystima.io/",
     "https://mystima.io/hiring-teams",
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "definition-higher-ed",
+   "topic": "audiences",
+   "claim": "For higher education, Stima Prova turns existing assignments into AI-allowed tasks that teach and measure responsible professional AI use.",
+   "source": "higher-ed.html",
+   "quote": "Stima Prova turns the assignments you already teach into AI-allowed tasks that teach and measure responsible professional AI use.",
+   "visible_on": [
     "https://mystima.io/higher-ed"
    ]
   },
@@ -212,6 +232,16 @@
    ]
   },
   {
+   "id": "model-vendors",
+   "topic": "how-it-works",
+   "claim": "The legal documents list Anthropic and OpenAI as the model vendors for participant workspace chat, with two capability tiers; Anthropic also generates results.",
+   "source": "terms/index.html",
+   "quote": "Anthropic Participant workspace chat (two capability tiers); generation of Results with structured output United States Prohibited under the contracted terms OpenAI Participant workspace chat (two capability tiers)",
+   "visible_on": [
+    "https://mystima.io/terms/#terms-of-use"
+   ]
+  },
+  {
    "id": "score-quality",
    "topic": "scores",
    "claim": "The quality of the work is a 0 to 100 score on the finished deliverable, graded blind on the customer's criteria with the rubric beside it.",
@@ -254,6 +284,26 @@
    ]
   },
   {
+   "id": "score-citation-rule",
+   "topic": "scores",
+   "claim": "An AI model assigns the level and must cite sequence numbers from the evidence pack or excerpts from the work; a score without a valid citation is rejected.",
+   "source": "https://mystima.io/rubric",
+   "quote": "An AI model assigns a level and must cite sequence numbers from the pack or excerpts from the work. A score without a valid citation is rejected.",
+   "visible_on": [
+    "https://mystima.io/rubric"
+   ]
+  },
+  {
+   "id": "score-automated",
+   "topic": "scores",
+   "claim": "The session is scored automatically by an AI model against Stima's rubric; the hiring decision and the grade are not automated.",
+   "source": "terms/index.html",
+   "quote": "Your session is scored by an AI model against our rubric. The score is produced automatically. The hiring decision and the grade are not.",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
    "id": "score-composite",
    "topic": "scores",
    "claim": "By default the composite score is quality times 60% plus fit times 40% (right fit 100, one step off 50, two steps off 0), and the weights are shown to employers.",
@@ -261,6 +311,16 @@
    "quote": "The composite score is quality × 60% + fit × 40% by default (right fit 100, one step off 50, two steps off 0). Weights are shown to employers and never hidden.",
    "visible_on": [
     "https://mystima.io/rubric"
+   ]
+  },
+  {
+   "id": "score-risk-flags",
+   "topic": "scores",
+   "claim": "Risk flags sit beside the grade: unverified acceptance on high-stakes work and the blind pass are flagged even when the numbers look fine.",
+   "source": "hiring-teams.html",
+   "quote": "Unverified acceptance on high-stakes work and the blind pass get flagged, even when the numbers look fine.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
    ]
   },
   {
@@ -275,6 +335,16 @@
    ]
   },
   {
+   "id": "scale-higher-not-better",
+   "topic": "scale",
+   "claim": "On the scale, higher is not better: what counts is whether the way of working fit what the task called for.",
+   "source": "https://mystima.io/rubric",
+   "quote": "Higher is not better: what counts is whether the way of working fit what the task called for.",
+   "visible_on": [
+    "https://mystima.io/rubric"
+   ]
+  },
+  {
    "id": "scale-higher-not-better-home",
    "topic": "scale",
    "claim": "The home page headline for the scale is 'Three levels. Higher is not better.'",
@@ -285,11 +355,71 @@
    ]
   },
   {
+   "id": "scale-reads",
+   "topic": "scale",
+   "claim": "The scale reads how much thinking was handed to the model (prompts, edits, verification, model switching, time), and the grade is calibration: the observed level against what the task demanded.",
+   "source": "index.html",
+   "quote": "The scale reads how much thinking was handed to the model, prompts, edits, verification, model switching, time. The grade is calibration: the observed level against what the task demanded.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "scale-delegator-site",
+   "topic": "scale",
+   "claim": "Level 1, Delegator (hands work to AI): restates the brief and accepts the first answer, which is right for verifiable, low-stakes work.",
+   "source": "index.html",
+   "quote": "Restates the brief, accepts the first answer. Right for verifiable, low-stakes work.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "scale-operator-site",
+   "topic": "scale",
+   "claim": "Level 2, Operator (works with AI): iterates, corrects and edits substantively, the right default for mixed, everyday work.",
+   "source": "index.html",
+   "quote": "Iterates, corrects, edits substantively. The right default for mixed, everyday work.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "scale-director-site",
+   "topic": "scale",
+   "claim": "Level 3, Director (leads the work): sets the approach first, verifies the parts most likely wrong and owns the outcome.",
+   "source": "index.html",
+   "quote": "Sets the approach first, verifies the parts most likely wrong, owns the outcome.",
+   "visible_on": [
+    "https://mystima.io/"
+   ]
+  },
+  {
+   "id": "rubric-version",
+   "topic": "scale",
+   "claim": "The published collaboration rubric is version collab-2.0.0.",
+   "source": "https://mystima.io/rubric",
+   "quote": "export const RUBRIC_VERSION = \"collab-2.0.0\";",
+   "visible_on": [
+    "https://mystima.io/rubric"
+   ]
+  },
+  {
    "id": "rubric-public-url",
    "topic": "scale",
    "claim": "The rubric is published at mystima.io/rubric as 'Stima collaboration rubric · version collab-2.0.0'.",
    "source": "https://mystima.io/rubric",
    "quote": "Stima collaboration rubric · version collab-2.0.0",
+   "visible_on": [
+    "https://mystima.io/rubric"
+   ]
+  },
+  {
+   "id": "rubric-same-everywhere",
+   "topic": "scale",
+   "claim": "The scale is the same for every employer and every task, so results compare across campaigns.",
+   "source": "https://mystima.io/rubric",
+   "quote": "The scale is the same for every employer and every task, so results compare across campaigns.",
    "visible_on": [
     "https://mystima.io/rubric"
    ]
@@ -315,6 +445,26 @@
    ]
   },
   {
+   "id": "recording-hiring",
+   "topic": "recording",
+   "claim": "For hiring there is no video or audio recording and no keystroke logging, and candidates see exactly what is kept before they agree.",
+   "source": "hiring-teams.html",
+   "quote": "No video or audio recording, no keystroke logging. Candidates see exactly what is kept before they agree.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "recording-what",
+   "topic": "recording",
+   "claim": "During the task the platform records the prompts sent, the model chosen, edits made afterwards, what is copied across, what is checked and how time is spent, plus IP address and basic browser and device information.",
+   "source": "terms/index.html",
+   "quote": "While you work, this platform records what you do: the prompts you send, which model you choose, the edits you make afterwards, what you copy across, what you check, and how your time is spent. It also records your IP address and basic browser and device information.",
+   "visible_on": [
+    "https://mystima.io/terms/#terms-of-use"
+   ]
+  },
+  {
    "id": "recording-not",
    "topic": "recording",
    "claim": "Nothing outside the assessment page is recorded: no camera, no microphone, no screen recording and no keystrokes outside the workspace.",
@@ -322,6 +472,36 @@
    "quote": "We do not record anything you do outside this page. No camera, no microphone, no screen recording, no keystrokes outside this workspace.",
    "visible_on": [
     "https://mystima.io/terms/#terms-of-use"
+   ]
+  },
+  {
+   "id": "recording-snapshots",
+   "topic": "recording",
+   "claim": "While participants work, the platform records snapshots of their draft as they edit it and text they copy from a model response into their work.",
+   "source": "terms/index.html",
+   "quote": "snapshots of your draft as you edit it, and text you copy from a model response into your work",
+   "visible_on": [
+    "https://mystima.io/terms/#participant-terms"
+   ]
+  },
+  {
+   "id": "recording-no-emotion",
+   "topic": "recording",
+   "claim": "Stima does not infer participants' emotions.",
+   "source": "terms/index.html",
+   "quote": "We do not infer your emotions, and the platform is not built to.",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
+   "id": "recording-before-accept",
+   "topic": "recording",
+   "claim": "Nothing is recorded about a session until the participant accepts the Participant Terms.",
+   "source": "terms/index.html",
+   "quote": "You accept these terms by selecting \"I agree\" below. Until you do, we record nothing about your session.",
+   "visible_on": [
+    "https://mystima.io/terms/#participant-terms"
    ]
   },
   {
@@ -355,11 +535,41 @@
    ]
   },
   {
+   "id": "human-review-rubric",
+   "topic": "human-review",
+   "claim": "Low-confidence results go to a human reviewer before anyone sees a rank; candidates can dispute, and disputes go to the same reviewer.",
+   "source": "https://mystima.io/rubric",
+   "quote": "Low-confidence results go to a human reviewer before anyone sees a rank. Candidates can dispute; disputes go to the same reviewer.",
+   "visible_on": [
+    "https://mystima.io/rubric"
+   ]
+  },
+  {
+   "id": "human-no-auto-reject",
+   "topic": "human-review",
+   "claim": "Stima's contract with every customer requires meaningful human review, forbids using the report as the sole basis for an adverse decision and forbids automated rejection.",
+   "source": "terms/index.html",
+   "quote": "Our contract with every customer requires meaningful human review over any decision informed by your report, forbids using the report as the sole basis for an adverse decision, and forbids automated rejection.",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
    "id": "dispute-route",
    "topic": "human-review",
    "claim": "A participant who thinks a report is wrong can email info@mystima.io with the reference on the result page, and Stima will look at the session.",
    "source": "terms/index.html",
    "quote": "If you think your report is wrong, email us at info@mystima.io with the reference on your result page. We will look at the session and tell you what we find.",
+   "visible_on": [
+    "https://mystima.io/terms/#participant-terms"
+   ]
+  },
+  {
+   "id": "dispute-education",
+   "topic": "human-review",
+   "claim": "In a course the report is not the grade: the instructor decides the grade and the institution's usual appeal route applies.",
+   "source": "terms/index.html",
+   "quote": "If this is a course, the report is not your grade. Your instructor decides your grade, and your institution's usual appeal route applies.",
    "visible_on": [
     "https://mystima.io/terms/#participant-terms"
    ]
@@ -375,6 +585,16 @@
    ]
   },
   {
+   "id": "data-eu-region",
+   "topic": "data-handling",
+   "claim": "The platform runs in an EU region, and participant assessment data is stored there wherever the participant or customer is located.",
+   "source": "terms/index.html",
+   "quote": "We run the platform on infrastructure we control, in an EU region, hosted by the provider named in section 7. Participant assessment data is stored there regardless of where the participant or the customer is located.",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
    "id": "data-host",
    "topic": "data-handling",
    "claim": "Application and database hosting is provided by Scalaxy B.V. in the EU.",
@@ -382,6 +602,16 @@
    "quote": "Scalaxy B.V. Application and database hosting EU",
    "visible_on": [
     "https://mystima.io/terms/#terms-of-use",
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
+   "id": "data-outside-eea",
+   "topic": "data-handling",
+   "claim": "Model vendors, the email provider, the identity provider and research reviewers may process data outside the EEA.",
+   "source": "terms/index.html",
+   "quote": "Model vendors, the email provider, the identity provider and research reviewers may process data outside the EEA.",
+   "visible_on": [
     "https://mystima.io/terms/#privacy"
    ]
   },
@@ -396,11 +626,72 @@
    ]
   },
   {
+   "id": "data-no-training",
+   "topic": "data-handling",
+   "claim": "Stima will not use assessment data, interaction records or results to train or fine-tune the weights of any AI model, its own or a third party's.",
+   "source": "terms/index.html",
+   "quote": "use Assessment Data, Interaction Records or Results to train, retrain or fine-tune the weights or parameters of any artificial intelligence model, whether Stima's own or a third party's;",
+   "visible_on": [
+    "https://mystima.io/terms/#terms-of-use"
+   ]
+  },
+  {
+   "id": "data-vendors-no-training",
+   "topic": "data-handling",
+   "claim": "The AI companies whose models participants use are contractually barred from using what participants send to train their models.",
+   "source": "terms/index.html",
+   "quote": "Those companies are contractually barred from using what you send to train their models.",
+   "visible_on": [
+    "https://mystima.io/terms/#participant-terms"
+   ]
+  },
+  {
+   "id": "data-deidentified-improvement",
+   "topic": "data-handling",
+   "claim": "Stima does use de-identified data to design and test its own rubrics, prompts and evaluation sets, which does not change any model.",
+   "source": "terms/index.html",
+   "quote": "We do use de-identified data to design and test our own rubrics, prompts and evaluation sets, which is a different operation and does not change any model.",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
+   "id": "data-no-sale",
+   "topic": "data-handling",
+   "claim": "Stima will not sell participant data.",
+   "source": "terms/index.html",
+   "quote": "We will not sell your data.",
+   "visible_on": [
+    "https://mystima.io/terms/#participant-terms"
+   ]
+  },
+  {
+   "id": "data-age",
+   "topic": "data-handling",
+   "claim": "Participants must be 18 or over.",
+   "source": "terms/index.html",
+   "quote": "You must be 18 or over to take this assessment.",
+   "visible_on": [
+    "https://mystima.io/terms/#terms-of-use",
+    "https://mystima.io/terms/#participant-terms"
+   ]
+  },
+  {
    "id": "data-retention",
    "topic": "data-handling",
    "claim": "Assessment data, interaction records and results are kept for 12 months after a campaign or assignment closes, or 24 months with extended retention, then deleted.",
    "source": "terms/index.html",
    "quote": "Assessment Data, Interaction Records and Results for a campaign or assignment are retained for 12 months after the campaign or assignment closes, or 24 months where the order form provides for extended assessment retention, and are then deleted",
+   "visible_on": [
+    "https://mystima.io/terms/#terms-of-use"
+   ]
+  },
+  {
+   "id": "data-decision-record",
+   "topic": "data-handling",
+   "claim": "The decision record (scoring runs, reviewer actions, disputes, disclosure versions and erasures) is exportable as structured data and retained for three years.",
+   "source": "terms/index.html",
+   "quote": "the decision record for any campaign or assignment, exportable as structured data, comprising every scoring run, reviewer action, dispute, disclosure version and erasure;",
    "visible_on": [
     "https://mystima.io/terms/#terms-of-use"
    ]
@@ -413,6 +704,96 @@
    "quote": "Write to info@mystima.io. We respond within 30 days. There is no charge, and we will not treat you differently for asking.",
    "visible_on": [
     "https://mystima.io/terms/#participant-terms"
+   ]
+  },
+  {
+   "id": "data-retention-session",
+   "topic": "data-handling",
+   "claim": "A participant's session, report and the evidence behind them are kept for 12 months after the campaign or assignment closes, or 24 months with extended retention; a legal hold placed by the customer suspends deletion.",
+   "source": "terms/index.html",
+   "quote": "Your session, report and the evidence behind it 12 months after the campaign or assignment closes, or 24 months where that customer has extended assessment retention. A legal hold placed by the customer suspends deletion.",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
+   "id": "data-retention-decision-record",
+   "topic": "data-handling",
+   "claim": "The decision record (every scoring run, review action, dispute, disclosure version and erasure) is kept for three years.",
+   "source": "terms/index.html",
+   "quote": "The decision record: every scoring run, review action, dispute, disclosure version and erasure Three years.",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
+   "id": "data-retention-acceptance",
+   "topic": "data-handling",
+   "claim": "Acceptance records, the answer to the research question and the wording versions shown are kept for as long as the session is retained and for 3 years after.",
+   "source": "terms/index.html",
+   "quote": "Your acceptance record, your answer to the research question, and the wording versions you saw For as long as the session is retained, and for 3 years thereafter",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
+   "id": "data-retention-deidentified",
+   "topic": "data-handling",
+   "claim": "De-identified data derived from a session, and statistics published from it, are kept indefinitely; they are no longer personal data, so a deletion request does not reach them.",
+   "source": "terms/index.html",
+   "quote": "De-identified data derived from your session, and statistics published from it Indefinitely. It is no longer personal data and cannot be traced back to you, which also means a deletion request does not reach it.",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
+   "id": "data-retention-research",
+   "topic": "data-handling",
+   "claim": "A session record used in published research with the participant's consent is kept until the participant withdraws, or until an earlier date the institution agreed.",
+   "source": "terms/index.html",
+   "quote": "Your session record used in published research, where you said yes Until you withdraw, or until any earlier date your institution has agreed with us.",
+   "visible_on": [
+    "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
+   "id": "data-deidentified-uses",
+   "topic": "data-handling",
+   "claim": "Stima creates de-identified data from assessment data and interaction records and uses it to operate, evaluate, secure, calibrate and improve the service, including validating scoring models, and for aggregate research.",
+   "source": "terms/index.html",
+   "quote": "Stima creates De-identified Data from Assessment Data and Interaction Records and uses it to operate, evaluate, secure, calibrate and improve the Service, including the validation of scoring models, and for Aggregate Research under clause 6.3(a).",
+   "visible_on": [
+    "https://mystima.io/terms/#terms-of-use"
+   ]
+  },
+  {
+   "id": "research-aggregate",
+   "topic": "data-handling",
+   "claim": "Stima may publish aggregate findings and statistics from de-identified data; no customer, participant, role, course or organisation is identified and no individual session is published.",
+   "source": "terms/index.html",
+   "quote": "Stima may use De-identified Data, which is not personal data, for research and may publish aggregate findings and statistics derived from it. No Customer, Participant, role, course or organisation is identified, and no individual session is published.",
+   "visible_on": [
+    "https://mystima.io/terms/#terms-of-use"
+   ]
+  },
+  {
+   "id": "research-session-consent",
+   "topic": "data-handling",
+   "claim": "Research on a session record that is not de-identified uses only the records of participants who gave explicit, separately recorded consent; the consent is optional and can be withdrawn.",
+   "source": "terms/index.html",
+   "quote": "Stima uses that record only in respect of Participants who have given explicit consent, separately recorded, through the consent screen at Schedule 1 Part 3. That consent is optional, is not a condition of taking or completing an assessment, has no bearing on Results or on any grade, is not disclosed to Customer, and may be withdrawn at any time.",
+   "visible_on": [
+    "https://mystima.io/terms/#terms-of-use"
+   ]
+  },
+  {
+   "id": "data-education-no-deidentified",
+   "topic": "data-handling",
+   "claim": "In the education context, without a signed Research Annex, no research is done on student sessions and no de-identified data is created from them.",
+   "source": "terms/index.html",
+   "quote": "Neither Aggregate Research nor Session Research is performed on any session generated in the education context unless Customer has signed a Research Annex. Absent that Annex, Stima uses a Student's session solely to deliver the assessment to Customer, including the quality assurance of that Student's own Results described in clause 6.1, and to support and secure the Service. No De-identified Data is created from it",
+   "visible_on": [
+    "https://mystima.io/terms/#terms-of-use"
    ]
   },
   {
@@ -436,6 +817,67 @@
    ]
   },
   {
+   "id": "int-canvas-coming",
+   "topic": "integrations",
+   "claim": "Canvas LTI 1.3 with grade passback is coming; it is not available yet.",
+   "source": "higher-ed.html",
+   "quote": "Confirmed grades export for your LMS. Canvas LTI 1.3 with grade passback is coming.",
+   "visible_on": [
+    "https://mystima.io/",
+    "https://mystima.io/higher-ed"
+   ]
+  },
+  {
+   "id": "int-enterprise-addons-site",
+   "topic": "integrations",
+   "claim": "On the Enterprise plan, white label, SSO and integrations are add-ons.",
+   "source": "hiring-teams.html",
+   "quote": "White label, SSO and integrations as add-ons.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "int-decision-export",
+   "topic": "integrations",
+   "claim": "Decision-record export is included on every hiring plan.",
+   "source": "https://mystima.io/pricing",
+   "quote": "Decision-record export",
+   "visible_on": [
+    "https://mystima.io/pricing"
+   ]
+  },
+  {
+   "id": "int-payments",
+   "topic": "integrations",
+   "claim": "Self-serve plans are paid by card through Stripe and can be cancelled from the billing page.",
+   "source": "hiring-teams.html",
+   "quote": "Self-serve plans are paid by card through Stripe and can be cancelled from your billing page.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "session-length",
+   "topic": "session",
+   "claim": "Hiring sessions run up to 90 minutes.",
+   "source": "hiring-teams.html",
+   "quote": "Sessions up to 90 minutes",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "session-timer",
+   "topic": "session",
+   "claim": "The session time limit is set by the organisation, and the timer keeps running if an AI provider is unavailable.",
+   "source": "terms/index.html",
+   "quote": "Your time limit keeps running, because the timer is set by the organisation and we do not stop it automatically.",
+   "visible_on": [
+    "https://mystima.io/terms/#participant-terms"
+   ]
+  },
+  {
    "id": "session-completed-definition",
    "topic": "session",
    "claim": "A completed assessment is a submitted piece of work, including work submitted automatically when time runs out; invites, opens and drop-offs cost nothing.",
@@ -453,6 +895,26 @@
    "quote": "One role, 10 completions, 14 days. Card on file; cancel before the trial ends and nothing is charged.",
    "visible_on": [
     "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
+   "id": "trial-signup",
+   "topic": "trial",
+   "claim": "The sign-up page offers 14 days free with 1 role and 10 completed assessments; a card is added after sign-in and charged only when the trial ends.",
+   "source": "https://mystima.io/signup",
+   "quote": "14 days free: 1 role and 10 completed assessments. After you sign in you add a card; it is charged only when the trial ends, and you can cancel before.",
+   "visible_on": [
+    "https://mystima.io/signup"
+   ]
+  },
+  {
+   "id": "price-unit",
+   "topic": "pricing-hiring",
+   "claim": "Hiring plans charge $29 per completed assessment on every plan; invites, opens and drop-outs cost nothing.",
+   "source": "https://mystima.io/pricing",
+   "quote": "$29 per completed assessment on every plan. Invites, opens and candidates who drop out cost nothing.",
+   "visible_on": [
+    "https://mystima.io/pricing"
    ]
   },
   {
@@ -576,6 +1038,16 @@
    ]
   },
   {
+   "id": "candidates-fairer",
+   "topic": "candidates",
+   "claim": "Candidates get a shorter, AI-allowed process with a verified result they own and can share.",
+   "source": "hiring-teams.html",
+   "quote": "Shorter, AI-allowed, with a verified result they own and can share.",
+   "visible_on": [
+    "https://mystima.io/hiring-teams"
+   ]
+  },
+  {
    "id": "credential-ob3",
    "topic": "credential",
    "claim": "Each assignment produces a verifiable credential (Open Badges 3.0) and a shareable result page, dated and explained.",
@@ -655,6 +1127,16 @@
    "quote": "General: info@mystima.io",
    "visible_on": [
     "https://mystima.io/terms/#privacy"
+   ]
+  },
+  {
+   "id": "stat-stanford",
+   "topic": "cited-research",
+   "claim": "The site cites Stanford, Liang et al., Patterns 2023: 61% of essays by non-native English writers were falsely flagged as AI-written.",
+   "source": "index.html",
+   "quote": "61 % False positives from AI detectors Of essays by non-native English writers, falsely flagged as AI-written.",
+   "visible_on": [
+    "https://mystima.io/"
    ]
   }
  ]

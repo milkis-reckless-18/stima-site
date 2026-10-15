@@ -67,6 +67,7 @@ class Page:
         self.offers = kw.get("offers")          # offers shown on this page
         self.scale = kw.get("scale", False)     # the page shows the whole scale
         self.report = kw.get("report", False)   # the position paper
+        self.faq = kw.get("faq", False)         # the FAQ page, written from FAQ below
         self.full_text = kw.get("full_text", False)  # goes into llms-full.txt
         self.skip_ids = kw.get("skip_ids", ())  # elements left out of llms-full.txt
 
@@ -226,10 +227,334 @@ CAMPUS_OFFERS = [
 ]
 CAMPUS_FINE_PRINT = "Annual billing, paid upfront."  # campus-terms: what makes the campus plans yearly contracts (billingDuration)
 
+# ---------------------------------------------------------------- the FAQ page (/faq)
+# One list gives the questions and answers people read on /faq and the FAQPage JSON-LD, so the two cannot drift.
+# Answers say only what the pages, /rubric, /pricing, the legal documents or the paper already say (fact ids
+# beside each answer); no competitor is named, and the identity check is left out until its provider is confirmed.
+# [text](/path) is a link, **text** is bold; a list inside an answer is a numbered list.
+
+class Question:
+    def __init__(self, slug, question, *blocks):
+        self.slug, self.question, self.blocks = slug, question, blocks
+
+
+FAQ = [
+    {
+        "id": "post-ai-assessment", "eyebrow": "The category", "dot": "bg-aqua",
+        "title": ("About post-AI", "skill assessment."),
+        "intro": "What changes when AI is allowed in the task, and what to measure instead of banning or detecting it.",
+        "questions": [
+            # index.html ("Everyone already works with AI."), ai-allowed-by-design, category, definition-hero
+            Question("what-is-a-post-ai-skill-assessment", "What is a post-AI skill assessment?",
+                     "An assessment for a world where people already work with AI. Instead of banning AI or trying to detect it, it allows AI in a realistic task and measures two things: the quality of the work, and how the person worked with AI. The question moves from \"did they use it\" to \"how well did they use it.\"",
+                     "Stima Prova is the post-AI skill assessment for hiring teams and higher education: it turns the assignment or take-home you already use into an AI-allowed session, grading the work on your rubric and the AI use on a published scale, every score cited to the record."),
+            # how-two-scores, score-quality, score-collaboration, scale-higher-not-better, score-risk-flags
+            Question("what-should-it-measure", "What should a post-AI skill assessment measure?",
+                     "The work and the way it was done. Stima Prova gives two scores: the quality of the work, a 0–100 score on the deliverable graded blind on your rubric, and the AI collaboration level, Delegator, Operator or Director, read against what the task needed.",
+                     "Higher is not better: what counts is whether the way of working fit what the task called for. Risk flags sit beside the grade, for example when high-stakes work was accepted without verification."),
+            # paper.html ("When any answer can be generated, answers stop being evidence."), how-adapt, how-session
+            Question("how-is-it-different-from-a-quiz", "How is a post-AI skill assessment different from a quiz or a knowledge test?",
+                     "A quiz checks answers, and when any answer can be generated, answers stop being evidence. A post-AI skill assessment uses a real task instead.",
+                     "With Stima Prova you bring one assignment or role question you already use. It is reshaped with you: same goals, same rubric, plus a planted difficulty a blind copy-paste gets wrong. The person then works it in one focused, timed session, with AI explicitly allowed."),
+            # no-proctoring, recording-consent-first, tagline-principles ("Evidence over detection"), stat-stanford, score-cited
+            Question("how-is-it-different-from-proctoring-or-ai-detectors", "How is a post-AI skill assessment different from proctoring or an AI detector?",
+                     "Proctoring and detectors try to keep AI out or to catch it afterwards. Stima Prova allows AI by design and works from evidence instead: no proctoring, no lockdown browser, no video recording, no keystroke logging.",
+                     "Detectors also flag the wrong people. In a Stanford study (Liang et al., Patterns 2023), 61% of essays by non-native English writers were falsely flagged as AI-written. Every Stima Prova score cites a moment in the session record, so anyone can check the reasoning."),
+            # index.html ("the signal moved into the process"), how-session, how-two-scores, candidates-fairer
+            Question("how-is-it-different-from-a-take-home", "How is a post-AI skill assessment different from a plain take-home?",
+                     "A take-home shows only the finished submission, and a polished submission no longer shows how the work was done: the signal moved into the process.",
+                     "Stima Prova keeps your take-home or assignment and your rubric, runs it as one focused session with AI explicitly allowed and recorded with consent, and grades both the deliverable and the process. Candidates get a shorter, AI-allowed process with a verified result they own and can share."),
+        ],
+    },
+    {
+        "id": "stima-prova", "eyebrow": "The product", "dot": "bg-coral",
+        "title": ("Questions about", "Stima Prova."),
+        "intro": "Who it is for, what it scores, what it costs, what is recorded and who confirms the outcome.",
+        "questions": [
+            # category, website, definition-hero, audiences, legal-entity
+            Question("what-is-stima-prova", "What is Stima Prova?",
+                     "Stima Prova is the post-AI skill assessment, at mystima.io. It turns the assignment or take-home you already use into an AI-allowed session, grading the work on your rubric and the AI use on a published scale, every score cited to the record.",
+                     "It is built for hiring teams and for higher education, and run by Milkis Strategic Partners LLC, an Arizona limited liability company trading as Stima."),
+            # category-platform, audiences, legal-entity, name-meaning (the paper)
+            Question("what-kind-of-software-is-stima-prova", "What kind of software is Stima Prova?",
+                     "Skill-assessment software for hiring teams and higher education, run by Milkis Strategic Partners LLC, an Arizona limited liability company, at mystima.io. It is not accounting, tax or invoicing software, and not a proctoring tool or an AI detector: AI is allowed by design.",
+                     "As Stima's position paper puts it: \"Assessment should raise esteem, not just rank it. Stima means both.\""),
+            # audiences, how-hiring-4, definition-higher-ed, how-he-4, credential-ob3, data-age
+            Question("who-is-stima-prova-for", "Who is Stima Prova for?",
+                     "Hiring teams, who give job applicants an AI-allowed take-home and get an explained report per candidate and a decision trail HR can defend.",
+                     "Higher education: instructors and institutions who turn the assignments they already teach into AI-allowed tasks, export the grades for their LMS gradebook, and give students a verifiable credential (Open Badges 3.0) for each assignment.",
+                     "Participants must be 18 or over."),
+            # how-adapt, how-hiring-1, how-session, how-two-scores, how-confirm
+            Question("how-does-stima-prova-work", "How does Stima Prova work?",
+                     "In four steps:",
+                     ["**Adapt**: bring one assignment or role question. It is reshaped with you: same goals, same rubric, plus a planted difficulty a blind copy-paste gets wrong. For hiring, paste the role description and the question you already ask, and Prova builds a real task from your own words, in minutes.",
+                      "**Session**: the person works one focused, timed session with AI explicitly allowed, recorded with consent.",
+                      "**Two scores**: the work on your rubric, the AI use on the published scale. Every score cites a moment in the session record.",
+                      "**Confirm**: a human confirms every outcome before it counts. Grades and decisions export as CSV for your LMS or ATS."]),
+            # scale-delegator-site, scale-operator-site, scale-director-site, scale-higher-not-better, scale-reads,
+            # rubric-same-everywhere, rubric-public-url, rubric-version
+            Question("what-is-the-delegator-operator-director-scale", "What is the Delegator, Operator, Director scale?",
+                     "The published scale Stima Prova grades AI use on. A Delegator hands work to AI: restates the brief and accepts the first answer, which is right for verifiable, low-stakes work. An Operator works with AI: iterates, corrects and edits substantively, the right default for mixed, everyday work. A Director leads the work: sets the approach first, verifies the parts most likely wrong and owns the outcome.",
+                     "Higher is not better. The grade is calibration: the level observed in the session against what the task demanded. The scale is the same for every task, so results compare, and it is published with a version number at [mystima.io/rubric](/rubric) (version collab-2.0.0)."),
+            # trial-hiring, price-payg, price-team, price-comply, price-annual-site, price-enterprise, price-unit, candidates-free
+            Question("how-much-does-it-cost-for-hiring-teams", "How much does Stima Prova cost for hiring teams?",
+                     "After a 14-day free trial, pay as you go costs $29 per completed assessment, with no minimum. Team is $299 a month with 10 completions a month included, then $29 each. Comply is $690 a month with 25 completions included. Team and Comply are also billed yearly, at $2,990 and $6,900: two months free. Enterprise starts from $15K a year.",
+                     "Invites, opens and candidates who drop out cost nothing, and candidates are always free. See [the hiring plans](/hiring-teams#pricing) or [the plans side by side](/pricing)."),
+            # campus-instructor, campus-per-student, campus-department, campus-college, campus-institution, campus-terms
+            Question("how-much-does-it-cost-for-higher-education", "How much does Stima Prova cost for universities and instructors?",
+                     "Instructors use it free: one course, up to 250 student sessions per term, no card and no IT ticket.",
+                     "Campus plans are priced per student, not per seat: Department $12K a year for up to 1,500 enrollments, College $35K for up to 5,000, Institution $90K for up to 15,000. An enrollment is one student in one course, and campus plans are billed annually, paid upfront. See [the campus plans](/higher-ed#pricing)."),
+            # trial-hiring, trial-signup, campus-instructor
+            Question("is-there-a-free-trial", "Is there a free trial of Stima Prova?",
+                     "Yes, for hiring teams: 14 days with one role and 10 completed assessments. You add a card after you sign in; it is charged only when the trial ends, and nothing is charged if you cancel before. For instructors, one course is free, with no card."),
+            # how-session, session-length, session-timer
+            Question("how-long-is-a-session", "How long is a Stima Prova session?",
+                     "One focused, timed session. For hiring teams, sessions run up to 90 minutes. The time limit is set by the organization that runs the assessment."),
+            # recording-before-accept, recording-what, recording-snapshots, recording-not, recording-hiring,
+            # recording-consent-first, recording-no-emotion
+            Question("what-is-recorded", "What does Stima Prova record during a session?",
+                     "Only what happens in the workspace, and only after the participant agrees: the prompts sent, which model is chosen, snapshots of the draft as it is edited, the edits made afterwards, what is copied across, what is checked and how time is spent. The platform also records the IP address and basic browser and device information.",
+                     "Nothing outside the assessment page is recorded, and there is no video or audio recording, no screen recording, no keystroke logging and no lockdown browser. Participants see exactly what is kept before they start. Stima does not infer emotions."),
+            # data-eu-region, model-vendors, data-outside-eea
+            Question("how-is-data-handled", "How does Stima Prova handle data?",
+                     "The platform runs in an EU region, and participant assessment data is stored there. Some service providers may process data outside the EEA, including the AI model vendors (Anthropic and OpenAI) and the email provider.",
+                     # data-no-training, data-vendors-no-training, data-deidentified-uses, data-deidentified-improvement,
+                     # research-aggregate, research-session-consent, data-education-no-deidentified, data-no-sale
+                     "Stima does not use assessment data to train or fine-tune any AI model, its own or a third party's, and the model vendors are contractually barred from training on what participants send. Stima does create de-identified data, which no longer identifies anyone, and uses it to operate, calibrate and improve the service, including to design and test its own rubrics, prompts and evaluation sets, and for aggregate research it may publish: no participant, customer, role or course is identified, and no individual session is published. Research on a session record that still identifies the participant needs that participant's explicit consent. In a course, no de-identified data is created and no research is done unless the institution has signed a Research Annex. Stima does not sell participant data.",
+                     # data-retention-session, data-retention, data-retention-decision-record, data-decision-record,
+                     # data-retention-acceptance, data-retention-deidentified, data-retention-research
+                     "The session, the report and the evidence behind them are kept for 12 months after the campaign or assignment closes, or 24 months with extended retention, then deleted; a legal hold placed by the customer suspends deletion. The decision record (every scoring run, review action and dispute) is kept for three years, and the participant's acceptance and consent records for as long as the session is kept and three years after. A session record a participant agreed to share for published research is kept until they withdraw. De-identified data is kept indefinitely.",
+                     # data-summary
+                     "FERPA-aligned for campuses, DPA on request, built to WCAG 2.1 AA. Every retention period is in the [Privacy Policy](/terms/#privacy)."),
+            # int-csv, int-decision-export, int-canvas-coming, int-enterprise-addons-site, int-payments
+            Question("which-integrations", "Which integrations does Stima Prova have?",
+                     "Grades and decisions export as CSV for your LMS or ATS, and the decision record exports as structured data. Canvas LTI 1.3 with grade passback is coming; it is not available yet. On the Enterprise plan, SSO and integrations are add-ons. Self-serve plans are paid by card through Stripe."),
+            # human-confirms, score-automated, score-citation-rule, human-review-rubric, human-no-auto-reject,
+            # dispute-route, dispute-education
+            Question("who-confirms-the-result", "Who confirms a Stima Prova result, and can it be disputed?",
+                     "A person. The session is scored automatically by an AI model against Stima's rubric, and a score without a valid citation from the session is rejected; the hiring decision and the grade are not automated. Low-confidence results go to a human reviewer before anyone sees a rank, and Stima's contract with every customer forbids automated rejection.",
+                     "A participant who thinks a report is wrong can email info@mystima.io with the reference on the result page. In a course, the report is not the grade: the instructor decides the grade, and the institution's usual appeal route applies."),
+        ],
+    },
+]
+FAQ_TITLE = "FAQ · Stima Prova, the post-AI skill assessment"
+FAQ_DESCRIPTION = ("What a post-AI skill assessment is and how Stima Prova works: who it is for, what it scores, what it "
+                   "costs, what is recorded and who confirms the outcome.")
+LINK_CLASS = "font-semibold text-plum underline decoration-coral decoration-2 underline-offset-4 hover:text-coral transition-colors"
+MD_INLINE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*")
+
+
+def inline(text, absolute=False):
+    out, pos = [], 0
+    for m in MD_INLINE.finditer(text):
+        out.append(html.escape(text[pos:m.start()], quote=False))
+        if m.group(3):
+            out.append(("<strong>" if absolute else '<strong class="font-semibold text-plum">') + html.escape(m.group(3), quote=False) + "</strong>")
+        else:
+            href = ORIGIN + m.group(2) if absolute and m.group(2).startswith("/") else m.group(2)
+            out.append(f'<a href="{html.escape(href)}"' + ("" if absolute else f' class="{LINK_CLASS}"') + f">{html.escape(m.group(1), quote=False)}</a>")
+        pos = m.end()
+    return "".join(out) + html.escape(text[pos:], quote=False)
+
+
+def answer_html(q, absolute=False):
+    """The answer as HTML: on the page with the site's link style, in the JSON-LD with absolute links and no classes."""
+    parts = []
+    for b in q.blocks:
+        if isinstance(b, list):
+            cls = "" if absolute else ' class="list-decimal pl-5 space-y-3 marker:text-coral marker:font-semibold"'
+            parts.append(f"<ol{cls}>" + "".join(f"<li>{inline(i, absolute)}</li>" for i in b) + "</ol>")
+        else:
+            parts.append(f"<p>{inline(b, absolute)}</p>")
+    return "".join(parts) if absolute else "\n          ".join(parts)
+
+
+KEEP_WHOLE = re.compile(r"(Stima Prova|\b\w+(?:-\w+)+\b)([.,;:!?]*)")
+
+
+def keep_whole(text):
+    """A heading's text with the product name and hyphenated words (post-AI, take-home) each kept on one line, with
+    the punctuation that follows them, as Marianna's own headings keep "Stima Prova." whole and the import keeps
+    hyphenated words on her pages; inline-block rather than nowrap, because Chrome stops balancing a heading's lines
+    around a nowrap span. The text itself (and the JSON-LD name) stays the same."""
+    return KEEP_WHOLE.sub(r'<span class="inline-block">\1\2</span>', html.escape(text, quote=False))
+
+
+def faq_questions():
+    return [{"@type": "Question", "@id": f"{ORIGIN}/faq#{q.slug}", "name": q.question,
+             "acceptedAnswer": {"@type": "Answer", "text": answer_html(q, absolute=True)}}
+            for g in FAQ for q in g["questions"]]
+
+
+def piece(pattern, s, what, flags=re.S):
+    m = re.search(pattern, s, flags)
+    if not m:
+        raise Missing(f"index.html: {what} (the FAQ page reuses it)")
+    return m.group(0)
+
+
+def faq_source():
+    """faq.html from the questions above and from index.html as the import wrote it: its fonts, styles, header
+    (with "On this page" pointing at the two groups), contact section, footer and Calendly popup."""
+    index = (ROOT / "index.html").read_text(encoding="utf-8")
+    head = index.split("</head>", 1)[0]
+    fonts = piece(r'<link rel="preconnect" href="https://fonts\.googleapis\.com">\n<link rel="preconnect" href="https://fonts\.gstatic\.com" crossorigin>\n<link href="https://fonts\.googleapis\.com/css2[^"]*" rel="stylesheet">', head, "the Google Fonts links")
+    style = piece(r"<style>\n  html \{ scroll-behavior: smooth; \}.*?</style>", head, "her <style> block")
+    image = head_meta(head, "index.html")["image"]
+    header = piece(r'<header class="fixed top-0[^"]*">.*?</header>', index, "the header")
+    on_page = ('<a href="#post-ai-assessment" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">Post-AI skill assessment</span></a>\n'
+               '            <a href="#stima-prova" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">Stima Prova</span></a>\n'
+               '            <a href="#contact" class="drop-item flex flex-col gap-0.5 px-4 py-3 rounded-sm2"><span class="font-semibold text-plum">Contact</span></a>')
+    header, n = re.subn(r'(On this page\s*<svg.*?</svg></button>\s*<div class="drop [^"]*">\s*<div class="[^"]*">\s*)(.*?)(\s*</div>\s*</div>\s*</div>)',
+                        lambda m: m.group(1) + on_page + m.group(3), header, count=1, flags=re.S)
+    if not n:
+        raise Missing("index.html: the \"On this page\" menu (the FAQ page reuses it)")
+    mobile = ('<a href="#post-ai-assessment" class="block text-plum">Post-AI skill assessment</a>\n'
+              '      <a href="#stima-prova" class="block text-plum">Stima Prova</a>\n'
+              '      <a href="#contact" class="block text-plum">Contact</a>')
+    header, n = re.subn(r'(<p class="eyebrow text-muted mb-3">On this page</p><div class="space-y-3 pl-1">\s*)(.*?)(\s*</div></div>)',
+                        lambda m: m.group(1) + mobile + m.group(3), header, count=1, flags=re.S)
+    if not n:
+        raise Missing("index.html: the \"On this page\" part of the mobile menu (the FAQ page reuses it)")
+    # The page's top scroll padding (below) keeps every anchor clear of the fixed header, so #contact drops the
+    # top scroll margin it has on the home page, which would add to it.
+    cta = re.sub(r" scroll-mt-\d+", "", piece(r'<section id="cta" .*?</section>', index, "the contact section (#cta)"))
+    footer = piece(r'<footer class="bg-plum.*?</footer>', index, "the footer")
+    calendly = piece(r"<script>\n// Calendly popup.*?</script>", index, "the Calendly popup script")
+    local = {"post-ai-assessment", "stima-prova", "contact", "top"}
+    # Anchors of the home page ("#how") point back to it; those on this page stay.
+    to_home = lambda part: re.sub(r'href="#([a-z][^"]*)"', lambda m: m.group(0) if m.group(1) in local else f'href="/#{m.group(1)}"', part)
+    header, cta, footer = to_home(header), to_home(cta), to_home(footer)
+
+    groups = []
+    for i, g in enumerate(FAQ):
+        items = []
+        for q in g["questions"]:
+            items.append(f'''      <article id="{q.slug}" class="reveal py-9 border-b border-divider">
+        <h3 class="font-serif text-[26px] sm:text-[30px] leading-[1.15] mb-4"><a href="#{q.slug}" class="hover:text-coral transition-colors">{keep_whole(q.question)}</a></h3>
+        <div class="space-y-4 text-muted text-base leading-relaxed">
+          {answer_html(q)}
+        </div>
+      </article>''')
+        first, accent = g["title"]
+        groups.append(f'''<!-- ================= FAQ: {g["eyebrow"].upper()} ================= -->
+<section id="{g["id"]}" class="py-28 lg:py-36{" bg-white" if i % 2 else ""}">
+  <div class="mx-auto max-w-[1240px] px-6 lg:px-8 grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
+    <div>
+      <div class="lg:sticky lg:top-32">
+        <div class="reveal flex items-center gap-3 mb-8"><span class="w-2 h-2 {g["dot"]}"></span><span class="eyebrow text-muted">{g["eyebrow"]}</span></div>
+        <h2 class="reveal d1 font-serif text-4xl sm:text-5xl xl:text-[56px] lg:leading-[1.08]"><span class="block">{keep_whole(first)}</span><span class="block"><span class="accent">{keep_whole(accent)}</span></span></h2>
+        <p class="reveal d2 mt-6 max-w-sm text-muted leading-relaxed">{html.escape(g["intro"], quote=False)}</p>
+      </div>
+    </div>
+    <div class="border-t border-divider max-w-3xl">
+{chr(10).join(items)}
+    </div>
+  </div>
+</section>
+''')
+    return f'''<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<!-- Written by tools/site_meta.py from FAQ there and from the header, contact section and footer of index.html; edit there. -->
+<script src="/consent.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{html.escape(FAQ_TITLE, quote=False)}</title>
+<meta name="description" content="{html.escape(FAQ_DESCRIPTION)}">
+<link rel="canonical" href="{ORIGIN}/faq">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stima Prova">
+<meta property="og:title" content="{html.escape(FAQ_TITLE)}">
+<meta property="og:description" content="{html.escape(FAQ_DESCRIPTION)}">
+<meta property="og:url" content="{ORIGIN}/faq">
+''' + (f'<meta property="og:image" content="{image}">\n<meta name="twitter:card" content="summary_large_image">\n' if image else "") + f'''{fonts}
+<link rel="stylesheet" href="/prova.css">
+<link rel="stylesheet" href="/legal.css">
+{style}
+<style>
+  /* The header is fixed and 73 px tall: anchors and whatever takes the keyboard focus (Shift+Tab included) stop below it. */
+  html {{ scroll-padding-top: 6rem; }}
+</style>
+<noscript><style>.reveal {{ opacity:1; transform:none; }}</style></noscript>
+</head>
+<body class="font-sans" data-section="FAQ">
+
+<div class="grain"></div>
+<div id="progress"></div>
+
+<!-- ================= NAV ================= -->
+
+{header}
+
+<!-- ================= HERO ================= -->
+<section id="top" class="relative overflow-hidden bg-plum text-white">
+  <div class="glow w-[520px] h-[520px] bg-coral/25 -top-40 -left-32"></div>
+  <div class="glow w-[420px] h-[420px] bg-aqua/20 top-24 right-[-140px]"></div>
+  <div class="glow w-[320px] h-[320px] bg-mango/20 bottom-[-160px] left-1/2"></div>
+  <div class="absolute inset-0 opacity-[0.05]" style="background-image:radial-gradient(rgba(255,255,255,.7) 1px, transparent 1px); background-size:34px 34px;"></div>
+  <div class="relative mx-auto max-w-[1240px] px-6 lg:px-8 pt-40 lg:pt-44 pb-20 lg:pb-24">
+    <div class="reveal in flex items-center gap-3 mb-8">
+      <span class="w-2 h-2 bg-coral"></span>
+      <span class="eyebrow text-white/60">Stima Prova · FAQ</span>
+    </div>
+    <h1 class="reveal in d1 font-serif text-[46px] leading-[1.04] sm:text-7xl lg:text-[80px] lg:leading-[1.0] tracking-[-0.01em] max-w-4xl"><span class="block">What it is. How it works.</span><span class="block"><span class="accent">What it costs.</span></span></h1>
+    <p class="reveal in d2 mt-8 max-w-2xl text-lg lg:text-xl leading-relaxed text-white/70">
+      Short answers about post-AI skill assessment and about Stima Prova, for hiring teams and for higher education.
+    </p>
+    <div class="reveal in d3 mt-10 flex flex-wrap items-center gap-4">
+      <a href="#post-ai-assessment" class="arrow-link inline-flex items-center gap-2 whitespace-nowrap bg-coral text-white font-semibold text-sm px-7 h-[48px] rounded-sm2 hover:bg-[#e84a5d] transition-colors shadow-float">Post-AI skill assessment <span class="arr">→</span></a>
+      <a href="#stima-prova" class="inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold px-6 h-[48px] rounded-sm2 border border-white/20 text-white hover:bg-white/10 transition-colors">Stima Prova</a>
+    </div>
+  </div>
+</section>
+
+{"".join(groups)}
+<!-- ================= CTA (the home page's) ================= -->
+{cta}
+
+<!-- ================= FOOTER ================= -->
+
+{footer}
+
+<script>
+// reveal, scroll progress, mobile menu and the menus' click support, as on the other Prova pages
+const io = new IntersectionObserver(es => es.forEach(e => {{ if (e.isIntersecting) {{ e.target.classList.add('in'); io.unobserve(e.target); }} }}), {{ threshold:.1, rootMargin:'0px 0px -5% 0px' }});
+document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+setTimeout(() => document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in')), 1500);
+const prog = document.getElementById('progress');
+addEventListener('scroll', () => {{
+  const h = document.documentElement;
+  prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+}}, {{ passive:true }});
+const menuBtn = document.getElementById('menuBtn'), mobileMenu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', () => {{
+  const open = mobileMenu.classList.toggle('hidden');
+  menuBtn.setAttribute('aria-expanded', String(!open));
+}});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {{ mobileMenu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false'); }}));
+document.querySelectorAll('.nav-btn').forEach(btn => btn.addEventListener('click', e => {{
+  e.stopPropagation();
+  const wrap = btn.closest('.has-drop');
+  document.querySelectorAll('.has-drop.open').forEach(w => {{ if (w !== wrap) w.classList.remove('open'); }});
+  wrap.classList.toggle('open');
+}}));
+document.addEventListener('click', () => document.querySelectorAll('.has-drop.open').forEach(w => w.classList.remove('open')));
+</script>
+{calendly}
+<script src="/leads.js"></script>
+<script src="/prova.js"></script>
+<script src="/legal.js"></script>
+</body>
+</html>
+'''
+
+
 PAGES = [
     Page("index.html", "/", None, scale=True, full_text=True, skip_ids=("taskPanel",)),
     Page("hiring-teams.html", "/hiring-teams", "For Hiring Teams", offers=HIRING_OFFERS, full_text=True),
     Page("higher-ed.html", "/higher-ed", "For Higher Education", offers=CAMPUS_OFFERS, full_text=True),
+    Page("faq.html", "/faq", "FAQ", faq=True, full_text=True),
     Page("paper.html", "/paper", "Assessment After AI", report=True, full_text=True,
          skip_ids=("rail", "paperDone", "paperDl")),
     Page("terms/index.html", "/terms/", "Legal"),
@@ -414,6 +739,9 @@ def graph(page, meta, text, body):
     if page.report:
         webpage["mainEntity"] = ref(page.url + "#report")
         nodes.append(report(page, webpage_id))
+    if page.faq:
+        webpage["@type"] = "FAQPage"
+        webpage["mainEntity"] = faq_questions()
     if page.offers:
         for o in page.offers:
             for bit in o.shown + [o.description]:
@@ -439,10 +767,17 @@ def block(data):
             + script_json(data) + "\n</script>\n" + BLOCK_END + "\n")
 
 
+def page_source(page):
+    """The page without its site-meta block: generated for the FAQ page, as on disk for the others."""
+    if page.faq:
+        return faq_source()
+    return BLOCK_RE.sub("", (ROOT / page.file).read_text(encoding="utf-8"))
+
+
 def update_page(page):
     path = ROOT / page.file
-    s = path.read_text(encoding="utf-8")
-    bare = BLOCK_RE.sub("", s)
+    s = path.read_text(encoding="utf-8") if path.exists() else None
+    bare = page_source(page)
     head = bare.split("</head>", 1)[0]
     if bare.count("</head>") != 1:
         raise Missing(f"{page.file}: needs exactly one </head>")
@@ -530,6 +865,7 @@ Stima Prova is skill-assessment software. It is not accounting, tax or invoicing
 - [Stima Prova, the post-AI skill assessment]({ORIGIN}/): overview, how it works, the AI-collaboration scale, trust and privacy
 - [Stima Prova for Hiring Teams]({ORIGIN}/hiring-teams): AI-allowed take-homes built from your role description, an explained report per candidate, a decision trail HR can defend
 - [Stima Prova for Higher Education]({ORIGIN}/higher-ed): AI-allowed coursework on your rubric, grades ready for your LMS, a verifiable credential (Open Badges 3.0) for each assignment
+- [FAQ]({ORIGIN}/faq): short answers on post-AI skill assessment and on Stima Prova: who it is for, what it scores, prices, what is recorded, data handling, integrations and who confirms the outcome
 
 ## The scale
 
@@ -552,7 +888,7 @@ Stima Prova is skill-assessment software. It is not accounting, tax or invoicing
 
 ## Optional
 
-- [Full text of the main pages]({ORIGIN}/llms-full.txt): the overview, hiring teams, higher education and position paper pages as Markdown
+- [Full text of the main pages]({ORIGIN}/llms-full.txt): the overview, hiring teams, higher education, FAQ and position paper pages as Markdown
 """
 # Sources of llms.txt, top to bottom: category, definition-hero, scale-levels, score-cited; audience-hiring,
 # audience-higher-ed, legal-entity; how-adapt, how-session, recording-consent-first, how-two-scores, score-quality,
@@ -561,7 +897,7 @@ Stima Prova is skill-assessment software. It is not accounting, tax or invoicing
 # campus-institution; category-platform, no-proctoring, tagline-principles ("Evidence over detection"),
 # ai-allowed-by-design; how-hiring-1, how-hiring-4, how-he-3, how-he-4, credential-ob3; rubric-public-url,
 # rubric-blind-level, score-composite; session-completed-definition; paper-title, paper-summary, paper-pages;
-# legal-three-docs, data-host, data-retention.
+# legal-three-docs, data-host, data-retention; the FAQ line: the answers in FAQ.
 
 
 # ---------------------------------------------------------------- llms-full.txt

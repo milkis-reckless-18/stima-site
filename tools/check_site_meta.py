@@ -191,6 +191,8 @@ def check_pages(sitemap):
                 problem(f"{f}: needs one {t} node")
         if page.crumb and not by_type.get("BreadcrumbList"):
             problem(f"{f}: a sub-page needs a BreadcrumbList")
+        if 'href="/faq"' not in s.split("</head>", 1)[1]:
+            problem(f"{f}: no link to /faq (every page links it from its footer)")
         text = sm.visible_text(s)
         for n in defined_nodes(nodes):
             definitions.setdefault(n["@id"], []).append((f, n))
@@ -206,6 +208,8 @@ def check_pages(sitemap):
                 problem(f"{f}: the offer {n.get('name')!r} is not on the page as written")
             if n.get("@type") == "Question" and n.get("name") not in text:
                 problem(f"{f}: the question {n.get('name')!r} is not on the page")
+            if n.get("@type") == "Answer" and sm.visible_text(n.get("text", "")) not in text:
+                problem(f"{f}: an answer in the JSON-LD is not on the page as written")
             if n.get("@type") == "FAQPage" and not page.file.startswith("faq"):
                 problem(f"{f}: FAQPage on a page without a visible FAQ")
         for n in nodes:
@@ -222,8 +226,8 @@ def check_pages(sitemap):
             problem(f"{f}: sameAs differs from SAME_AS in tools/site_meta.py")
         # The page as site_meta.py would write it now: catches hand edits and a forgotten run.
         try:
-            bare = sm.BLOCK_RE.sub("", s)
-            expected = bare.replace("</head>", sm.block(sm.graph(page, meta, sm.visible_text(bare), bare.split("</head>", 1)[1])) + "</head>", 1)
+            bare = sm.page_source(page)
+            expected = bare.replace("</head>", sm.block(sm.graph(page, sm.head_meta(bare.split("</head>", 1)[0], f), sm.visible_text(bare), bare.split("</head>", 1)[1])) + "</head>", 1)
             if expected != s:
                 problem(f"{f}: not what tools/site_meta.py writes; run it")
         except sm.Missing as e:

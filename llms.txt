@@ -21,6 +21,7 @@ Stima Prova is skill-assessment software. It is not accounting, tax or invoicing
 - [Stima Prova, the post-AI skill assessment](https://mystima.io/): overview, how it works, the AI-collaboration scale, trust and privacy
 - [Stima Prova for Hiring Teams](https://mystima.io/hiring-teams): AI-allowed take-homes built from your role description, an explained report per candidate, a decision trail HR can defend
 - [Stima Prova for Higher Education](https://mystima.io/higher-ed): AI-allowed coursework on your rubric, grades ready for your LMS, a verifiable credential (Open Badges 3.0) for each assignment
+- [FAQ](https://mystima.io/faq): short answers on post-AI skill assessment and on Stima Prova: who it is for, what it scores, prices, what is recorded, data handling, integrations and who confirms the outcome
 
 ## The scale
 
@@ -43,4 +44,4 @@ Stima Prova is skill-assessment software. It is not accounting, tax or invoicing
 
 ## Optional
 
-- [Full text of the main pages](https://mystima.io/llms-full.txt): the overview, hiring teams, higher education and position paper pages as Markdown
+- [Full text of the main pages](https://mystima.io/llms-full.txt): the overview, hiring teams, higher education, FAQ and position paper pages as Markdown

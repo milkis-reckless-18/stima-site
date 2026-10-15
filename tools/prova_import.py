@@ -18,8 +18,10 @@ Her pages are the source of the copy and the design. On the way in they get:
     product does not back yet reworded (COPY_FIXES);
   - a Sign in link, links to the pages without .html (published_path), canonical and Open Graph tags;
   - the required fields of "Talk to us" marked with * and a "* Required" note;
+  - an FAQ link in the footer, to /faq;
   - her data: icon replaced by icon files, and the JSON-LD for search engines and AI crawlers, written at the end
-    by tools/site_meta.py (which also refreshes robots.txt, sitemap.xml, llms.txt and llms-full.txt).
+    by tools/site_meta.py (which also writes faq.html from her header and footer, and refreshes robots.txt,
+    sitemap.xml, llms.txt and llms-full.txt).
 
 Every edit is anchored on her markup and fails loudly when that markup has changed,
 so a new version of her pages is re-imported by running this again and fixing what it names.
@@ -362,6 +364,13 @@ def contact_form(s):
     return s
 
 
+def footer_faq(s):
+    """The FAQ page (faq.html, written by tools/site_meta.py) joins Resources in the footer, after the contact form."""
+    return replace_once('<li><a href="#contact" class="hover:text-white transition-colors">Contact form</a></li>',
+                        '<li><a href="#contact" class="hover:text-white transition-colors">Contact form</a></li>\n'
+                        '        <li><a href="/faq" class="hover:text-white transition-colors">FAQ</a></li>', s, "footer Resources list")
+
+
 def scripts(s):
     return replace_once("</body>", '<script src="/leads.js"></script>\n<script src="/prova.js"></script>\n<script src="/legal.js"></script>\n</body>', s, "</body>")
 
@@ -384,6 +393,7 @@ def main():
             s = balance_headings(s)
             s = pricing(s, file)
             s = contact_form(s)
+            s = footer_faq(s)
             s = scripts(s)
             s = s.replace("<head>\n", f"<head>\n<!-- Imported from milkis-reckless-18/stima-prova-site@{rev} by tools/prova_import.py; edit there or in the script. -->\n", 1)
         except Missing as e:
@@ -400,7 +410,7 @@ def main():
         if p.name not in used:
             p.unlink()
     print(f"img/prova: {len(used)} images, {sum((IMG_DIR / n).stat().st_size for n in used):,} bytes; source {rev}")
-    # Icons, JSON-LD, robots.txt, sitemap.xml and llms*.txt follow the pages just written.
+    # Icons, JSON-LD, faq.html, robots.txt, sitemap.xml and llms*.txt follow the pages just written.
     failed += site_meta.run()
     if failed:
         print("\n".join(failed), file=sys.stderr)

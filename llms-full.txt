@@ -472,6 +472,147 @@ One assignment you already use, its rubric, and a week you'd like to run it. We 
 
 Proof for the career, not just the course
 
+# FAQ · Stima Prova, the post-AI skill assessment
+
+Source: https://mystima.io/faq
+
+Stima Prova · FAQ
+
+## What it is. How it works. What it costs.
+
+Short answers about post-AI skill assessment and about Stima Prova, for hiring teams and for higher education.
+
+The category
+
+### About post-AI skill assessment.
+
+What changes when AI is allowed in the task, and what to measure instead of banning or detecting it.
+
+#### What is a post-AI skill assessment?
+
+An assessment for a world where people already work with AI. Instead of banning AI or trying to detect it, it allows AI in a realistic task and measures two things: the quality of the work, and how the person worked with AI. The question moves from "did they use it" to "how well did they use it."
+
+Stima Prova is the post-AI skill assessment for hiring teams and higher education: it turns the assignment or take-home you already use into an AI-allowed session, grading the work on your rubric and the AI use on a published scale, every score cited to the record.
+
+#### What should a post-AI skill assessment measure?
+
+The work and the way it was done. Stima Prova gives two scores: the quality of the work, a 0–100 score on the deliverable graded blind on your rubric, and the AI collaboration level, Delegator, Operator or Director, read against what the task needed.
+
+Higher is not better: what counts is whether the way of working fit what the task called for. Risk flags sit beside the grade, for example when high-stakes work was accepted without verification.
+
+#### How is a post-AI skill assessment different from a quiz or a knowledge test?
+
+A quiz checks answers, and when any answer can be generated, answers stop being evidence. A post-AI skill assessment uses a real task instead.
+
+With Stima Prova you bring one assignment or role question you already use. It is reshaped with you: same goals, same rubric, plus a planted difficulty a blind copy-paste gets wrong. The person then works it in one focused, timed session, with AI explicitly allowed.
+
+#### How is a post-AI skill assessment different from proctoring or an AI detector?
+
+Proctoring and detectors try to keep AI out or to catch it afterwards. Stima Prova allows AI by design and works from evidence instead: no proctoring, no lockdown browser, no video recording, no keystroke logging.
+
+Detectors also flag the wrong people. In a Stanford study (Liang et al., Patterns 2023), 61% of essays by non-native English writers were falsely flagged as AI-written. Every Stima Prova score cites a moment in the session record, so anyone can check the reasoning.
+
+#### How is a post-AI skill assessment different from a plain take-home?
+
+A take-home shows only the finished submission, and a polished submission no longer shows how the work was done: the signal moved into the process.
+
+Stima Prova keeps your take-home or assignment and your rubric, runs it as one focused session with AI explicitly allowed and recorded with consent, and grades both the deliverable and the process. Candidates get a shorter, AI-allowed process with a verified result they own and can share.
+
+The product
+
+### Questions about Stima Prova.
+
+Who it is for, what it scores, what it costs, what is recorded and who confirms the outcome.
+
+#### What is Stima Prova?
+
+Stima Prova is the post-AI skill assessment, at mystima.io. It turns the assignment or take-home you already use into an AI-allowed session, grading the work on your rubric and the AI use on a published scale, every score cited to the record.
+
+It is built for hiring teams and for higher education, and run by Milkis Strategic Partners LLC, an Arizona limited liability company trading as Stima.
+
+#### What kind of software is Stima Prova?
+
+Skill-assessment software for hiring teams and higher education, run by Milkis Strategic Partners LLC, an Arizona limited liability company, at mystima.io. It is not accounting, tax or invoicing software, and not a proctoring tool or an AI detector: AI is allowed by design.
+
+As Stima's position paper puts it: "Assessment should raise esteem, not just rank it. Stima means both."
+
+#### Who is Stima Prova for?
+
+Hiring teams, who give job applicants an AI-allowed take-home and get an explained report per candidate and a decision trail HR can defend.
+
+Higher education: instructors and institutions who turn the assignments they already teach into AI-allowed tasks, export the grades for their LMS gradebook, and give students a verifiable credential (Open Badges 3.0) for each assignment.
+
+Participants must be 18 or over.
+
+#### How does Stima Prova work?
+
+In four steps:
+
+- Adapt: bring one assignment or role question. It is reshaped with you: same goals, same rubric, plus a planted difficulty a blind copy-paste gets wrong. For hiring, paste the role description and the question you already ask, and Prova builds a real task from your own words, in minutes.
+- Session: the person works one focused, timed session with AI explicitly allowed, recorded with consent.
+- Two scores: the work on your rubric, the AI use on the published scale. Every score cites a moment in the session record.
+- Confirm: a human confirms every outcome before it counts. Grades and decisions export as CSV for your LMS or ATS.
+
+#### What is the Delegator, Operator, Director scale?
+
+The published scale Stima Prova grades AI use on. A Delegator hands work to AI: restates the brief and accepts the first answer, which is right for verifiable, low-stakes work. An Operator works with AI: iterates, corrects and edits substantively, the right default for mixed, everyday work. A Director leads the work: sets the approach first, verifies the parts most likely wrong and owns the outcome.
+
+Higher is not better. The grade is calibration: the level observed in the session against what the task demanded. The scale is the same for every task, so results compare, and it is published with a version number at mystima.io/rubric (version collab-2.0.0).
+
+#### How much does Stima Prova cost for hiring teams?
+
+After a 14-day free trial, pay as you go costs $29 per completed assessment, with no minimum. Team is $299 a month with 10 completions a month included, then $29 each. Comply is $690 a month with 25 completions included. Team and Comply are also billed yearly, at $2,990 and $6,900: two months free. Enterprise starts from $15K a year.
+
+Invites, opens and candidates who drop out cost nothing, and candidates are always free. See the hiring plans or the plans side by side.
+
+#### How much does Stima Prova cost for universities and instructors?
+
+Instructors use it free: one course, up to 250 student sessions per term, no card and no IT ticket.
+
+Campus plans are priced per student, not per seat: Department $12K a year for up to 1,500 enrollments, College $35K for up to 5,000, Institution $90K for up to 15,000. An enrollment is one student in one course, and campus plans are billed annually, paid upfront. See the campus plans.
+
+#### Is there a free trial of Stima Prova?
+
+Yes, for hiring teams: 14 days with one role and 10 completed assessments. You add a card after you sign in; it is charged only when the trial ends, and nothing is charged if you cancel before. For instructors, one course is free, with no card.
+
+#### How long is a Stima Prova session?
+
+One focused, timed session. For hiring teams, sessions run up to 90 minutes. The time limit is set by the organization that runs the assessment.
+
+#### What does Stima Prova record during a session?
+
+Only what happens in the workspace, and only after the participant agrees: the prompts sent, which model is chosen, snapshots of the draft as it is edited, the edits made afterwards, what is copied across, what is checked and how time is spent. The platform also records the IP address and basic browser and device information.
+
+Nothing outside the assessment page is recorded, and there is no video or audio recording, no screen recording, no keystroke logging and no lockdown browser. Participants see exactly what is kept before they start. Stima does not infer emotions.
+
+#### How does Stima Prova handle data?
+
+The platform runs in an EU region, and participant assessment data is stored there. Some service providers may process data outside the EEA, including the AI model vendors (Anthropic and OpenAI) and the email provider.
+
+Stima does not use assessment data to train or fine-tune any AI model, its own or a third party's, and the model vendors are contractually barred from training on what participants send. Stima does create de-identified data, which no longer identifies anyone, and uses it to operate, calibrate and improve the service, including to design and test its own rubrics, prompts and evaluation sets, and for aggregate research it may publish: no participant, customer, role or course is identified, and no individual session is published. Research on a session record that still identifies the participant needs that participant's explicit consent. In a course, no de-identified data is created and no research is done unless the institution has signed a Research Annex. Stima does not sell participant data.
+
+The session, the report and the evidence behind them are kept for 12 months after the campaign or assignment closes, or 24 months with extended retention, then deleted; a legal hold placed by the customer suspends deletion. The decision record (every scoring run, review action and dispute) is kept for three years, and the participant's acceptance and consent records for as long as the session is kept and three years after. A session record a participant agreed to share for published research is kept until they withdraw. De-identified data is kept indefinitely.
+
+FERPA-aligned for campuses, DPA on request, built to WCAG 2.1 AA. Every retention period is in the Privacy Policy.
+
+#### Which integrations does Stima Prova have?
+
+Grades and decisions export as CSV for your LMS or ATS, and the decision record exports as structured data. Canvas LTI 1.3 with grade passback is coming; it is not available yet. On the Enterprise plan, SSO and integrations are add-ons. Self-serve plans are paid by card through Stripe.
+
+#### Who confirms a Stima Prova result, and can it be disputed?
+
+A person. The session is scored automatically by an AI model against Stima's rubric, and a score without a valid citation from the session is rejected; the hiring decision and the grade are not automated. Low-confidence results go to a human reviewer before anyone sees a rank, and Stima's contract with every customer forbids automated rejection.
+
+A participant who thinks a report is wrong can email info@mystima.io with the reference on the result page. In a course, the report is not the grade: the instructor decides the grade, and the institution's usual appeal route applies.
+
+The founding cohort is forming now
+
+### Teach one assignment. Run one role. This term.
+
+Built by a project management instructor and former group product manager at Arizona State University. Bring the work you already use, we do the redesign with you and hand you the evidence.
+
+Work with the machine. Prove the human.
+
 # Assessment After AI: Free Position Paper on Post-AI Assessment | Stima
 
 Source: https://mystima.io/paper
