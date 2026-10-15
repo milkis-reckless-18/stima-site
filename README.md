@@ -10,7 +10,7 @@ The public site of [Stima Prova](https://mystima.io): the post-AI skill assessme
 - `leads.js`: posts forms to `/api/leads`, the Stima app on the same host (leads in `mystima.io/admin`).
 - `terms/`: the binding legal documents; `consent.js`, `legal.js`, `legal.css`: cookie banner and legal popup (below).
 - `mit/`, `nyc/`: short links for events, redirecting to `/` with UTM tags.
-- `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt` and the icons: for search engines and AI crawlers, written by `tools/site_meta.py` (below).
+- `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt` and the icons: for search engines and AI crawlers, written by `tools/site_meta.py`; `<32 hex digits>.txt`: the IndexNow key (both below).
 
 ## Prova pages
 
@@ -70,6 +70,7 @@ What search engines and AI assistants read about Stima Prova, besides the pages 
 - `sitemap.xml`: the canonical addresses of the site's pages and the app's public `/rubric` and `/pricing`. A page's `lastmod` is the date of the last commit that changed its file (today while the change is not committed).
 - `llms.txt` (the [llmstxt.org](https://llmstxt.org/) format): what Stima Prova is, who it is for, how it works, the prices, what it is not, and the pages worth reading. `llms-full.txt`: the main text of the overview, the two audience pages and the paper page as Markdown, made from the HTML.
 - `favicon.ico`, `favicon.svg`, `apple-touch-icon.png` and `img/stima-logo-512.png` (the Organization logo): the ring mark as files search engines can fetch. They are made from `favicon.svg` with ImageMagick 7 by `sh tools/make_icons.sh`.
+- `<32 hex digits>.txt` and `tools/indexnow.py`: the IndexNow key and the script that tells Bing, Yandex and the other IndexNow engines (not Google) which pages changed.
 
 After changing a page, run:
 
@@ -84,10 +85,17 @@ Where the facts come from: every statement is one the site, the app's public pag
 
 To add a profile (LinkedIn, Crunchbase, X...) once it exists, is run by the company and links back to mystima.io: add its URL to `SAME_AS` in `tools/site_meta.py`, run the two commands above and deploy. It goes into the Organization's `sameAs`.
 
-After a deploy, check what the server sends (status, content type, `charset=utf-8` on text files, the block on each page):
+After a deploy that changed pages, tell the IndexNow engines (only changed URLs, only once they are live):
+
+```bash
+python3 tools/indexnow.py --dry-run                           # what would be sent
+python3 tools/indexnow.py https://mystima.io/hiring-teams     # or no URL for the whole sitemap
+```
+
+Then check what the server sends (status, content type, `charset=utf-8` on text files, the block on each page):
 
 ```bash
 python3 tools/check_site_meta.py --base https://mystima.io
 ```
 
-Submit `https://mystima.io/sitemap.xml` in Google Search Console and Bing Webmaster Tools once the site is verified there.
+Google does not take IndexNow: submit `https://mystima.io/sitemap.xml` in Google Search Console (and Bing Webmaster Tools) once the site is verified there.

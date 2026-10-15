@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Check what tools/site_meta.py wrote: the JSON-LD and icons of every page, robots.txt, sitemap.xml, llms.txt,
-llms-full.txt and the icon files.
+llms-full.txt, the icon files and the IndexNow key file.
 
     python3 tools/check_site_meta.py                            # the files in this checkout, offline
     python3 tools/check_site_meta.py --base https://mystima.io  # also what a host serves: status, type, charset
@@ -239,6 +239,10 @@ def check_files():
             problem("favicon.svg: not an SVG")
     except (ET.ParseError, OSError) as e:
         problem(f"favicon.svg: {e}")
+    keys = [p for p in ROOT.glob("*.txt") if re.fullmatch(r"[0-9a-f]{32}", p.stem)]
+    if len(keys) != 1 or keys[0].read_text(encoding="utf-8").strip() != keys[0].stem:
+        problem("IndexNow: needs one <32 hex digits>.txt at the root holding only its own name")
+    return keys[0].name if len(keys) == 1 else None
 
 
 TEXT_TYPES = ("text/", "application/xml", "application/javascript")
@@ -246,14 +250,15 @@ EXPECTED_TYPE = {".html": "text/html", ".txt": "text/plain", ".xml": "xml", ".sv
                  ".ico": "icon", ".pdf": "application/pdf"}
 
 
-def check_host(base):
+def check_host(base, key_file):
     base = base.rstrip("/")
     production = base == ORIGIN
     targets = [(p.url, ".html", True) for p in sm.PAGES]
     targets += [(ORIGIN + p, ".html", False) for p in sm.APP_PAGES]
     for name in ("robots.txt", "sitemap.xml", "llms.txt", "llms-full.txt", "favicon.ico", "favicon.svg",
-                 "apple-touch-icon.png", "img/stima-logo-512.png", "stima-prova-assessment-after-ai.pdf"):
-        targets.append((f"{ORIGIN}/{name}", pathlib.PurePosixPath(name).suffix, False))
+                 "apple-touch-icon.png", "img/stima-logo-512.png", key_file or "", "stima-prova-assessment-after-ai.pdf"):
+        if name:
+            targets.append((f"{ORIGIN}/{name}", pathlib.PurePosixPath(name).suffix, False))
     for url, ext, site_page in targets:
         if not production and not site_page and url[len(ORIGIN):] in sm.APP_PAGES:
             print(f"  skip {url} (served by the Stima app)")
@@ -291,10 +296,10 @@ def main():
     check_pages(sitemap)
     check_robots(sitemap)
     check_llms(sitemap)
-    check_files()
+    key_file = check_files()
     if base:
         print(f"Fetching from {base}:")
-        check_host(base)
+        check_host(base, key_file)
     for p in problems:
         print("PROBLEM", p)
     print(f"check_site_meta: {len(sm.PAGES)} pages, {len(problems)} problems")
