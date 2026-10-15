@@ -43,6 +43,17 @@ Then open http://localhost:8000. It serves `/hiring-teams` from `hiring-teams.ht
 
 Push to `main`, then `ssh mystima "cd /var/www/stima-site && git pull"`.
 
+The server's web root is this checkout, `.git` included, so nginx has to keep the repository's own files out: `/.git` and the other dotfiles, `/tools/` and this README. The rule goes in the site's `server` block, above `location ~ \.txt$` (in path mode, the app's `deploy/nginx-paths.conf`); change the server as the app's `docs/runbook.md` does for nginx, with a backup, `nginx -t`, a reload and the rollback:
+
+```nginx
+# The web root is the site's git checkout: keep the repository's own files out (/.well-known stays open).
+location ~ /\.(?!well-known/)|^/(tools/|README\.md$) {
+    return 404;
+}
+```
+
+`python3 tools/check_site_meta.py --base https://mystima.io` reports each of these files that is still served.
+
 ## Legal documents (/terms)
 
 `terms/index.html` is generated from the three .docx files (Terms of Use, Privacy Policy, Participant Terms). The home page and the position paper open them in a popup (`legal.js`, `legal.css`) through links with `data-legal="terms-of-use|privacy|participant-terms"`; without JS the links open the full page.

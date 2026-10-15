@@ -4,7 +4,8 @@ llms-full.txt, the icon files, the IndexNow key file and the fact list (tools/si
 
     python3 tools/check_site_meta.py                            # the files in this checkout, offline
     python3 tools/check_site_meta.py --base https://mystima.io  # also what a host serves: status, type, charset,
-                                                                # and the app's /rubric and /pricing JSON-LD
+                                                                # the app's /rubric and /pricing JSON-LD, the noindex
+                                                                # of the personal-link pages, and no repository files
     python3 tools/check_site_meta.py --base http://localhost:8000   # tools/serve.py; app pages are skipped
     python3 tools/check_site_meta.py --app-html DIR             # also the JSON-LD of the app's pages saved in DIR
                                                                 # (*.html, e.g. its .next/server/app after a build)
@@ -390,6 +391,7 @@ def check_host(base, key_file, definitions):
             problem(f"{fetch}: " + "; ".join(notes))
     if production:
         check_noindex(base)
+        check_repo_files(base)
 
 
 # robots.txt leaves sign-in and the pages behind personal links crawlable because the app marks them noindex
@@ -413,6 +415,28 @@ def check_noindex(base):
         print(f"  {status} X-Robots-Tag {header or '-':32} {fetch}" + ("" if said else "  <- no noindex"))
         if not said:
             problem(f"{fetch}: no noindex, though robots.txt leaves it crawlable for one (deploy the app's ai-visibility branch)")
+
+
+# The server's web root is this repository's checkout (a deploy is a git pull), so nginx has to keep the
+# repository's own files out: /.git, the other dotfiles, /tools/ and the README (the rule is in README.md, Deploy).
+# Only the status is read; nothing these files hold is printed.
+REPO_PATHS = ["/.git/HEAD", "/.git/config", "/.gitignore", "/.github/workflows/deploy.yml", "/README.md", "/tools/prova_import.py"]
+
+
+def check_repo_files(base):
+    for path in REPO_PATHS:
+        fetch = base + path
+        try:
+            with urllib.request.urlopen(urllib.request.Request(fetch, headers={"User-Agent": "check_site_meta"}), timeout=30) as r:
+                status = r.status
+        except urllib.error.HTTPError as e:
+            status = e.code
+        except (urllib.error.URLError, OSError) as e:
+            problem(f"{fetch}: {e}")
+            continue
+        print(f"  {status} {'repository file':40} {fetch}" + ("  <- served" if status == 200 else ""))
+        if status == 200:
+            problem(f"{fetch}: a repository file is served (nginx should answer 404 for /.git, dotfiles, /tools/ and /README.md; README.md, Deploy)")
 
 
 # ---------------------------------------------------------------- the fact list
