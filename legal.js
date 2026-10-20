@@ -18,7 +18,7 @@
       '<div class="lgp-card">' +
         '<div class="lgp-head">' +
           '<div class="lgp-top">' +
-            '<div><div class="lg-kicker">Legal</div><h2 class="lgp-title" id="lgpTitle">The fine print, <em>in plain sight.</em></h2></div>' +
+            '<div><h2 class="lgp-title" id="lgpTitle">Legal Corner</h2></div>' +
             '<button type="button" class="lgp-x" data-lgp-close aria-label="Close">×</button>' +
           '</div>' +
           '<div class="lg-tabs" role="tablist" aria-label="Legal documents"></div>' +
