@@ -12,9 +12,9 @@ Her pages are the source of the copy and the design. On the way in they get:
     footer links to the binding documents on /terms/ instead of her short terms/privacy pages;
   - the "Talk to us" form posting to /api/leads (saved in the admin leads dashboard and
     emailed to info@mystima.io) instead of opening the visitor's mail app;
-  - plan buttons on the price lists: hiring plans go to /signup and on to Stripe Checkout,
-    campus plans and Enterprise to the form or the calendar;
-  - the trial described as the app runs it (14 days, 10 completions, card up front), and claims the
+  - plan buttons on the price lists: the hiring trial goes to /signup, the paid hiring plans and the
+    campus plans to the form, Enterprise to the calendar (no online payment since 9 November 2026);
+  - the trial described as the app runs it (14 days, 10 completions, no card), and claims the
     product does not back yet reworded (COPY_FIXES);
   - a Sign in link, links to the pages without .html (published_path), canonical and Open Graph tags;
   - the required fields of "Talk to us" marked with * and a "* Required" note;
@@ -190,16 +190,15 @@ def nav(s, file):
 BTN = "inline-flex items-center justify-center h-[40px] px-4 rounded-sm2 text-sm font-semibold whitespace-nowrap transition-colors"
 PRIMARY = BTN + " bg-coral text-white hover:bg-[#e84a5d]"
 GHOST = BTN + " border border-white/25 text-white hover:bg-white/10"
-YEAR = 'class="underline decoration-coral decoration-2 underline-offset-4 text-white/80 hover:text-white"'
-
+# Online payment is off since 9 November 2026 (Marianna removed it): the trial still starts at /signup, now
+# without a card, and the paid plans start a "Talk to us" message, as the campus plans do; we set them up by hand.
 HIRING_PLANS = [
-    # plan name in her list, button, where it goes, extra text after her description
+    # plan name in her list, button, where it goes (a link, or the message the form starts with), extra text after
+    # her description
     ("Free trial", "Start free", "/signup", ""),
-    ("Pay as you go", "Start", "/signup?plan=payg", ""),
-    ("Team", "Choose Team", "/signup?plan=team&amp;period=month",
-     f' Or <a href="/signup?plan=team&amp;period=year" {YEAR}>$2,990 a year</a>.'),
-    ("Comply", "Choose Comply", "/signup?plan=comply&amp;period=month",
-     f' Or <a href="/signup?plan=comply&amp;period=year" {YEAR}>$6,900 a year</a>.'),
+    ("Pay as you go", "Talk to us", "We are interested in Pay as you go ($29 per completed assessment).", ""),
+    ("Team", "Talk to us", "We are interested in the Team plan ($299 a month or $2,990 a year).", " Or $2,990 a year."),
+    ("Comply", "Talk to us", "We are interested in the Comply plan ($690 a month or $6,900 a year).", " Or $6,900 a year."),
     ("Enterprise", "Talk to us", "https://calendly.com/mariannamilkis/30-min", ""),
 ]
 
@@ -221,11 +220,16 @@ def price_row(s, name, button_html, extra=""):
 
 def pricing(s, file):
     if file == "hiring-teams.html":
-        for i, (name, label, href, extra) in enumerate(HIRING_PLANS):
-            cls = GHOST if href.startswith("https://calendly") else PRIMARY
-            s = price_row(s, name, f'<a href="{href}" class="{cls}">{label}</a>', extra)
+        for name, label, target, extra in HIRING_PLANS:
+            if target.startswith("/"):
+                button = f'<a href="{target}" class="{PRIMARY}">{label}</a>'
+            elif target.startswith("https://"):
+                button = f'<a href="{target}" class="{GHOST}">{label}</a>'
+            else:
+                button = f'<a href="#contact" data-plan="{target}" class="{GHOST}">{label}</a>'
+            s = price_row(s, name, button, extra)
         s = sub_once(r'(Candidates always free, one practice session every 90 days\.)',
-                     r'\1 Self-serve plans are paid by card through Stripe and can be cancelled from your billing page.', s, "hiring fine print")
+                     r'\1 Paid plans are set up by our team for now: press Talk to us on the plan you want.', s, "hiring fine print")
     elif file == "higher-ed.html":
         for name, label, msg in CAMPUS_PLANS:
             cls = PRIMARY if name == "Instructor" else GHOST
@@ -233,14 +237,12 @@ def pricing(s, file):
     return s
 
 
-# The trial as the app runs it (14 days, 1 role, 10 completions, card up front through a Stripe trial);
-# the user chose on 29 September 2026 to keep the app's terms and bring the pages in line.
+# The trial as the app runs it (14 days, 1 role, 10 completions); the user chose on 29 September 2026 to keep the
+# app's terms and bring the pages in line. Without online payment (9 November 2026) the app asks for no card, so her
+# "No card to start" and "Free trial, no card needed" are true again and stay as she wrote them.
 TRIAL_TEXT = {
-    "index.html": [("No card to start</span>", "14-day free trial for teams</span>")],
     "hiring-teams.html": [
-        ("Free trial, no card needed</span>", "14-day free trial</span>"),
-        ("One role, 5 completions, 30 days. No card needed.",
-         "One role, 10 completions, 14 days. Card on file; cancel before the trial ends and nothing is charged."),
+        ("One role, 5 completions, 30 days. No card needed.", "One role, 10 completions, 14 days. No card needed."),
     ],
 }
 

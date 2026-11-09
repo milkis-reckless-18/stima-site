@@ -10,7 +10,7 @@ Stima Prova turns the assignment or take-home you already use into an AI-allowed
 
 - Free for instructors
 - From $29 per assessment for teams
-- 14-day free trial for teams
+- No card to start
 
 - The work, on your criteria: The deliverable is graded blind on your rubric, separate from the process.
 - Every score cited: Each score points to a moment in the recorded session. Check the reasoning in one click.
@@ -197,7 +197,7 @@ Stima Prova · For Hiring Teams
 
 Stima Prova turns your take-home into an AI-allowed work session and grades how each candidate worked. Every score cited, every outcome confirmed by a human.
 
-- 14-day free trial
+- Free trial, no card needed
 - Sessions up to 90 minutes
 - Decision record included
 
@@ -313,13 +313,13 @@ Start here
 
 ### Try one assessment on us. Then pay for proof, not seats.
 
-- Free trial · $0 · One role, 10 completions, 14 days. Card on file; cancel before the trial ends and nothing is charged.
+- Free trial · $0 · One role, 10 completions, 14 days. No card needed.
 - Pay as you go · $29 each · Per completed assessment. No minimum, no credits, no lock-in.
 - Team · $299 / mo · 10 completions a month included, then $29 each. Reviewer roles, decision trail. Or $2,990 a year.
 - Comply · $690 / mo · 25 completions included. DPA on request, org structure, extended data storage. Or $6,900 a year.
 - Enterprise · From $15K / yr · Annual contract plus committed volume. White label, SSO and integrations as add-ons.
 
-Annual billing on Team and Comply: two months free. Candidates always free. Self-serve plans are paid by card through Stripe and can be cancelled from your billing page. Founding teams (first 10): Comply at $490/mo, extra completions at $24 for life, plus 30% off Team or Comply for 12 months on annual billing.
+Annual billing on Team and Comply: two months free. Candidates always free. Paid plans are set up by our team for now: press Talk to us on the plan you want. Founding teams (first 10): Comply at $490/mo, extra completions at $24 for life, plus 30% off Team or Comply for 12 months on annual billing.
 
 The founding cohort is forming now
 
@@ -563,7 +563,7 @@ Higher is not better. The grade is calibration: the level observed in the sessio
 
 After a 14-day free trial, pay as you go costs $29 per completed assessment, with no minimum. Team is $299 a month with 10 completions a month included, then $29 each. Comply is $690 a month with 25 completions included. Team and Comply are also billed yearly, at $2,990 and $6,900: two months free. Enterprise starts from $15K a year.
 
-Invites, opens and candidates who drop out cost nothing, and candidates are always free. See the hiring plans or the plans side by side.
+Invites, opens and candidates who drop out cost nothing, and candidates are always free. Paid plans are set up by our team for now: press Talk to us on the plan you want. See the hiring plans or the plans side by side.
 
 #### How much does Stima Prova cost for universities and instructors?
 
@@ -573,7 +573,7 @@ Campus plans are priced per student, not per seat: Department $12K a year for up
 
 #### Is there a free trial of Stima Prova?
 
-Yes, for hiring teams: 14 days with one role and 10 completed assessments. You add a card after you sign in; it is charged only when the trial ends, and nothing is charged if you cancel before. For instructors, one course is free, with no card.
+Yes, for hiring teams: 14 days with one role and 10 completed assessments, no card needed. For instructors, one course is free, with no card.
 
 #### How long is a Stima Prova session?
 
@@ -597,7 +597,7 @@ FERPA-aligned for campuses, DPA on request, built to WCAG 2.1 AA. Every retentio
 
 #### Which integrations does Stima Prova have?
 
-Grades and decisions export as CSV for your LMS or ATS, and the decision record exports as structured data. Canvas LTI 1.3 with grade passback is coming; it is not available yet. On the Enterprise plan, SSO and integrations are add-ons. Self-serve plans are paid by card through Stripe.
+Grades and decisions export as CSV for your LMS or ATS, and the decision record exports as structured data. Canvas LTI 1.3 with grade passback is coming; it is not available yet. On the Enterprise plan, SSO and integrations are add-ons.
 
 #### Who confirms a Stima Prova result, and can it be disputed?
 

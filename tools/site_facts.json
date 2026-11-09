@@ -850,9 +850,9 @@
   {
    "id": "int-payments",
    "topic": "integrations",
-   "claim": "Self-serve plans are paid by card through Stripe and can be cancelled from the billing page.",
+   "claim": "For now, paid hiring plans are set up by the Stima team: the visitor presses Talk to us on the plan.",
    "source": "hiring-teams.html",
-   "quote": "Self-serve plans are paid by card through Stripe and can be cancelled from your billing page.",
+   "quote": "Paid plans are set up by our team for now: press Talk to us on the plan you want.",
    "visible_on": [
     "https://mystima.io/hiring-teams"
    ]
@@ -890,9 +890,9 @@
   {
    "id": "trial-hiring",
    "topic": "trial",
-   "claim": "The hiring free trial covers one role and 10 completions for 14 days, with a card on file; cancelling before the trial ends means nothing is charged.",
+   "claim": "The hiring free trial covers one role and 10 completions for 14 days, with no card needed.",
    "source": "hiring-teams.html",
-   "quote": "One role, 10 completions, 14 days. Card on file; cancel before the trial ends and nothing is charged.",
+   "quote": "One role, 10 completions, 14 days. No card needed.",
    "visible_on": [
     "https://mystima.io/hiring-teams"
    ]
@@ -900,9 +900,9 @@
   {
    "id": "trial-signup",
    "topic": "trial",
-   "claim": "The sign-up page offers 14 days free with 1 role and 10 completed assessments; a card is added after sign-in and charged only when the trial ends.",
+   "claim": "The sign-up page offers 14 days free with 1 role and 10 completed assessments, with no card needed.",
    "source": "https://mystima.io/signup",
-   "quote": "14 days free: 1 role and 10 completed assessments. After you sign in you add a card; it is charged only when the trial ends, and you can cancel before.",
+   "quote": "14 days free: 1 role and 10 completed assessments. No card needed.",
    "visible_on": [
     "https://mystima.io/signup"
    ]

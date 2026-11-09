@@ -193,7 +193,7 @@ EXTRA = "Each extra completed assessment"
 # would claim more than the list does.
 HIRING_OFFERS = [
     Offer("Free trial", ["Free trial", "$0"],
-          "One role, 10 completions, 14 days. Card on file; cancel before the trial ends and nothing is charged.",
+          "One role, 10 completions, 14 days. No card needed.",
           0, eligibleDuration={"@type": "QuantitativeValue", "value": 14, "unitCode": "DAY", "unitText": "days"}),
     Offer("Pay as you go", ["Pay as you go", "$29 each"],
           "Per completed assessment. No minimum, no credits, no lock-in.",
@@ -296,17 +296,18 @@ FAQ = [
             Question("what-is-the-delegator-operator-director-scale", "What is the Delegator, Operator, Director scale?",
                      "The published scale Stima Prova grades AI use on. A Delegator hands work to AI: restates the brief and accepts the first answer, which is right for verifiable, low-stakes work. An Operator works with AI: iterates, corrects and edits substantively, the right default for mixed, everyday work. A Director leads the work: sets the approach first, verifies the parts most likely wrong and owns the outcome.",
                      "Higher is not better. The grade is calibration: the level observed in the session against what the task demanded. The scale is the same for every task, so results compare, and it is published with a version number at [mystima.io/rubric](/rubric) (version collab-2.0.0)."),
-            # trial-hiring, price-payg, price-team, price-comply, price-annual-site, price-enterprise, price-unit, candidates-free
+            # trial-hiring, price-payg, price-team, price-comply, price-annual-site, price-enterprise, price-unit, candidates-free,
+            # int-payments
             Question("how-much-does-it-cost-for-hiring-teams", "How much does Stima Prova cost for hiring teams?",
                      "After a 14-day free trial, pay as you go costs $29 per completed assessment, with no minimum. Team is $299 a month with 10 completions a month included, then $29 each. Comply is $690 a month with 25 completions included. Team and Comply are also billed yearly, at $2,990 and $6,900: two months free. Enterprise starts from $15K a year.",
-                     "Invites, opens and candidates who drop out cost nothing, and candidates are always free. See [the hiring plans](/hiring-teams#pricing) or [the plans side by side](/pricing)."),
+                     "Invites, opens and candidates who drop out cost nothing, and candidates are always free. Paid plans are set up by our team for now: press Talk to us on the plan you want. See [the hiring plans](/hiring-teams#pricing) or [the plans side by side](/pricing)."),
             # campus-instructor, campus-per-student, campus-department, campus-college, campus-institution, campus-terms
             Question("how-much-does-it-cost-for-higher-education", "How much does Stima Prova cost for universities and instructors?",
                      "Instructors use it free: one course, up to 250 student sessions per term, no card and no IT ticket.",
                      "Campus plans are priced per student, not per seat: Department $12K a year for up to 1,500 enrollments, College $35K for up to 5,000, Institution $90K for up to 15,000. An enrollment is one student in one course, and campus plans are billed annually, paid upfront. See [the campus plans](/higher-ed#pricing)."),
             # trial-hiring, trial-signup, campus-instructor
             Question("is-there-a-free-trial", "Is there a free trial of Stima Prova?",
-                     "Yes, for hiring teams: 14 days with one role and 10 completed assessments. You add a card after you sign in; it is charged only when the trial ends, and nothing is charged if you cancel before. For instructors, one course is free, with no card."),
+                     "Yes, for hiring teams: 14 days with one role and 10 completed assessments, no card needed. For instructors, one course is free, with no card."),
             # how-session, session-length, session-timer
             Question("how-long-is-a-session", "How long is a Stima Prova session?",
                      "One focused, timed session. For hiring teams, sessions run up to 90 minutes. The time limit is set by the organization that runs the assessment."),
@@ -326,9 +327,9 @@ FAQ = [
                      "The session, the report and the evidence behind them are kept for 12 months after the campaign or assignment closes, or 24 months with extended retention, then deleted; a legal hold placed by the customer suspends deletion. The decision record (every scoring run, review action and dispute) is kept for three years, and the participant's acceptance and consent records for as long as the session is kept and three years after. A session record a participant agreed to share for published research is kept until they withdraw. De-identified data is kept indefinitely.",
                      # data-summary
                      "FERPA-aligned for campuses, DPA on request, built to WCAG 2.1 AA. Every retention period is in the [Privacy Policy](/terms/#privacy)."),
-            # int-csv, int-decision-export, int-canvas-coming, int-enterprise-addons-site, int-payments
+            # int-csv, int-decision-export, int-canvas-coming, int-enterprise-addons-site
             Question("which-integrations", "Which integrations does Stima Prova have?",
-                     "Grades and decisions export as CSV for your LMS or ATS, and the decision record exports as structured data. Canvas LTI 1.3 with grade passback is coming; it is not available yet. On the Enterprise plan, SSO and integrations are add-ons. Self-serve plans are paid by card through Stripe."),
+                     "Grades and decisions export as CSV for your LMS or ATS, and the decision record exports as structured data. Canvas LTI 1.3 with grade passback is coming; it is not available yet. On the Enterprise plan, SSO and integrations are add-ons."),
             # human-confirms, score-automated, score-citation-rule, human-review-rubric, human-no-auto-reject,
             # dispute-route, dispute-education
             Question("who-confirms-the-result", "Who confirms a Stima Prova result, and can it be disputed?",
